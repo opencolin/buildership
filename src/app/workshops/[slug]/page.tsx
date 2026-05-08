@@ -66,7 +66,7 @@ export default function WorkshopDetail({ params }: { params: { slug: string } })
               <ul className="mt-3 grid gap-2 text-sm text-ink-700">
                 <li><a className="underline-offset-4 hover:underline" href="https://github.com/opencolin/openclaw-deploy">opencolin/openclaw-deploy</a> — local install, Docker, Nebius CPU & GPU paths</li>
                 <li><a className="underline-offset-4 hover:underline" href="https://docs.contree.dev/">docs.contree.dev</a> — sandboxed workspaces with Git-like branching</li>
-                <li><a className="underline-offset-4 hover:underline" href="/docs/openclaw/token-factory">Token Factory docs</a> — model catalog &amp; cost patterns</li>
+                <li><a className="underline-offset-4 hover:underline" href="/docs/nebius-cli/token-factory">Token Factory docs</a> — model catalog &amp; cost patterns</li>
               </ul>
             </div>
           </div>

@@ -15,7 +15,7 @@ const cols = [
     title: "Builders",
     links: [
       { href: "/builders/login", label: "Log in" },
-      { href: "/docs/builders/install-openclaw", label: "Install OpenClaw" },
+      { href: "/docs/builders/install-nebius-cli", label: "Install the Nebius CLI" },
       { href: "/docs/builders/create-a-team", label: "Create a team" },
       { href: "/docs/builders/submit-a-project", label: "Submit a project" },
     ],
@@ -24,6 +24,7 @@ const cols = [
     title: "Businesses",
     links: [
       { href: "/companies/login", label: "Host an event" },
+      { href: "/hackathons", label: "Run a hackathon" },
       { href: "/pricing", label: "Pricing" },
       { href: "/docs/event-managers/create-an-event", label: "Create an event" },
       { href: "#contact", label: "Talk to us" },
@@ -33,7 +34,7 @@ const cols = [
     title: "Resources",
     links: [
       { href: "/docs", label: "Docs" },
-      { href: "/docs/openclaw/token-factory", label: "Token Factory" },
+      { href: "/docs/nebius-cli/token-factory", label: "Token Factory" },
       { href: "https://docs.contree.dev/", label: "Contree" },
       { href: "https://github.com/opencolin/openclaw-deploy", label: "openclaw-deploy" },
     ],
@@ -57,7 +58,7 @@ export function Footer() {
           <div className="col-span-2 space-y-4">
             <NebiusLogo />
             <p className="max-w-xs text-sm text-ink-600">
-              The operating layer for OpenClaw developer events. Built on Nebius.
+              The operating layer for AI builder events on Nebius. Built on Nebius.
             </p>
             <p className="text-sm text-ink-500">San Francisco · Remote · Accepting Q3 bookings</p>
           </div>

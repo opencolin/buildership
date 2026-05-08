@@ -1,27 +1,27 @@
 # Nebius Builders — Product Requirements Document
 
-**Document version:** v0.2 (Nebius / OpenClaw rebrand)
+**Document version:** v0.2 (Nebius rebrand)
 **Date:** 2026-05-06
 **Source material:**
 - Functional model: [hackersquad.io](https://hackersquad.io) public marketing site, three logged-in HTML captures (`/builders/dashboard`, `/builders/dashboard/profile`, `/builders/teams`), [docs.hackersquad.io](https://docs.hackersquad.io) full sitemap.
 - Brand model: [nebius.com](https://nebius.com) (visual system, IA, tone).
-- Product anchor: [github.com/opencolin/openclaw-deploy](https://github.com/opencolin/openclaw-deploy) (Cloud IDE & deploy targets reframed around OpenClaw + Token Factory + Nebius Serverless).
+- Product anchor: [github.com/opencolin/openclaw-deploy](https://github.com/opencolin/openclaw-deploy) (Cloud IDE & deploy targets reframed around Token Factory + Contree + Nebius Serverless).
 
-> Product name: **Nebius Builders** — a HackerSquad-style operating layer for **OpenClaw** developer events, using the official Nebius brand system. Built inside Nebius for brand / marketing / legal review.
+> Product name: **Nebius Builders** — a HackerSquad-style operating layer for **AI builder events on Nebius**, using the official Nebius brand system. Built inside Nebius for brand / marketing / legal review.
 
 ---
 
 ## 1. Executive Summary
 
-**Nebius Builders** is a vertically-integrated **operating layer for OpenClaw developer events** (hackathons, ClawCamps, hack nights, demo nights, mini-conferences, meetups). It bundles five products that competitors usually split across 5+ tools:
+**Nebius Builders** is a vertically-integrated **operating layer for AI builder events on Nebius** (hackathons, ClawCamps, hack nights, demo nights, mini-conferences, meetups). It bundles five products that competitors usually split across 5+ tools:
 
 1. **Marketing site + event directory** — discovery, social proof, pricing, in the Nebius visual system.
 2. **Builder app** — registration, teams, projects, video submissions, leaderboard, in-room interaction.
 3. **Event-manager app** — event CRUD, partner sponsors, prizes, volunteers, blasts, projects review, AI feedback analytics, post-event summary.
-4. **Cloud IDE + Deploy** — warm OpenClaw containers backed by **Token Factory** for inference and **Nebius Serverless** (CPU + GPU) for deploy targets. One-command `openclaw` install/deploy mirroring [opencolin/openclaw-deploy](https://github.com/opencolin/openclaw-deploy).
-5. **Workshops & Webinars library** — recorded sessions teaching builders to install, configure, and ship OpenClaw on Nebius.
+4. **Cloud IDE + Deploy** — warm Nebius workspace containers backed by **Token Factory** for inference and **Nebius Serverless** (CPU + GPU) for deploy targets. One-command `nebius` install/deploy mirroring [opencolin/openclaw-deploy](https://github.com/opencolin/openclaw-deploy).
+5. **Workshops & Webinars library** — recorded sessions teaching builders to install, configure, and ship AI agents on Nebius.
 
-The product wedge versus Devpost / Luma / Hopin: **integration telemetry**. Sponsors see real SDK calls and runtime metrics in builder projects, not badge scans. The wedge versus generic "AI agent platforms": **the events flywheel** — every workshop, hack night, and demo creates training material and live evidence of what OpenClaw + Token Factory can do.
+The product wedge versus Devpost / Luma / Hopin: **integration telemetry**. Sponsors see real SDK calls and runtime metrics in builder projects, not badge scans. The wedge versus generic "AI agent platforms": **the events flywheel** — every workshop, hack night, and demo creates training material and live evidence of what Nebius Token Factory + Contree can do.
 
 **Primary KPIs** (inferred from reference site): builders ranked, events run, projects shipped, partner companies, workshop watch-minutes.
 
@@ -98,7 +98,7 @@ Cross-cutting fields visible on the user record: `phone`, `linkedInUrl`, `github
 
 ### Docs (mirrors HackerSquad doc surface, retargeted)
 - `/docs/quickstart`, `/docs/index`
-- `/docs/builders/create-a-team`, `/docs/builders/submit-a-project`, `/docs/builders/install-openclaw`
+- `/docs/builders/create-a-team`, `/docs/builders/submit-a-project`, `/docs/builders/install-nebius-cli`
 - `/docs/event-managers/create-an-event`, `/docs/event-managers/host-an-event`, `/docs/event-managers/manage-event-managers`, `/docs/event-managers/manage-partner-companies`, `/docs/event-managers/manage-prizes`, `/docs/event-managers/manage-volunteers`, `/docs/event-managers/manage-feedback`, `/docs/event-managers/capture-live-demos`, `/docs/event-managers/capture-live-presentations`, `/docs/event-managers/view-projects`, `/docs/event-managers/send-event-blast`, `/docs/event-managers/share-event-link`, `/docs/event-managers/post-event-summary`
 - `/docs/openclaw/local-install`, `/docs/openclaw/docker`, `/docs/openclaw/nebius-cpu-serverless`, `/docs/openclaw/nebius-gpu-serverless`, `/docs/openclaw/token-factory` — installation paths from `openclaw-deploy`.
 - `/api-reference/openapi.json`, `/llms.txt` — machine-readable surfaces.
@@ -113,13 +113,13 @@ The marketing site mirrors HackerSquad's information density but adopts the Nebi
 
 | # | Feature | Notes |
 |---|---|---|
-| H1 | Hero | Headline: **"The operating layer for OpenClaw events."** Sub: "Builders ship. Sponsors see real integration telemetry. Workshops on tap." Dual CTA in Nebius style: **Start building** (primary, `/builders/login`) and **Host an event** (secondary, `/companies/login`). |
+| H1 | Hero | Headline: **"The operating layer for AI builder events on Nebius."** Sub: "Builders ship. Sponsors see real integration telemetry. Workshops on tap." Dual CTA in Nebius style: **Start building** (primary, `/builders/login`) and **Host an event** (secondary, `/companies/login`). |
 | H2 | Live stats strip | Builders online · Events live · Workshops watched — live or 30s-polled. |
 | H3 | Active events ticker | Cards: city slug, title, `LIVE` / `T-HH:MM` / weekday-date format, deep-link to event page. |
 | H4 | "A league for shippers" | Builder pitch. CTA: **Enter the league →** (`/builders/login`). |
 | H5 | "Stop chasing developers" | Business pitch. CTA: **Talk to us →** scrolls to contact form. |
 | H6 | "Developer marketing, rewritten" | Old-vs-new GTM contrast block. |
-| H7 | Cloud IDE + Deploy preview | Animated TypeScript snippet using OpenClaw + Token Factory, with telemetry overlay (cold start, model latency, sub-agent count, deploy status). |
+| H7 | Cloud IDE + Deploy preview | Animated TypeScript snippet using the Nebius agent SDK + Token Factory, with telemetry overlay (cold start, model latency, sub-agent count, deploy status). |
 | H8 | Workshop spotlight | Featured card: **Running OpenClaw on Nebius** with hosts, duration, "Watch →" CTA. Followed by a horizontal rail of recent workshops. |
 | H9 | Active events grid | Unauthenticated mirror of dashboard cards. |
 | H10 | Pricing table | 5 tiers (§6). |
@@ -181,19 +181,19 @@ The marketing site mirrors HackerSquad's information density but adopts the Nebi
 - **Present button:** appears for approved speakers and demo-slot holders; opens demo request flow.
 - **Volunteer tab** (if signed up): assigned shifts.
 
-#### 4.3.5 Cloud IDE (Contree workspace + code-server) & OpenClaw Deploy
+#### 4.3.5 Cloud IDE (Contree workspace + code-server) & Nebius Deploy
 
 **Architecture: workspace ≠ deploy target.**
 - **Workspace runtime:** [Contree](https://docs.contree.dev/) (Nebius's sandbox API — VM-level isolation, container efficiency, Git-like branching of execution state).
 - **Editor frontend:** **code-server** (VS Code in browser), running inside the Contree sandbox and reverse-proxied to the builder's URL. Auth via short-lived signed token tied to the user's session.
-- **Deploy targets:** Nebius CPU Serverless (production), Nebius GPU Serverless / NemoClaw (custom local models), Docker (portable), local (`npm install -g openclaw`). Mirrors [opencolin/openclaw-deploy](https://github.com/opencolin/openclaw-deploy).
+- **Deploy targets:** Nebius CPU Serverless (production), Nebius GPU Serverless / NemoClaw (custom local models), Docker (portable), local (`npm install -g @nebius/cli`). Mirrors [opencolin/openclaw-deploy](https://github.com/opencolin/openclaw-deploy).
 
 **Workspace lifecycle:**
 1. Builder clicks **Open IDE** on a per-event hub.
-2. Backend allocates a Contree instance from a published `openclaw-ready` OCI image (OpenClaw + code-server + Node + Python preinstalled).
-3. Per-user secrets injected: `TOKEN_FACTORY_API_KEY`, `OPENCLAW_WEB_PASSWORD`, GitHub OAuth token.
-4. OpenClaw gateway started in loopback+token mode; code-server bound to a generated subdomain.
-5. Builder lands in the editor with OpenClaw running, terminal open, MCP tools available via [`contree-mcp`](https://github.com/opencolin/contree-mcp) so OpenClaw inside the workspace can spawn sub-sandboxes for risky operations.
+2. Backend allocates a Contree instance from a published `nebius-builder` OCI image (Nebius CLI + code-server + Node + Python preinstalled).
+3. Per-user secrets injected: `TOKEN_FACTORY_API_KEY`, `NEBIUS_WORKSPACE_PASSWORD`, GitHub OAuth token.
+4. Nebius agent gateway started in loopback+token mode; code-server bound to a generated subdomain.
+5. Builder lands in the editor with Nebius CLI ready, terminal open, MCP tools available via [`contree-mcp`](https://github.com/opencolin/contree-mcp) so the agent inside the workspace can spawn sub-sandboxes for risky operations.
 6. The [`contree-skill`](https://github.com/opencolin/contree-skill) Claude Code skill is preloaded for builders using Claude Code as their pair-programmer.
 
 **Branching (Contree's signature primitive — exposed in the UI):**
@@ -208,7 +208,7 @@ The marketing site mirrors HackerSquad's information density but adopts the Nebi
 
 **Deploy flow ("Deploy to Nebius" button):**
 1. From the editor, builder clicks **Deploy → Nebius CPU Serverless**.
-2. Backend snapshots the Contree workspace, builds an OCI image, pushes to the registry, and triggers `install-openclaw-serverless.sh` against Nebius Serverless.
+2. Backend snapshots the Contree workspace, builds an OCI image, pushes to the registry, and triggers `nebius deploy --target cpu-serverless` against Nebius Serverless.
 3. Status (queued → building → deploying → live) streams back into the project card and the judge telemetry overlay.
 4. GPU path uses NemoClaw and a separate "Deploy → Nebius GPU" CTA.
 5. **GitHub deploy is on roadmap** (called out in the OpenClaw-on-Nebius workshop Q&A).
@@ -227,7 +227,7 @@ CONTREE_API_KEY        # platform-side, allocates instances
 TOKEN_FACTORY_API_KEY  # per-user, scoped, rotated
 TOKEN_FACTORY_URL      # https://api.tokenfactory.nebius.com/v1
 INFERENCE_MODEL        # builder-selected, default per event
-OPENCLAW_WEB_PASSWORD  # generated per session
+NEBIUS_WORKSPACE_PASSWORD  # generated per session
 GITHUB_TOKEN           # OAuth-derived, optional
 ```
 
@@ -345,10 +345,10 @@ Workshop
 - **Inference:** **Token Factory** (Nebius) — primary inference provider; per-user scoped API key injected into IDE; model picker UI surfaces all Token Factory–hosted models.
 - **Workspace runtime:** **Contree** (Nebius sandbox API) — VM-isolated containers with Git-like branching. Backend uses Contree REST API; per-workspace MCP via [`contree-mcp`](https://github.com/opencolin/contree-mcp); Claude Code users get [`contree-skill`](https://github.com/opencolin/contree-skill) preloaded. Platform holds a `CONTREE_API_KEY`.
 - **Editor:** **code-server** running inside Contree sandboxes, reverse-proxied per session.
-- **Compute / deploy:** **Nebius CPU Serverless** and **Nebius GPU Serverless (NemoClaw)** as one-click deploy targets from the IDE. Container registry: GHCR-published OpenClaw images.
+- **Compute / deploy:** **Nebius CPU Serverless** and **Nebius GPU Serverless (NemoClaw)** as one-click deploy targets from the IDE. Container registry: GHCR-published agent images.
 - **Object storage:** Nebius Object Storage for project videos, workshop recordings, event photos. (Workspace state lives in Contree image lineage, not Object Storage.)
-- **OpenClaw:** core agent runtime preinstalled in workspaces; gateway started in loopback+token mode.
-- **Web search:** Tavily, surfaced as a recommended search tool inside OpenClaw (per the seed workshop).
+- **Nebius CLI:** preinstalled in workspaces in workspaces; gateway started in loopback+token mode.
+- **Web search:** Tavily, surfaced as a recommended search tool inside the workspace (per the seed workshop).
 - **Prizes:** Tremendous API (numeric `dollarValue` is the hook; manual activation today).
 - **Discord:** per partner company; per-builder `discordHandle` for team-formation.
 - **Luma fallback:** non-platform-managed events linked out.
@@ -505,7 +505,7 @@ The product adopts the Nebius brand grammar end-to-end, using the official Nebiu
 - **States:** `Live` (small green dot, no pulse), `T-HH:MM` countdown chip, `Completed` (neutral chip), weekday-date for upcoming.
 - **Theme:** light + dark via `themeColorMode`. Drop the terminal toggle.
 
-> Implementation note: the OpenClaw deploy UI in `opencolin/openclaw-deploy` should be re-skinned to share this token set (and pull from the same `@nebius/brand` package once it exists) so the install wizard, the workshops site, and the platform feel like one product.
+> Implementation note: the deploy UI in `opencolin/openclaw-deploy` should be re-skinned to share this token set (and pull from the same `@nebius/brand` package once it exists) so the install wizard, the workshops site, and the platform feel like one product.
 
 ---
 

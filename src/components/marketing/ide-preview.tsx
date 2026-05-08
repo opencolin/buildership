@@ -6,8 +6,8 @@ export function IdePreview() {
     <Section bg="white">
       <SectionHeader
         eyebrow="Cloud IDE"
-        title="Warm OpenClaw workspace. Token Factory loaded. Deploy in one click."
-        body="Contree spins a sandboxed VM with code-server and OpenClaw preinstalled. Snapshot at any moment, fork to try a different approach, demo from a known-good state."
+        title="Warm Nebius workspace. Token Factory loaded. Deploy in one click."
+        body="Contree spins a sandboxed VM with code-server and Nebius CLI preinstalled. Snapshot at any moment, fork to try a different approach, demo from a known-good state."
       />
       <div className="overflow-hidden rounded-card border border-ink-200 bg-navy-700 shadow-soft">
         <div className="flex items-center justify-between border-b border-navy-600 px-4 py-2.5">
@@ -39,25 +39,25 @@ export function IdePreview() {
               <dt className="text-ink-100/70">Sub-agents</dt><dd>3</dd>
             </dl>
           </div>
-          <pre className="col-span-12 overflow-x-auto p-5 text-ink-100 md:col-span-9"><code>{`import { OpenClaw } from "@openclaw/sdk";
+          <pre className="col-span-12 overflow-x-auto p-5 text-ink-100 md:col-span-9"><code>{`import { NebiusAgent } from "@nebius/agents";
 import { tavily } from "tavily";
 
-const claw = new OpenClaw({
+const agent = new NebiusAgent({
   baseURL: process.env.TOKEN_FACTORY_URL,
   apiKey: process.env.TOKEN_FACTORY_API_KEY,
   model: "zai-org/GLM-5",
 });
 
-claw.tools.add("search", tavily({ apiKey: process.env.TAVILY_API_KEY }));
-claw.subAgent("router").route(["latte-runner", "loyalty-bot", "checkout"]);
+agent.tools.add("search", tavily({ apiKey: process.env.TAVILY_API_KEY }));
+agent.subAgent("router").route(["latte-runner", "loyalty-bot", "checkout"]);
 
 export default async function handler(req, res) {
-  const out = await claw.run(req.body.message);
+  const out = await agent.run(req.body.message);
   res.json(out);
 }`}</code></pre>
         </div>
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-navy-600 px-4 py-3 text-xs text-ink-100">
-          <span className="font-mono">▸ openclaw deploy --target nebius-cpu</span>
+          <span className="font-mono">▸ nebius deploy --target cpu-serverless</span>
           <span className="flex items-center gap-2"><span className="live-dot" /> Deployed · https://muglife.serverless.nebius.com</span>
         </div>
       </div>

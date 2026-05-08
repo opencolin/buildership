@@ -93,7 +93,7 @@ export default function TeamsPage() {
 
             <div className="card bg-navy-700 text-white">
               <h3 className="text-lg font-semibold">Looking for teammates?</h3>
-              <p className="mt-2 text-sm text-ink-100">Drop into the OpenClaw Discord and post: name, skills, project idea, and what you're looking for. The Squad Leader for your city will route you.</p>
+              <p className="mt-2 text-sm text-ink-100">Drop into the Nebius Builders Discord and post: name, skills, project idea, and what you're looking for. The Squad Leader for your city will route you.</p>
               <div className="mt-4 flex gap-2">
                 <a className="btn-lime" href="#">Join the Discord →</a>
                 <Link className="btn-ghost text-white hover:bg-white/10" href="/docs/builders/create-a-team">Read the guide</Link>

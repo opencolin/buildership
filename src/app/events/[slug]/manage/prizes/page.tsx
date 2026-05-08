@@ -45,7 +45,7 @@ export default function PrizesTab({ params }: { params: { slug: string } }) {
             <div className="mt-5 grid gap-4 md:grid-cols-2">
               <div className="md:col-span-2">
                 <label className="label">Title</label>
-                <input className="input" placeholder="Best Use of OpenClaw" />
+                <input className="input" placeholder="Best Use of Nebius Token Factory" />
               </div>
               <div className="md:col-span-2">
                 <label className="label">Description</label>

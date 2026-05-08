@@ -115,12 +115,12 @@ export default function BuilderEventHub({ params }: { params: { id: string } }) 
               </div>
               <div className="lg:col-span-2">
                 <label className="label" htmlFor="pdesc">Description</label>
-                <textarea id="pdesc" rows={4} className="input" defaultValue="An OpenClaw-driven coffee-shop concierge agent that books, reorders, and routes loyalty perks across chains." />
+                <textarea id="pdesc" rows={4} className="input" defaultValue="A Nebius-powered coffee-shop concierge agent that books, reorders, and routes loyalty perks across chains." />
                 <p className="mt-1 text-xs text-ink-500">Clear descriptions make it much easier for organizers and judges to review your work.</p>
               </div>
               <div>
                 <label className="label" htmlFor="techs">Technologies</label>
-                <input id="techs" className="input" defaultValue="OpenClaw, Token Factory, Tavily, Stripe" />
+                <input id="techs" className="input" defaultValue="Token Factory, Contree, Tavily, Stripe" />
               </div>
               <div>
                 <label className="label" htmlFor="other">Other technologies</label>

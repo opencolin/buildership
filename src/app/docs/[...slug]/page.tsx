@@ -10,15 +10,15 @@ const docContent: Record<string, { title: string; eyebrow: string; body: React.R
     title: "Quickstart",
     body: (
       <>
-        <p>Three minutes to your first OpenClaw event experience.</p>
+        <p>Three minutes to your first Nebius event experience.</p>
         <ol>
           <li><strong>Sign in</strong> at <Link href="/builders/login">/builders/login</Link> with GitHub.</li>
           <li><strong>Pick an event</strong> from the directory and hit <em>Register</em>.</li>
-          <li><strong>Open the IDE</strong>. A Contree workspace boots with OpenClaw and your Token Factory key already loaded.</li>
+          <li><strong>Open the IDE</strong>. A Contree workspace boots with the Nebius CLI and your Token Factory key already loaded.</li>
         </ol>
-        <pre><code>{`▸ openclaw --version
-openclaw 0.9.0
-▸ openclaw doctor
+        <pre><code>{`▸ nebius --version
+nebius 1.4.0
+▸ nebius doctor
 ✓ TOKEN_FACTORY_API_KEY scoped
 ✓ contree instance ready
 ✓ code-server bound to https://ws-7af.builders.nebius.com`}</code></pre>
@@ -30,7 +30,7 @@ openclaw 0.9.0
     title: "Welcome to Nebius Builders",
     body: (
       <>
-        <p>Nebius Builders is the operating layer for OpenClaw events. It bundles the marketing site, the builder app, the event-manager portal, and a Cloud IDE that ships into Nebius Serverless on one click.</p>
+        <p>Nebius Builders is the operating layer for AI builder events on Nebius. It bundles the marketing site, the builder app, the event-manager portal, and a Cloud IDE that ships into Nebius Serverless on one click.</p>
         <p>Two audiences:</p>
         <ul>
           <li><strong>Builders</strong> show up and ship.</li>

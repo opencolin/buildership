@@ -162,7 +162,7 @@ export const events: Event[] = [
   {
     id: "evt_clawcamp",
     slug: "clawcamp-personal-agent",
-    title: "ClawCamp: Up-level Your OpenClaw Personal Agent Superpowers",
+    title: "BuilderCamp: Up-level Your Personal Agent Superpowers",
     format: "MINI_CONFERENCE",
     state: "COMPLETED",
     startDateTime: "2026-04-16T17:30:00+00:00",
@@ -416,7 +416,7 @@ export const eventProjects: ProjectSummary[] = [
     rank: 1,
     name: "Muglife",
     team: "Muglife",
-    description: "An OpenClaw-driven coffee-shop concierge agent that books, reorders, and routes loyalty perks across chains.",
+    description: "A Nebius-powered coffee-shop concierge agent that books, reorders, and routes loyalty perks across chains.",
     technologies: ["OpenClaw", "Token Factory", "Tavily", "Stripe"],
     partners: ["Nebius", "OpenClaw", "Stripe", "Tavily"],
     votes: 142,
@@ -471,7 +471,7 @@ export const eventBlasts = [
 ];
 
 export const eventPrizes = [
-  { title: "Best Use of OpenClaw", value: "$2,500", dollarValue: 2500 },
+  { title: "Best Agent on Nebius", value: "$2,500", dollarValue: 2500 },
   { title: "Best Token Factory Build", value: "$1,500", dollarValue: 1500 },
   { title: "Best Demo", value: "$1,000", dollarValue: 1000 },
 ];
@@ -501,7 +501,7 @@ export const docSections = [
   {
     title: "Builders",
     pages: [
-      { slug: "builders/install-openclaw", title: "Install OpenClaw" },
+      { slug: "builders/install-nebius-cli", title: "Install the Nebius CLI" },
       { slug: "builders/create-a-team", title: "Create a team" },
       { slug: "builders/submit-a-project", title: "Submit a project" },
     ],
@@ -525,13 +525,13 @@ export const docSections = [
     ],
   },
   {
-    title: "OpenClaw on Nebius",
+    title: "Nebius CLI",
     pages: [
-      { slug: "openclaw/local-install", title: "Local install" },
-      { slug: "openclaw/docker", title: "Docker" },
-      { slug: "openclaw/nebius-cpu-serverless", title: "Nebius CPU Serverless" },
-      { slug: "openclaw/nebius-gpu-serverless", title: "Nebius GPU Serverless" },
-      { slug: "openclaw/token-factory", title: "Token Factory" },
+      { slug: "nebius-cli/local-install", title: "Local install" },
+      { slug: "nebius-cli/docker", title: "Docker" },
+      { slug: "nebius-cli/cpu-serverless", title: "Nebius CPU Serverless" },
+      { slug: "nebius-cli/gpu-serverless", title: "Nebius GPU Serverless" },
+      { slug: "nebius-cli/token-factory", title: "Token Factory" },
     ],
   },
 ];

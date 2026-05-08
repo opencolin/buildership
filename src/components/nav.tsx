@@ -3,6 +3,7 @@ import { NebiusLogo } from "./nebius-logo";
 
 const links = [
   { href: "/events", label: "Events" },
+  { href: "/hackathons", label: "Hackathons" },
   { href: "/workshops", label: "Workshops" },
   { href: "/ide", label: "IDE" },
   { href: "/pricing", label: "Pricing" },

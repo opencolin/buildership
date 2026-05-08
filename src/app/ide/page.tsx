@@ -7,7 +7,7 @@ const features = [
   { title: "Contree-isolated", body: "Each workspace is a VM-isolated sandbox with full root, network, and persistent images. Snapshot anytime." },
   { title: "code-server editor", body: "VS Code in your browser. Extensions, debugger, terminal. Auth via session token, never exposed to the public." },
   { title: "Token Factory built in", body: "Per-user scoped key injected as TOKEN_FACTORY_API_KEY. Switch models from the chrome dropdown." },
-  { title: "OpenClaw preinstalled", body: "Gateway runs in loopback+token mode. contree-mcp wired so OpenClaw can spawn sub-sandboxes for risky ops." },
+  { title: "Nebius CLI preinstalled", body: "Gateway runs in loopback+token mode. contree-mcp wired so your agent can spawn sub-sandboxes for risky ops." },
   { title: "Snapshot · Fork · Rollback", body: "Pin a known-good state before your demo. Fork to try another approach in parallel. Roll back without rebuilds." },
   { title: "Deploy to Nebius", body: "One click ships your snapshot to Nebius CPU Serverless (or GPU via NemoClaw). Status streams back to your project card." },
 ];
@@ -15,7 +15,7 @@ const features = [
 const steps = [
   { tag: "1", title: "Pick a target", body: "Local · Docker · Nebius CPU Serverless · Nebius GPU Serverless." },
   { tag: "2", title: "We snapshot the workspace", body: "Image lineage preserved. Reproducible across runs and judges." },
-  { tag: "3", title: "Push to GHCR + roll", body: "install-openclaw-serverless.sh runs against Nebius. Live URL in seconds." },
+  { tag: "3", title: "Push to GHCR + roll", body: "Nebius install scripts run against Serverless. Live URL in seconds." },
 ];
 
 export default function IdePage() {
@@ -73,14 +73,14 @@ export default function IdePage() {
               <h2 className="h-display text-3xl font-bold md:text-4xl">Demo from a known-good state. Always.</h2>
               <p className="mt-4 text-ink-100">Three minutes before you go on stage, snapshot the workspace. If your live demo blows up, roll back. If a judge asks "what if", fork and answer.</p>
             </div>
-            <pre className="rounded-card border border-navy-600 bg-navy-800 p-5 text-[13px] leading-relaxed text-ink-100"><code>{`▸ openclaw snapshot --label ready-for-demo
+            <pre className="rounded-card border border-navy-600 bg-navy-800 p-5 text-[13px] leading-relaxed text-ink-100"><code>{`▸ nebius workspace snapshot --label ready-for-demo
 ✓ snapshot ready-for-demo created (image: ws-7af@4)
 
-▸ openclaw fork ready-for-demo --branch tavily-rewired
+▸ nebius workspace fork ready-for-demo --branch tavily-rewired
 ✓ workspace ws-9bc booting from ready-for-demo
 ✓ TOKEN_FACTORY_API_KEY scoped & rotated
 
-▸ openclaw deploy --target nebius-cpu --snapshot ready-for-demo
+▸ nebius deploy --target cpu-serverless --snapshot ready-for-demo
 queued ▸ building ▸ deploying ▸ live
    https://muglife.serverless.nebius.com`}</code></pre>
           </div>
