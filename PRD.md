@@ -32,7 +32,7 @@ The product wedge versus Devpost / Luma / Hopin: **integration telemetry**. Spon
 | Persona | Role flag in user model | What they do |
 |---|---|---|
 | **Builder** | default | Discover events, register, form teams, build in cloud IDE, submit projects + demo video, demo on-stage, give feedback, climb leaderboard. |
-| **Squad Leader** | `squadManager: true` | Run a regional builder community; apply via form; gets dashboard access after team approval. |
+| **Localhost** | `localhost: true` | Run a regional builder community; apply via form; gets dashboard access after team approval. |
 | **Volunteer** | builder + per-event volunteer assignment | Sign up for opportunities (check-in, lunch, setup/teardown). |
 | **Speaker** | builder invited & approved per event | Auto-emailed a form; on approval, gets **Present** button on builder dashboard. |
 | **Event Manager** | per-event team-access entry | Full event-management portal access for one or more events. |
@@ -53,7 +53,7 @@ Cross-cutting fields visible on the user record: `phone`, `linkedInUrl`, `github
   - `/leaderboard` — Public ELO/standings board
   - `/ide` — Cloud IDE marketing
   - `/judge-application` — Apply as judge
-  - `/squad-leader` — Apply as Squad Leader
+  - `/localhosts` — Apply as Localhost
 - `/businesses` — Company pitch + sub-pages
   - `/host-event`, `/sponsor`, `/pricing`, `/devrel-toolkit`, `/case-studies`
 - `/pricing` — Plan table (Free / Starter / Pro / Scale / Enterprise)
@@ -136,7 +136,7 @@ The marketing site mirrors HackerSquad's information density but adopts the Nebi
 - **Two front doors:** `/builders/login` and `/companies/login` route to the same auth core but funnel to role-specific onboarding.
 - **Onboarding flows:**
   - **Builder:** sign in → dashboard. No mandatory profile fields beyond name/email pulled from OAuth.
-  - **Squad Leader:** application form (background, community vision) → email approval → dashboard surface unlocks.
+  - **Localhost:** application form (background, community vision) → email approval → dashboard surface unlocks.
   - **Company:** sign in → create company (name, logo, description, website) → verification review by HackerSquad team → on approval, can create events.
 
 ### 4.3 Builder App
@@ -362,7 +362,7 @@ Workshop
 ```
 User
   id, name, email, emailVerified, phone, image, isGhostUser,
-  squadManager, admin,
+  localhost, admin,
   passwordHash, emailVerificationToken(+Expires),
   passwordResetToken(+Expires), failedLoginAttempts, lockedUntil, sessionInvalidatedAt,
   activeCompanyId, personProfileId,
@@ -550,7 +550,7 @@ The product adopts the Nebius brand grammar end-to-end, using the official Nebiu
 | 7 | Feedback + AI analysis + raffle + CSV export | Sponsors get post-event insights |
 | 8 | **Cloud IDE & OpenClaw Deploy MVP** — Contree-backed workspace, code-server editor, Token Factory key injection, model picker, snapshot/fork/rollback UI, one-click "Deploy to Nebius" mirroring `openclaw-deploy` | A builder goes from blank workspace → deployed agent on Nebius in one session, with a snapshot they can demo from |
 | 9 | Post-event summary auto-gen + photo gallery | Shareable recap page |
-| 10 | Leaderboard + ELO + Squad Leader program | Long-tail community engagement |
+| 10 | Leaderboard + ELO + Localhost program | Long-tail community engagement |
 | 11 | Plans/billing (Stripe) + Tremendous prize fulfillment + admin tools | Self-serve commerce |
 
 Each phase ships behind a feature flag, deploys to a staging hostname, and is gated by an end-to-end smoke test of one canonical event lifecycle.
