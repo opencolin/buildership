@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BuilderShipLogo } from "./buildership-logo";
 import { ThemeToggle } from "./theme-toggle";
+import { CountdownToDeadline } from "./countdown-to-deadline";
 
 const links = [
   { href: "/events", label: "Schedule" },
@@ -28,6 +29,10 @@ export function TopNav() {
           </nav>
         </div>
         <div className="flex items-center gap-2">
+          <CountdownToDeadline
+            variant="compact"
+            className="hidden rounded-md border border-ink-200 px-2.5 py-1 text-navy-700 lg:inline-flex dark:border-ink-700 dark:text-lime"
+          />
           <ThemeToggle />
           <Link href="/builders/login" className="btn-ghost hidden sm:inline-flex">Log in</Link>
           <Link href="/#apply" className="btn-lime whitespace-nowrap">Ship it</Link>

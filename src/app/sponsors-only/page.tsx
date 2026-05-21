@@ -6,7 +6,7 @@ import { Section, SectionHeader } from "@/components/section";
 
 export const metadata: Metadata = {
   title: "Co-host BuilderShip — sponsor pitch",
-  description: "Co-host BuilderShip with Composio and Nebius. 40 hand-picked builders, three weeks of daily integration time, one boat day. Internal preview.",
+  description: "Co-host BuilderShip with Composio and Nebius. 40 hand-picked builders, 10 days of daily integration time, one boat day. Internal preview.",
   robots: { index: false, follow: false, nocache: true },
 };
 
@@ -18,24 +18,24 @@ const differentiators = [
   },
   {
     eyebrow: "Time you can't buy",
-    title: "Three weeks of office hours.",
-    body: "Your engineers run daily office hours from May 8 → 28. Builders integrate your SDK with real support, not a docs URL. By boat day your team knows every codebase by name — and so does the rest of the room.",
+    title: "10 days of office hours.",
+    body: "Your engineers run daily office hours from June 3 → 12. Builders integrate your SDK with real support, not a docs URL. By boat day your team knows every codebase by name — and so does the rest of the room.",
   },
   {
     eyebrow: "Real conversations",
     title: "All-day 1:1s, not 5-minute booth pitches.",
-    body: "On May 30 your team spends the whole day in 1:1 conversations with every finalist — over breakfast at Plank, between bowling frames, on the bay. The pitch sharpens with each conversation. Your judges weigh in on the score.",
+    body: "On June 14 your team spends the whole day in 1:1 conversations with every finalist — over breakfast at Plank, between bowling frames, on the bay. The pitch sharpens with each conversation. Your judges weigh in on the score.",
   },
   {
     eyebrow: "PR that actually lands",
     title: "A boat day is unforgettable.",
-    body: "Demos at sunset on an 80-foot yacht. The winner walks the plank into Oakland's harbor. Photographer, videographer, post-production. The recap content has legs your blog post never will.",
+    body: "Demos at sunset on an 89-foot yacht. The winner walks the plank into Oakland's harbor. Photographer, videographer, post-production. The recap content has legs your blog post never will.",
   },
 ];
 
 const audience = [
   { stat: "40", label: "Hand-picked finalists" },
-  { stat: "3 weeks", label: "Of daily integration time" },
+  { stat: "10 days", label: "Of daily integration time" },
   { stat: "100+", label: "Expected applicants" },
   { stat: "$50k", label: "Grand prize + DGX Spark" },
 ];
@@ -46,7 +46,7 @@ const benefits = [
   "Custom sponsor track prize — your problem space, your rubric, your check",
   "Sponsor judges weigh in on the final score (your vote counts equally)",
   "Boat seats for your team + plus-ones (subject to manifest cap)",
-  "1:1 introductions to every finalist on May 30 — pre-vetted talent funnel",
+  "1:1 introductions to every finalist on June 14 — pre-vetted talent funnel",
   "Co-branding on the floor takeover at Plank (Hackathon HQ all day)",
   "Post-event recap with attribution: which builders called your SDK, what they shipped",
   "Right to publish demo videos and project recaps under your channels",
@@ -54,42 +54,45 @@ const benefits = [
 
 const tiers = [
   {
-    name: "Title host",
-    price: "$50k",
-    available: "1 slot left",
-    pitch: "Anchor partner. Logo first in every stack. 4 boat seats, judge seat, custom prize, demo slot at the sunset presentations.",
+    name: "Hardware partner",
+    price: "Prizes only",
+    available: "1 slot — DGX Spark",
+    pitch: "Supply the grand-prize hardware (a DGX Spark) and get equal co-host billing. No cash check — the unit is the sponsorship. Built for NVIDIA-class partners.",
     highlights: [
-      "Top-of-stack billing — site, email, signage, recap",
-      "4 boat seats + 4 plus-ones at Farmhouse",
-      "Custom $5k+ sponsor track prize",
-      "Live demo slot during sunset presentations",
-      "Engineering team at office hours every week",
+      "Equal co-host billing — site, email, signage, recap",
+      "Sponsor judge seat (40% of the composite score)",
+      "Engineering team slot at office hours",
+      "Boat seats for the team + plus-ones",
+      "Photographer + videographer capture the on-boat handoff",
+      "Custom prize-track rubric named after your hardware",
     ],
     accent: "navy",
   },
   {
     name: "Co-host",
-    price: "$25k",
+    price: "$10k",
     available: "Open",
-    pitch: "Equal billing with the other co-hosts. 2 boat seats, judge seat, sponsor track prize, full integration support week.",
+    pitch: "Cash anchor. Equal billing with the other co-hosts. 4 boat seats, judge seat, custom prize track, dedicated office-hours week.",
     highlights: [
       "Logo in the host stack across all surfaces",
-      "2 boat seats + 2 plus-ones at Farmhouse",
+      "4 boat seats + 4 plus-ones at Farmhouse",
       "Custom $2.5k sponsor track prize",
-      "One dedicated office-hours week",
+      "Dedicated office-hours days during the build period",
       "Sponsor judge seat",
+      "Live demo slot during sunset presentations",
     ],
     accent: "lime",
   },
   {
     name: "Friend of the boat",
-    price: "$10k",
+    price: "$5k",
     available: "Open",
-    pitch: "Logo + credits + office-hours support. Builders get your stack out of the box, you get talent intros without the boat seat.",
+    pitch: "Logo + credits + office-hours support. Builders get your stack out of the box, you get talent intros and the boat day.",
     highlights: [
       "Logo in the supporting tier",
       "Credits or API access bundled into the SDK perks",
       "Two office-hours sessions during the build period",
+      "2 boat seats + 2 plus-ones at Farmhouse",
       "Talent intros with consenting finalists post-event",
     ],
     accent: "navy",
@@ -101,7 +104,7 @@ const venues = [
     name: "Dragon Lady",
     role: "Bay crossing · sunset cruise · floating workshop",
     blurb:
-      "80-foot motor yacht docked at the Jack London Square marina. Five staterooms, hot tub on the top deck, salon for the cruise crowd. Morning bay crossing from South Beach, sunset networking cruise, and demo space when she's docked.",
+      "89-foot motor yacht docked at the Jack London Square marina. Five staterooms, hot tub on the top deck, salon for the cruise crowd. Morning bay crossing from South Beach, sunset networking cruise, and demo space when she's docked.",
     href: "https://jerrysfaeries.com/toi-toi-toi/",
     cta: "Boat listing",
     image: "/boat/rainbow-cruising.jpg",
@@ -144,9 +147,9 @@ const venues = [
 ] as const;
 
 const timeline = [
-  { date: "Now → May 28", title: "Build period", body: "Daily office hours. Your team is in the room." },
-  { date: "May 28 → 29", title: "Judging", body: "AI judges read every repo. Top 40 finalists named the night of the 29th." },
-  { date: "May 30", title: "Boat day", body: "Bay crossing, all-day 1:1s at Plank, sunset demos, dinner at Farmhouse, winner walks the plank, after-party on the docked yacht." },
+  { date: "June 3 → 12", title: "Build period", body: "Daily office hours for 10 days. Your team is in the room." },
+  { date: "June 12 → 29", title: "Judging", body: "AI judges read every repo. Top 40 finalists named the night of the 29th." },
+  { date: "June 14", title: "Boat day", body: "Bay crossing, all-day 1:1s at Plank, sunset demos, dinner at Farmhouse, winner walks the plank, after-party on the docked yacht." },
 ];
 
 export default function SponsorsOnlyPage() {
@@ -164,8 +167,8 @@ export default function SponsorsOnlyPage() {
               Get in front of the best builders<br />of the Bay.
             </h1>
             <p className="mt-7 max-w-2xl text-xl text-ink-600 dark:text-ink-300">
-              40 hand-picked finalists. Three weeks of daily integration time with your engineers. One day on a yacht in
-              Oakland's harbor. Co-host BuilderShip with Composio and Nebius — May 8 → 30, 2026.
+              40 hand-picked finalists. 10 days of daily integration time with your engineers. One day on a yacht in
+              Oakland's harbor. Co-host BuilderShip with Composio and Nebius — June 3 → 14, 2026.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-3">
               <Link href="#tiers" className="btn-lime px-6 py-3.5 text-sm">
@@ -191,7 +194,7 @@ export default function SponsorsOnlyPage() {
           <SectionHeader
             eyebrow="Why this is different"
             title="A logo on a swag bag is not what you're buying."
-            body="Most hackathon sponsorships are a 24-hour hallway with badge scans. BuilderShip is three weeks of real integration time, then a curated day with the best of the best."
+            body="Most hackathon sponsorships are a 24-hour hallway with badge scans. BuilderShip is 10 days of real integration time, then a curated day with the best of the best."
           />
           <div className="grid gap-6 md:grid-cols-2">
             {differentiators.map((d) => (
@@ -286,7 +289,7 @@ export default function SponsorsOnlyPage() {
         <Section bg="tint">
           <SectionHeader
             eyebrow="The arc"
-            title="Three weeks. Forty builders. One day on the bay."
+            title="Ten days. Forty builders. One day on the bay."
           />
           <ol className="grid gap-4 md:grid-cols-3">
             {timeline.map((s, i) => (
@@ -351,7 +354,7 @@ export default function SponsorsOnlyPage() {
             <div>
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-lime">Lock it in</p>
               <h2 className="h-display text-3xl font-bold leading-[1.1] tracking-tight text-white md:text-5xl">
-                Office hours start May 8. The boat leaves May 30.
+                Office hours start June 3. The boat leaves June 14.
               </h2>
               <p className="mt-5 max-w-xl text-lg text-ink-100">
                 We're closing co-host slots once the marketing site goes live to applicants. If you want top-of-stack

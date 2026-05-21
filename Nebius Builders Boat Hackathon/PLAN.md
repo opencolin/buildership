@@ -1,13 +1,13 @@
 # Hack Jack London Square — Nebius Builders Boat Hackathon
 
-A three-week remote hackathon culminating in a finals day at Jack London Square. Anyone can build during the three-week window with daily office hours from sponsor teams. Submissions close **May 28**. AI judges score every entry; optional human-judge live demos can be scheduled before the deadline. Top **50 finalists** are announced **May 29** and earn a spot on the **May 30** boat day — bay crossing on the Dragon Lady, lunch at Plank, sponsor breakouts, sunset cruise, dinner and demos at Farmhouse Kitchen Thai, and an after-party back on the docked yacht.
+A three-week remote hackathon culminating in a finals day at Jack London Square. Anyone can build during the three-week window with daily office hours from sponsor teams. Submissions close **June 12**. AI judges score every entry; optional human-judge live demos can be scheduled before the deadline. Top **50 finalists** are announced **June 13** and earn a spot on the **June 14** boat day — bay crossing on the Dragon Lady, lunch at Plank, sponsor breakouts, sunset cruise, dinner and demos at Farmhouse Kitchen Thai, and an after-party back on the docked yacht.
 
 **Status:** office hours running, submissions open
-**Boat day:** May 30, 2026 (50 finalists, capped by Dragon Lady)
-**Submissions close:** May 28, 2026
-**Finalists announced:** May 29, 2026
-**Office hours:** daily through May 28, online + in person across SF and Oakland
-**Working budget:** ~$5k for Plank half-day takeover on May 30; sponsor-funded
+**Boat day:** June 14, 2026 (50 finalists, capped by Dragon Lady)
+**Submissions close:** June 12, 2026
+**Finalists announced:** June 13, 2026
+**Office hours:** daily through June 12, online + in person across SF and Oakland
+**Working budget:** ~$5k for Plank half-day takeover on June 14; sponsor-funded
 **Sponsors / organizers:** Nebius (compute + Token Factory), Composio (agent tools SDK), Tavily (search API)
 **Operator:** AgentHack (also runs events at Shack15, Frontier Tower, Founders Inc.)
 **Contact email:** events@agenthack.ai
@@ -61,7 +61,7 @@ Hacking happens at Plank's indoor tables, the covered/heated outdoor patio, the 
 - Add **22% tax + tip** → effectively ~$1,000/hr for the full takeover
 - **Half-day takeover, noon–6pm (~6 hrs):** budget ~$5,000
 - Includes (per current understanding): pizza, chicken bites, Coca-Cola, ~$15 of arcade money per person, bowling
-- May 30 premium possible — full-day buyout could push toward $10k
+- June 14 premium possible — full-day buyout could push toward $10k
 - Booking flow: Angelica sends event guide → we sign proposal
 
 ---

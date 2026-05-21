@@ -2,7 +2,7 @@
 
 **Doc version:** v0.1 · 2026-05-07
 **Owner:** TBD · **Reviewers:** TBD
-**Target:** ship a backend that runs CodeCruise end-to-end by **May 28, 2026** (submission deadline) and supports the boat-day logistics on **May 30**. Anything beyond that is platform-scope and lives in §15.
+**Target:** ship a backend that runs CodeCruise end-to-end by **June 12, 2026** (submission deadline) and supports the boat-day logistics on **June 14**. Anything beyond that is platform-scope and lives in §15.
 
 ---
 
@@ -11,10 +11,10 @@
 **MVP must do (by May 14):**
 1. Builder signup and identity (GitHub OAuth + email).
 2. Office-hours RSVP and calendar feed.
-3. GitHub-based submissions accepted any time before May 28.
+3. GitHub-based submissions accepted any time before June 12.
 4. AI judging pipeline that reads every submission and ranks them on a rubric.
 5. Sponsor judges can read AI scores, override, leave comments.
-6. Top-30 finalist selection on May 29.
+6. Top-30 finalist selection on June 13.
 7. Boat-day manifest export: who's coming, dietary, emergency contact.
 
 **MVP shouldn't do (yet):**
@@ -443,7 +443,7 @@ All jobs idempotent (job id derived from input where possible).
 
 ## 9. Real-time
 
-For the May 30 boat day we need a real-time leaderboard during demos.
+For the June 14 boat day we need a real-time leaderboard during demos.
 
 - **Pusher Channels** (cheap, easy) for v0. Channel per event.
 - Worker emits `score:updated` events whenever `composite_rank` changes for top-30.
@@ -500,7 +500,7 @@ Stored as `audit_log` rows, also mirrored to Axiom for fast search. PostHog wire
 - **Unit (Vitest)** — pure functions, especially scoring math, rubric weighting, rrule expansion.
 - **Integration (Vitest + testcontainers Postgres)** — every tRPC procedure with a real DB, stubbed third parties.
 - **E2E (Playwright)** — golden flows: sign up → register → submit project → see score; sponsor judge flow; admin finalize.
-- **Load (k6)** — surge test for May 28 deadline window. Target 200 simultaneous submissions / minute.
+- **Load (k6)** — surge test for June 12 deadline window. Target 200 simultaneous submissions / minute.
 
 ### 13.2 CI
 
@@ -532,8 +532,8 @@ Stored as `audit_log` rows, also mirrored to Axiom for fast search. PostHog wire
 | **W1: May 7 – 14** | Auth, schema, builder profile, event listings, office-hours RSVP | Backend lead + 1 | A builder can sign in, RSVP for an office-hour session, and see it in their dashboard. |
 | **W2: May 15 – 21** | Submissions, GitHub App, AI judge worker, leaderboard | Backend lead + AI eng | A builder submits a repo and sees an AI score within 5 minutes. |
 | **W3: May 22 – 28** | Sponsor judge UI, finalist selection, boat manifest, sign-up flows | Backend lead + Frontend | Submission deadline holds; sponsor judges can read and override AI scores. |
-| **May 29** | Top-30 cut, finalist notifications, manifest open | Whole team | 30 builders notified; manifest filled out by EOD. |
-| **May 30** | Boat-day live leaderboard, demos, judging UI, winner finalization | Whole team | Winner picked, $10k in credits issued, DGX Spark claim link from Composio sent. |
+| **June 13** | Top-30 cut, finalist notifications, manifest open | Whole team | 30 builders notified; manifest filled out by EOD. |
+| **June 14** | Boat-day live leaderboard, demos, judging UI, winner finalization | Whole team | Winner picked, $10k in credits issued, DGX Spark claim link from Composio sent. |
 | **Post-event** | Telemetry rollups, public leaderboard, post-event blog auto-recap | Backend + DevRel | Everyone can see who won and why. |
 
 ---
@@ -559,7 +559,7 @@ Stored as `audit_log` rows, also mirrored to Axiom for fast search. PostHog wire
 
 ## 17a. Resolved decisions (2026-05-07)
 
-- **Public leaderboard before May 30 — YES.** Top 50 visible immediately after the May 28 submission deadline. Implementation note: gate the public leaderboard route on `events.scoring_config_json.public_leaderboard_at` so the moment is configurable.
+- **Public leaderboard before June 14 — YES.** Top 50 visible immediately after the June 12 submission deadline. Implementation note: gate the public leaderboard route on `events.scoring_config_json.public_leaderboard_at` so the moment is configurable.
 - **Multi-event support — required from day one.** Several office-hours events ship before CodeCruise itself; the schema is already event-keyed and we should never hardcode `code-cruise` anywhere. Active event resolved per request from URL slug or session context.
 - **DGX Spark fulfillment — Composio owns it.** They hold the SKU and ship to the winner. Backend just needs to record winner contact + Composio's claim link in `audit_log`. No inventory tracking on our side.
 - **Prize money — $10k in credits, not cash.** Drop the prize-money tax / international-builder legal release problem entirely. Credits are issued through the sponsor stack (Nebius / Composio / Tavily) and don't trigger 1099/W-8BEN handling. Schema impact: `events.prize_pool_cents` becomes `events.prize_summary text` (or jsonb if we want structured credits per sponsor). Lighter weight, more flexible.
@@ -568,7 +568,7 @@ Stored as `audit_log` rows, also mirrored to Axiom for fast search. PostHog wire
 
 ## 18. Out-of-scope (for now)
 
-Listed for transparency; revisit after May 30:
+Listed for transparency; revisit after June 14:
 
 - Full sponsor portal feature parity (event creation, billing, prize fulfillment).
 - Cloud IDE (Contree workspaces).
@@ -643,7 +643,7 @@ worker/
   index.ts              # Railway entry
 ```
 
-## Appendix C — Day-of runbook (May 30) — TODO
+## Appendix C — Day-of runbook (June 14) — TODO
 
 To be written by May 27. Includes:
 - on-call rota

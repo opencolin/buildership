@@ -73,7 +73,7 @@ export function ProjectForm({
           defaultValue={initial.builderPhone}
         />
         <p className="mt-1 text-xs text-ink-500 dark:text-ink-400">
-          So organizers can reach you on May 30 (boat day logistics, finalist call).
+          So organizers can reach you on June 14 (boat day logistics, finalist call).
         </p>
         <FieldError errors={fieldErrors.builderPhone} />
       </div>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { and, eq } from "drizzle-orm";
 import { AppHeader } from "@/components/app-chrome";
-import { eventBlasts, eventPrizes } from "@/lib/data";
+import { eventPrizes } from "@/lib/data";
 import { formatDate, formatTime } from "@/lib/utils";
 import { safeAuth } from "@/server/lib/safe-auth";
 import { api } from "@/lib/trpc/server";
@@ -151,17 +151,6 @@ export default async function BuilderEventHub({ params }: { params: { id: string
                 </ul>
               </div>
               <div className="card">
-                <h2 className="text-lg font-semibold">Blasts</h2>
-                <ol className="mt-3 divide-y divide-ink-200">
-                  {eventBlasts.map((b) => (
-                    <li key={b.id} className="py-3 text-sm">
-                      <p className="text-xs uppercase tracking-widest text-ink-500">{formatTime(b.sentAt)}</p>
-                      <p className="mt-1 text-ink-800">{b.body}</p>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-              <div className="card">
                 <h2 className="text-lg font-semibold">Prizes</h2>
                 <ul className="mt-3 grid gap-3 sm:grid-cols-3">
                   {eventPrizes.map((p) => (
@@ -183,8 +172,8 @@ export default async function BuilderEventHub({ params }: { params: { id: string
               </div>
               <div className="card">
                 <h3 className="text-sm font-semibold uppercase tracking-widest text-ink-500">Demo slot</h3>
-                <p className="mt-2 text-sm">Slot 4 · 9:14 PM</p>
-                <p className="text-xs text-ink-500">Pin a snapshot before you walk up to the base station.</p>
+                <p className="mt-2 text-sm font-medium text-ink-800 dark:text-ink-100">To Be Announced</p>
+                <p className="text-xs text-ink-500">Finalists get their slot assigned the morning of June 14.</p>
               </div>
             </aside>
           </div>
@@ -195,7 +184,7 @@ export default async function BuilderEventHub({ params }: { params: { id: string
             <div>
               <h2 className="h-display text-2xl font-bold text-ink-900 dark:text-ink-50">Project submission</h2>
               <p className="mt-2 max-w-2xl text-ink-600 dark:text-ink-300">
-                Fill it once, edit it until <strong>May 28</strong>. Save a draft any time; flip to submitted when you're ready for judges.
+                Fill it once, edit it until <strong>June 12</strong>. Save a draft any time; flip to submitted when you're ready for judges.
               </p>
               {existingProject.status === "submitted" ? (
                 <span className="pill-lime mt-4 inline-flex"><span className="live-dot mr-1" /> Submitted · judges can see it</span>
@@ -230,11 +219,11 @@ export default async function BuilderEventHub({ params }: { params: { id: string
                 </li>
                 <li>
                   <p className="font-semibold text-ink-900 dark:text-ink-50">Walk through it at office hours</p>
-                  <p className="mt-1 text-ink-600 dark:text-ink-300">Drop in any weekday before May 28 to get a live read from a sponsor engineer.</p>
+                  <p className="mt-1 text-ink-600 dark:text-ink-300">Drop in any weekday before June 12 to get a live read from a sponsor engineer.</p>
                 </li>
                 <li>
-                  <p className="font-semibold text-ink-900 dark:text-ink-50">Top 40 announced May 29</p>
-                  <p className="mt-1 text-ink-600 dark:text-ink-300">If you're in, the boat leaves South Beach at 9 AM May 30.</p>
+                  <p className="font-semibold text-ink-900 dark:text-ink-50">Top 40 announced June 13</p>
+                  <p className="mt-1 text-ink-600 dark:text-ink-300">If you're in, the boat leaves South Beach at 9 AM June 14.</p>
                 </li>
               </ul>
             </aside>

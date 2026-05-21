@@ -10,3 +10,9 @@ out
 .vercel
 next-env.d.ts
 .claude/
+.gstack/
+.env*.local
+tsconfig.tsbuildinfo
+Nebius Builders Boat Hackathon/*.docx
+Nebius Builders Boat Hackathon/*.pdf
+Nebius Builders Boat Hackathon/*.textClipping

@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 
-const SHARE_TITLE = "BuilderShip — Three-week hackathon, finals on the bay";
+const SHARE_TITLE = "BuilderShip — Countdown to June 12, finals on the bay";
 const SHARE_TEXT =
-  "Three-week remote hackathon with daily office hours. Top 40 builders win a boat day on the bay, May 30. Compete for $50K credits and a DGX Spark.";
+  "Remote AI hackathon with daily office hours, counting down to June 12. Top 40 builders win a boat day on the bay, June 14. Compete for $50K credits and a DGX Spark.";
 
 export function ShareButton() {
   const [copied, setCopied] = useState(false);

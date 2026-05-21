@@ -4,35 +4,36 @@ import { TopNav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { Section, SectionHeader } from "@/components/section";
 import { RotatingHeroTitle } from "@/components/rotating-hero-title";
+import { CountdownToDeadline } from "@/components/countdown-to-deadline";
 
 export const metadata: Metadata = {
-  title: { absolute: "BuilderShip — Three-week hackathon, finals on the bay" },
+  title: { absolute: "BuilderShip — Countdown to June 12, finals on the bay" },
   description:
-    "BuilderShip: a three-week remote hackathon with daily office hours. Submit by May 28. Top 40 builders earn a boat day on the bay, May 30 — bay crossing, all-day 1:1 pitches in Jack London Square, final presentations, sunset cruise, waterfront dinner, the winner takes home $50K credits and a DGX Spark, after-party on the yacht. Hosted by Composio, Nebius, Tavily, and OpenClaw.",
+    "BuilderShip: a remote AI hackathon with daily office hours, counting down to June 12. Top 40 builders earn a boat day on the bay, June 14 — bay crossing, all-day 1:1 pitches in Jack London Square, final presentations, sunset cruise, waterfront dinner, the winner takes home $50K credits and a DGX Spark, after-party on the yacht. Hosted by Composio, Nebius, Tavily, and OpenClaw.",
 };
 
 const timeline = [
   {
     num: "01",
-    date: "Now → May 28",
+    date: "Now → June 12",
     title: "Build remotely",
-    body: "Three weeks to ship. Daily office hours online and in person. Sponsor credits and APIs available from day one.",
+    body: "Counting down to June 12. Daily office hours online and in person. Sponsor credits and APIs available from day one.",
   },
   {
     num: "02",
-    date: "Anytime → May 28",
+    date: "Anytime → June 12",
     title: "Submit on GitHub",
-    body: "Push your repo. AI judges review every submission. Want a deeper read? Schedule a live demo with human judges any time before the 28th.",
+    body: "Push your repo. AI judges review every submission. Want a deeper read? Schedule a live demo with human judges any time before the 12th.",
   },
   {
     num: "03",
-    date: "May 29",
+    date: "June 13",
     title: "Finalists announced",
     body: "Top 40 builders named the night before. Twenty-four hours to polish your pitch and pack a jacket for the bay.",
   },
   {
     num: "04",
-    date: "May 30",
+    date: "June 14",
     title: "Boat day",
     body: "Bay crossing, polish on the waterfront, an open kayak race on the Oakland waterfront, sunset cruise, dinner at a Jack London Square restaurant, demos, judging, after-party on the yacht.",
   },
@@ -42,19 +43,19 @@ const scoreSplit = [
   {
     weight: "40%",
     who: "AI judges",
-    when: "Continuous, May 8 → 28",
+    when: "Continuous through June 12",
     body: "Read every GitHub repo. Score reproducibility, integration depth, and how working the working demo actually is.",
   },
   {
     weight: "40%",
     who: "Sponsor teams",
     when: "Office hours + boat day",
-    body: "Composio, Nebius, Tavily, and OpenClaw engineers stress-test the integration against their platform. They've been at office hours all month — by May 30 they know your codebase.",
+    body: "Composio, Nebius, Tavily, and OpenClaw engineers stress-test the integration against their platform. They've been at office hours all month — by June 14 they know your codebase.",
   },
   {
     weight: "20%",
     who: "Angels + VCs",
-    when: "1:1s on May 30",
+    when: "1:1s on June 14",
     body: "Bay Area investors do 1:1s with every builder all day at HQ — between bowling frames, on the patio. Their reaction lands in your final score, and the day doubles as a soft pitch tour.",
   },
 ];
@@ -150,7 +151,7 @@ const perks = [
   {
     tag: "On the water",
     title: "Sunset cruise",
-    body: "Two hours on the bay aboard an 80-foot yacht. The calmest networking time you will ever have.",
+    body: "Two hours on the bay aboard an 89-foot yacht. The calmest networking time you will ever have.",
   },
   {
     tag: "Hackathon HQ",
@@ -180,7 +181,7 @@ const perks = [
 ] as const;
 
 const sdkPerks = [
-  "Nebius Token Factory keys for the full three weeks",
+  "Nebius Token Factory keys through the June 12 deadline",
   "Nebius GPU credits for inference & deploy",
   "OpenClaw runtime ready to install",
   "Composio + Tavily API access for the day",
@@ -208,14 +209,14 @@ const faqs = [
   },
   {
     q: "What's the format?",
-    a: "Solo or teams of up to 4. Three weeks to build remotely, with daily office hours from sponsor teams. Submit your GitHub repo any time before May 28 — AI judges read every entry, and you can schedule a live demo with human judges before the deadline if you want a deeper read.",
+    a: "Solo or teams of up to 4. Build remotely with daily office hours from sponsor teams. Submit your GitHub repo any time before June 12 — AI judges read every entry, and you can schedule a live demo with human judges before the deadline if you want a deeper read.",
   },
   {
     q: "How does scoring work?",
-    a: "Two phases. AI judges read every GitHub submission during the three weeks and pick the top 40 builders. On May 30, your score is a blend: 40% AI judges, 40% sponsor teams, 20% the angel investors and VCs in the room. Every judge scores against the same five-axis rubric (working demo, integration depth, usefulness, code quality, pitch) — see the rubric section above. Everyone you talk to that day is voting.",
+    a: "Two phases. AI judges read every GitHub submission as it comes in and pick the top 40 builders by June 12. On June 14, your score is a blend: 40% AI judges, 40% sponsor teams, 20% the angel investors and VCs in the room. Every judge scores against the same five-axis rubric (working demo, integration depth, usefulness, code quality, pitch) — see the rubric section above. Everyone you talk to that day is voting.",
   },
   {
-    q: "What happens on May 30?",
+    q: "What happens on June 14?",
     a: "Finals day in Jack London Square — and there's no five-minute stage pitch. You spend the whole day in 1:1 conversations: angels and VCs over breakfast at HQ, sponsor judges over lunch and bowling, more 1:1s through the afternoon. A kayak race on the Oakland waterfront — open to anyone who shows up — runs before final presentations. Sunset cruise, dinner waterside, winners announced, the winner takes home $50K credits and a DGX Spark. After-party back on the docked yacht.",
   },
   {
@@ -227,7 +228,7 @@ const faqs = [
     a: "Submissions are still welcome — you can build remotely and skip the boat day. If you make the top 40 and can't travel, we'll provide a land route to your final presentation. Boat capacity caps the in-person cohort.",
   },
   {
-    q: "What should I bring on May 30?",
+    q: "What should I bring on June 14?",
     a: "Laptop, charger, jacket for the cruise. We'll have power, Wi-Fi, and our own Starlink running at HQ. No hardware projects this time.",
   },
   {
@@ -258,9 +259,9 @@ export default function HackJackLondonSquarePage() {
           <div className="container-page relative pt-20 pb-24 sm:pt-28 sm:pb-28 lg:pt-36">
             <div className="flex flex-wrap items-center gap-2">
               <span className="pill-outline">Office hours M–F</span>
-              <span className="pill-outline">Submit by May 28</span>
+              <span className="pill-outline">Submit by June 12</span>
               <span className="pill-lime">
-                <span className="live-dot" /> Boat day May 30
+                <span className="live-dot" /> Boat day June 14
               </span>
             </div>
             <RotatingHeroTitle className="mt-20" />
@@ -294,11 +295,11 @@ export default function HackJackLondonSquarePage() {
                 Sponsors & stack →
               </Link>
             </div>
-            <dl className="mt-16 grid grid-cols-2 gap-y-8 sm:grid-cols-4 sm:gap-y-0">
+            <CountdownToDeadline className="mt-14" />
+            <dl className="mt-10 grid grid-cols-2 gap-y-8 sm:grid-cols-3 sm:gap-y-0">
               {[
-                ["Build time", "10 days to submit"],
-                ["Submit by", "May 28"],
-                ["Boat day", "May 30"],
+                ["Submit by", "June 12"],
+                ["Boat day", "June 14"],
                 ["Finalists", "40 max"],
               ].map(([label, value]) => (
                 <div key={label}>
@@ -348,9 +349,9 @@ export default function HackJackLondonSquarePage() {
               </p>
               <ul className="mt-5 grid gap-2 text-sm text-ink-100">
                 <li>· 40 builders. That's it.</li>
-                <li>· Submissions read continuously through May 28.</li>
-                <li>· Finalists announced May 29.</li>
-                <li>· Boat leaves South Beach 9 AM May 30.</li>
+                <li>· Submissions read continuously through June 12.</li>
+                <li>· Finalists announced June 13.</li>
+                <li>· Boat leaves South Beach 9 AM June 14.</li>
               </ul>
             </div>
           </div>
@@ -360,7 +361,7 @@ export default function HackJackLondonSquarePage() {
         <Section id="how-it-works" bg="tint">
           <SectionHeader
             eyebrow="Schedule"
-            title={<>Three weeks. Forty builders.<br />One day on the bay.</>}
+            title={<>Countdown to June 12.<br />Forty builders. One day on the bay.</>}
             body="The hackathon is mostly remote. The boat day is the celebration — and the finals."
           />
           <ol className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -412,8 +413,8 @@ export default function HackJackLondonSquarePage() {
         <Section id="office-hours">
           <SectionHeader
             eyebrow="Office hours"
-            title="Stuck? We're online every day until May 30."
-            body="Office hours run daily — online and in person — for the whole three weeks. Drop in, ask anything, ship faster. Sponsor teams cycle through across the day."
+            title="Stuck? We're online every day until June 14."
+            body="Office hours run daily — online and in person — every day through June 12. Drop in, ask anything, ship faster. Sponsor teams cycle through across the day."
           />
           <div className="grid gap-6 md:grid-cols-3">
             {officeHourRoles.map((p) => (
@@ -427,7 +428,7 @@ export default function HackJackLondonSquarePage() {
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">Schedule</p>
               <p className="mt-1 text-base font-medium text-ink-900 dark:text-ink-50">
-                Daily through May 30 — online plus in person across SF and Oakland.
+                Daily through June 14 — online plus in person across SF and Oakland.
               </p>
             </div>
             <Link href="/builders/login" className="btn-lime text-xs px-5 py-2.5">
@@ -472,7 +473,7 @@ export default function HackJackLondonSquarePage() {
               {
                 src: "/boat/aerial-docked.jpg",
                 alt: "Top-down aerial of the yacht at the dock",
-                caption: "Aerial — 80ft on her berth",
+                caption: "Aerial — 89ft on her berth",
               },
               {
                 src: "/boat/galley-interior.jpg",
@@ -564,7 +565,7 @@ export default function HackJackLondonSquarePage() {
           <SectionHeader
             eyebrow="How judging works"
             title="40% AI · 40% sponsors · 20% investors."
-            body="The score on May 30 is a blend. AI judges read every repo over the three weeks. Sponsor engineers and investors do 1:1s with every builder all day on the waterfront — your pitch sharpens with each conversation. Final presentations before the sunset cruise."
+            body="The score on June 14 is a blend. AI judges read every repo continuously through June 12. Sponsor engineers and investors do 1:1s with every builder all day on the waterfront — your pitch sharpens with each conversation. Final presentations before the sunset cruise."
           />
           <div className="grid gap-4 md:grid-cols-3">
             {scoreSplit.map((j) => (
@@ -619,14 +620,14 @@ export default function HackJackLondonSquarePage() {
             ))}
           </div>
           <p className="mt-6 text-xs text-ink-500 dark:text-ink-400">
-            Each judge scores only the axes they grade (AI: demo + usefulness + code; sponsors: demo + integration; investors: usefulness + pitch). Their score is normalized to <span className="font-mono">0–10</span>, then composite = <span className="font-mono">(AI × 0.4) + (Sponsor × 0.4) + (Investor × 0.2)</span>. Public leaderboard goes live May 29 with the top 40.
+            Each judge scores only the axes they grade (AI: demo + usefulness + code; sponsors: demo + integration; investors: usefulness + pitch). Their score is normalized to <span className="font-mono">0–10</span>, then composite = <span className="font-mono">(AI × 0.4) + (Sponsor × 0.4) + (Investor × 0.2)</span>. Public leaderboard goes live June 13 with the top 40.
           </p>
         </Section>
 
         {/* Finals day schedule */}
         <Section id="schedule">
           <SectionHeader
-            eyebrow="Finals day · May 30"
+            eyebrow="Finals day · June 14"
             title="Cruise from South Beach to Jack London Square. Demos at dinner."
             body="The boat day is for the top 40 builders. Bay crossing, all-day 1:1 conversations and pitch refinement on the waterfront, final presentations before the sunset cruise, dinner at a Jack London Square restaurant where winners are announced, after-party on the docked yacht. Times are firm — the boat doesn't wait."
           />
@@ -665,13 +666,13 @@ export default function HackJackLondonSquarePage() {
             <div>
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-lime">Show us your claws</p>
               <h2 className="h-display text-3xl font-bold leading-[1.1] tracking-tight text-white md:text-5xl">
-                Three weeks. Forty finalists. One walk off the plank.
+                Counting down to June 12. Forty finalists. One walk off the plank.
               </h2>
               <p className="mt-5 max-w-xl text-lg text-ink-100">
                 Post something you built, tag <strong className="font-semibold text-white">@ship_builders @nebiusai @composio @tavilyai @openclaw</strong>,
-                and we'll see it. Submissions close <strong className="font-semibold text-white">May 28</strong>.
-                Finalists announced <strong className="font-semibold text-white">May 29</strong>.
-                Boat leaves South Beach at 9 AM <strong className="font-semibold text-white">May 30</strong>.
+                and we'll see it. Submissions close <strong className="font-semibold text-white">June 12</strong>.
+                Finalists announced <strong className="font-semibold text-white">June 13</strong>.
+                Boat leaves South Beach at 9 AM <strong className="font-semibold text-white">June 14</strong>.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">

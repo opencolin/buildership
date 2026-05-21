@@ -11,25 +11,25 @@ export const dynamic = "force-dynamic";
 const timeline = [
   {
     num: "01",
-    date: "Now → May 28",
+    date: "Now → June 12",
     title: "Build remotely",
-    body: "Three weeks to ship. Daily office hours online and in person. Sponsor credits and APIs available from day one.",
+    body: "Counting down to June 12. Daily office hours online and in person. Sponsor credits and APIs available from day one.",
   },
   {
     num: "02",
-    date: "Anytime → May 28",
+    date: "Anytime → June 12",
     title: "Submit on GitHub",
-    body: "Push your repo. AI judges review every submission. Want a deeper read? Schedule a live demo with human judges any time before the 28th.",
+    body: "Push your repo. AI judges review every submission. Want a deeper read? Schedule a live demo with human judges any time before the 12th.",
   },
   {
     num: "03",
-    date: "May 29",
+    date: "June 13",
     title: "Finalists announced",
     body: "Top 40 builders named the night before. Twenty-four hours to polish your pitch and pack a jacket for the bay.",
   },
   {
     num: "04",
-    date: "May 30",
+    date: "June 14",
     title: "Boat day",
     body: "Bay crossing, polish on the waterfront, an open kayak race on the Oakland waterfront, sunset cruise, dinner at a Jack London Square restaurant, demos, judging, after-party on the yacht.",
   },
@@ -70,7 +70,7 @@ export default async function EventsIndex() {
         <Section bg="tint">
           <SectionHeader
             eyebrow="Schedule"
-            title={<>Three weeks. Forty builders.<br />One day on the bay.</>}
+            title={<>Countdown to June 12.<br />Forty builders. One day on the bay.</>}
             body="The hackathon is mostly remote. The boat day is the celebration — and the finals."
           />
           <ol className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -99,7 +99,7 @@ export default async function EventsIndex() {
 
         <section className="border-t border-ink-200 bg-ink-50 pt-16 pb-20 dark:border-ink-800 dark:bg-ink-800 sm:pb-24 lg:pb-28">
           <div className="container-page">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-navy-700 dark:text-lime">Finals day · May 30</p>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-navy-700 dark:text-lime">Finals day · June 14</p>
             <h2 className="h-display text-3xl font-bold tracking-tight text-ink-900 md:text-4xl dark:text-ink-50">Cruise from South Beach to Jack London Square. Demos at dinner.</h2>
             <p className="mt-4 max-w-3xl text-base text-ink-600 dark:text-ink-300">The boat day is for the top 40 builders. Bay crossing, all-day 1:1 conversations and pitch refinement on the waterfront, final presentations before the sunset cruise, dinner at a Jack London Square restaurant where winners are announced, after-party on the docked yacht. Times are firm — the boat doesn't wait.</p>
             <ol className="mt-10 overflow-hidden rounded-card border border-ink-200 bg-white dark:border-ink-700 dark:bg-ink-900">

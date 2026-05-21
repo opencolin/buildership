@@ -14,7 +14,7 @@ const docContent: Record<string, { title: string; eyebrow: string; body: React.R
         <ol>
           <li><strong>Sign in</strong> at <Link href="/builders/login">/builders/login</Link> with GitHub.</li>
           <li><strong>Register</strong> for BuilderShip via the Apply section on the homepage.</li>
-          <li><strong>Build locally</strong> with the sponsor stack — Composio for tools, Tavily for search, Nebius Token Factory for inference, OpenClaw as the runtime — then submit your project before May 28.</li>
+          <li><strong>Build locally</strong> with the sponsor stack — Composio for tools, Tavily for search, Nebius Token Factory for inference, OpenClaw as the runtime — then submit your project before June 12.</li>
         </ol>
       </>
     ),

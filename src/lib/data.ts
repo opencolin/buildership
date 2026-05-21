@@ -95,13 +95,13 @@ export const events: Event[] = [
     format: "HACKATHON",
     state: "LIVE",
     startDateTime: "2026-05-08T00:00:00-07:00",
-    endDateTime: "2026-05-30T23:59:00-07:00",
+    endDateTime: "2026-06-14T23:59:00-07:00",
     city: "SF",
-    venue: "Remote · finals on the bay, May 30",
+    venue: "Remote · finals on the bay, June 14",
     isOnline: false,
     cover: "from-accent-sky via-accent-blue to-navy-700",
     description:
-      "Three-week remote AI hackathon hosted by Composio and Nebius. Submit by May 28. Top 40 builders earn a boat day on the bay, May 30. Compete for $50K credits and a DGX Spark.",
+      "Remote AI hackathon hosted by Composio and Nebius, counting down to a June 12 submission deadline. Top 40 builders earn a boat day on the bay, June 14. Compete for $50K credits and a DGX Spark.",
     capacity: 40,
     registered: 0,
     partners: ["Composio", "Nebius", "Tavily", "OpenClaw"],
@@ -119,7 +119,7 @@ export const events: Event[] = [
     isOnline: true,
     cover: "from-lime-100 via-lime-200 to-lime-300",
     description:
-      "One-hour Zoom drop-in with sponsor developer advocates and solution architects. Bring your blockers. Every Monday at noon Pacific through May 30.",
+      "One-hour Zoom drop-in with sponsor developer advocates and solution architects. Bring your blockers. Every Monday at noon Pacific through June 14.",
     capacity: 100,
     registered: 32,
     partners: ["Nebius", "Composio", "Tavily"],
@@ -137,7 +137,7 @@ export const events: Event[] = [
     isOnline: false,
     cover: "from-navy-300 via-navy-500 to-navy-700",
     description:
-      "Two hours of in-person office hours at Frontier Tower. Drop in for whiteboard sessions, code review, and a sandwich. Every Tuesday 12–2pm through May 30.",
+      "Two hours of in-person office hours at Frontier Tower. Drop in for whiteboard sessions, code review, and a sandwich. Every Tuesday 12–2pm through June 14.",
     capacity: 40,
     registered: 18,
     partners: ["Nebius", "Composio", "Tavily"],
@@ -155,7 +155,7 @@ export const events: Event[] = [
     isOnline: false,
     cover: "from-lime-200 via-lime-300 to-navy-500",
     description:
-      "Two hours of in-person office hours at Homebrew. Drop in for whiteboard sessions, code review, and a sandwich. Every Wednesday 12–2pm through May 30.",
+      "Two hours of in-person office hours at Homebrew. Drop in for whiteboard sessions, code review, and a sandwich. Every Wednesday 12–2pm through June 14.",
     capacity: 30,
     registered: 12,
     partners: ["Nebius", "Composio", "Tavily"],
@@ -173,7 +173,7 @@ export const events: Event[] = [
     isOnline: false,
     cover: "from-navy-300 via-navy-500 to-navy-700",
     description:
-      "Two hours of in-person office hours at Frontier Tower. Drop in for whiteboard sessions, code review, and a sandwich. Every Thursday 12–2pm through May 30.",
+      "Two hours of in-person office hours at Frontier Tower. Drop in for whiteboard sessions, code review, and a sandwich. Every Thursday 12–2pm through June 14.",
     capacity: 40,
     registered: 21,
     partners: ["Nebius", "Composio", "Tavily"],
@@ -191,7 +191,7 @@ export const events: Event[] = [
     isOnline: true,
     cover: "from-lime-100 via-lime-200 to-lime-300",
     description:
-      "One-hour Zoom drop-in with sponsor developer advocates and solution architects. Bring your blockers. Every Friday at noon Pacific through May 30.",
+      "One-hour Zoom drop-in with sponsor developer advocates and solution architects. Bring your blockers. Every Friday at noon Pacific through June 14.",
     capacity: 100,
     registered: 27,
     partners: ["Nebius", "Composio", "Tavily"],

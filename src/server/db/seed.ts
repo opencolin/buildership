@@ -101,12 +101,12 @@ async function main() {
       slug: "buildership",
       title: "BuilderShip",
       description:
-        "Three-week remote hackathon culminating in a finals day on the bay, May 30. Top 40 builders earn the boat day. Compete for $50K credits and a DGX Spark.",
+        "Remote hackathon counting down to a June 12 submission deadline, with a finals day on the bay on June 14. Top 40 builders earn the boat day. Compete for $50K credits and a DGX Spark.",
       format: "HACKATHON",
       state: "live",
-      startsAt: new Date("2026-05-07T09:00:00-07:00"),
-      endsAt: new Date("2026-05-30T23:59:00-07:00"),
-      venueId: jackLondon?.id,
+      startsAt: new Date("2026-06-14T09:00:00-07:00"),
+      endsAt: new Date("2026-06-14T23:59:00-07:00"),
+      venueId: southBeach?.id,
       capacity: 40,
       coverGradient: "from-navy-500 via-navy-600 to-navy-700",
       prizeSummary: "$50K credits + a DGX Spark + a walk off the plank",
@@ -115,13 +115,23 @@ async function main() {
         ai_weight: 0.4,
         sponsor_weight: 0.4,
         investor_weight: 0.2,
-        public_leaderboard_at: "2026-05-29T00:00:00-07:00",
+        public_leaderboard_at: "2026-06-13T00:00:00-07:00",
         rubric_version: "v1",
       },
     })
     .onConflictDoUpdate({
       target: events.slug,
-      set: { updatedAt: new Date() },
+      set: {
+        title: "BuilderShip",
+        description:
+          "Remote hackathon counting down to a June 12 submission deadline, with a finals day on the bay on June 14. Top 40 builders earn the boat day. Compete for $50K credits and a DGX Spark.",
+        startsAt: new Date("2026-06-14T09:00:00-07:00"),
+        endsAt: new Date("2026-06-14T23:59:00-07:00"),
+        venueId: southBeach?.id,
+        capacity: 40,
+        prizeSummary: "$50K credits + a DGX Spark + a walk off the plank",
+        updatedAt: new Date(),
+      },
     })
     .returning();
 

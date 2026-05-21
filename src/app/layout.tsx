@@ -3,25 +3,25 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "BuilderShip — Three-week hackathon, finals on the bay",
+    default: "BuilderShip — Countdown to June 12, finals on the bay",
     template: "%s — BuilderShip",
   },
   description:
-    "BuilderShip: a three-week remote AI hackathon hosted by Composio and Nebius. Submit by May 28. Top 40 builders earn a boat day on the bay, May 30. Compete for $50K credits and a DGX Spark.",
+    "BuilderShip: a remote AI hackathon hosted by Composio and Nebius, counting down to June 12. Top 40 builders earn a boat day on the bay, June 14. Compete for $50K credits and a DGX Spark.",
   metadataBase: new URL("https://ship.builders"),
   openGraph: {
-    title: "BuilderShip — Three-week hackathon, finals on the bay",
+    title: "BuilderShip — Countdown to June 12, finals on the bay",
     description:
-      "40 hand-picked builders. Three weeks of daily office hours. One boat day on May 30. Hosted by Composio, Nebius, Tavily, and OpenClaw.",
+      "40 hand-picked builders. Daily office hours until the June 12 deadline. One boat day on June 14. Hosted by Composio, Nebius, Tavily, and OpenClaw.",
     url: "https://ship.builders",
     siteName: "BuilderShip",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "BuilderShip — Three-week hackathon, finals on the bay",
+    title: "BuilderShip — Countdown to June 12, finals on the bay",
     description:
-      "40 hand-picked builders. Three weeks of daily office hours. One boat day on May 30. Hosted by Composio, Nebius, Tavily, and OpenClaw.",
+      "40 hand-picked builders. Daily office hours until the June 12 deadline. One boat day on June 14. Hosted by Composio, Nebius, Tavily, and OpenClaw.",
   },
 };
 

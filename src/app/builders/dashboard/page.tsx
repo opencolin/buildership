@@ -18,8 +18,8 @@ const builderNav = [
   { label: "Profile", href: "/builders/dashboard/profile" },
 ];
 
-const SUBMISSION_DEADLINE = new Date("2026-05-28T23:59:59-07:00");
-const FINALS_DAY = new Date("2026-05-30T09:00:00-07:00");
+const SUBMISSION_DEADLINE = new Date("2026-06-12T23:59:59-07:00");
+const FINALS_DAY = new Date("2026-06-14T09:00:00-07:00");
 
 function daysUntil(target: Date): number {
   const ms = target.getTime() - Date.now();
@@ -97,7 +97,7 @@ export default async function BuilderDashboard() {
               {daysToDeadline > 0
                 ? `${daysToDeadline} day${daysToDeadline === 1 ? "" : "s"} until submissions close.`
                 : daysToFinals > 0
-                ? "Submissions are closed. Finalists announced May 29."
+                ? "Submissions are closed. Finalists announced June 13."
                 : "BuilderShip is in progress on the bay."}
             </p>
           </div>
@@ -114,7 +114,7 @@ export default async function BuilderDashboard() {
                     {projectName ?? "Your project"} is in.
                   </h2>
                   <p className="mt-2 text-ink-600 dark:text-ink-300">
-                    Submitted. Judges can see it now. You can keep editing until May 28 at midnight.
+                    Submitted. Judges can see it now. You can keep editing until June 12 at midnight.
                   </p>
                   <div className="mt-6 flex flex-wrap gap-3">
                     <Link href={projectHref} className="btn-navy">Edit submission →</Link>
@@ -140,7 +140,7 @@ export default async function BuilderDashboard() {
                     Start your submission.
                   </h2>
                   <p className="mt-2 text-ink-600 dark:text-ink-300">
-                    Save a draft now, edit until the deadline, hit submit when you're ready for judges. Top 40 builders earn the boat day on May 30.
+                    Save a draft now, edit until the deadline, hit submit when you're ready for judges. Top 40 builders earn the boat day on June 14.
                   </p>
                   <div className="mt-6 flex flex-wrap gap-3">
                     <Link href={projectHref} className="btn-lime">Open project form →</Link>
@@ -159,7 +159,7 @@ export default async function BuilderDashboard() {
               <div className="card">
                 <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">Submit by</p>
                 <p className="h-display mt-2 text-2xl font-bold text-navy-700 dark:text-lime">
-                  May 28 · 11:59 PM PT
+                  June 12 · 11:59 PM PT
                 </p>
                 <p className="mt-2 text-sm text-ink-600 dark:text-ink-300">
                   AI judges read every repo continuously. Earlier submissions get more passes.
@@ -168,10 +168,10 @@ export default async function BuilderDashboard() {
               <div className="card">
                 <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">Boat day</p>
                 <p className="h-display mt-2 text-2xl font-bold text-navy-700 dark:text-lime">
-                  May 30
+                  June 14
                 </p>
                 <p className="mt-2 text-sm text-ink-600 dark:text-ink-300">
-                  Top 40 finalists named May 29. Boat leaves South Beach at 9 AM May 30.
+                  Top 40 finalists named June 13. Boat leaves South Beach at 9 AM June 14.
                 </p>
               </div>
             </div>

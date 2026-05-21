@@ -127,7 +127,7 @@ export default function DocsHome() {
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">Docs</p>
             <h1 className="h-display text-4xl font-bold tracking-tight text-ink-900 md:text-5xl dark:text-ink-50">Wire up the stack.</h1>
             <p className="mt-4 max-w-2xl text-lg text-ink-600 dark:text-ink-300">
-              Five SDKs, three weeks. Quickstarts and official docs for every sponsor — Composio, Nebius Token Factory,
+              Five SDKs, one deadline. Quickstarts and official docs for every sponsor — Composio, Nebius Token Factory,
               Nebius AI Cloud, Tavily, OpenClaw — plus the BuilderShip platform docs.
             </p>
             <div className="mt-6 max-w-xl">
