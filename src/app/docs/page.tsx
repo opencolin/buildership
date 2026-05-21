@@ -16,6 +16,26 @@ type SponsorDoc = {
 
 const sponsorDocs: SponsorDoc[] = [
   {
+    slug: "composio",
+    name: "Composio",
+    role: "Agent tools & integrations",
+    blurb:
+      "One SDK to plug your agent into 250+ apps — Gmail, Slack, GitHub, Linear, Notion, Stripe — with auth, function schemas, and tool-calling already wired. Bring your agent, ship the workflow.",
+    highlights: [
+      "250+ pre-wired tools, auth handled per-user",
+      "Tool schemas in OpenAI / Anthropic / function-calling shape",
+      "Triggers and webhooks for event-driven agents",
+      "Python and TypeScript SDKs",
+    ],
+    primary: { label: "Composio quickstart", href: "https://docs.composio.dev/getting-started", external: true },
+    links: [
+      { label: "Tool catalog", href: "https://app.composio.dev/apps", external: true },
+      { label: "Triggers", href: "https://docs.composio.dev/patterns/triggers", external: true },
+      { label: "Get help on Discord", href: "https://discord.com/invite/cNruWaAhQk", external: true },
+      { label: "GitHub", href: "https://github.com/ComposioHQ/composio", external: true },
+    ],
+  },
+  {
     slug: "token-factory",
     name: "Nebius Token Factory",
     role: "Managed inference for open-weight models",
@@ -54,26 +74,6 @@ const sponsorDocs: SponsorDoc[] = [
       { label: "Object storage", href: "https://docs.nebius.com/storage/object-storage", external: true },
       { label: "Get help on Discord", href: "https://discord.com/invite/zBzz6X4QW", external: true },
       { label: "Internal: deploy guide", href: "/docs/openclaw/nebius-cpu-serverless" },
-    ],
-  },
-  {
-    slug: "composio",
-    name: "Composio",
-    role: "Agent tools & integrations",
-    blurb:
-      "One SDK to plug your agent into 250+ apps — Gmail, Slack, GitHub, Linear, Notion, Stripe — with auth, function schemas, and tool-calling already wired. Bring your agent, ship the workflow.",
-    highlights: [
-      "250+ pre-wired tools, auth handled per-user",
-      "Tool schemas in OpenAI / Anthropic / function-calling shape",
-      "Triggers and webhooks for event-driven agents",
-      "Python and TypeScript SDKs",
-    ],
-    primary: { label: "Composio quickstart", href: "https://docs.composio.dev/getting-started", external: true },
-    links: [
-      { label: "Tool catalog", href: "https://app.composio.dev/apps", external: true },
-      { label: "Triggers", href: "https://docs.composio.dev/patterns/triggers", external: true },
-      { label: "Get help on Discord", href: "https://discord.com/invite/cNruWaAhQk", external: true },
-      { label: "GitHub", href: "https://github.com/ComposioHQ/composio", external: true },
     ],
   },
   {
