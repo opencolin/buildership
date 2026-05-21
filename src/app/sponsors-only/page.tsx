@@ -280,7 +280,8 @@ export default function SponsorsOnlyPage() {
             <img src="/brand/composio-wordmark.svg" alt="Composio" className="h-8 w-auto invert dark:invert-0" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/brand/nebius-wordmark.svg" alt="Nebius" className="h-9 w-auto" />
-            <span className="h-display text-2xl font-bold tracking-tight text-ink-900 dark:text-ink-50">Tavily</span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/brand/tavily-wordmark.svg" alt="Tavily" className="h-9 w-auto dark:invert" />
             <span className="h-display text-2xl font-bold tracking-tight text-ink-900 dark:text-ink-50">OpenClaw</span>
           </div>
         </Section>

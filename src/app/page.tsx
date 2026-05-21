@@ -283,6 +283,12 @@ export default function HackJackLondonSquarePage() {
                 alt="Nebius"
                 className="h-8 w-auto"
               />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/brand/tavily-wordmark.svg"
+                alt="Tavily"
+                className="h-8 w-auto dark:invert"
+              />
             </div>
             <div className="mt-10 flex flex-wrap items-center gap-3">
               <Link href="#apply" className="btn-lime px-6 py-3.5 text-sm">
