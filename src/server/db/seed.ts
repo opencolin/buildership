@@ -110,6 +110,7 @@ async function main() {
       capacity: 40,
       coverGradient: "from-navy-500 via-navy-600 to-navy-700",
       prizeSummary: "$50K credits + a DGX Spark + a walk off the plank",
+      rsvpUrl: "https://luma.com/buildership",
       partnersJson: ["Nebius", "Composio", "Tavily"],
       scoringConfigJson: {
         ai_weight: 0.4,
@@ -130,6 +131,7 @@ async function main() {
         venueId: southBeach?.id,
         capacity: 40,
         prizeSummary: "$50K credits + a DGX Spark + a walk off the plank",
+        rsvpUrl: "https://luma.com/buildership",
         updatedAt: new Date(),
       },
     })

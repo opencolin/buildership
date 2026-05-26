@@ -105,6 +105,7 @@ export const events: Event[] = [
     capacity: 40,
     registered: 0,
     partners: ["Composio", "Nebius", "Tavily", "OpenClaw"],
+    rsvpUrl: "https://luma.com/buildership",
   },
   {
     id: "evt_oh_mon",
