@@ -336,7 +336,7 @@ export default function HackJackLondonSquarePage() {
                 </ol>
               </div>
               <div className="flex flex-wrap gap-2 pt-1">
-                <Link href="https://luma.com/buildership" className="btn-lime text-sm" target="_blank" rel="noreferrer">
+                <Link href="https://luma.com/ship.builders" className="btn-lime text-sm" target="_blank" rel="noreferrer">
                   Register →
                 </Link>
                 <Link href="https://x.com/intent/tweet?text=Show%20us%20your%20claws%20%40ship_builders%20%40nebiusai%20%40composio%20%40tavilyai%20%40openclaw" className="btn-outline text-sm" target="_blank" rel="noreferrer">
