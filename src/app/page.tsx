@@ -9,7 +9,7 @@ import { CountdownToDeadline } from "@/components/countdown-to-deadline";
 export const metadata: Metadata = {
   title: { absolute: "BuilderShip — Countdown to June 12, finals on the bay" },
   description:
-    "BuilderShip: a remote AI hackathon with daily office hours, counting down to June 12. Build an OpenClaw agent — top 30 builders earn a boat day on the bay, June 14 — bay crossing, all-day 1:1 pitches in Jack London Square, final presentations, sunset cruise, waterfront dinner, the winner takes home $50K credits and a DGX Spark, after-party on the yacht. Hosted by Composio, Nebius, and Tavily.",
+    "BuilderShip: a remote AI hackathon with daily office hours, counting down to June 12. Build an AI agent — top 30 builders earn a boat day on the bay, June 14 — bay crossing, a full day of hacking, final presentations, sunset cruise, waterfront dinner, the winner takes home $50K credits and a DGX Spark, after-party on the yacht. Hosted by Composio, Nebius, and Tavily.",
 };
 
 const timeline = [
@@ -35,7 +35,7 @@ const timeline = [
     num: "04",
     date: "June 14",
     title: "Boat day",
-    body: "Bay crossing, polish on the waterfront, an open kayak race on the Oakland waterfront, sunset cruise, dinner at a Jack London Square restaurant, demos, judging, after-party on the yacht.",
+    body: "Bay crossing, a full day of hacking, an open kayak race on the water, sunset cruise, dinner at a waterfront restaurant, demos, judging, after-party on the yacht.",
   },
 ] as const;
 
@@ -55,8 +55,8 @@ const scoreSplit = [
   {
     weight: "20%",
     who: "Angels + VCs",
-    when: "1:1s on June 14",
-    body: "Bay Area investors do 1:1s with every builder all day at HQ — between bowling frames, on the patio. Their reaction lands in your final score, and the day doubles as a soft pitch tour.",
+    when: "Demos on June 14",
+    body: "Bay Area investors are at HQ all day while you build — between bowling frames, on the patio. They watch every demo, and their reaction lands in your final score.",
   },
 ];
 
@@ -162,12 +162,12 @@ const perks = [
   {
     tag: "Coffee tickets",
     title: "Coffee on tap",
-    body: "Tickets you can redeem any time you need to walk and think. Oakland-roasted, ten minutes from the dock.",
+    body: "Tickets you can redeem any time you need to walk and think. Locally roasted, ten minutes from the dock.",
   },
   {
     tag: "Open to everyone",
     title: "Kayak race",
-    body: "Open-water sprint between Jack London Square and the yacht's mooring. Builders, judges, sponsors — anyone can paddle. Winning team takes a bonus prize.",
+    body: "Open-water sprint between the dock and the yacht's mooring. Builders, judges, sponsors — anyone can paddle. Winning team takes a bonus prize.",
   },
   {
     tag: "Docked yacht",
@@ -185,12 +185,11 @@ const sdkPerks = [
 
 const schedule = [
   { time: "9:00 AM", title: "Depart by yacht", where: "South Beach, SF" },
-  { time: "10:00 AM", title: "Arrive in Oakland", where: "Jack London Square dock" },
-  { time: "10:30 AM", title: "Coffee + first 1:1s with judges", where: "Jack London Square" },
-  { time: "11:00 AM", title: "Lunch + 1:1 conversations begin", where: "Hackathon HQ" },
-  { time: "1:00 PM", title: "1:1s · pitch refinement · bowling · arcade", where: "Hackathon HQ" },
-  { time: "3:00 PM", title: "Coffee break", where: "Jack London Square" },
-  { time: "3:30 PM", title: "Kayak race · open to everyone", where: "Jack London Square waterfront" },
+  { time: "10:30 AM", title: "Dock + coffee + heads-down hacking", where: "Hackathon HQ" },
+  { time: "11:00 AM", title: "Lunch + build sprint", where: "Hackathon HQ" },
+  { time: "1:00 PM", title: "Hacking · bowling · arcade", where: "Hackathon HQ" },
+  { time: "3:00 PM", title: "Coffee break", where: "Hackathon HQ" },
+  { time: "3:30 PM", title: "Kayak race · open to everyone", where: "The waterfront" },
   { time: "4:30 PM", title: "Final presentations", where: "Hackathon HQ" },
   { time: "6:00 – 8:00 PM", title: "Sunset cruise · celebration", where: "On the bay" },
   { time: "8:15 PM", title: "Dinner · winners announced", where: "Waterfront restaurant" },
@@ -213,7 +212,7 @@ const faqs = [
   },
   {
     q: "What happens on June 14?",
-    a: "Finals day in Jack London Square — and there's no five-minute stage pitch. You spend the whole day in 1:1 conversations: angels and VCs over breakfast at HQ, sponsor judges over lunch and bowling, more 1:1s through the afternoon. A kayak race on the Oakland waterfront — open to anyone who shows up — runs before final presentations. Sunset cruise, dinner waterside, winners announced, the winner takes home $50K credits and a DGX Spark. After-party back on the docked yacht.",
+    a: "Finals day at Hackathon HQ — you spend it building. Heads-down hacking from the moment you dock, with sponsor engineers and investors around to unblock you and watch your build come together. A kayak race on the water — open to anyone who shows up — runs before final presentations. Sunset cruise, dinner waterside, winners announced, the winner takes home $50K credits and a DGX Spark. After-party back on the docked yacht.",
   },
   {
     q: "What does \"walking the plank\" mean?",
@@ -262,7 +261,7 @@ export default function HackJackLondonSquarePage() {
             </div>
             <RotatingHeroTitle className="mt-20" />
             <p className="mt-7 max-w-2xl text-xl text-ink-600 dark:text-ink-300">
-              Build an OpenClaw agent. 30 of the bay's best board the yacht June 14 — bowling, beer, sunset cruise.
+              30 of the bay's best board the yacht June 14 — building, bowling, beer, sunset cruise.
               $50K credits and a DGX Spark for the winner.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
@@ -318,7 +317,7 @@ export default function HackJackLondonSquarePage() {
           <SectionHeader
             eyebrow="Show us your claws"
             title={<>Post something cool you've built.<br />Tag us. That's your application.</>}
-            body="No essay, no resume, no five-paragraph cover letter. Show us why we should take you by showing us something you've already shipped — an OpenClaw agent, any agent, a demo, a weird side project. We're picking the 30 best agent builders in the bay. Local-ish preference but anyone can fly in."
+            body="No essay, no resume, no five-paragraph cover letter. Show us why we should take you by showing us something you've already shipped — an agent, a demo, a weird side project. We're picking the 30 best agent builders in the bay. Local-ish preference but anyone can fly in."
           />
           <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr]">
             <div className="card flex flex-col gap-5">
@@ -350,7 +349,7 @@ export default function HackJackLondonSquarePage() {
                 If you make the cut, you're already the best of the bay. Plus-ones can meet you on the dock at sunset.
               </p>
               <ul className="mt-5 grid gap-2 text-sm text-ink-100">
-                <li>· Build with the OpenClaw runtime. Local-first, deploys to Nebius in one command.</li>
+                <li>· Build with any stack — OpenClaw, Composio, Nebius, Tavily, ready from day one.</li>
                 <li>· 30 builders. That's it.</li>
                 <li>· Submissions read continuously through June 12.</li>
                 <li>· Finalists announced June 13.</li>
@@ -431,7 +430,7 @@ export default function HackJackLondonSquarePage() {
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">Schedule</p>
               <p className="mt-1 text-base font-medium text-ink-900 dark:text-ink-50">
-                Daily through June 14 — online plus in person across SF and Oakland.
+                Daily through June 14 — online plus in person across SF.
               </p>
             </div>
             <Link href="/builders/login" className="btn-lime text-xs px-5 py-2.5">
@@ -445,7 +444,7 @@ export default function HackJackLondonSquarePage() {
           <SectionHeader
             eyebrow="The boat"
             title="Meet the yacht."
-            body="80 feet of motor yacht docked at the Jack London Square marina. Five staterooms, six heads, hot tub on the top deck, and a main salon big enough to host the cruise crowd."
+            body="80 feet of motor yacht docked at the marina. Five staterooms, six heads, hot tub on the top deck, and a main salon big enough to host the cruise crowd."
           />
           <div className="overflow-hidden rounded-card border border-ink-200 bg-white dark:border-ink-700 dark:bg-ink-900">
             {/* Hero photo */}
@@ -600,7 +599,7 @@ export default function HackJackLondonSquarePage() {
           <SectionHeader
             eyebrow="How judging works"
             title="40% AI · 40% sponsors · 20% investors."
-            body="The score on June 14 is a blend. AI judges read every repo continuously through June 12. Sponsor engineers and investors do 1:1s with every builder all day on the waterfront — your pitch sharpens with each conversation. Final presentations before the sunset cruise."
+            body="The score on June 14 is a blend. AI judges read every repo continuously through June 12. Sponsor engineers and investors are at HQ all day while you build — they help you ship and review every demo. Final presentations before the sunset cruise."
           />
           <div className="grid gap-4 md:grid-cols-3">
             {scoreSplit.map((j) => (
@@ -658,8 +657,8 @@ export default function HackJackLondonSquarePage() {
         <Section id="schedule">
           <SectionHeader
             eyebrow="Finals day · June 14"
-            title="Cruise from South Beach to Jack London Square. Demos at dinner."
-            body="The boat day is for the top 30 builders. Bay crossing, all-day 1:1 conversations and pitch refinement on the waterfront, final presentations before the sunset cruise, dinner at a Jack London Square restaurant where winners are announced, after-party on the docked yacht. Times are firm — the boat doesn't wait."
+            title="Cruise from South Beach. Hack all day. Demos at dinner."
+            body="The boat day is for the top 30 builders. Bay crossing, a full day of heads-down hacking at HQ, final presentations before the sunset cruise, dinner at a waterfront restaurant where winners are announced, after-party on the docked yacht. Times are firm — the boat doesn't wait."
           />
           <ol className="overflow-hidden rounded-card border border-ink-200 bg-white dark:border-ink-700 dark:bg-ink-900">
             {schedule.map((row, i) => (

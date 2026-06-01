@@ -31,18 +31,17 @@ const timeline = [
     num: "04",
     date: "June 14",
     title: "Boat day",
-    body: "Bay crossing, polish on the waterfront, an open kayak race on the Oakland waterfront, sunset cruise, dinner at a Jack London Square restaurant, demos, judging, after-party on the yacht.",
+    body: "Bay crossing, a full day of hacking, an open kayak race on the water, sunset cruise, dinner at a waterfront restaurant, demos, judging, after-party on the yacht.",
   },
 ] as const;
 
 const finalsDaySchedule = [
   { time: "9:00 AM", title: "Depart by yacht", where: "South Beach, SF" },
-  { time: "10:00 AM", title: "Arrive in Oakland", where: "Jack London Square dock" },
-  { time: "10:30 AM", title: "Coffee + first 1:1s with judges", where: "Jack London Square" },
-  { time: "11:00 AM", title: "Lunch + 1:1 conversations begin", where: "Hackathon HQ" },
-  { time: "1:00 PM", title: "1:1s · pitch refinement · bowling · arcade", where: "Hackathon HQ" },
-  { time: "3:00 PM", title: "Coffee break", where: "Jack London Square" },
-  { time: "3:30 PM", title: "Kayak race · open to everyone", where: "Jack London Square waterfront" },
+  { time: "10:30 AM", title: "Dock + coffee + heads-down hacking", where: "Hackathon HQ" },
+  { time: "11:00 AM", title: "Lunch + build sprint", where: "Hackathon HQ" },
+  { time: "1:00 PM", title: "Hacking · bowling · arcade", where: "Hackathon HQ" },
+  { time: "3:00 PM", title: "Coffee break", where: "Hackathon HQ" },
+  { time: "3:30 PM", title: "Kayak race · open to everyone", where: "The waterfront" },
   { time: "4:30 PM", title: "Final presentations", where: "Hackathon HQ" },
   { time: "6:00 – 8:00 PM", title: "Sunset cruise · celebration", where: "On the bay" },
   { time: "8:15 PM", title: "Dinner · winners announced", where: "Waterfront restaurant" },
@@ -100,8 +99,8 @@ export default async function EventsIndex() {
         <section className="border-t border-ink-200 bg-ink-50 pt-16 pb-20 dark:border-ink-800 dark:bg-ink-800 sm:pb-24 lg:pb-28">
           <div className="container-page">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-navy-700 dark:text-lime">Finals day · June 14</p>
-            <h2 className="h-display text-3xl font-bold tracking-tight text-ink-900 md:text-4xl dark:text-ink-50">Cruise from South Beach to Jack London Square. Demos at dinner.</h2>
-            <p className="mt-4 max-w-3xl text-base text-ink-600 dark:text-ink-300">The boat day is for the top 40 builders. Bay crossing, all-day 1:1 conversations and pitch refinement on the waterfront, final presentations before the sunset cruise, dinner at a Jack London Square restaurant where winners are announced, after-party on the docked yacht. Times are firm — the boat doesn't wait.</p>
+            <h2 className="h-display text-3xl font-bold tracking-tight text-ink-900 md:text-4xl dark:text-ink-50">Cruise from South Beach. Hack all day. Demos at dinner.</h2>
+            <p className="mt-4 max-w-3xl text-base text-ink-600 dark:text-ink-300">The boat day is for the top 30 builders. Bay crossing, a full day of heads-down hacking at HQ, final presentations before the sunset cruise, dinner at a waterfront restaurant where winners are announced, after-party on the docked yacht. Times are firm — the boat doesn't wait.</p>
             <ol className="mt-10 overflow-hidden rounded-card border border-ink-200 bg-white dark:border-ink-700 dark:bg-ink-900">
               {finalsDaySchedule.map((row, i) => (
                 <li

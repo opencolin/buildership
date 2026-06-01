@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 // Route segment config
 export const runtime = "edge";
-export const alt = "BuilderShip — Build an OpenClaw agent. 30 builders board the yacht June 14, 2026. $50K credits and a DGX Spark for the winner.";
+export const alt = "BuilderShip — Build an AI agent. 30 builders board the yacht June 14, 2026. $50K credits and a DGX Spark for the winner.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -107,7 +107,7 @@ export default async function Image() {
               display: "flex",
             }}
           >
-            Build an OpenClaw agent. 30 builders. One yacht. $50K credits + DGX Spark.
+            Build an AI agent. 30 builders. One yacht. $50K credits + DGX Spark.
           </div>
         </div>
 
