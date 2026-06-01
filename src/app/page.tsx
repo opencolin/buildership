@@ -300,18 +300,6 @@ export default function HackJackLondonSquarePage() {
               </Link>
             </div>
             <CountdownToDeadline className="mt-14" />
-            <dl className="mt-10 grid grid-cols-2 gap-y-8 sm:grid-cols-3 sm:gap-y-0">
-              {[
-                ["Submit by", "June 12"],
-                ["Boat day", "June 14"],
-                ["Finalists", "30 max"],
-              ].map(([label, value]) => (
-                <div key={label}>
-                  <dt className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">{label}</dt>
-                  <dd className="mt-2 text-2xl font-bold text-navy-700 dark:text-lime">{value}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
         </section>
 
