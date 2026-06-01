@@ -148,7 +148,7 @@ const venues = [
 
 const timeline = [
   { date: "June 3 → 12", title: "Build period", body: "Daily office hours for 10 days. Your team is in the room." },
-  { date: "June 12 → 29", title: "Judging", body: "AI judges read every repo. Top 30 finalists named the night of the 29th." },
+  { date: "June 12 → 13", title: "Judging", body: "AI judges read every repo. Top 30 finalists named the night of the 13th." },
   { date: "June 14", title: "Boat day", body: "Bay crossing, all-day 1:1s at Plank, sunset demos, dinner at Farmhouse, winner walks the plank, after-party on the docked yacht." },
 ];
 
