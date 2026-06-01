@@ -266,7 +266,7 @@ export default function HackJackLondonSquarePage() {
             </div>
             <RotatingHeroTitle className="mt-20" />
             <p className="mt-7 max-w-2xl text-xl text-ink-600 dark:text-ink-300">
-              Best builders of the bay. 30 onboard — building, bowling, beer, beluga caviar, sunset cruise.
+              Best builders of the bay. 30 onboard — building, bowling, beer, sunset cruise.
               Compete for $50K credits and a DGX Spark.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">

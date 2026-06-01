@@ -1,5 +1,15 @@
 # Nebius Builders — Product Requirements Document
 
+> **⚠️ STALE — kept for historical reference only.** This PRD describes a
+> multi-product "Nebius Builders" platform vision (marketing site +
+> builder app + event-manager + cloud IDE + workshops + pricing tiers).
+> The shipped product is **BuilderShip**, a single-page event landing
+> at [ship.builders](https://ship.builders) for the June 14, 2026
+> hackathon. The two scopes barely overlap. Do not scope new work from
+> this doc. The current source of truth for shipped behavior is the
+> code under `src/app/` plus `LAUNCH_PLAN.md` + `PUNCHLIST.md`.
+
+
 **Document version:** v0.2 (Nebius / OpenClaw rebrand)
 **Date:** 2026-05-06
 **Source material:**
