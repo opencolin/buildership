@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3030",
-    "build": "npm run db:migrate && npm run db:seed && next build",
+    "build": "next build",
+    "build:with-db": "npm run db:migrate && npm run db:seed && next build",
+    "release": "npm run db:migrate && npm run db:seed",
     "start": "next start -p 3030",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",

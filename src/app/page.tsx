@@ -9,7 +9,7 @@ import { CountdownToDeadline } from "@/components/countdown-to-deadline";
 export const metadata: Metadata = {
   title: { absolute: "BuilderShip — Countdown to June 12, finals on the bay" },
   description:
-    "BuilderShip: a remote AI hackathon with daily office hours, counting down to June 12. Top 40 builders earn a boat day on the bay, June 14 — bay crossing, all-day 1:1 pitches in Jack London Square, final presentations, sunset cruise, waterfront dinner, the winner takes home $50K credits and a DGX Spark, after-party on the yacht. Hosted by Composio, Nebius, Tavily, and OpenClaw.",
+    "BuilderShip: a remote AI hackathon with daily office hours, counting down to June 12. Top 30 builders earn a boat day on the bay, June 14 — bay crossing, all-day 1:1 pitches in Jack London Square, final presentations, sunset cruise, waterfront dinner, the winner takes home $50K credits and a DGX Spark, after-party on the yacht. Hosted by Composio, Nebius, Tavily, and OpenClaw.",
 };
 
 const timeline = [
@@ -29,7 +29,7 @@ const timeline = [
     num: "03",
     date: "June 13",
     title: "Finalists announced",
-    body: "Top 40 builders named the night before. Twenty-four hours to polish your pitch and pack a jacket for the bay.",
+    body: "Top 30 builders named the night before. Twenty-four hours to polish your pitch and pack a jacket for the bay.",
   },
   {
     num: "04",
@@ -44,7 +44,7 @@ const scoreSplit = [
     weight: "40%",
     who: "AI judges",
     when: "Continuous through June 12",
-    body: "Read every GitHub repo. Score reproducibility, integration depth, and how working the working demo actually is.",
+    body: "Read every GitHub repo. Score reproducibility, integration depth, and how working the demo actually is.",
   },
   {
     weight: "40%",
@@ -213,7 +213,7 @@ const faqs = [
   },
   {
     q: "How does scoring work?",
-    a: "Two phases. AI judges read every GitHub submission as it comes in and pick the top 40 builders by June 12. On June 14, your score is a blend: 40% AI judges, 40% sponsor teams, 20% the angel investors and VCs in the room. Every judge scores against the same five-axis rubric (working demo, integration depth, usefulness, code quality, pitch) — see the rubric section above. Everyone you talk to that day is voting.",
+    a: "Two phases. AI judges read every GitHub submission as it comes in and pick the top 30 builders by June 12. On June 14, your score is a blend: 40% AI judges, 40% sponsor teams, 20% the angel investors and VCs in the room. Every judge scores against the same five-axis rubric (working demo, integration depth, usefulness, code quality, pitch) — see the rubric section above. Everyone you talk to that day is voting.",
   },
   {
     q: "What happens on June 14?",
@@ -225,7 +225,7 @@ const faqs = [
   },
   {
     q: "What if I can't make it to the boat?",
-    a: "Submissions are still welcome — you can build remotely and skip the boat day. If you make the top 40 and can't travel, we'll provide a land route to your final presentation. Boat capacity caps the in-person cohort.",
+    a: "Submissions are still welcome — you can build remotely and skip the boat day. If you make the top 30 and can't travel, we'll provide a land route to your final presentation. Boat capacity caps the in-person cohort.",
   },
   {
     q: "What should I bring on June 14?",
@@ -266,7 +266,7 @@ export default function HackJackLondonSquarePage() {
             </div>
             <RotatingHeroTitle className="mt-20" />
             <p className="mt-7 max-w-2xl text-xl text-ink-600 dark:text-ink-300">
-              Best builders of the bay. 40 onboard — building, bowling, beer, beluga caviar, sunset cruise.
+              Best builders of the bay. 30 onboard — building, bowling, beer, beluga caviar, sunset cruise.
               Compete for $50K credits and a DGX Spark.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
@@ -306,7 +306,7 @@ export default function HackJackLondonSquarePage() {
               {[
                 ["Submit by", "June 12"],
                 ["Boat day", "June 14"],
-                ["Finalists", "40 max"],
+                ["Finalists", "30 max"],
               ].map(([label, value]) => (
                 <div key={label}>
                   <dt className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">{label}</dt>
@@ -350,11 +350,11 @@ export default function HackJackLondonSquarePage() {
             <div className="card bg-navy-700 text-white">
               <p className="text-xs font-semibold uppercase tracking-widest text-lime">The bar</p>
               <p className="mt-3 text-base leading-relaxed text-ink-100">
-                We pick 40 builders for the boat. Selection is on-going as posts come in — no deadline drama.
+                We pick 30 builders for the boat. Selection is on-going as posts come in — no deadline drama.
                 If you make the cut, you're already the best of the bay. Plus-ones can meet you on the dock at sunset.
               </p>
               <ul className="mt-5 grid gap-2 text-sm text-ink-100">
-                <li>· 40 builders. That's it.</li>
+                <li>· 30 builders. That's it.</li>
                 <li>· Submissions read continuously through June 12.</li>
                 <li>· Finalists announced June 13.</li>
                 <li>· Boat leaves South Beach 9 AM June 14.</li>
@@ -387,7 +387,7 @@ export default function HackJackLondonSquarePage() {
           <SectionHeader
             eyebrow="Finalist perks"
             title="Make finals, win the boat day."
-            body="Only the top 40 — best of the best — earn the trip. Six experience perks on the house, plus the sponsor stack (that one's available to every builder from day one). Win the whole thing and you walk the plank."
+            body="Only the top 30 — best of the best — earn the trip. Six experience perks on the house, plus the sponsor stack (that one's available to every builder from day one). Win the whole thing and you walk the plank."
           />
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {perks.map((p) => (
@@ -626,7 +626,7 @@ export default function HackJackLondonSquarePage() {
             ))}
           </div>
           <p className="mt-6 text-xs text-ink-500 dark:text-ink-400">
-            Each judge scores only the axes they grade (AI: demo + usefulness + code; sponsors: demo + integration; investors: usefulness + pitch). Their score is normalized to <span className="font-mono">0–10</span>, then composite = <span className="font-mono">(AI × 0.4) + (Sponsor × 0.4) + (Investor × 0.2)</span>. Public leaderboard goes live June 13 with the top 40.
+            Each judge scores only the axes they grade (AI: demo + usefulness + code; sponsors: demo + integration; investors: usefulness + pitch). Their score is normalized to <span className="font-mono">0–10</span>, then composite = <span className="font-mono">(AI × 0.4) + (Sponsor × 0.4) + (Investor × 0.2)</span>. Public leaderboard goes live June 13 with the top 30.
           </p>
         </Section>
 
@@ -635,7 +635,7 @@ export default function HackJackLondonSquarePage() {
           <SectionHeader
             eyebrow="Finals day · June 14"
             title="Cruise from South Beach to Jack London Square. Demos at dinner."
-            body="The boat day is for the top 40 builders. Bay crossing, all-day 1:1 conversations and pitch refinement on the waterfront, final presentations before the sunset cruise, dinner at a Jack London Square restaurant where winners are announced, after-party on the docked yacht. Times are firm — the boat doesn't wait."
+            body="The boat day is for the top 30 builders. Bay crossing, all-day 1:1 conversations and pitch refinement on the waterfront, final presentations before the sunset cruise, dinner at a Jack London Square restaurant where winners are announced, after-party on the docked yacht. Times are firm — the boat doesn't wait."
           />
           <ol className="overflow-hidden rounded-card border border-ink-200 bg-white dark:border-ink-700 dark:bg-ink-900">
             {schedule.map((row, i) => (
@@ -686,7 +686,7 @@ export default function HackJackLondonSquarePage() {
                 Ship it right now →
               </Link>
               <Link
-                href="mailto:events@agenthack.ai"
+                href="mailto:collin@dabl.club?subject=BuilderShip%20sponsor%20inquiry"
                 className="btn bg-white text-navy-700 hover:bg-ink-100 px-6 py-3.5 text-sm"
               >
                 Sponsor inquiry →
