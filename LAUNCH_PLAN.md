@@ -83,13 +83,13 @@ external (e.g. CI, deploy), I'll log it and move to parallel work.
 
 | Phase | Status | Artifact | Started | Finished |
 |---|---|---|---|---|
-| Discovery | not started | `/.launch/discovery.json` | | |
-| Council | not started | `/.launch/council/*.json` | | |
-| Synthesis | not started | `/PUNCHLIST.md` | | |
-| v0.1 critical | not started | `.worktrees/v0.1-critical` | | |
-| v0.2 polish | not started | `.worktrees/v0.2-polish` | | |
-| v0.5 content | not started | `.worktrees/v0.5-content` | | |
-| v1.0 launch tag | not started | `main` @ `v1.0` | | |
+| Discovery | **DONE** (wf_24a26928-b9b) | `/.launch/discovery-synthesis.md` + `/.launch/raw-reports/` | 2026-05-28 | 2026-05-28 |
+| Council | **DONE** (wf_3cacae24-015) | `/.launch/council/*.md` (5 PMs) | 2026-05-28 | 2026-05-28 |
+| Synthesis | **DONE** | `/PUNCHLIST.md` | 2026-05-28 | 2026-05-28 |
+| v0.1 critical | **MERGED to main** (9/12 done; 3 pending Colin) | `main` @ `cff0bd9` | 2026-05-28 | 2026-06-01 |
+| v0.2 polish | **worktree ready** | `.worktrees/v0.2-polish` (branch `v0.2-polish`) | 2026-05-28 | |
+| v0.5 content | **worktree ready** | `.worktrees/v0.5-content` (branch `v0.5-content`) | 2026-05-28 | |
+| v1.0 launch tag | not started (needs v0.2 + v0.5 first) | `main` @ `v1.0` | | |
 | v1.5 reactive | post-launch | `.worktrees/v1.5-reactive` | | |
 | v2.0 structural | post-launch | `.worktrees/v2.0-structural` | | |
 
@@ -97,7 +97,30 @@ external (e.g. CI, deploy), I'll log it and move to parallel work.
 
 > Track active worktrees here. Format: `branch — purpose — last-commit-sha — owner-agent`.
 
-(none yet)
+**v0.1-critical** (merged + landed on main):
+- Cohort 40 → 30 finalists (homepage, layout, OG, share-button, data, seed)
+- Typo fix (page.tsx:47 "how working the working demo")
+- Off-brand mailto (page.tsx:689 — agenthack.ai → collin@dabl.club)
+- OG image (`src/app/opengraph-image.tsx` — 1200x630, lobster-yacht theme, ship.builders + sponsor wordmarks)
+- Favicon (`src/app/icon.svg` — copy of public/brand/buildership-mark.svg)
+- "no deadline drama" → "one clean deadline, no extension games"
+- CTA "Ship it right now →" → "Show us your claws →" (matches section eyebrow)
+- Auth slug bug fix (CODE_CRUISE_SLUG = "code-cruise" → BUILDERSHIP_SLUG = "buildership")
+- Build decoupling: `build` is now just `next build`; `release` runs migrate+seed separately
+- Satori display:flex hotfix on OG image
+
+**v0.1 items deferred to Colin** (needs his input before I touch):
+- Vercel Production env vars (DATABASE_URL, AUTH_SECRET, AUTH_GITHUB_*, NEXT_PUBLIC_*) — dashboard action
+- OpenClaw resolution (council default = demote to workshop partner; Colin can override by confirming co-host commitment + supplying wordmark)
+- `/sponsors-only` pricing intent confirmation (public OK, or needs auth?)
+
+**v0.2-polish** (next, queued):
+- CI gate (.github/workflows/ci.yml)
+- Hero image compression (lobster-yacht-bridge.png 2.1 MB)
+- /sponsors-only gating (pending Colin Q above)
+- Wire/remove decorative ⌘K input on /docs
+- Remove duplicate /public/nebius-wordmark.svg
+- Twitter card creator/site handle
 
 ## Conventions for resuming agents
 
