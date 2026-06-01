@@ -136,16 +136,17 @@ const sponsors = [
     docs: "https://docs.tavily.com",
     accent: "navy",
   },
-  {
-    name: "OpenClaw",
-    role: "Open agent runtime",
-    blurb:
-      "Open-source agent framework for building, deploying, and operating agents on your terms. Local-first install, ships to Nebius Serverless in one command, plays nicely with Composio and Tavily out of the box.",
-    site: "https://github.com/opencolin/openclaw-deploy",
-    docs: "https://github.com/opencolin/openclaw-deploy#readme",
-    accent: "lime",
-  },
 ] as const;
+
+const techStack = {
+  name: "OpenClaw",
+  role: "Open agent runtime",
+  blurb:
+    "The open-source framework you build on. Local-first install, ships to Nebius Serverless in one command, and plays nicely with Composio and Tavily out of the box. Bring an agent, leave with something deployed.",
+  site: "https://github.com/opencolin/openclaw-deploy",
+  docs: "https://github.com/opencolin/openclaw-deploy#readme",
+  accent: "lime",
+} as const;
 
 const perks = [
   {
@@ -536,7 +537,7 @@ export default function HackJackLondonSquarePage() {
             title="Build something real."
             body="Each sponsor is an organizer — their teams are on the boat, in the room with builders, and judging at the end. Bring an idea, leave with credits and a working agent."
           />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {sponsors.map((s) => (
               <div key={s.name} className="card flex flex-col">
                 <div
@@ -564,6 +565,38 @@ export default function HackJackLondonSquarePage() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Technology stack — OpenClaw is the open runtime, not a sponsor */}
+          <div className="mt-12">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">Technology stack</p>
+            <div className="card flex flex-col gap-5 md:flex-row md:items-center">
+              <div
+                className={`flex h-24 w-full items-center justify-center rounded-card md:w-64 md:flex-none ${
+                  techStack.accent === "lime" ? "bg-lime" : "bg-navy-700"
+                }`}
+              >
+                <span
+                  className={`h-display text-3xl font-bold tracking-tight ${
+                    techStack.accent === "lime" ? "text-navy-700" : "text-white"
+                  }`}
+                >
+                  {techStack.name}
+                </span>
+              </div>
+              <div className="flex flex-1 flex-col">
+                <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">{techStack.role}</p>
+                <p className="mt-3 text-sm leading-relaxed text-ink-700 dark:text-ink-200">{techStack.blurb}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <Link href={techStack.site} className="btn-outline text-xs" target="_blank" rel="noreferrer">
+                    GitHub ↗
+                  </Link>
+                  <Link href={techStack.docs} className="btn-navy text-xs" target="_blank" rel="noreferrer">
+                    Read the docs →
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </Section>
 
