@@ -130,9 +130,6 @@ export default function DocsHome() {
               Five SDKs, one deadline. Quickstarts and official docs for every sponsor — Composio, Nebius Token Factory,
               Nebius AI Cloud, Tavily, OpenClaw — plus the BuilderShip platform docs.
             </p>
-            <div className="mt-6 max-w-xl">
-              <input type="search" className="input" placeholder="Search docs… (⌘K)" />
-            </div>
             <nav className="mt-6 flex flex-wrap gap-2 text-sm">
               {sponsorDocs.map((s) => (
                 <a

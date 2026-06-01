@@ -1,0 +1,39 @@
+name: CI
+
+# Cheap deploy gate. Runs on every PR to main and on pushes to main.
+# Goal: catch typecheck/build breaks before they hit Vercel Production.
+# Does NOT run db:migrate or db:seed — those are decoupled from the build
+# step (see package.json `release` script).
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install
+        run: npm ci --no-audit --no-fund
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build
+        env:
+          # Dummy values so the build doesn't fail on env.ts validation.
+          # Real env vars live in Vercel Production scope.
+          DATABASE_URL: "postgresql://ci:ci@localhost/ci"
+          AUTH_SECRET: "ci-only-dummy-secret-not-used-at-runtime-32chars"
+          NEXT_PUBLIC_APP_URL: "https://ship.builders"

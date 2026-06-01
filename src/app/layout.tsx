@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@ship_builders",
+    creator: "@ship_builders",
     title: "BuilderShip — Countdown to June 12, finals on the bay",
     description:
       "30 hand-picked builders. Daily office hours until the June 12 deadline. One boat day on June 14. Hosted by Composio, Nebius, Tavily, and OpenClaw.",
