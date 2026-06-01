@@ -107,9 +107,10 @@ const sponsorDocs: SponsorDoc[] = [
       "Sandboxed tool execution by default",
       "Deploys to Nebius Serverless with one command",
     ],
-    primary: { label: "openclaw-deploy on GitHub", href: "https://github.com/opencolin/openclaw-deploy", external: true },
+    primary: { label: "OpenClaw docs", href: "https://docs.openclaw.ai/", external: true },
     links: [
-      { label: "README", href: "https://github.com/opencolin/openclaw-deploy#readme", external: true },
+      { label: "openclaw.ai", href: "https://openclaw.ai", external: true },
+      { label: "openclaw-deploy on GitHub", href: "https://github.com/opencolin/openclaw-deploy", external: true },
       { label: "Internal: install OpenClaw", href: "/docs/builders/install-openclaw" },
       { label: "Internal: local install", href: "/docs/openclaw/local-install" },
       { label: "Internal: Docker", href: "/docs/openclaw/docker" },

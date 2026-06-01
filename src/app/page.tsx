@@ -50,7 +50,7 @@ const scoreSplit = [
     weight: "40%",
     who: "Sponsor teams",
     when: "Office hours + boat day",
-    body: "Composio, Nebius, Tavily, and OpenClaw engineers stress-test the integration against their platform. They've been at office hours all month — by June 14 they know your codebase.",
+    body: "Composio, Nebius, and Tavily engineers stress-test the integration against their platform. They've been at office hours all month — by June 14 they know your codebase.",
   },
   {
     weight: "20%",
@@ -71,7 +71,7 @@ const rubric = [
     axis: "Integration depth",
     weight: "0–10",
     grader: "Sponsors",
-    body: "How deeply you use the sponsor stack — Composio tools, Tavily search, Nebius inference, OpenClaw runtime. One API call is 2; meaningful integration across services is 8+.",
+    body: "How deeply you use the stack — Composio tools, Tavily search, Nebius inference, the OpenClaw runtime. One API call is 2; meaningful integration across services is 8+.",
   },
   {
     axis: "Usefulness",
@@ -143,8 +143,8 @@ const techStack = {
   role: "Open agent runtime",
   blurb:
     "The open-source framework you build on. Local-first install, ships to Nebius Serverless in one command, and plays nicely with Composio and Tavily out of the box. Bring an agent, leave with something deployed.",
-  site: "https://github.com/opencolin/openclaw-deploy",
-  docs: "https://github.com/opencolin/openclaw-deploy#readme",
+  site: "https://openclaw.ai",
+  docs: "https://docs.openclaw.ai/",
   accent: "lime",
 } as const;
 
@@ -389,7 +389,7 @@ export default function HackJackLondonSquarePage() {
           <SectionHeader
             eyebrow="Finalist perks"
             title="Make finals, win the boat day."
-            body="Only the top 30 — best of the best — earn the trip. Six experience perks on the house, plus the sponsor stack (that one's available to every builder from day one). Win the whole thing and you walk the plank."
+            body="Only the top 30 — best of the best — earn the trip. Six experience perks on the house, plus the build stack (that one's available to every builder from day one). Win the whole thing and you walk the plank."
           />
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {perks.map((p) => (
@@ -401,7 +401,7 @@ export default function HackJackLondonSquarePage() {
             ))}
           </div>
           <div className="mt-8 rounded-card border border-ink-200 bg-white dark:border-ink-700 dark:bg-ink-900 p-6">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">And the sponsor stack</p>
+            <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">And the build stack</p>
             <ul className="grid gap-3 sm:grid-cols-3">
               {sdkPerks.map((line) => (
                 <li key={line} className="flex items-start gap-3 text-sm text-ink-800 dark:text-ink-100">
@@ -589,7 +589,7 @@ export default function HackJackLondonSquarePage() {
                 <p className="mt-3 text-sm leading-relaxed text-ink-700 dark:text-ink-200">{techStack.blurb}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   <Link href={techStack.site} className="btn-outline text-xs" target="_blank" rel="noreferrer">
-                    GitHub ↗
+                    Website ↗
                   </Link>
                   <Link href={techStack.docs} className="btn-navy text-xs" target="_blank" rel="noreferrer">
                     Read the docs →

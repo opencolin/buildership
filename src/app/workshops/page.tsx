@@ -25,7 +25,7 @@ export default function WorkshopsIndex({
           <div className="container-page py-16">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">Workshops</p>
             <h1 className="h-display text-4xl font-bold tracking-tight text-ink-900 md:text-5xl dark:text-ink-50">Watch what shipped. Run it yourself.</h1>
-            <p className="mt-4 max-w-2xl text-lg text-ink-600 dark:text-ink-300">Sponsor-led workshops on Nebius Token Factory, OpenClaw, Composio, and Tavily. Hit play, then hit your terminal.</p>
+            <p className="mt-4 max-w-2xl text-lg text-ink-600 dark:text-ink-300">Hands-on workshops across the stack — Nebius Token Factory, OpenClaw, Composio, and Tavily. Hit play, then hit your terminal.</p>
             <div className="mt-8 flex flex-wrap gap-2">
               {tags.map((t) => (
                 <Link
