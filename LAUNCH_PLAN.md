@@ -87,11 +87,11 @@ external (e.g. CI, deploy), I'll log it and move to parallel work.
 | Council | **DONE** (wf_3cacae24-015) | `/.launch/council/*.md` (5 PMs) | 2026-05-28 | 2026-05-28 |
 | Synthesis | **DONE** | `/PUNCHLIST.md` | 2026-05-28 | 2026-05-28 |
 | v0.1 critical | **MERGED to main** (9/12 done; 3 pending Colin) | `main` @ `cff0bd9` | 2026-05-28 | 2026-06-01 |
-| v0.2 polish | **worktree ready** | `.worktrees/v0.2-polish` (branch `v0.2-polish`) | 2026-05-28 | |
-| v0.5 content | **worktree ready** | `.worktrees/v0.5-content` (branch `v0.5-content`) | 2026-05-28 | |
-| v1.0 launch tag | not started (needs v0.2 + v0.5 first) | `main` @ `v1.0` | | |
-| v1.5 reactive | post-launch | `.worktrees/v1.5-reactive` | | |
-| v2.0 structural | post-launch | `.worktrees/v2.0-structural` | | |
+| v0.2 polish | **MERGED to main** | `main` @ `6ca4638` | 2026-06-01 | 2026-06-01 |
+| v0.5 content | **MERGED to main** | `main` @ `6a729b9` | 2026-06-01 | 2026-06-01 |
+| v1.0 launch tag | **ready to tag** (3 Colin items still open) | `main` @ next push | | |
+| v1.5 reactive | **worktree ready + plan written** | `.worktrees/v1.5-reactive` + `.launch/v1.5-plan.md` | 2026-06-01 | post-launch |
+| v2.0 structural | **worktree ready + plan written** | `.worktrees/v2.0-structural` + `.launch/v2.0-plan.md` | 2026-06-01 | post-event |
 
 ## Open worktrees
 
