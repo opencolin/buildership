@@ -9,7 +9,7 @@ import { CountdownToDeadline } from "@/components/countdown-to-deadline";
 export const metadata: Metadata = {
   title: { absolute: "BuilderShip — Countdown to June 12, finals on the bay" },
   description:
-    "BuilderShip: a remote AI hackathon with daily office hours, counting down to June 12. Top 30 builders earn a boat day on the bay, June 14 — bay crossing, all-day 1:1 pitches in Jack London Square, final presentations, sunset cruise, waterfront dinner, the winner takes home $50K credits and a DGX Spark, after-party on the yacht. Hosted by Composio, Nebius, Tavily, and OpenClaw.",
+    "BuilderShip: a remote AI hackathon with daily office hours, counting down to June 12. Build an OpenClaw agent — top 30 builders earn a boat day on the bay, June 14 — bay crossing, all-day 1:1 pitches in Jack London Square, final presentations, sunset cruise, waterfront dinner, the winner takes home $50K credits and a DGX Spark, after-party on the yacht. Hosted by Composio, Nebius, and Tavily.",
 };
 
 const timeline = [
