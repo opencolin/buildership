@@ -264,6 +264,9 @@ export default function HackJackLondonSquarePage() {
               30 of the bay's best board the yacht June 14 — building, bowling, beer, sunset cruise.
               $50K credits and a DGX Spark for the winner.
             </p>
+            <p className="mt-4 text-sm font-semibold text-navy-700 dark:text-lime">
+              Finalists are selected by an OpenClaw agent.
+            </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">Hosted by</span>
               {/* eslint-disable-next-line @next/next/no-img-element */}
