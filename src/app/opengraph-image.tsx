@@ -52,7 +52,7 @@ export default async function Image() {
         >
           <span
             style={{
-              display: "inline-flex",
+              display: "flex",
               alignItems: "center",
               gap: 12,
               padding: "10px 18px",
