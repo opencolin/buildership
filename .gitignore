@@ -1,18 +1,20 @@
-node_modules
-.next
-out
+*.log
+.DS_Store
+.claude/
 .env
+.env*.local
+.env.development
 .env.local
 .env.production
-.env.development
-.DS_Store
-*.log
-.vercel
-next-env.d.ts
-.claude/
 .gstack/
-.env*.local
-tsconfig.tsbuildinfo
+.launch/
+.next
+.vercel
+.worktrees/
 Nebius Builders Boat Hackathon/*.docx
 Nebius Builders Boat Hackathon/*.pdf
 Nebius Builders Boat Hackathon/*.textClipping
+next-env.d.ts
+node_modules
+out
+tsconfig.tsbuildinfo
