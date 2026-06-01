@@ -17,7 +17,7 @@ import {
 } from "@/server/db/schema";
 import { env } from "@/server/env";
 
-const CODE_CRUISE_SLUG = "code-cruise";
+const BUILDERSHIP_SLUG = "buildership";
 
 const providers: NextAuthConfig["providers"] = [];
 
@@ -98,7 +98,7 @@ export const authConfig = {
         const [event] = await db
           .select({ id: events.id })
           .from(events)
-          .where(eq(events.slug, CODE_CRUISE_SLUG))
+          .where(eq(events.slug, BUILDERSHIP_SLUG))
           .limit(1);
         if (!event) return;
         await db

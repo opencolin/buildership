@@ -292,7 +292,7 @@ export default function HackJackLondonSquarePage() {
             </div>
             <div className="mt-10 flex flex-wrap items-center gap-3">
               <Link href="#apply" className="btn-lime px-6 py-3.5 text-sm">
-                Ship it right now →
+                Show us your claws →
               </Link>
               <Link href="#how-it-works" className="btn-outline px-6 py-3.5 text-sm">
                 Schedule
@@ -350,7 +350,7 @@ export default function HackJackLondonSquarePage() {
             <div className="card bg-navy-700 text-white">
               <p className="text-xs font-semibold uppercase tracking-widest text-lime">The bar</p>
               <p className="mt-3 text-base leading-relaxed text-ink-100">
-                We pick 30 builders for the boat. Selection is on-going as posts come in — no deadline drama.
+                We pick 30 builders for the boat. Selection is on-going as posts come in — one clean deadline, no extension games.
                 If you make the cut, you're already the best of the bay. Plus-ones can meet you on the dock at sunset.
               </p>
               <ul className="mt-5 grid gap-2 text-sm text-ink-100">
@@ -683,7 +683,7 @@ export default function HackJackLondonSquarePage() {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
               <Link href="#apply" className="btn-lime px-6 py-3.5 text-sm">
-                Ship it right now →
+                Show us your claws →
               </Link>
               <Link
                 href="mailto:collin@dabl.club?subject=BuilderShip%20sponsor%20inquiry"
