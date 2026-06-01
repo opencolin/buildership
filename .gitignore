@@ -7,7 +7,6 @@
 .env.local
 .env.production
 .gstack/
-.launch/
 .next
 .vercel
 .worktrees/
