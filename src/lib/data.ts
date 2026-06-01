@@ -448,7 +448,7 @@ export const workshops: Workshop[] = [
     description:
       "Free short video course featuring Cursor's co-founder + Nebius Academy experts. Learn agentic development end-to-end: context management, parallel agents, browser/CLI testing, custom rules, automated docs, and prompt patterns that hold up in production.",
     chapters: [],
-    tags: ["openclaw", "cursor", "agents", "course", "tutorial"],
+    tags: ["nebius", "cursor", "agents", "course", "tutorial"],
     ctaUrl: "https://academy.nebius.com/aicoding/cursor",
     ctaLabel: "Go to the course →",
     watchCount: 0,
@@ -484,7 +484,7 @@ export const workshops: Workshop[] = [
     description:
       "Become an AI-powered engineer through self-paced training in AI-assisted programming. Industry experts and tutors from leading tech companies. Includes 3 months of any JetBrains IDE free.",
     chapters: [],
-    tags: ["openclaw", "jetbrains", "agents", "course"],
+    tags: ["nebius", "jetbrains", "agents", "course"],
     ctaUrl: "https://futurecoding.ai/",
     ctaLabel: "Go to futurecoding.ai →",
     watchCount: 0,
@@ -522,7 +522,7 @@ export const workshops: Workshop[] = [
     description:
       "End-to-end testing strategies for browser and CLI agents. Practical patterns for keeping agents reliable.",
     chapters: [],
-    tags: ["openclaw", "agents", "testing", "tutorial"],
+    tags: ["nebius", "agents", "testing", "tutorial"],
     ctaUrl: "https://www.youtube.com/watch?v=wYZU5AUkI-M",
     ctaLabel: "Watch on YouTube →",
     watchCount: 0,
@@ -539,7 +539,7 @@ export const workshops: Workshop[] = [
     description:
       "Common pitfalls in agent prompt engineering — what AGENTS.md gets wrong and what to do instead.",
     chapters: [],
-    tags: ["openclaw", "agents", "prompts"],
+    tags: ["nebius", "agents", "prompts"],
     ctaUrl: "https://www.youtube.com/watch?v=cQFTK3NiO6U",
     ctaLabel: "Watch on YouTube →",
     watchCount: 0,
@@ -556,7 +556,7 @@ export const workshops: Workshop[] = [
     description:
       "Failure modes of AI coding agents and patterns that hold up in production. Honest critique + remediation.",
     chapters: [],
-    tags: ["openclaw", "agents", "cursor", "claude-code"],
+    tags: ["nebius", "agents", "cursor", "claude-code"],
     ctaUrl: "https://www.youtube.com/watch?v=AF2vqs8Trfo",
     ctaLabel: "Watch on YouTube →",
     watchCount: 0,
@@ -573,7 +573,7 @@ export const workshops: Workshop[] = [
     description:
       "Practical patterns for keeping docs in sync with code, backend and frontend. Tooling + agent flows.",
     chapters: [],
-    tags: ["openclaw", "agents", "documentation"],
+    tags: ["nebius", "agents", "documentation"],
     ctaUrl: "https://www.youtube.com/watch?v=DFEgod82SlM",
     ctaLabel: "Watch on YouTube →",
     watchCount: 0,
@@ -590,7 +590,7 @@ export const workshops: Workshop[] = [
     description:
       "Parallel execution and custom agent patterns with Claude Code. Worked examples + best practices.",
     chapters: [],
-    tags: ["openclaw", "claude-code", "agents", "tutorial"],
+    tags: ["nebius", "claude-code", "agents", "tutorial"],
     ctaUrl: "https://www.youtube.com/watch?v=6VC-TuWVlCc",
     ctaLabel: "Watch on YouTube →",
     watchCount: 0,
@@ -607,7 +607,7 @@ export const workshops: Workshop[] = [
     description:
       "Get consistent, predictable behavior from your AI pair programmer. How to author Cursor rules that hold.",
     chapters: [],
-    tags: ["openclaw", "cursor", "agents", "rules"],
+    tags: ["nebius", "cursor", "agents", "rules"],
     ctaUrl: "https://www.youtube.com/watch?v=GV62OTdLLhw",
     ctaLabel: "Watch on YouTube →",
     watchCount: 0,
@@ -624,7 +624,7 @@ export const workshops: Workshop[] = [
     description:
       "The future of coding agents and natural-language software development. Where the agent paradigm is heading.",
     chapters: [],
-    tags: ["openclaw", "agents"],
+    tags: ["nebius", "agents"],
     ctaUrl: "https://www.youtube.com/watch?v=rZ2eVAeXx6k",
     ctaLabel: "Watch on YouTube →",
     watchCount: 0,
@@ -641,7 +641,7 @@ export const workshops: Workshop[] = [
     description:
       "Keep coding agents consistent across teams and codebases. Patterns for shared rules and config.",
     chapters: [],
-    tags: ["openclaw", "agents", "rules"],
+    tags: ["nebius", "agents", "rules"],
     ctaUrl: "https://www.youtube.com/watch?v=9aMa7KBExuc",
     ctaLabel: "Watch on YouTube →",
     watchCount: 0,

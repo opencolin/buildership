@@ -266,8 +266,8 @@ export default function HackJackLondonSquarePage() {
             </div>
             <RotatingHeroTitle className="mt-20" />
             <p className="mt-7 max-w-2xl text-xl text-ink-600 dark:text-ink-300">
-              Best builders of the bay. 30 onboard — building, bowling, beer, sunset cruise.
-              Compete for $50K credits and a DGX Spark.
+              Build an OpenClaw agent. 30 of the bay's best board the yacht June 14 — bowling, beer, sunset cruise.
+              $50K credits and a DGX Spark for the winner.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">Hosted by</span>
@@ -322,7 +322,7 @@ export default function HackJackLondonSquarePage() {
           <SectionHeader
             eyebrow="Show us your claws"
             title={<>Post something cool you've built.<br />Tag us. That's your application.</>}
-            body="No essay, no resume, no five-paragraph cover letter. Show us why we should take you by showing us something you've already shipped — an agent, a demo, a weird side project. We're picking the best builders of the bay. Local-ish preference but anyone can fly in."
+            body="No essay, no resume, no five-paragraph cover letter. Show us why we should take you by showing us something you've already shipped — an OpenClaw agent, any agent, a demo, a weird side project. We're picking the 30 best agent builders in the bay. Local-ish preference but anyone can fly in."
           />
           <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr]">
             <div className="card flex flex-col gap-5">
@@ -354,6 +354,7 @@ export default function HackJackLondonSquarePage() {
                 If you make the cut, you're already the best of the bay. Plus-ones can meet you on the dock at sunset.
               </p>
               <ul className="mt-5 grid gap-2 text-sm text-ink-100">
+                <li>· Build with the OpenClaw runtime. Local-first, deploys to Nebius in one command.</li>
                 <li>· 30 builders. That's it.</li>
                 <li>· Submissions read continuously through June 12.</li>
                 <li>· Finalists announced June 13.</li>
