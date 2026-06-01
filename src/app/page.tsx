@@ -64,31 +64,26 @@ const rubric = [
   {
     axis: "Working demo",
     weight: "0–10",
-    grader: "AI + Sponsors",
     body: "Does it actually run end-to-end? Boot, login, the loop, output. Broken demos get 0; smooth flows get 10.",
   },
   {
     axis: "Integration depth",
     weight: "0–10",
-    grader: "Sponsors",
     body: "How deeply you use the stack — Composio tools, Tavily search, Nebius inference, the OpenClaw runtime. One API call is 2; meaningful integration across services is 8+.",
   },
   {
     axis: "Usefulness",
     weight: "0–10",
-    grader: "AI + Angels + VCs",
     body: "Would a real person pay for this? Clear use case, sharp problem, plausible distribution. Toy demos cap around 5; product-shaped builds clear 8.",
   },
   {
     axis: "Code quality",
     weight: "0–5",
-    grader: "AI",
     body: "Readable, structured, deployable. AI judges read every file. Bonus points for tests, clear README, sane error handling.",
   },
   {
     axis: "Pitch + story",
     weight: "0–5",
-    grader: "Angels + VCs",
     body: "Boat day only. Can you explain what it does and why anyone should care in 90 seconds? Specificity beats slogans every time.",
   },
 ];
@@ -630,8 +625,7 @@ export default function HackJackLondonSquarePage() {
             <div className="grid grid-cols-12 border-b border-ink-200 px-6 py-3 text-xs font-semibold uppercase tracking-widest text-ink-500 dark:border-ink-700 dark:text-ink-400">
               <div className="col-span-12 md:col-span-3">Axis</div>
               <div className="hidden md:col-span-2 md:block">Weight</div>
-              <div className="hidden md:col-span-2 md:block">Graded by</div>
-              <div className="hidden md:col-span-5 md:block">What's a 10</div>
+              <div className="hidden md:col-span-7 md:block">What's a 10</div>
             </div>
             {rubric.map((r, i) => (
               <div
@@ -649,11 +643,7 @@ export default function HackJackLondonSquarePage() {
                   <p className="font-mono text-xs uppercase tracking-widest text-ink-500 dark:text-ink-400 md:hidden">Weight</p>
                   <p className="font-mono text-sm font-semibold text-navy-700 dark:text-lime">{r.weight}</p>
                 </div>
-                <div className="md:col-span-2">
-                  <p className="font-mono text-xs uppercase tracking-widest text-ink-500 dark:text-ink-400 md:hidden">Graded by</p>
-                  <p className="text-xs text-ink-700 dark:text-ink-200">{r.grader}</p>
-                </div>
-                <div className="md:col-span-5">
+                <div className="md:col-span-7">
                   <p className="text-ink-700 dark:text-ink-200">{r.body}</p>
                 </div>
               </div>
