@@ -309,7 +309,7 @@ export const events: Event[] = [
   },
 ];
 
-export const workshops: Workshop[] = [
+const rawWorkshops: Workshop[] = [
   {
     slug: "running-openclaw-on-nebius",
     title: "Running OpenClaw on Nebius",
@@ -910,6 +910,37 @@ export const workshops: Workshop[] = [
     watchCount: 0,
   },
 ];
+
+// The raw list above is grouped by sponsor and Nebius-heavy. Interleave it so
+// the gallery alternates Composio / Nebius / Tavily instead of running long
+// blocks of one sponsor. Even fractional spacing ((idx + 0.5) / total) keeps
+// the minority sponsors spread across the whole list rather than clumped at
+// the front (a naive round-robin would leave a long Nebius tail).
+type WorkshopSponsor = "Composio" | "Nebius" | "Tavily";
+
+function workshopSponsor(w: Workshop): WorkshopSponsor {
+  if (w.tags.includes("composio")) return "Composio";
+  if (w.tags.includes("tavily")) return "Tavily";
+  return "Nebius";
+}
+
+function interleaveBySponsor(list: Workshop[]): Workshop[] {
+  const order: WorkshopSponsor[] = ["Composio", "Nebius", "Tavily"];
+  const totals: Record<WorkshopSponsor, number> = { Composio: 0, Nebius: 0, Tavily: 0 };
+  for (const w of list) totals[workshopSponsor(w)] += 1;
+  const seen: Record<WorkshopSponsor, number> = { Composio: 0, Nebius: 0, Tavily: 0 };
+  return list
+    .map((w, i) => {
+      const sponsor = workshopSponsor(w);
+      const idx = seen[sponsor]++;
+      const key = totals[sponsor] > 0 ? (idx + 0.5) / totals[sponsor] : 0;
+      return { w, key, tie: order.indexOf(sponsor), i };
+    })
+    .sort((a, b) => a.key - b.key || a.tie - b.tie || a.i - b.i)
+    .map((r) => r.w);
+}
+
+export const workshops: Workshop[] = interleaveBySponsor(rawWorkshops);
 
 export const plans: Plan[] = [
   {
