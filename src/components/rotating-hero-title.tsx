@@ -10,17 +10,13 @@ type Title = {
 };
 
 const titles: Title[] = [
-  { prefix: "Builders on the ", highlight: "Bay" },
-  { prefix: "Hack the ", highlight: "High Seas" },
-  { prefix: "Agents at ", highlight: "Sea" },
-  { prefix: "Code on the ", highlight: "Cruise" },
-  { highlight: "Yachts", suffix: " & Bots" },
-  { highlight: "AI", suffix: " on the Bay" },
-  { prefix: "Hack on a ", highlight: "Yacht" },
-  { prefix: "Real builders ", highlight: "ship" },
-  { prefix: "Just ", highlight: "ship", suffix: " it" },
-  { prefix: "Vibe ", highlight: "Voyage" },
-  { prefix: "Show us your ", highlight: "claws" },
+  { prefix: "Code while we ", highlight: "cruise" },
+  { prefix: "Compete to ", highlight: "win" },
+  { prefix: "Win a ", highlight: "DGX Spark" },
+  { prefix: "Win ", highlight: "$50K", suffix: " in credits" },
+  { prefix: "Hack on a ", highlight: "yacht" },
+  { prefix: "Build with the bay's ", highlight: "best" },
+  { prefix: "Ship something ", highlight: "real" },
 ];
 
 const INTERVAL_MS = 2000;
