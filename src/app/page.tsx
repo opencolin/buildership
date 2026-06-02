@@ -9,7 +9,7 @@ import { CountdownToDeadline } from "@/components/countdown-to-deadline";
 export const metadata: Metadata = {
   title: { absolute: "BuilderShip — Countdown to June 12, finals on the bay" },
   description:
-    "BuilderShip: a remote AI hackathon with daily office hours, counting down to June 12. Build an AI agent — top 30 builders earn a boat day on the bay, June 14 — bay crossing, a full day of hacking, final presentations, sunset cruise, waterfront dinner, the winner takes home $50K credits and a DGX Spark, after-party on the yacht. Hosted by Composio, Nebius, and Tavily.",
+    "BuilderShip: a remote AI hackathon with daily developer support, counting down to June 12. Build an AI agent — top 30 builders earn a boat day on the bay, June 14 — bay crossing, a full day of hacking, final presentations, sunset cruise, waterfront dinner, the winner takes home $50K credits and a DGX Spark, after-party on the yacht. Hosted by Composio, Nebius, and Tavily.",
 };
 
 const timeline = [
@@ -17,7 +17,7 @@ const timeline = [
     num: "01",
     date: "Now → June 12",
     title: "Build remotely",
-    body: "Counting down to June 12. Daily office hours online and in person. Sponsor credits and APIs available from day one.",
+    body: "Counting down to June 12. Daily developer support online and in person. Sponsor credits and APIs available from day one.",
   },
   {
     num: "02",
@@ -183,7 +183,7 @@ const faqs = [
   },
   {
     q: "What's the format?",
-    a: "Solo or teams up to 4. Build remotely with daily office hours, submit your GitHub repo by June 12.",
+    a: "Solo or teams up to 4. Build remotely with daily developer support, submit your GitHub repo by June 12.",
   },
   {
     q: "How does scoring work?",
@@ -232,7 +232,7 @@ export default function HackJackLondonSquarePage() {
           <div className="absolute -left-24 bottom-0 h-[320px] w-[320px] rounded-full bg-navy-700/10 blur-3xl dark:bg-lime/10" aria-hidden />
           <div className="container-page relative pt-20 pb-24 sm:pt-28 sm:pb-28 lg:pt-36">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="pill-outline">Office hours M–F</span>
+              <span className="pill-outline">Developer support M–F</span>
               <span className="pill-outline">Submit by June 12</span>
               <span className="pill-lime">
                 <span className="live-dot" /> Boat day June 14
@@ -381,12 +381,12 @@ export default function HackJackLondonSquarePage() {
           </div>
         </Section>
 
-        {/* Office hours */}
+        {/* Developer support */}
         <Section id="office-hours">
           <SectionHeader
-            eyebrow="Office hours"
+            eyebrow="Developer Support"
             title="Stuck? We're online every day until June 14."
-            body="Office hours run daily — online and in person — every day through June 12. Drop in, ask anything, ship faster. Sponsor teams cycle through across the day."
+            body="Daily developer support — online and in person — through June 12, plus always-on help in the sponsor Discords. Drop in, ask anything, ship faster."
           />
           <div className="grid gap-6 md:grid-cols-3">
             {officeHourRoles.map((p) => (
@@ -396,16 +396,29 @@ export default function HackJackLondonSquarePage() {
               </div>
             ))}
           </div>
-          <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-card border border-ink-200 bg-white dark:border-ink-700 dark:bg-ink-900 px-6 py-5">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">Schedule</p>
-              <p className="mt-1 text-base font-medium text-ink-900 dark:text-ink-50">
-                Daily through June 14 — online plus in person across SF.
-              </p>
+          <div className="mt-6 rounded-card border border-ink-200 bg-white dark:border-ink-700 dark:bg-ink-900 px-6 py-5">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">Get unblocked</p>
+                <p className="mt-1 text-base font-medium text-ink-900 dark:text-ink-50">
+                  Daily through June 14 — online plus in person across SF, plus the sponsor Discords for any-hour blockers.
+                </p>
+              </div>
+              <Link href="/builders/login" className="btn-lime text-xs px-5 py-2.5">
+                RSVP for a session →
+              </Link>
             </div>
-            <Link href="/builders/login" className="btn-lime text-xs px-5 py-2.5">
-              RSVP for office hours →
-            </Link>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Link href="https://discord.com/invite/cNruWaAhQk" target="_blank" rel="noreferrer" className="btn-outline text-xs">
+                Composio Discord ↗
+              </Link>
+              <Link href="https://discord.com/invite/zBzz6X4QW" target="_blank" rel="noreferrer" className="btn-outline text-xs">
+                Nebius Discord ↗
+              </Link>
+              <Link href="https://community.tavily.com/" target="_blank" rel="noreferrer" className="btn-outline text-xs">
+                Tavily Community ↗
+              </Link>
+            </div>
           </div>
         </Section>
 
