@@ -9,7 +9,7 @@ import { CountdownToDeadline } from "@/components/countdown-to-deadline";
 export const metadata: Metadata = {
   title: { absolute: "BuilderShip — Countdown to June 12, finals on the bay" },
   description:
-    "BuilderShip: a remote AI hackathon with daily developer support, counting down to June 12. Build an AI agent — top 30 builders earn a boat day on the bay, June 14 — bay crossing, a full day of hacking, final presentations, sunset cruise, waterfront dinner, the winner takes home $50K credits and a DGX Spark, after-party on the yacht. Hosted by Composio, Nebius, and Tavily.",
+    "BuilderShip: a remote AI hackathon with daily developer support, counting down to June 12. Build an AI agent — top builders earn a boat day on the bay, June 14 — bay crossing, a full day of hacking, final presentations, sunset cruise, waterfront dinner, the winner takes home $50K credits and a DGX Spark, after-party on the yacht. Hosted by Composio, Nebius, and Tavily.",
 };
 
 const timeline = [
@@ -29,7 +29,7 @@ const timeline = [
     num: "03",
     date: "June 13",
     title: "Finalists announced",
-    body: "Top 30 builders named the night before. Twenty-four hours to polish your pitch and pack a jacket for the bay.",
+    body: "Finalists named the night before. Twenty-four hours to polish your pitch and pack a jacket for the bay.",
   },
   {
     num: "04",
@@ -187,7 +187,7 @@ const faqs = [
   },
   {
     q: "How does scoring work?",
-    a: "AI judges read every repo and pick the top 30 by June 12. On June 14 your score blends 40% AI, 40% sponsors, 20% investors — all on the rubric above.",
+    a: "AI judges read every repo and pick the finalists by June 12. On June 14 your score blends 40% AI, 40% sponsors, 20% investors — all on the rubric above.",
   },
   {
     q: "What happens on June 14?",
@@ -199,7 +199,7 @@ const faqs = [
   },
   {
     q: "What if I can't make it to the boat?",
-    a: "Build remotely and skip the boat — submissions still count. Make the top 30 but can't travel? We'll set up a land route for your final presentation.",
+    a: "Build remotely and skip the boat — submissions still count. Make the cut but can't travel? We'll set up a land route for your final presentation.",
   },
   {
     q: "What should I bring on June 14?",
@@ -284,7 +284,7 @@ export default function HackJackLondonSquarePage() {
           <SectionHeader
             eyebrow="Sign Up to Hack"
             title={<>Post something cool you've built.<br />Tag us. That's your application.</>}
-            body="No essay, no resume, no five-paragraph cover letter. Show us why we should take you by showing us something you've already shipped — an agent, a demo, a weird side project. We're picking the 30 best agent builders in the bay. Local-ish preference but anyone can fly in."
+            body="No essay, no resume, no five-paragraph cover letter. Show us why we should take you by showing us something you've already shipped — an agent, a demo, a weird side project. We're picking the best agent builders in the bay. Local-ish preference but anyone can fly in."
           />
           <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr]">
             <div className="card flex flex-col gap-5">
@@ -312,12 +312,12 @@ export default function HackJackLondonSquarePage() {
             <div className="card bg-navy-700 text-white">
               <p className="text-xs font-semibold uppercase tracking-widest text-lime">The bar</p>
               <p className="mt-3 text-base leading-relaxed text-ink-100">
-                We pick 30 builders for the boat. Selection is on-going as posts come in.
+                We pick the best builders for the boat. Selection is on-going as posts come in.
                 If you make the cut, you're already the best of the bay. Plus-ones can meet you on the dock at sunset.
               </p>
               <ul className="mt-5 grid gap-2 text-sm text-ink-100">
                 <li>· Build with any stack — extra points for OpenClaw, Composio, Nebius, Tavily.</li>
-                <li>· 30 builders. That's it.</li>
+                <li>· Limited spots. That's it.</li>
                 <li>· Submissions read continuously through June 12.</li>
                 <li>· Finalists announced June 13.</li>
                 <li>· Boat leaves South Beach 9 AM June 14.</li>
@@ -350,7 +350,7 @@ export default function HackJackLondonSquarePage() {
           <SectionHeader
             eyebrow="Finalist perks"
             title="Make the finals, win the boat day."
-            body="Only the top 30 — best of the best — earn the trip. Six experience perks on the house, plus the build stack (that one's available to every builder from day one). Win the whole thing and you walk the plank."
+            body="Only the best of the best earn the trip. Six experience perks on the house, plus the build stack (that one's available to every builder from day one). Win the whole thing and you walk the plank."
           />
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {perks.map((p) => (
@@ -610,7 +610,7 @@ export default function HackJackLondonSquarePage() {
             ))}
           </div>
           <p className="mt-6 text-xs text-ink-500 dark:text-ink-400">
-            Each judge scores only the axes they grade (AI: demo + usefulness + code; sponsors: demo + integration; investors: usefulness + pitch). Their score is normalized to <span className="font-mono">0–10</span>, then composite = <span className="font-mono">(AI × 0.4) + (Sponsor × 0.4) + (Investor × 0.2)</span>. Public leaderboard goes live June 13 with the top 30.
+            Each judge scores only the axes they grade (AI: demo + usefulness + code; sponsors: demo + integration; investors: usefulness + pitch). Their score is normalized to <span className="font-mono">0–10</span>, then composite = <span className="font-mono">(AI × 0.4) + (Sponsor × 0.4) + (Investor × 0.2)</span>. Public leaderboard goes live June 13 with the finalists.
           </p>
         </Section>
 
@@ -619,7 +619,7 @@ export default function HackJackLondonSquarePage() {
           <SectionHeader
             eyebrow="Finals day · June 14"
             title="Cruise from South Beach. Hack all day. Demos at dinner."
-            body="The boat day is for the top 30 builders. Bay crossing, a full day of heads-down hacking at HQ, final presentations before the sunset cruise, dinner at a waterfront restaurant where winners are announced, after-party on the docked yacht. Times are firm — the boat doesn't wait."
+            body="The boat day is for the finalists. Bay crossing, a full day of heads-down hacking at HQ, final presentations before the sunset cruise, dinner at a waterfront restaurant where winners are announced, after-party on the docked yacht. Times are firm — the boat doesn't wait."
           />
           <ol className="overflow-hidden rounded-card border border-ink-200 bg-white dark:border-ink-700 dark:bg-ink-900">
             {schedule.map((row, i) => (

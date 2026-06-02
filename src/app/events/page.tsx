@@ -100,7 +100,7 @@ export default async function EventsIndex() {
           <div className="container-page">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-navy-700 dark:text-lime">Finals day · June 14</p>
             <h2 className="h-display text-3xl font-bold tracking-tight text-ink-900 md:text-4xl dark:text-ink-50">Cruise from South Beach. Hack all day. Demos at dinner.</h2>
-            <p className="mt-4 max-w-3xl text-base text-ink-600 dark:text-ink-300">The boat day is for the top 30 builders. Bay crossing, a full day of heads-down hacking at HQ, final presentations before the sunset cruise, dinner at a waterfront restaurant where winners are announced, after-party on the docked yacht. Times are firm — the boat doesn't wait.</p>
+            <p className="mt-4 max-w-3xl text-base text-ink-600 dark:text-ink-300">The boat day is for the finalists. Bay crossing, a full day of heads-down hacking at HQ, final presentations before the sunset cruise, dinner at a waterfront restaurant where winners are announced, after-party on the docked yacht. Times are firm — the boat doesn't wait.</p>
             <ol className="mt-10 overflow-hidden rounded-card border border-ink-200 bg-white dark:border-ink-700 dark:bg-ink-900">
               {finalsDaySchedule.map((row, i) => (
                 <li
