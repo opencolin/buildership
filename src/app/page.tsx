@@ -22,8 +22,8 @@ const timeline = [
   {
     num: "02",
     date: "Anytime → June 12",
-    title: "Submit on GitHub",
-    body: "Push your repo. AI judges review every submission. Want a deeper read? Schedule a live demo with human judges any time before the 12th.",
+    title: "Post on X & LinkedIn",
+    body: "Post your build on X or LinkedIn and tag us. AI judges review every submission. Want a deeper read? Schedule a live demo with human judges any time before the 12th.",
   },
   {
     num: "03",
