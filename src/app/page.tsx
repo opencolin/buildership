@@ -352,7 +352,7 @@ export default function HackJackLondonSquarePage() {
         <Section>
           <SectionHeader
             eyebrow="Finalist perks"
-            title="Make finals, win the boat day."
+            title="Make the finals, win the boat day."
             body="Only the top 30 — best of the best — earn the trip. Six experience perks on the house, plus the build stack (that one's available to every builder from day one). Win the whole thing and you walk the plank."
           />
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
