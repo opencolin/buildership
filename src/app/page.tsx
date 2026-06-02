@@ -312,11 +312,11 @@ export default function HackJackLondonSquarePage() {
             <div className="card bg-navy-700 text-white">
               <p className="text-xs font-semibold uppercase tracking-widest text-lime">The bar</p>
               <p className="mt-3 text-base leading-relaxed text-ink-100">
-                We pick 30 builders for the boat. Selection is on-going as posts come in — one clean deadline, no extension games.
+                We pick 30 builders for the boat. Selection is on-going as posts come in.
                 If you make the cut, you're already the best of the bay. Plus-ones can meet you on the dock at sunset.
               </p>
               <ul className="mt-5 grid gap-2 text-sm text-ink-100">
-                <li>· Build with any stack — OpenClaw, Composio, Nebius, Tavily, ready from day one.</li>
+                <li>· Build with any stack — extra points for OpenClaw, Composio, Nebius, Tavily.</li>
                 <li>· 30 builders. That's it.</li>
                 <li>· Submissions read continuously through June 12.</li>
                 <li>· Finalists announced June 13.</li>
