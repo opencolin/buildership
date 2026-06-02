@@ -179,35 +179,35 @@ const schedule = [
 const faqs = [
   {
     q: "How do I apply?",
-    a: "Post something you've built — agent, demo, repo, video, weird side project — publicly on X, LinkedIn, or wherever you live. Tag @ship_builders @nebiusai @composio @tavilyai @openclaw so we see it. We're picking the best builders of the bay, and the post is the whole signal: no essay, no resume. Drop the link in our Discord too if you want a deeper read.",
+    a: "Post something you've built and tag @ship_builders @nebiusai @composio @tavilyai @openclaw. That's the whole application — no essay, no resume.",
   },
   {
     q: "What's the format?",
-    a: "Solo or teams of up to 4. Build remotely with daily office hours from sponsor teams. Submit your GitHub repo any time before June 12 — AI judges read every entry, and you can schedule a live demo with human judges before the deadline if you want a deeper read.",
+    a: "Solo or teams up to 4. Build remotely with daily office hours, submit your GitHub repo by June 12.",
   },
   {
     q: "How does scoring work?",
-    a: "Two phases. AI judges read every GitHub submission as it comes in and pick the top 30 builders by June 12. On June 14, your score is a blend: 40% AI judges, 40% sponsor teams, 20% the angel investors and VCs in the room. Every judge scores against the same five-axis rubric (working demo, integration depth, usefulness, code quality, pitch) — see the rubric section above. Everyone you talk to that day is voting.",
+    a: "AI judges read every repo and pick the top 30 by June 12. On June 14 your score blends 40% AI, 40% sponsors, 20% investors — all on the rubric above.",
   },
   {
     q: "What happens on June 14?",
-    a: "Finals day at Hackathon HQ — you spend it building. Heads-down hacking from the moment you dock, with sponsor engineers and investors around to unblock you and watch your build come together. A kayak race on the water — open to anyone who shows up — runs before final presentations. Sunset cruise, dinner waterside, winners announced, the winner takes home $50K credits and a DGX Spark. After-party back on the docked yacht.",
+    a: "Heads-down hacking at HQ all day. Kayak race, final presentations, sunset cruise, dinner, winner announced — $50K credits and a DGX Spark — after-party on the yacht.",
   },
   {
     q: "What does \"walking the plank\" mean?",
-    a: "Exactly what it sounds like. The winner of the hackathon walks the plank off the yacht and jumps into the water. Towels and a hot tub on standby.",
+    a: "Exactly what it sounds like. The winner walks the plank off the yacht into the water. Towels and a hot tub on standby.",
   },
   {
     q: "What if I can't make it to the boat?",
-    a: "Submissions are still welcome — you can build remotely and skip the boat day. If you make the top 30 and can't travel, we'll provide a land route to your final presentation. Boat capacity caps the in-person cohort.",
+    a: "Build remotely and skip the boat — submissions still count. Make the top 30 but can't travel? We'll set up a land route for your final presentation.",
   },
   {
     q: "What should I bring on June 14?",
-    a: "Laptop, charger, jacket for the cruise. We'll have power, Wi-Fi, and our own Starlink running at HQ. No hardware projects this time.",
+    a: "Laptop, charger, a jacket for the cruise. Power, Wi-Fi, and our own Starlink at HQ. No hardware projects this time.",
   },
   {
     q: "Drinks?",
-    a: "Self-pay at the venues. BYOB on the boat (cheaper that way). After-party drinks back on the docked yacht — sponsors picking up that tab.",
+    a: "Self-pay at the venues. BYOB on the boat. After-party drinks on the yacht — sponsors' tab.",
   },
 ] as const;
 
