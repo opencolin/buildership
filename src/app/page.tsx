@@ -39,27 +39,6 @@ const timeline = [
   },
 ] as const;
 
-const scoreSplit = [
-  {
-    weight: "40%",
-    who: "AI judges",
-    when: "Continuous through June 12",
-    body: "Read every GitHub repo. Score reproducibility, integration depth, and how working the demo actually is.",
-  },
-  {
-    weight: "40%",
-    who: "Sponsor teams",
-    when: "Office hours + boat day",
-    body: "Composio, Nebius, and Tavily engineers stress-test the integration against their platform. They've been at office hours all month — by June 14 they know your codebase.",
-  },
-  {
-    weight: "20%",
-    who: "Angels + VCs",
-    when: "Demos on June 14",
-    body: "Bay Area investors are at HQ all day while you build — between bowling frames, on the patio. They watch every demo, and their reaction lands in your final score.",
-  },
-];
-
 const rubric = [
   {
     axis: "Working demo",
@@ -582,25 +561,6 @@ export default function HackJackLondonSquarePage() {
                 </div>
               </div>
             </div>
-          </div>
-        </Section>
-
-        {/* How judging works */}
-        <Section id="judges">
-          <SectionHeader
-            eyebrow="How judging works"
-            title="40% AI · 40% sponsors · 20% investors."
-            body="The score on June 14 is a blend. AI judges read every repo continuously through June 12. Sponsor engineers and investors are at HQ all day while you build — they help you ship and review every demo. Final presentations before the sunset cruise."
-          />
-          <div className="grid gap-4 md:grid-cols-3">
-            {scoreSplit.map((j) => (
-              <div key={j.who} className="card flex h-full flex-col">
-                <p className="font-mono text-3xl font-semibold text-navy-700 dark:text-lime">{j.weight}</p>
-                <h3 className="h-display mt-2 text-xl font-bold text-ink-900 dark:text-ink-50">{j.who}</h3>
-                <p className="mt-2 text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">{j.when}</p>
-                <p className="mt-3 text-sm leading-relaxed text-ink-700 dark:text-ink-200">{j.body}</p>
-              </div>
-            ))}
           </div>
         </Section>
 
