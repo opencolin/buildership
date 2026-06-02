@@ -35,7 +35,7 @@ export function TopNav() {
           />
           <ThemeToggle />
           <Link href="/builders/login" className="btn-ghost hidden sm:inline-flex">Log in</Link>
-          <Link href="/#apply" className="btn-lime whitespace-nowrap">Ship it</Link>
+          <Link href="/#apply" className="btn-lime whitespace-nowrap">Sign Up</Link>
         </div>
       </div>
     </header>
