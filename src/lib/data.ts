@@ -408,28 +408,6 @@ export const workshops: Workshop[] = [
     ctaLabel: "Tavily quickstart →",
     watchCount: 192,
   },
-  {
-    slug: "contree-fork-and-snapshot",
-    title: "Contree fork & snapshot: agent ergonomics",
-    hosts: [{ name: "Marek Fischer", role: "Engineer", company: "Nebius" }],
-    recordedAt: "2026-03-25T18:00:00+00:00",
-    durationSeconds: 60 * 41,
-    videoProvider: "MUX",
-    videoUrl: "#",
-    thumbnailUrl: "",
-    description:
-      "Why VM-isolated sandboxes with Git-like branching change how AI coding agents explore solutions — and how to wire it into your hackathon workflow.",
-    chapters: [
-      { startSec: 0, title: "Why branching" },
-      { startSec: 360, title: "Snapshot anatomy" },
-      { startSec: 900, title: "Demo-from-snapshot pattern" },
-      { startSec: 1620, title: "MCP integration" },
-    ],
-    tags: ["contree", "sandbox", "agents", "tooling"],
-    ctaUrl: "https://docs.contree.dev/",
-    ctaLabel: "Read the docs →",
-    watchCount: 256,
-  },
 
   // ─── Imported from opencolin/nebius-devsite library.json ─────────────────
   // Curated by Nebius DevRel + the community. Pulled into the BuilderShip
