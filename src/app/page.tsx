@@ -239,6 +239,17 @@ export default function HackJackLondonSquarePage() {
               </span>
             </div>
             <RotatingHeroTitle className="mt-20" />
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link href="#apply" className="btn-lime px-6 py-3.5 text-sm">
+                Sign Up to Hack →
+              </Link>
+              <Link href="#how-it-works" className="btn-outline px-6 py-3.5 text-sm">
+                Schedule
+              </Link>
+              <Link href="#sponsors" className="btn-ghost text-sm">
+                Sponsors & stack →
+              </Link>
+            </div>
             <p className="mt-7 max-w-2xl text-xl text-ink-600 dark:text-ink-300">
               Building, bowling, beer, sunset cruise.
               $50K credits and a DGX Spark for the winner.
@@ -263,17 +274,6 @@ export default function HackJackLondonSquarePage() {
                 alt="Tavily"
                 className="h-8 w-auto dark:invert"
               />
-            </div>
-            <div className="mt-10 flex flex-wrap items-center gap-3">
-              <Link href="#apply" className="btn-lime px-6 py-3.5 text-sm">
-                Sign Up to Hack →
-              </Link>
-              <Link href="#how-it-works" className="btn-outline px-6 py-3.5 text-sm">
-                Schedule
-              </Link>
-              <Link href="#sponsors" className="btn-ghost text-sm">
-                Sponsors & stack →
-              </Link>
             </div>
             <CountdownToDeadline className="mt-14" />
           </div>
