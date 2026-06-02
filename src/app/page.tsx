@@ -290,7 +290,7 @@ export default function HackJackLondonSquarePage() {
             </div>
             <div className="mt-10 flex flex-wrap items-center gap-3">
               <Link href="#apply" className="btn-lime px-6 py-3.5 text-sm">
-                Show us your claws →
+                Sign Up to Hack →
               </Link>
               <Link href="#how-it-works" className="btn-outline px-6 py-3.5 text-sm">
                 Schedule
@@ -306,7 +306,7 @@ export default function HackJackLondonSquarePage() {
         {/* Apply */}
         <Section id="apply">
           <SectionHeader
-            eyebrow="Show us your claws"
+            eyebrow="Sign Up to Hack"
             title={<>Post something cool you've built.<br />Tag us. That's your application.</>}
             body="No essay, no resume, no five-paragraph cover letter. Show us why we should take you by showing us something you've already shipped — an agent, a demo, a weird side project. We're picking the 30 best agent builders in the bay. Local-ish preference but anyone can fly in."
           />
@@ -684,7 +684,7 @@ export default function HackJackLondonSquarePage() {
         <Section bg="navy">
           <div className="grid items-center gap-8 lg:grid-cols-[1.4fr_1fr]">
             <div>
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-lime">Show us your claws</p>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-lime">Sign Up to Hack</p>
               <h2 className="h-display text-3xl font-bold leading-[1.1] tracking-tight text-white md:text-5xl">
                 Counting down to June 12. Forty finalists. One walk off the plank.
               </h2>
@@ -697,7 +697,7 @@ export default function HackJackLondonSquarePage() {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
               <Link href="#apply" className="btn-lime px-6 py-3.5 text-sm">
-                Show us your claws →
+                Sign Up to Hack →
               </Link>
               <Link
                 href="mailto:collin@dabl.club?subject=BuilderShip%20sponsor%20inquiry"
