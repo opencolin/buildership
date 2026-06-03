@@ -8,3 +8,6 @@ out
 .vercel
 next-env.d.ts
 .claude/worktrees
+
+# sponsorship research: redundant intermediate captions (reproducible via yt-dlp; .txt transcripts are the deliverable)
+research/sponsorship-collective/_raw_vtt/
