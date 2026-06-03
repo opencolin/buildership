@@ -232,6 +232,7 @@ export default function HackJackLondonSquarePage() {
           <div className="absolute -left-24 bottom-0 h-[320px] w-[320px] rounded-full bg-navy-700/10 blur-3xl dark:bg-lime/10" aria-hidden />
           <div className="container-page relative pt-20 pb-24 sm:pt-28 sm:pb-28 lg:pt-36">
             <div className="flex flex-wrap items-center gap-2">
+              <span className="pill-outline">An OpenClaw hackathon</span>
               <span className="pill-outline">Developer support M–F</span>
               <span className="pill-outline">Submit by June 12</span>
               <span className="pill-lime">
