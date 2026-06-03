@@ -1,0 +1,1390 @@
+{
+  "exit_reason": "max_iterations (5)",
+  "original_description": "Complete, battle-tested methodology for getting corporate sponsorships for any property with an audience \u2014 events, hackathons, conferences, festivals, nonprofits/charities, podcasts, creators, sports teams, associations, municipalities. Use this skill WHENEVER the user wants to find or land sponsors, write sponsorship outreach (cold emails/DMs/calls), build a sponsorship proposal/deck/prospectus/one-pager, price or value sponsorship assets, build a sponsor prospect list, prepare for or run sponsor discovery calls, handle sponsor objections, write a post-event fulfillment/wrap-up report, or renew/upgrade sponsors \u2014 even if they only say things like \"we need sponsors\", \"how do I get a sponsor for X\", \"who should we approach\", or \"sponsorship strategy\" without naming a specific deliverable. Distilled from The Sponsorship Collective (Chris Baylis): sell audience access and measurable outcomes (NOT logos), never use gold/silver/bronze tiers, and win through direct outreach + custom offers.",
+  "best_description": "Complete, battle-tested methodology for getting corporate sponsorships for any property with an audience \u2014 events, hackathons, conferences, festivals, nonprofits/charities, podcasts, creators, sports teams, associations, municipalities. Use this skill WHENEVER the user wants to find or land sponsors, write sponsorship outreach (cold emails/DMs/calls), build a sponsorship proposal/deck/prospectus/one-pager, price or value sponsorship assets, build a sponsor prospect list, prepare for or run sponsor discovery calls, handle sponsor objections, write a post-event fulfillment/wrap-up report, or renew/upgrade sponsors \u2014 even if they only say things like \"we need sponsors\", \"how do I get a sponsor for X\", \"who should we approach\", or \"sponsorship strategy\" without naming a specific deliverable. Distilled from The Sponsorship Collective (Chris Baylis): sell audience access and measurable outcomes (NOT logos), never use gold/silver/bronze tiers, and win through direct outreach + custom offers.",
+  "best_score": "4/8",
+  "best_train_score": "6/12",
+  "best_test_score": "4/8",
+  "final_description": "Use this skill to win corporate sponsorship money or in-kind support (cash, compute/API credits, prizes, swag) from companies and brands for any audience-based property: hackathons, conferences, festivals, events, podcasts, creators, sports/esports teams, nonprofits, charities, coding camps, associations. Covers the whole job \u2014 setting a revenue goal (\"land $50k from brands\"), starting from scratch (\"bring in corporate partners, no idea where to begin\"), getting companies to chip in, sponsorship strategy, prospect lists, outreach emails/DMs, discovery calls, building a deck/proposal/prospectus, pricing and valuing sponsorship slots or assets, handling objections or a ghosting/stalled prospect, wrap-up reports, and renewing or winning back lapsed sponsors. Fires whenever the user wants brands to sponsor or fund their event/show/team/cause. NOT for individual or major-donor gifts, grant writing, work-visa sponsorship, GitHub Sponsors, or audience growth.",
+  "iterations_run": 5,
+  "holdout": 0.4,
+  "train_size": 12,
+  "test_size": 8,
+  "history": [
+    {
+      "iteration": 1,
+      "description": "Complete, battle-tested methodology for getting corporate sponsorships for any property with an audience \u2014 events, hackathons, conferences, festivals, nonprofits/charities, podcasts, creators, sports teams, associations, municipalities. Use this skill WHENEVER the user wants to find or land sponsors, write sponsorship outreach (cold emails/DMs/calls), build a sponsorship proposal/deck/prospectus/one-pager, price or value sponsorship assets, build a sponsor prospect list, prepare for or run sponsor discovery calls, handle sponsor objections, write a post-event fulfillment/wrap-up report, or renew/upgrade sponsors \u2014 even if they only say things like \"we need sponsors\", \"how do I get a sponsor for X\", \"who should we approach\", or \"sponsorship strategy\" without naming a specific deliverable. Distilled from The Sponsorship Collective (Chris Baylis): sell audience access and measurable outcomes (NOT logos), never use gold/silver/bronze tiers, and win through direct outreach + custom offers.",
+      "train_passed": 6,
+      "train_failed": 6,
+      "train_total": 12,
+      "train_results": [
+        {
+          "query": "our music festival had 8 sponsors last year but only 2 came back this year. how do we get them to renew?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "what should actually go in a sponsorship deck for my podcast (audience is ~12k backend engineers) and how do i price the slot inventory?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "give me a strategy to land around $50k from brands for our collegiate esports tournament",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "a prospect replied 'just send me a proposal' after one quick call and now they're ghosting me \u2014 what do i do?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "ok so i'm organizing a ~200 person AI hackathon in SF this october and we've got basically zero budget. how do i actually get companies to chip in cash or compute credits?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "my nonprofit runs a youth coding camp and the board wants me to bring in corporate partners this year to help fund it. i have no idea where to start",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "draft a warm thank-you email to the major donors who gave to our annual fund this december",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "how do i set up GitHub Sponsors on my open-source repo so people can fund the project monthly?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "help me set up recurring monthly donations on our nonprofit's Donorbox page with a thank-you autoresponder",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "we're hiring a senior engineer from abroad and need to sponsor their H-1B visa \u2014 what's the timeline and cost for the petition?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "who are Red Bull Racing's biggest sponsors and roughly what do those F1 deals cost? just researching for a blog post",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "i want to grow my podcast newsletter from 2k to 10k subscribers in six months \u2014 what growth tactics should i try?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "test_passed": 4,
+      "test_failed": 4,
+      "test_total": 8,
+      "test_results": [
+        {
+          "query": "i need to build a list of companies to approach about funding our developer conference, and figure out the right person to email at each \u2014 how?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "how much should we charge a company to be the title sponsor of our 5k charity run? around 1500 runners",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "can you write me a cold email to Datadog's devrel team to get them to back our observability meetup? we've got ~400 SREs and platform engineers",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "after our event wraps, what do i send the sponsors so they actually re-up for next year?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "a vendor emailed us a 12-page sponsorship agreement PDF \u2014 can you review it and flag risky clauses before we sign?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "our seed-stage startup's AWS bill is brutal \u2014 can you help me find cloud credit programs we'd qualify to receive?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "refactor this form so the SponsorProvider context passes the selected sponsor id down to the child input components",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "build a React component for our blog that renders an FTC 'sponsored content' disclosure badge on paid posts",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "passed": 6,
+      "failed": 6,
+      "total": 12,
+      "results": [
+        {
+          "query": "our music festival had 8 sponsors last year but only 2 came back this year. how do we get them to renew?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "what should actually go in a sponsorship deck for my podcast (audience is ~12k backend engineers) and how do i price the slot inventory?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "give me a strategy to land around $50k from brands for our collegiate esports tournament",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "a prospect replied 'just send me a proposal' after one quick call and now they're ghosting me \u2014 what do i do?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "ok so i'm organizing a ~200 person AI hackathon in SF this october and we've got basically zero budget. how do i actually get companies to chip in cash or compute credits?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "my nonprofit runs a youth coding camp and the board wants me to bring in corporate partners this year to help fund it. i have no idea where to start",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "draft a warm thank-you email to the major donors who gave to our annual fund this december",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "how do i set up GitHub Sponsors on my open-source repo so people can fund the project monthly?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "help me set up recurring monthly donations on our nonprofit's Donorbox page with a thank-you autoresponder",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "we're hiring a senior engineer from abroad and need to sponsor their H-1B visa \u2014 what's the timeline and cost for the petition?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "who are Red Bull Racing's biggest sponsors and roughly what do those F1 deals cost? just researching for a blog post",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "i want to grow my podcast newsletter from 2k to 10k subscribers in six months \u2014 what growth tactics should i try?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "iteration": 2,
+      "description": "Use this skill whenever someone wants corporate sponsors or sponsorship money for any audience-based property \u2014 events, conferences, hackathons, festivals, esports, sports teams, podcasts, creators, nonprofits, charities, camps, associations. Triggers: finding or landing sponsors, hitting a sponsorship revenue goal, getting brands or companies to fund or chip in cash or in-kind (compute/API credits, prizes, swag), writing sponsor outreach, building a sponsorship deck/proposal/prospectus/one-pager, pricing or valuing sponsorship assets or slot inventory, building a prospect list, running discovery calls, handling objections or a stalled/ghosting prospect, writing a post-event wrap-up report, and renewing or winning back lapsed sponsors. Also fires on vague asks like \"we need sponsors\", \"how do I get a sponsor for X\", \"where do I start with corporate partners\", or \"sponsorship strategy\". NOT for individual/major-donor gifts, grants, visa sponsorship, GitHub Sponsors, or audience-growth tactics.",
+      "train_passed": 6,
+      "train_failed": 6,
+      "train_total": 12,
+      "train_results": [
+        {
+          "query": "what should actually go in a sponsorship deck for my podcast (audience is ~12k backend engineers) and how do i price the slot inventory?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "our music festival had 8 sponsors last year but only 2 came back this year. how do we get them to renew?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "give me a strategy to land around $50k from brands for our collegiate esports tournament",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "ok so i'm organizing a ~200 person AI hackathon in SF this october and we've got basically zero budget. how do i actually get companies to chip in cash or compute credits?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "a prospect replied 'just send me a proposal' after one quick call and now they're ghosting me \u2014 what do i do?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "my nonprofit runs a youth coding camp and the board wants me to bring in corporate partners this year to help fund it. i have no idea where to start",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "how do i set up GitHub Sponsors on my open-source repo so people can fund the project monthly?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "draft a warm thank-you email to the major donors who gave to our annual fund this december",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "we're hiring a senior engineer from abroad and need to sponsor their H-1B visa \u2014 what's the timeline and cost for the petition?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "help me set up recurring monthly donations on our nonprofit's Donorbox page with a thank-you autoresponder",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "who are Red Bull Racing's biggest sponsors and roughly what do those F1 deals cost? just researching for a blog post",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "i want to grow my podcast newsletter from 2k to 10k subscribers in six months \u2014 what growth tactics should i try?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "test_passed": 4,
+      "test_failed": 4,
+      "test_total": 8,
+      "test_results": [
+        {
+          "query": "i need to build a list of companies to approach about funding our developer conference, and figure out the right person to email at each \u2014 how?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "how much should we charge a company to be the title sponsor of our 5k charity run? around 1500 runners",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "can you write me a cold email to Datadog's devrel team to get them to back our observability meetup? we've got ~400 SREs and platform engineers",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "after our event wraps, what do i send the sponsors so they actually re-up for next year?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "our seed-stage startup's AWS bill is brutal \u2014 can you help me find cloud credit programs we'd qualify to receive?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "a vendor emailed us a 12-page sponsorship agreement PDF \u2014 can you review it and flag risky clauses before we sign?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "build a React component for our blog that renders an FTC 'sponsored content' disclosure badge on paid posts",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "refactor this form so the SponsorProvider context passes the selected sponsor id down to the child input components",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "passed": 6,
+      "failed": 6,
+      "total": 12,
+      "results": [
+        {
+          "query": "what should actually go in a sponsorship deck for my podcast (audience is ~12k backend engineers) and how do i price the slot inventory?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "our music festival had 8 sponsors last year but only 2 came back this year. how do we get them to renew?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "give me a strategy to land around $50k from brands for our collegiate esports tournament",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "ok so i'm organizing a ~200 person AI hackathon in SF this october and we've got basically zero budget. how do i actually get companies to chip in cash or compute credits?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "a prospect replied 'just send me a proposal' after one quick call and now they're ghosting me \u2014 what do i do?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "my nonprofit runs a youth coding camp and the board wants me to bring in corporate partners this year to help fund it. i have no idea where to start",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "how do i set up GitHub Sponsors on my open-source repo so people can fund the project monthly?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "draft a warm thank-you email to the major donors who gave to our annual fund this december",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "we're hiring a senior engineer from abroad and need to sponsor their H-1B visa \u2014 what's the timeline and cost for the petition?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "help me set up recurring monthly donations on our nonprofit's Donorbox page with a thank-you autoresponder",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "who are Red Bull Racing's biggest sponsors and roughly what do those F1 deals cost? just researching for a blog post",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "i want to grow my podcast newsletter from 2k to 10k subscribers in six months \u2014 what growth tactics should i try?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "iteration": 3,
+      "description": "Use this skill to help land corporate sponsors or sponsorship money for anything with an audience \u2014 events, conferences, hackathons, festivals, podcasts, creators, sports/esports teams, nonprofits, charities, camps, or associations. The go-to skill for any \"how do we get companies or brands to sponsor or fund X\" situation: hitting a sponsorship revenue goal; landing cash or in-kind support (compute/API credits, prizes, swag); writing sponsor outreach; building a sponsorship deck, proposal, prospectus, or one-pager; pricing or valuing sponsorship slots and assets; building a prospect list; running discovery calls; handling objections or a ghosting prospect; writing post-event wrap-up reports; renewing or winning back lapsed sponsors. Also fires on open-ended asks like \"we need sponsors,\" \"how do I get a sponsor for X,\" \"where do I start,\" or \"sponsorship strategy.\" Not for individual or major-donor gifts, grant writing, work-visa sponsorship, GitHub Sponsors, or audience growth.",
+      "train_passed": 6,
+      "train_failed": 6,
+      "train_total": 12,
+      "train_results": [
+        {
+          "query": "what should actually go in a sponsorship deck for my podcast (audience is ~12k backend engineers) and how do i price the slot inventory?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "our music festival had 8 sponsors last year but only 2 came back this year. how do we get them to renew?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "give me a strategy to land around $50k from brands for our collegiate esports tournament",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "a prospect replied 'just send me a proposal' after one quick call and now they're ghosting me \u2014 what do i do?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "ok so i'm organizing a ~200 person AI hackathon in SF this october and we've got basically zero budget. how do i actually get companies to chip in cash or compute credits?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "my nonprofit runs a youth coding camp and the board wants me to bring in corporate partners this year to help fund it. i have no idea where to start",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "how do i set up GitHub Sponsors on my open-source repo so people can fund the project monthly?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "draft a warm thank-you email to the major donors who gave to our annual fund this december",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "help me set up recurring monthly donations on our nonprofit's Donorbox page with a thank-you autoresponder",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "we're hiring a senior engineer from abroad and need to sponsor their H-1B visa \u2014 what's the timeline and cost for the petition?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "who are Red Bull Racing's biggest sponsors and roughly what do those F1 deals cost? just researching for a blog post",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "i want to grow my podcast newsletter from 2k to 10k subscribers in six months \u2014 what growth tactics should i try?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "test_passed": 4,
+      "test_failed": 4,
+      "test_total": 8,
+      "test_results": [
+        {
+          "query": "i need to build a list of companies to approach about funding our developer conference, and figure out the right person to email at each \u2014 how?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "how much should we charge a company to be the title sponsor of our 5k charity run? around 1500 runners",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "can you write me a cold email to Datadog's devrel team to get them to back our observability meetup? we've got ~400 SREs and platform engineers",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "after our event wraps, what do i send the sponsors so they actually re-up for next year?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "a vendor emailed us a 12-page sponsorship agreement PDF \u2014 can you review it and flag risky clauses before we sign?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "our seed-stage startup's AWS bill is brutal \u2014 can you help me find cloud credit programs we'd qualify to receive?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "build a React component for our blog that renders an FTC 'sponsored content' disclosure badge on paid posts",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "refactor this form so the SponsorProvider context passes the selected sponsor id down to the child input components",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "passed": 6,
+      "failed": 6,
+      "total": 12,
+      "results": [
+        {
+          "query": "what should actually go in a sponsorship deck for my podcast (audience is ~12k backend engineers) and how do i price the slot inventory?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "our music festival had 8 sponsors last year but only 2 came back this year. how do we get them to renew?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "give me a strategy to land around $50k from brands for our collegiate esports tournament",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "a prospect replied 'just send me a proposal' after one quick call and now they're ghosting me \u2014 what do i do?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "ok so i'm organizing a ~200 person AI hackathon in SF this october and we've got basically zero budget. how do i actually get companies to chip in cash or compute credits?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "my nonprofit runs a youth coding camp and the board wants me to bring in corporate partners this year to help fund it. i have no idea where to start",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "how do i set up GitHub Sponsors on my open-source repo so people can fund the project monthly?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "draft a warm thank-you email to the major donors who gave to our annual fund this december",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "help me set up recurring monthly donations on our nonprofit's Donorbox page with a thank-you autoresponder",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "we're hiring a senior engineer from abroad and need to sponsor their H-1B visa \u2014 what's the timeline and cost for the petition?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "who are Red Bull Racing's biggest sponsors and roughly what do those F1 deals cost? just researching for a blog post",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "i want to grow my podcast newsletter from 2k to 10k subscribers in six months \u2014 what growth tactics should i try?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "iteration": 4,
+      "description": "Use this skill whenever someone is trying to get companies, brands, or corporate partners to sponsor, fund, back, or chip in money or in-kind support (cash, compute/API credits, prizes, swag) for something with an audience \u2014 a hackathon, conference, festival, event, podcast, creator, sports/esports team, nonprofit, charity, coding camp, or association. Trigger on goals like \"land $50k from brands,\" \"bring in corporate partners,\" \"get companies to chip in,\" or \"we need sponsors and don't know where to start,\" and on any specific piece of the job: outreach emails, a sponsorship deck/proposal/prospectus, pricing or valuing sponsorship slots/assets, prospect lists, discovery calls, handling objections or a ghosting/stalled prospect, wrap-up reports, or renewing/winning back lapsed sponsors. Also fires on open-ended \"sponsorship strategy\" or \"how do I get a sponsor for X\" asks. Do NOT use for individual or major-donor gifts, grant writing, work-visa sponsorship, GitHub Sponsors, or growing an audience.",
+      "train_passed": 6,
+      "train_failed": 6,
+      "train_total": 12,
+      "train_results": [
+        {
+          "query": "what should actually go in a sponsorship deck for my podcast (audience is ~12k backend engineers) and how do i price the slot inventory?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "our music festival had 8 sponsors last year but only 2 came back this year. how do we get them to renew?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "give me a strategy to land around $50k from brands for our collegiate esports tournament",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "a prospect replied 'just send me a proposal' after one quick call and now they're ghosting me \u2014 what do i do?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "ok so i'm organizing a ~200 person AI hackathon in SF this october and we've got basically zero budget. how do i actually get companies to chip in cash or compute credits?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "my nonprofit runs a youth coding camp and the board wants me to bring in corporate partners this year to help fund it. i have no idea where to start",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "draft a warm thank-you email to the major donors who gave to our annual fund this december",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "how do i set up GitHub Sponsors on my open-source repo so people can fund the project monthly?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "help me set up recurring monthly donations on our nonprofit's Donorbox page with a thank-you autoresponder",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "who are Red Bull Racing's biggest sponsors and roughly what do those F1 deals cost? just researching for a blog post",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "we're hiring a senior engineer from abroad and need to sponsor their H-1B visa \u2014 what's the timeline and cost for the petition?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "i want to grow my podcast newsletter from 2k to 10k subscribers in six months \u2014 what growth tactics should i try?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "test_passed": 4,
+      "test_failed": 4,
+      "test_total": 8,
+      "test_results": [
+        {
+          "query": "i need to build a list of companies to approach about funding our developer conference, and figure out the right person to email at each \u2014 how?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "how much should we charge a company to be the title sponsor of our 5k charity run? around 1500 runners",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "can you write me a cold email to Datadog's devrel team to get them to back our observability meetup? we've got ~400 SREs and platform engineers",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "after our event wraps, what do i send the sponsors so they actually re-up for next year?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "our seed-stage startup's AWS bill is brutal \u2014 can you help me find cloud credit programs we'd qualify to receive?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "a vendor emailed us a 12-page sponsorship agreement PDF \u2014 can you review it and flag risky clauses before we sign?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "build a React component for our blog that renders an FTC 'sponsored content' disclosure badge on paid posts",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "refactor this form so the SponsorProvider context passes the selected sponsor id down to the child input components",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "passed": 6,
+      "failed": 6,
+      "total": 12,
+      "results": [
+        {
+          "query": "what should actually go in a sponsorship deck for my podcast (audience is ~12k backend engineers) and how do i price the slot inventory?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "our music festival had 8 sponsors last year but only 2 came back this year. how do we get them to renew?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "give me a strategy to land around $50k from brands for our collegiate esports tournament",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "a prospect replied 'just send me a proposal' after one quick call and now they're ghosting me \u2014 what do i do?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "ok so i'm organizing a ~200 person AI hackathon in SF this october and we've got basically zero budget. how do i actually get companies to chip in cash or compute credits?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "my nonprofit runs a youth coding camp and the board wants me to bring in corporate partners this year to help fund it. i have no idea where to start",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "draft a warm thank-you email to the major donors who gave to our annual fund this december",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "how do i set up GitHub Sponsors on my open-source repo so people can fund the project monthly?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "help me set up recurring monthly donations on our nonprofit's Donorbox page with a thank-you autoresponder",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "who are Red Bull Racing's biggest sponsors and roughly what do those F1 deals cost? just researching for a blog post",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "we're hiring a senior engineer from abroad and need to sponsor their H-1B visa \u2014 what's the timeline and cost for the petition?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "i want to grow my podcast newsletter from 2k to 10k subscribers in six months \u2014 what growth tactics should i try?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "iteration": 5,
+      "description": "Use this skill to win corporate sponsorship money or in-kind support (cash, compute/API credits, prizes, swag) from companies and brands for any audience-based property: hackathons, conferences, festivals, events, podcasts, creators, sports/esports teams, nonprofits, charities, coding camps, associations. Covers the whole job \u2014 setting a revenue goal (\"land $50k from brands\"), starting from scratch (\"bring in corporate partners, no idea where to begin\"), getting companies to chip in, sponsorship strategy, prospect lists, outreach emails/DMs, discovery calls, building a deck/proposal/prospectus, pricing and valuing sponsorship slots or assets, handling objections or a ghosting/stalled prospect, wrap-up reports, and renewing or winning back lapsed sponsors. Fires whenever the user wants brands to sponsor or fund their event/show/team/cause. NOT for individual or major-donor gifts, grant writing, work-visa sponsorship, GitHub Sponsors, or audience growth.",
+      "train_passed": 6,
+      "train_failed": 6,
+      "train_total": 12,
+      "train_results": [
+        {
+          "query": "what should actually go in a sponsorship deck for my podcast (audience is ~12k backend engineers) and how do i price the slot inventory?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "our music festival had 8 sponsors last year but only 2 came back this year. how do we get them to renew?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "give me a strategy to land around $50k from brands for our collegiate esports tournament",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "a prospect replied 'just send me a proposal' after one quick call and now they're ghosting me \u2014 what do i do?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "ok so i'm organizing a ~200 person AI hackathon in SF this october and we've got basically zero budget. how do i actually get companies to chip in cash or compute credits?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "my nonprofit runs a youth coding camp and the board wants me to bring in corporate partners this year to help fund it. i have no idea where to start",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "how do i set up GitHub Sponsors on my open-source repo so people can fund the project monthly?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "draft a warm thank-you email to the major donors who gave to our annual fund this december",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "help me set up recurring monthly donations on our nonprofit's Donorbox page with a thank-you autoresponder",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "we're hiring a senior engineer from abroad and need to sponsor their H-1B visa \u2014 what's the timeline and cost for the petition?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "who are Red Bull Racing's biggest sponsors and roughly what do those F1 deals cost? just researching for a blog post",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "i want to grow my podcast newsletter from 2k to 10k subscribers in six months \u2014 what growth tactics should i try?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "test_passed": 4,
+      "test_failed": 4,
+      "test_total": 8,
+      "test_results": [
+        {
+          "query": "i need to build a list of companies to approach about funding our developer conference, and figure out the right person to email at each \u2014 how?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "how much should we charge a company to be the title sponsor of our 5k charity run? around 1500 runners",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "can you write me a cold email to Datadog's devrel team to get them to back our observability meetup? we've got ~400 SREs and platform engineers",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "after our event wraps, what do i send the sponsors so they actually re-up for next year?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "our seed-stage startup's AWS bill is brutal \u2014 can you help me find cloud credit programs we'd qualify to receive?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "a vendor emailed us a 12-page sponsorship agreement PDF \u2014 can you review it and flag risky clauses before we sign?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "build a React component for our blog that renders an FTC 'sponsored content' disclosure badge on paid posts",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "refactor this form so the SponsorProvider context passes the selected sponsor id down to the child input components",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "passed": 6,
+      "failed": 6,
+      "total": 12,
+      "results": [
+        {
+          "query": "what should actually go in a sponsorship deck for my podcast (audience is ~12k backend engineers) and how do i price the slot inventory?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "our music festival had 8 sponsors last year but only 2 came back this year. how do we get them to renew?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "give me a strategy to land around $50k from brands for our collegiate esports tournament",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "a prospect replied 'just send me a proposal' after one quick call and now they're ghosting me \u2014 what do i do?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "ok so i'm organizing a ~200 person AI hackathon in SF this october and we've got basically zero budget. how do i actually get companies to chip in cash or compute credits?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "my nonprofit runs a youth coding camp and the board wants me to bring in corporate partners this year to help fund it. i have no idea where to start",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "how do i set up GitHub Sponsors on my open-source repo so people can fund the project monthly?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "draft a warm thank-you email to the major donors who gave to our annual fund this december",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "help me set up recurring monthly donations on our nonprofit's Donorbox page with a thank-you autoresponder",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "we're hiring a senior engineer from abroad and need to sponsor their H-1B visa \u2014 what's the timeline and cost for the petition?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "who are Red Bull Racing's biggest sponsors and roughly what do those F1 deals cost? just researching for a blog post",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "i want to grow my podcast newsletter from 2k to 10k subscribers in six months \u2014 what growth tactics should i try?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ]
+    }
+  ]
+}

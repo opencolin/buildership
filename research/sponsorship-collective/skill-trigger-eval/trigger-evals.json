@@ -1,0 +1,22 @@
+[
+  {"query": "ok so i'm organizing a ~200 person AI hackathon in SF this october and we've got basically zero budget. how do i actually get companies to chip in cash or compute credits?", "should_trigger": true},
+  {"query": "my nonprofit runs a youth coding camp and the board wants me to bring in corporate partners this year to help fund it. i have no idea where to start", "should_trigger": true},
+  {"query": "can you write me a cold email to Datadog's devrel team to get them to back our observability meetup? we've got ~400 SREs and platform engineers", "should_trigger": true},
+  {"query": "how much should we charge a company to be the title sponsor of our 5k charity run? around 1500 runners", "should_trigger": true},
+  {"query": "a prospect replied 'just send me a proposal' after one quick call and now they're ghosting me — what do i do?", "should_trigger": true},
+  {"query": "what should actually go in a sponsorship deck for my podcast (audience is ~12k backend engineers) and how do i price the slot inventory?", "should_trigger": true},
+  {"query": "our music festival had 8 sponsors last year but only 2 came back this year. how do we get them to renew?", "should_trigger": true},
+  {"query": "i need to build a list of companies to approach about funding our developer conference, and figure out the right person to email at each — how?", "should_trigger": true},
+  {"query": "after our event wraps, what do i send the sponsors so they actually re-up for next year?", "should_trigger": true},
+  {"query": "give me a strategy to land around $50k from brands for our collegiate esports tournament", "should_trigger": true},
+  {"query": "we're hiring a senior engineer from abroad and need to sponsor their H-1B visa — what's the timeline and cost for the petition?", "should_trigger": false},
+  {"query": "how do i set up GitHub Sponsors on my open-source repo so people can fund the project monthly?", "should_trigger": false},
+  {"query": "build a React component for our blog that renders an FTC 'sponsored content' disclosure badge on paid posts", "should_trigger": false},
+  {"query": "our seed-stage startup's AWS bill is brutal — can you help me find cloud credit programs we'd qualify to receive?", "should_trigger": false},
+  {"query": "refactor this form so the SponsorProvider context passes the selected sponsor id down to the child input components", "should_trigger": false},
+  {"query": "a vendor emailed us a 12-page sponsorship agreement PDF — can you review it and flag risky clauses before we sign?", "should_trigger": false},
+  {"query": "who are Red Bull Racing's biggest sponsors and roughly what do those F1 deals cost? just researching for a blog post", "should_trigger": false},
+  {"query": "help me set up recurring monthly donations on our nonprofit's Donorbox page with a thank-you autoresponder", "should_trigger": false},
+  {"query": "draft a warm thank-you email to the major donors who gave to our annual fund this december", "should_trigger": false},
+  {"query": "i want to grow my podcast newsletter from 2k to 10k subscribers in six months — what growth tactics should i try?", "should_trigger": false}
+]
