@@ -22,9 +22,10 @@ export function HeroBoat() {
       // Progress over roughly the first viewport of scroll.
       const max = Math.max(1, window.innerHeight * 0.9);
       const p = Math.min(1, y / max);
-      const translate = p * 240; // drifts down toward/past the viewer
+      const driftX = p * 220; // drifts to the right
+      const driftY = p * 240; // drifts down toward/past the viewer
       const scale = 1 + p * 0.38; // grows as it approaches
-      el.style.transform = `translate3d(0, ${translate}px, 0) scale(${scale})`;
+      el.style.transform = `translate3d(${driftX}px, ${driftY}px, 0) scale(${scale})`;
     };
     const onScroll = () => {
       cancelAnimationFrame(raf);
