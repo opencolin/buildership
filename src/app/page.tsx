@@ -231,6 +231,15 @@ export default function HackJackLondonSquarePage() {
             decoding="async"
             className="hero-kenburns absolute inset-0 h-full w-full object-cover object-center"
           />
+          {/* Vintage yacht layer, composited over the harbor */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/hero/harbor-boat.webp"
+            alt=""
+            aria-hidden
+            decoding="async"
+            className="hero-kenburns absolute inset-0 h-full w-full object-cover object-center"
+          />
           {/* Drifting fog layer */}
           <div
             className="hero-fog-drift pointer-events-none absolute inset-0"
