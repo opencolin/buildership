@@ -238,7 +238,7 @@ export default function HackJackLondonSquarePage() {
             alt=""
             aria-hidden
             decoding="async"
-            className="hero-kenburns absolute inset-0 h-full w-full object-cover object-center"
+            className="hero-kenburns absolute inset-x-0 top-[90px] h-full w-full object-cover object-center md:top-[200px]"
           />
           {/* Drifting fog layer */}
           <div
