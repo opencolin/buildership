@@ -219,11 +219,7 @@ export default function HackJackLondonSquarePage() {
         {/* Preload the above-the-fold hero background */}
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link rel="preload" as="image" href="/hero/harbor-bg.webp" type="image/webp" fetchPriority="high" />
-        {/*
-          Hero — full-bleed foggy-harbor background.
-          Imagery (/hero/harbor-bg.webp, /hero/harbor-boat.webp) sourced from
-          dragonladysf.com and used with permission.
-        */}
+        {/* Hero — full-bleed foggy Golden Gate harbor background. */}
         <section className="relative -mt-16 min-h-[clamp(480px,80vh,900px)] overflow-hidden border-b border-ink-800 bg-[#0b1a26] md:-mt-[72px]">
           {/* Background harbor (slow Ken-Burns drift) */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -232,15 +228,6 @@ export default function HackJackLondonSquarePage() {
             alt=""
             aria-hidden
             fetchPriority="high"
-            decoding="async"
-            className="hero-kenburns absolute inset-0 h-full w-full object-cover object-center"
-          />
-          {/* Vintage yacht layer, composited over the harbor */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/hero/harbor-boat.webp"
-            alt=""
-            aria-hidden
             decoding="async"
             className="hero-kenburns absolute inset-0 h-full w-full object-cover object-center"
           />
