@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer";
 import { Section, SectionHeader } from "@/components/section";
 import { RotatingHeroTitle } from "@/components/rotating-hero-title";
 import { CountdownToDeadline } from "@/components/countdown-to-deadline";
+import { HeroBoat } from "@/components/hero-boat";
 
 export const metadata: Metadata = {
   title: { absolute: "BuilderShip — Countdown to June 12, finals on the bay" },
@@ -231,15 +232,8 @@ export default function HackJackLondonSquarePage() {
             decoding="async"
             className="hero-kenburns absolute inset-0 h-full w-full object-cover object-center"
           />
-          {/* Vintage yacht layer, composited over the harbor */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/hero/harbor-boat.webp"
-            alt=""
-            aria-hidden
-            decoding="async"
-            className="hero-kenburns absolute inset-x-0 top-[90px] h-full w-full object-cover object-center md:top-[200px]"
-          />
+          {/* Vintage yacht — drifts down + scales up on scroll (toward viewer) */}
+          <HeroBoat />
           {/* Drifting fog layer */}
           <div
             className="hero-fog-drift pointer-events-none absolute inset-0"
