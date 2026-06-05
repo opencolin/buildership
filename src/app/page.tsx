@@ -5,7 +5,7 @@ import { Footer } from "@/components/footer";
 import { Section, SectionHeader } from "@/components/section";
 import { RotatingHeroTitle } from "@/components/rotating-hero-title";
 import { CountdownToDeadline } from "@/components/countdown-to-deadline";
-import { HeroBoat } from "@/components/hero-boat";
+import { CruiseCapsule, PixelMark } from "@/components/cruise";
 
 export const metadata: Metadata = {
   title: { absolute: "BuilderShip — Countdown to June 12, finals on the bay" },
@@ -214,94 +214,69 @@ const faqs = [
 
 export default function HackJackLondonSquarePage() {
   return (
-    <>
+    <div className="cruise">
+      <span className="cz-frame-l" aria-hidden />
+      <span className="cz-frame-r" aria-hidden />
       <TopNav />
       <main>
-        {/* Preload the above-the-fold hero background */}
-        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-        <link rel="preload" as="image" href="/hero/harbor-bg.webp" type="image/webp" fetchPriority="high" />
-        {/* Hero — full-bleed foggy Golden Gate harbor background. */}
-        <section className="relative -mt-16 min-h-[clamp(480px,80vh,900px)] overflow-hidden border-b border-ink-800 bg-[#0b1a26] md:-mt-[72px]">
-          {/* Background harbor (slow Ken-Burns drift) */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/hero/harbor-bg.webp"
-            alt=""
-            aria-hidden
-            fetchPriority="high"
-            decoding="async"
-            className="absolute inset-0 h-full w-full object-cover object-center"
-          />
-          {/* Vintage yacht — drifts down + scales up on scroll (toward viewer) */}
-          <HeroBoat />
-          {/* Soft fog (static) */}
+        {/* Hero — cruise poster treatment: bold type + holographic crystal capsule */}
+        <section className="relative -mt-16 overflow-hidden border-b border-[color:var(--cz-line-soft)] md:-mt-[72px]">
+          {/* faint grid wash */}
           <div
-            className="pointer-events-none absolute inset-0"
+            className="pointer-events-none absolute inset-0 opacity-[0.05]"
             aria-hidden
             style={{
-              background:
-                "radial-gradient(130% 70% at 50% 35%, rgba(255,255,255,0.18), rgba(255,255,255,0) 60%)",
+              backgroundImage:
+                "linear-gradient(rgba(125,247,163,1) 1px, transparent 1px), linear-gradient(90deg, rgba(125,247,163,1) 1px, transparent 1px)",
+              backgroundSize: "44px 44px",
             }}
           />
-          {/* Dark scrim for text legibility (WCAG AA) — kept light enough to
-              let the harbor show through; left side a touch stronger for text. */}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/30" aria-hidden />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/45 via-black/10 to-transparent" aria-hidden />
-          {/* Bottom blend — fade the image into the next section's color so the
-              boat doesn't get hard-cut at the section boundary. Matches #apply
-              (white in light, ink-900 in dark). Kept short so it doesn't darken
-              much of the image. */}
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent dark:from-ink-900" aria-hidden />
-          {/* `dark` forces the light-text treatment regardless of site theme,
-              since this hero is always a dark image + dark scrim. */}
-          <div className="dark container-page relative pt-20 pb-52 sm:pt-28 sm:pb-60 lg:pt-36 lg:pb-72">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="pill-outline">An OpenClaw hackathon</span>
-              <span className="pill-outline">Developer support M–F</span>
-              <span className="pill-outline">Submit by June 12</span>
-              <span className="pill-lime">
-                <span className="live-dot" /> Boat day June 14
-              </span>
+          <div className="container-page relative grid items-center gap-12 pt-28 pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:pt-36 lg:pb-24">
+            {/* left — the pitch */}
+            <div className="fc-stagger">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="pill-outline">An OpenClaw hackathon</span>
+                <span className="pill-outline">Developer support M–F</span>
+                <span className="pill-lime">
+                  <span className="live-dot" /> Boat day June 14
+                </span>
+              </div>
+              <RotatingHeroTitle className="mt-8" />
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-[color:var(--cz-muted)]">
+                Building, bowling, beer, sunset cruise.{" "}
+                <span className="text-[color:var(--cz-green)]">$50K credits and a DGX Spark</span> for the winner.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Link href="#apply" className="btn-lime px-6 py-3.5 text-sm">
+                  Sign Up to Hack →
+                </Link>
+                <Link href="#how-it-works" className="btn-outline px-6 py-3.5 text-sm">
+                  Schedule
+                </Link>
+                <Link href="#sponsors" className="btn-ghost text-sm">
+                  Sponsors & stack →
+                </Link>
+              </div>
+              <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3">
+                <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-[color:var(--cz-muted)]">
+                  Hosted by
+                </span>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/brand/composio-wordmark.svg" alt="Composio" className="h-6 w-auto invert dark:invert-0" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/brand/nebius-wordmark.svg" alt="Nebius" className="h-7 w-auto" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/brand/tavily-wordmark.svg" alt="Tavily" className="h-7 w-auto dark:invert" />
+              </div>
+              <CountdownToDeadline className="mt-10" />
             </div>
-            <RotatingHeroTitle className="mt-20" />
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link href="#apply" className="btn-lime px-6 py-3.5 text-sm">
-                Sign Up to Hack →
-              </Link>
-              <Link href="#how-it-works" className="btn-outline px-6 py-3.5 text-sm">
-                Schedule
-              </Link>
-              <Link href="#sponsors" className="btn-ghost text-sm">
-                Sponsors & stack →
-              </Link>
+
+            {/* right — the holographic crystal capsule */}
+            <div className="fc-reveal" style={{ animationDelay: "0.15s" }}>
+              <CruiseCapsule className="h-[clamp(380px,58vh,580px)] w-full" />
             </div>
-            <p className="mt-7 max-w-2xl text-xl text-ink-600 dark:text-ink-300">
-              Building, bowling, beer, sunset cruise.
-              $50K credits and a DGX Spark for the winner.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">Hosted by</span>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/brand/composio-wordmark.svg"
-                alt="Composio"
-                className="h-7 w-auto invert dark:invert-0"
-              />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/brand/nebius-wordmark.svg"
-                alt="Nebius"
-                className="h-8 w-auto"
-              />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/brand/tavily-wordmark.svg"
-                alt="Tavily"
-                className="h-8 w-auto dark:invert"
-              />
-            </div>
-            <CountdownToDeadline className="mt-14" />
           </div>
+          <PixelMark className="absolute bottom-6 right-8 hidden lg:grid" />
         </section>
 
         {/* Apply */}
@@ -705,6 +680,6 @@ export default function HackJackLondonSquarePage() {
         </Section>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
