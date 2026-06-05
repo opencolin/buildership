@@ -3,10 +3,10 @@
 import { useEffect, useRef } from "react";
 
 /**
- * The hero yacht. As the user scrolls through the hero it drifts down and
- * scales up — reading as the boat moving toward the viewer. The wrapper takes
- * the scroll-driven transform; the inner <img> keeps the ambient Ken-Burns
- * drift, so the two compose. Honors prefers-reduced-motion (stays put).
+ * The hero yacht. As the user scrolls through the hero it drifts down-and-right
+ * and scales up — reading as the boat moving toward the viewer. Transform-only
+ * (compositor-friendly), one rAF in flight at a time, scroll listener gated to
+ * when the hero is actually on screen, and honors prefers-reduced-motion.
  */
 export function HeroBoat() {
   const ref = useRef<HTMLDivElement>(null);
@@ -17,26 +17,45 @@ export function HeroBoat() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     let raf = 0;
+    let vh = window.innerHeight;
+    let last = -1;
+
     const update = () => {
-      const y = window.scrollY || 0;
-      // Progress over roughly the first viewport of scroll.
-      const max = Math.max(1, window.innerHeight * 0.9);
-      const p = Math.min(1, y / max);
-      const driftX = p * 220; // drifts to the right
-      const driftY = p * 240; // drifts down toward/past the viewer
-      const scale = 1 + p * 0.38; // grows as it approaches
-      el.style.transform = `translate3d(${driftX}px, ${driftY}px, 0) scale(${scale})`;
+      raf = 0;
+      const p = Math.min(1, (window.scrollY || 0) / Math.max(1, vh * 0.9));
+      if (p === last) return; // skip redundant writes (e.g. scrolled past hero)
+      last = p;
+      el.style.transform = `translate3d(${p * 220}px, ${p * 240}px, 0) scale(${1 + p * 0.38})`;
     };
     const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(update);
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    const onResize = () => {
+      vh = window.innerHeight;
+      onScroll();
     };
 
     update();
-    window.addEventListener("scroll", onScroll, { passive: true });
+
+    // Only run the scroll handler while the hero is visible.
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          window.addEventListener("scroll", onScroll, { passive: true });
+        } else {
+          window.removeEventListener("scroll", onScroll);
+        }
+      },
+      { threshold: 0 },
+    );
+    io.observe(el);
+    window.addEventListener("resize", onResize, { passive: true });
+
     return () => {
+      io.disconnect();
       window.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", onResize);
+      if (raf) cancelAnimationFrame(raf);
     };
   }, []);
 
@@ -52,7 +71,7 @@ export function HeroBoat() {
         src="/hero/harbor-boat.webp"
         alt=""
         decoding="async"
-        className="hero-kenburns h-full w-full object-cover object-center"
+        className="h-full w-full object-cover object-center"
       />
     </div>
   );

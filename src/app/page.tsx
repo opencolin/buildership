@@ -230,17 +230,17 @@ export default function HackJackLondonSquarePage() {
             aria-hidden
             fetchPriority="high"
             decoding="async"
-            className="hero-kenburns absolute inset-0 h-full w-full object-cover object-center"
+            className="absolute inset-0 h-full w-full object-cover object-center"
           />
           {/* Vintage yacht — drifts down + scales up on scroll (toward viewer) */}
           <HeroBoat />
-          {/* Drifting fog layer */}
+          {/* Soft fog (static) */}
           <div
-            className="hero-fog-drift pointer-events-none absolute inset-0"
+            className="pointer-events-none absolute inset-0"
             aria-hidden
             style={{
               background:
-                "radial-gradient(130% 70% at 50% 35%, rgba(255,255,255,0.20), rgba(255,255,255,0) 60%)",
+                "radial-gradient(130% 70% at 50% 35%, rgba(255,255,255,0.18), rgba(255,255,255,0) 60%)",
             }}
           />
           {/* Dark scrim for text legibility (WCAG AA) */}
