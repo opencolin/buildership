@@ -117,8 +117,38 @@
       transform: translateY(0);
     }
   }
+  /* Hero "render it live" motion — slow GPU-only transforms (cheap).
+     Applied to the foggy-harbor background + a drifting fog layer. */
+  .hero-kenburns {
+    animation: hero-kenburns 40s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+  @keyframes hero-kenburns {
+    from {
+      transform: scale(1.05) translate3d(0, 0, 0);
+    }
+    to {
+      transform: scale(1.14) translate3d(-1.5%, -2%, 0);
+    }
+  }
+  .hero-fog-drift {
+    animation: hero-fog-drift 30s ease-in-out infinite alternate;
+    will-change: transform, opacity;
+  }
+  @keyframes hero-fog-drift {
+    from {
+      transform: translate3d(-4%, 0, 0);
+      opacity: 0.3;
+    }
+    to {
+      transform: translate3d(4%, 0, 0);
+      opacity: 0.55;
+    }
+  }
   @media (prefers-reduced-motion: reduce) {
-    .animate-title-in {
+    .animate-title-in,
+    .hero-kenburns,
+    .hero-fog-drift {
       animation: none;
     }
   }

@@ -216,21 +216,51 @@ export default function HackJackLondonSquarePage() {
     <>
       <TopNav />
       <main>
-        {/* Hero */}
-        <section className="relative -mt-16 overflow-hidden border-b border-ink-200 bg-white dark:border-ink-800 dark:bg-ink-900 md:-mt-[72px]">
+        {/* Preload the above-the-fold hero background */}
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link rel="preload" as="image" href="/hero/harbor-bg.webp" type="image/webp" fetchPriority="high" />
+        {/*
+          Hero — full-bleed foggy-harbor background.
+          TODO(licensing): /hero/harbor-bg.webp and /hero/harbor-boat.webp are
+          PLACEHOLDER comps pulled from dragonladysf.com. They are someone else's
+          marketing photos — replace with owned/licensed or original art before
+          the production launch.
+        */}
+        <section className="relative -mt-16 min-h-[clamp(480px,80vh,900px)] overflow-hidden border-b border-ink-800 bg-[#0b1a26] md:-mt-[72px]">
+          {/* Background harbor (slow Ken-Burns drift) */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/hero/lobster-yacht-bridge.png"
+            src="/hero/harbor-bg.webp"
             alt=""
             aria-hidden
-            className="absolute inset-0 h-full w-full object-cover opacity-90 dark:opacity-80"
+            fetchPriority="high"
+            decoding="async"
+            className="hero-kenburns absolute inset-0 h-full w-full object-cover object-center"
           />
-          <div
-            className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/60 to-white/10 dark:from-black/85 dark:via-black/55 dark:to-black/10"
+          {/* Vintage yacht layer, composited over the harbor */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/hero/harbor-boat.webp"
+            alt=""
             aria-hidden
+            decoding="async"
+            className="hero-kenburns absolute inset-0 h-full w-full object-cover object-center"
           />
-          <div className="absolute -right-24 -top-24 h-[460px] w-[460px] rounded-full bg-lime/40 blur-3xl dark:bg-lime/20" aria-hidden />
-          <div className="absolute -left-24 bottom-0 h-[320px] w-[320px] rounded-full bg-navy-700/10 blur-3xl dark:bg-lime/10" aria-hidden />
-          <div className="container-page relative pt-20 pb-24 sm:pt-28 sm:pb-28 lg:pt-36">
+          {/* Drifting fog layer */}
+          <div
+            className="hero-fog-drift pointer-events-none absolute inset-0"
+            aria-hidden
+            style={{
+              background:
+                "radial-gradient(130% 70% at 50% 35%, rgba(255,255,255,0.20), rgba(255,255,255,0) 60%)",
+            }}
+          />
+          {/* Dark scrim for text legibility (WCAG AA) */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/45 via-black/40 to-black/65" aria-hidden />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" aria-hidden />
+          {/* `dark` forces the light-text treatment regardless of site theme,
+              since this hero is always a dark image + dark scrim. */}
+          <div className="dark container-page relative pt-20 pb-24 sm:pt-28 sm:pb-28 lg:pt-36">
             <div className="flex flex-wrap items-center gap-2">
               <span className="pill-outline">An OpenClaw hackathon</span>
               <span className="pill-outline">Developer support M–F</span>
