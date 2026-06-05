@@ -122,6 +122,25 @@
       animation: none;
     }
   }
+  /* Scroll-linked hero yacht — drifts down/right and scales toward the viewer.
+     Driven by scroll-timeline so it runs on the compositor (GPU-only, no
+     main-thread scroll handler re-rasterizing the large image). Falls back to
+     a static boat where scroll-timeline is unsupported or motion is reduced. */
+  @keyframes hero-boat-approach {
+    to {
+      transform: translate3d(220px, 240px, 0) scale(1.38);
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: scroll()) {
+      .hero-boat-scroll {
+        animation: hero-boat-approach linear both;
+        animation-timeline: scroll(root);
+        animation-range: 0 90vh;
+        will-change: transform;
+      }
+    }
+  }
 }
 
 /* -------------------------------------------------------------------------
