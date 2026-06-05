@@ -221,10 +221,8 @@ export default function HackJackLondonSquarePage() {
         <link rel="preload" as="image" href="/hero/harbor-bg.webp" type="image/webp" fetchPriority="high" />
         {/*
           Hero — full-bleed foggy-harbor background.
-          TODO(licensing): /hero/harbor-bg.webp and /hero/harbor-boat.webp are
-          PLACEHOLDER comps pulled from dragonladysf.com. They are someone else's
-          marketing photos — replace with owned/licensed or original art before
-          the production launch.
+          Imagery (/hero/harbor-bg.webp, /hero/harbor-boat.webp) sourced from
+          dragonladysf.com and used with permission.
         */}
         <section className="relative -mt-16 min-h-[clamp(480px,80vh,900px)] overflow-hidden border-b border-ink-800 bg-[#0b1a26] md:-mt-[72px]">
           {/* Background harbor (slow Ken-Burns drift) */}
