@@ -248,7 +248,7 @@ export default function HackJackLondonSquarePage() {
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" aria-hidden />
           {/* `dark` forces the light-text treatment regardless of site theme,
               since this hero is always a dark image + dark scrim. */}
-          <div className="dark container-page relative pt-20 pb-24 sm:pt-28 sm:pb-28 lg:pt-36">
+          <div className="dark container-page relative pt-20 pb-44 sm:pt-28 sm:pb-52 lg:pt-36 lg:pb-64">
             <div className="flex flex-wrap items-center gap-2">
               <span className="pill-outline">An OpenClaw hackathon</span>
               <span className="pill-outline">Developer support M–F</span>
