@@ -21,12 +21,17 @@ const BUILDERSHIP_SLUG = "buildership";
 
 const providers: NextAuthConfig["providers"] = [];
 
+// Luma registrants are pre-created in `users` by email before they ever
+// sign in, so OAuth providers must link to the existing row on a verified
+// email match instead of failing with OAuthAccountNotLinked. This is what
+// the login card's "same-email accounts auto-merge" copy promises.
 if (env.AUTH_GITHUB_ID && env.AUTH_GITHUB_SECRET) {
   providers.push(
     GitHub({
       clientId: env.AUTH_GITHUB_ID,
       clientSecret: env.AUTH_GITHUB_SECRET,
       authorization: { params: { scope: "read:user user:email" } },
+      allowDangerousEmailAccountLinking: true,
     }),
   );
 }
@@ -36,6 +41,7 @@ if (env.AUTH_GOOGLE_ID && env.AUTH_GOOGLE_SECRET) {
     Google({
       clientId: env.AUTH_GOOGLE_ID,
       clientSecret: env.AUTH_GOOGLE_SECRET,
+      allowDangerousEmailAccountLinking: true,
     }),
   );
 }
@@ -45,6 +51,7 @@ if (env.AUTH_LINKEDIN_ID && env.AUTH_LINKEDIN_SECRET) {
     LinkedIn({
       clientId: env.AUTH_LINKEDIN_ID,
       clientSecret: env.AUTH_LINKEDIN_SECRET,
+      allowDangerousEmailAccountLinking: true,
     }),
   );
 }

@@ -22,6 +22,13 @@
       "when": 1779155341620,
       "tag": "0002_wealthy_king_bedlam",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1781306704576,
+      "tag": "0003_add_registration_role",
+      "breakpoints": true
     }
   ]
 }

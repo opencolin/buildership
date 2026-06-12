@@ -296,6 +296,10 @@ export const eventRegistrations = pgTable(
       .references(() => users.id, { onDelete: "cascade" }),
     status: registrationStatusEnum("status").notNull().default("rsvp"),
     source: registrationSourceEnum("source").notNull().default("builder"),
+    // Attendee role from registration (Luma ticket type: "Hacker",
+    // "Founder", "In Person Judge", …). Free text — ticket names are
+    // event-controlled and vary per event.
+    role: text("role"),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
   },
   (t) => ({

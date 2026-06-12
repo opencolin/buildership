@@ -3,8 +3,8 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { safeAuth } from "@/server/lib/safe-auth";
 import { db } from "@/server/db";
-import { users } from "@/server/db/schema";
-import { eq } from "drizzle-orm";
+import { users, events, eventRegistrations } from "@/server/db/schema";
+import { and, eq } from "drizzle-orm";
 import { ProfileForm } from "./profile-form";
 
 export const dynamic = "force-dynamic";
@@ -25,6 +25,15 @@ export default async function ProfilePage() {
   // Fetch the full user record for fields the session doesn't carry (phone, github_url, etc).
   const rows = await db.select().from(users).where(eq(users.id, session.user.id)).limit(1);
   const user = rows[0];
+
+  // Registration role for the main event (Luma ticket type: Hacker, Founder, …).
+  const regRows = await db
+    .select({ role: eventRegistrations.role })
+    .from(eventRegistrations)
+    .innerJoin(events, eq(eventRegistrations.eventId, events.id))
+    .where(and(eq(eventRegistrations.userId, session.user.id), eq(events.slug, "buildership")))
+    .limit(1);
+  const role = regRows[0]?.role ?? null;
 
   const name = session.user.name ?? user?.name ?? "Builder";
   const email = session.user.email ?? user?.email ?? "";
@@ -72,6 +81,7 @@ export default async function ProfilePage() {
               </div>
               <p className="text-base font-semibold text-ink-900 dark:text-ink-50">{name}</p>
               <p className="text-sm text-ink-500 dark:text-ink-400">{email}</p>
+              {role ? <p className="mt-3 pill-lime">{role}</p> : null}
               <p className="mt-3 pill-outline">Member since {memberSince}</p>
               <p className="mt-6 text-xs text-ink-500 dark:text-ink-400">Replace your avatar from your OAuth provider — we don't host upload.</p>
             </div>
