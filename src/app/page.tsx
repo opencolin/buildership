@@ -265,17 +265,14 @@ export default function HackJackLondonSquarePage() {
             </div>
             <RotatingHeroTitle className="mt-20" />
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link href="#apply" className="btn-lime px-6 py-3.5 text-sm">
-                Sign Up to Hack →
+              <Link href="/showcase" className="btn-lime px-6 py-3.5 text-sm">
+                View the Showcase →
               </Link>
               <Link href="#how-it-works" className="btn-outline px-6 py-3.5 text-sm">
                 Schedule
               </Link>
               <Link href="#sponsors" className="btn-ghost text-sm">
                 Sponsors & stack →
-              </Link>
-              <Link href="/showcase" className="btn-ghost text-sm">
-                Showcase →
               </Link>
             </div>
             <p className="mt-7 max-w-2xl text-xl text-ink-600 dark:text-ink-300">
@@ -306,53 +303,6 @@ export default function HackJackLondonSquarePage() {
             <CountdownToDeadline className="mt-14" />
           </div>
         </section>
-
-        {/* Apply */}
-        <Section id="apply">
-          <SectionHeader
-            eyebrow="Sign Up to Hack"
-            title={<>Post something cool you've built.<br />Tag us. That's your application.</>}
-            body="No essay, no resume, no five-paragraph cover letter. Show us why we should take you by showing us something you've already shipped — an agent, a demo, a weird side project. We're picking the best agent builders in the bay. Local-ish preference but anyone can fly in."
-          />
-          <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr]">
-            <div className="card flex flex-col gap-5">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-navy-700 dark:text-lime">How to apply</p>
-                <ol className="mt-3 grid gap-3 text-sm leading-relaxed text-ink-700 dark:text-ink-200">
-                  <li><span className="font-mono font-semibold text-navy-700 dark:text-lime">01.</span> Register so we know you exist. One-minute form — name, email, what you're building.</li>
-                  <li><span className="font-mono font-semibold text-navy-700 dark:text-lime">02.</span> Post something you built — an agent, demo, repo, video, anything. Public post on X, LinkedIn, or wherever you live.</li>
-                  <li><span className="font-mono font-semibold text-navy-700 dark:text-lime">03.</span> Tag <span className="font-semibold">@ship_builders @nebiusai @composio @tavilyai @openclaw</span> so we see it. That's the whole signal.</li>
-                  <li><span className="font-mono font-semibold text-navy-700 dark:text-lime">04.</span> Want a deeper read? Reply to our DM, or share a longer write-up wherever you post.</li>
-                </ol>
-              </div>
-              <div className="flex flex-wrap gap-2 pt-1">
-                <Link href="https://luma.com/ship.builders" className="btn-lime text-sm" target="_blank" rel="noreferrer">
-                  Register →
-                </Link>
-                <Link href="https://x.com/intent/tweet?text=Show%20us%20your%20claws%20%40ship_builders%20%40nebiusai%20%40composio%20%40tavilyai%20%40openclaw" className="btn-outline text-sm" target="_blank" rel="noreferrer">
-                  Post on X
-                </Link>
-                <Link href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fship.builders" className="btn-outline text-sm" target="_blank" rel="noreferrer">
-                  Post on LinkedIn
-                </Link>
-              </div>
-            </div>
-            <div className="card bg-navy-700 text-white">
-              <p className="text-xs font-semibold uppercase tracking-widest text-lime">The bar</p>
-              <p className="mt-3 text-base leading-relaxed text-ink-100">
-                We pick the best builders for the boat. Selection is on-going as posts come in.
-                If you make the cut, you're already the best of the bay. Plus-ones can meet you on the dock at sunset.
-              </p>
-              <ul className="mt-5 grid gap-2 text-sm text-ink-100">
-                <li>· Build with any stack — extra points for OpenClaw, Composio, Nebius, Tavily.</li>
-                <li>· Limited spots. That's it.</li>
-                <li>· Submissions read continuously through June 12.</li>
-                <li>· Finalists announced June 13.</li>
-                <li>· Boat leaves South Beach 9 AM June 14.</li>
-              </ul>
-            </div>
-          </div>
-        </Section>
 
         {/* Schedule */}
         <Section id="how-it-works" bg="tint">
@@ -682,7 +632,7 @@ export default function HackJackLondonSquarePage() {
         <Section bg="navy">
           <div className="grid items-center gap-8 lg:grid-cols-[1.4fr_1fr]">
             <div>
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-lime">Sign Up to Hack</p>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-lime">Boat day June 14</p>
               <h2 className="h-display text-3xl font-bold leading-[1.1] tracking-tight text-white md:text-5xl">
                 Counting down to June 12. Forty finalists. One walk off the plank.
               </h2>
@@ -694,8 +644,8 @@ export default function HackJackLondonSquarePage() {
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <Link href="#apply" className="btn-lime px-6 py-3.5 text-sm">
-                Sign Up to Hack →
+              <Link href="/showcase" className="btn-lime px-6 py-3.5 text-sm">
+                View the Showcase →
               </Link>
               <Link
                 href="mailto:collin@dabl.club?subject=BuilderShip%20sponsor%20inquiry"

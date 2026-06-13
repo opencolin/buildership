@@ -6,7 +6,6 @@ import { MobileNav } from "./mobile-nav";
 
 const links = [
   { href: "/events", label: "Schedule" },
-  { href: "/showcase", label: "Showcase" },
   { href: "/#faq", label: "FAQ" },
   { href: "/workshops", label: "Workshops" },
   { href: "/docs", label: "Docs" },
@@ -37,7 +36,7 @@ export function TopNav() {
           />
           <ThemeToggle />
           <Link href="/builders/login" className="btn-ghost hidden sm:inline-flex">Log in</Link>
-          <Link href="/#apply" className="btn-lime whitespace-nowrap">Sign Up</Link>
+          <Link href="/showcase" className="btn-lime whitespace-nowrap">Showcase</Link>
           <MobileNav links={links} />
         </div>
       </div>
