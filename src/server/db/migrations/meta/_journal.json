@@ -43,6 +43,13 @@
       "when": 1781385606617,
       "tag": "0005_add_ai_note_repo_state",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1781472006617,
+      "tag": "0006_add_user_share_contact",
+      "breakpoints": true
     }
   ]
 }

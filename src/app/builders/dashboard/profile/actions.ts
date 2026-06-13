@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
 import { db } from "@/server/db";
-import { users } from "@/server/db/schema";
+import { users, teams } from "@/server/db/schema";
 import { safeAuth } from "@/server/lib/safe-auth";
 
 const optionalUrl = z
@@ -82,4 +82,54 @@ export async function saveProfile(
 
   revalidatePath("/builders/dashboard/profile");
   return { status: "ok", savedAt: new Date().toISOString() };
+}
+
+/**
+ * Toggle the user's consent to share contact info with sponsors/partners.
+ * Returns the value that was persisted so the client can reconcile.
+ */
+export async function setShareContact(
+  consent: boolean,
+): Promise<{ ok: boolean; shareContact: boolean }> {
+  const session = await safeAuth();
+  if (!session?.user?.id) return { ok: false, shareContact: false };
+
+  try {
+    await db
+      .update(users)
+      .set({ shareContact: consent, updatedAt: new Date() })
+      .where(eq(users.id, session.user.id));
+  } catch (err) {
+    console.error("[setShareContact] db update failed", err);
+    return { ok: false, shareContact: !consent };
+  }
+
+  revalidatePath("/builders/dashboard/profile");
+  return { ok: true, shareContact: consent };
+}
+
+/**
+ * Right to erasure: permanently delete the signed-in user and everything tied
+ * to them. Teams they lead are removed first (teams.leader_id is ON DELETE
+ * RESTRICT), which cascades to their projects, submissions, and judge scores;
+ * deleting the user then cascades accounts, sessions, registrations, team
+ * memberships, and judge rows. After this the caller must sign out — the
+ * session row no longer exists.
+ */
+export async function deleteMyData(): Promise<{ ok: boolean; message?: string }> {
+  const session = await safeAuth();
+  const uid = session?.user?.id;
+  if (!uid) return { ok: false, message: "Not signed in." };
+
+  try {
+    await db.transaction(async (tx) => {
+      await tx.delete(teams).where(eq(teams.leaderId, uid));
+      await tx.delete(users).where(eq(users.id, uid));
+    });
+  } catch (err) {
+    console.error("[deleteMyData] delete failed", err);
+    return { ok: false, message: "Couldn't delete your data right now. Try again in a moment." };
+  }
+
+  return { ok: true };
 }

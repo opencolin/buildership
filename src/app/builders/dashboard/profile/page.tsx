@@ -6,6 +6,7 @@ import { db } from "@/server/db";
 import { users, events, eventRegistrations } from "@/server/db/schema";
 import { and, eq } from "drizzle-orm";
 import { ProfileForm } from "./profile-form";
+import { ConsentToggle, DeleteAccount } from "./privacy-controls";
 
 export const dynamic = "force-dynamic";
 
@@ -105,15 +106,16 @@ export default async function ProfilePage() {
                 </div>
                 <select className="input w-auto"><option>System</option><option>Light</option><option>Dark</option></select>
               </div>
-              <div className="card flex items-center justify-between">
-                <div>
-                  <p className="font-semibold text-ink-900 dark:text-ink-50">Allow sponsor follow-up</p>
-                  <p className="text-sm text-ink-500 dark:text-ink-400">Set per-project on submit; this is the default.</p>
-                </div>
-                <label className="inline-flex cursor-pointer items-center gap-2 text-ink-700 dark:text-ink-200"><input type="checkbox" defaultChecked className="h-4 w-4 accent-navy-700" />Enabled</label>
-              </div>
+              <ConsentToggle defaultConsent={user?.shareContact ?? false} />
             </div>
-            <p className="mt-8 text-center text-xs text-ink-400 dark:text-ink-500">— end of profile configuration —</p>
+
+            <h2 className="h-display mt-12 text-2xl font-bold text-ink-900 dark:text-ink-50">Privacy &amp; data</h2>
+            <p className="mt-1 text-sm text-ink-500 dark:text-ink-400">You control your data. Erase everything we hold about you at any time.</p>
+            <div className="mt-6">
+              <DeleteAccount />
+            </div>
+
+            <p className="mt-12 text-center text-xs text-ink-400 dark:text-ink-500">— end of profile configuration —</p>
             <div className="mt-4 text-center">
               <Link href="/builders/dashboard" className="btn-ghost text-sm">← Back to console</Link>
             </div>

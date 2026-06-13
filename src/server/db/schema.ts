@@ -125,6 +125,9 @@ export const users = pgTable(
     twitterUrl: text("twitter_url"),
     discordId: text("discord_id"),
     phone: text("phone"),
+    // Opt-in: hacker consents to organizers sharing their contact info (email,
+    // phone, links) with event sponsors and partners. Defaults off.
+    shareContact: boolean("share_contact").notNull().default(false),
     memberSince: timestamp("member_since", { withTimezone: true }).notNull().defaultNow(),
     isAdmin: boolean("is_admin").notNull().default(false),
     status: userStatusEnum("status").notNull().default("active"),
