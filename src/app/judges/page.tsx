@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { and, eq, ilike, or } from "drizzle-orm";
+import { and, eq, ilike, or, sql } from "drizzle-orm";
 import { AppHeader } from "@/components/app-chrome";
 import { db } from "@/server/db";
 import {
@@ -9,6 +9,8 @@ import {
   users,
   eventRegistrations,
   judges,
+  judgeScores,
+  submissions,
 } from "@/server/db/schema";
 import { safeAuth } from "@/server/lib/safe-auth";
 import { ProjectsBrowser, type JudgeProject } from "./projects-browser";
@@ -58,6 +60,9 @@ export default async function JudgesPortal() {
 
   const canAccess =
     Boolean(session.user.isAdmin) || panelReg.length > 0 || judgeRow.length > 0;
+  const myJudgeId = judgeRow[0]?.id ?? null;
+  // Judges (and admins, who get a judge row lazily on first save) can score.
+  const canScore = Boolean(myJudgeId) || Boolean(session.user.isAdmin);
 
   if (!canAccess) {
     return (
@@ -110,6 +115,49 @@ export default async function JudgesPortal() {
         .where(eq(projects.eventId, event.id))
     : [];
 
+  // This judge's own saved scores (to pre-fill the controls).
+  const myScoreRows = myJudgeId
+    ? await db
+        .select({
+          projectId: submissions.projectId,
+          scores: judgeScores.scoresJson,
+          notes: judgeScores.notes,
+        })
+        .from(judgeScores)
+        .innerJoin(submissions, eq(submissions.id, judgeScores.submissionId))
+        .where(eq(judgeScores.judgeId, myJudgeId))
+    : [];
+  const myScoreMap = new Map(
+    myScoreRows.map((r) => [
+      r.projectId,
+      {
+        overall: Number((r.scores as { overall?: number })?.overall) || null,
+        notes: r.notes ?? "",
+      },
+    ]),
+  );
+
+  // Aggregate score + count per project across all judges.
+  const aggRows = event
+    ? await db
+        .select({
+          projectId: submissions.projectId,
+          avg: sql<string | null>`avg(${judgeScores.weighted})::numeric(5,2)::text`,
+          cnt: sql<number>`count(*)::int`,
+        })
+        .from(judgeScores)
+        .innerJoin(submissions, eq(submissions.id, judgeScores.submissionId))
+        .innerJoin(projects, eq(projects.id, submissions.projectId))
+        .where(eq(projects.eventId, event.id))
+        .groupBy(submissions.projectId)
+    : [];
+  const aggMap = new Map(
+    aggRows.map((r) => [
+      r.projectId,
+      { avg: r.avg != null ? Number(r.avg) : null, count: r.cnt },
+    ]),
+  );
+
   const items: JudgeProject[] = rows.map((r) => ({
     id: r.id,
     name: r.name || r.teamName || "Untitled",
@@ -123,10 +171,15 @@ export default async function JudgesPortal() {
     x: r.leaderX || r.xPostUrl,
     linkedin: r.leaderLi || r.linkedinPostUrl,
     status: r.status,
+    myOverall: myScoreMap.get(r.id)?.overall ?? null,
+    myNotes: myScoreMap.get(r.id)?.notes ?? "",
+    avg: aggMap.get(r.id)?.avg ?? null,
+    scoreCount: aggMap.get(r.id)?.count ?? 0,
   }));
 
-  // Surface the most complete entries first.
+  // Surface scored + most-complete entries first.
   const score = (p: JudgeProject) =>
+    (p.avg != null ? 20 + p.avg : 0) +
     (p.demo ? 4 : 0) +
     (p.website ? 2 : 0) +
     (p.building ? 1 : 0) +
@@ -147,12 +200,15 @@ export default async function JudgesPortal() {
             </h1>
             <p className="mt-2 text-ink-600 dark:text-ink-300">
               Every team building at BuilderShip — what they&apos;re building,
-              plus their demo, website, and socials. Search and filter to dig in.
+              plus their demo, website, and socials.
+              {canScore
+                ? " Score each project 1–10; your scores save instantly."
+                : " Search and filter to dig in."}
             </p>
           </div>
         </section>
 
-        <ProjectsBrowser projects={items} />
+        <ProjectsBrowser projects={items} canScore={canScore} />
       </main>
     </>
   );

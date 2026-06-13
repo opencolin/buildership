@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useTransition } from "react";
+import { scoreProject } from "./actions";
 
 export type JudgeProject = {
   id: string;
@@ -15,19 +16,15 @@ export type JudgeProject = {
   x: string | null;
   linkedin: string | null;
   status: string;
+  myOverall: number | null;
+  myNotes: string;
+  avg: number | null;
+  scoreCount: number;
 };
 
 const PAGE = 90;
 
-function LinkPill({
-  href,
-  label,
-  emphasis,
-}: {
-  href: string;
-  label: string;
-  emphasis?: boolean;
-}) {
+function LinkPill({ href, label, emphasis }: { href: string; label: string; emphasis?: boolean }) {
   return (
     <a
       href={href}
@@ -44,11 +41,110 @@ function LinkPill({
   );
 }
 
-export function ProjectsBrowser({ projects }: { projects: JudgeProject[] }) {
+function ScoreControl({ project }: { project: JudgeProject }) {
+  const [overall, setOverall] = useState<number | null>(project.myOverall);
+  const [notes, setNotes] = useState(project.myNotes);
+  const [avg, setAvg] = useState<number | null>(project.avg);
+  const [count, setCount] = useState(project.scoreCount);
+  const [pending, start] = useTransition();
+  const [error, setError] = useState<string | null>(null);
+  const [savedTick, setSavedTick] = useState(0);
+
+  function save(nextOverall: number, nextNotes: string) {
+    setError(null);
+    start(async () => {
+      const res = await scoreProject({
+        projectId: project.id,
+        overall: nextOverall,
+        notes: nextNotes || null,
+      });
+      if (res.ok) {
+        setAvg(res.avg);
+        setCount(res.count);
+        setSavedTick((t) => t + 1);
+      } else {
+        setError(res.error);
+      }
+    });
+  }
+
+  return (
+    <div className="mt-4 border-t border-ink-100 pt-4 dark:border-ink-800">
+      <div className="flex items-center justify-between">
+        <span className="text-xs font-semibold uppercase tracking-wider text-ink-500 dark:text-ink-400">
+          Your score
+        </span>
+        <span className="text-xs text-ink-500 dark:text-ink-400">
+          {avg != null ? (
+            <>
+              avg <span className="font-semibold text-ink-700 dark:text-ink-200">{avg.toFixed(1)}</span>
+              {" · "}
+              {count} {count === 1 ? "judge" : "judges"}
+            </>
+          ) : (
+            "not scored yet"
+          )}
+        </span>
+      </div>
+      <div className="mt-2 flex flex-wrap gap-1">
+        {Array.from({ length: 10 }, (_, i) => i + 1).map((n) => (
+          <button
+            key={n}
+            type="button"
+            disabled={pending}
+            onClick={() => {
+              setOverall(n);
+              save(n, notes);
+            }}
+            className={
+              overall === n
+                ? "h-8 w-8 rounded-md bg-navy-700 text-sm font-bold text-white dark:bg-lime dark:text-navy-700"
+                : "h-8 w-8 rounded-md border border-ink-200 text-sm font-medium text-ink-600 transition hover:border-navy-700 hover:text-navy-700 disabled:opacity-50 dark:border-ink-700 dark:text-ink-300 dark:hover:border-lime dark:hover:text-lime"
+            }
+          >
+            {n}
+          </button>
+        ))}
+      </div>
+      <input
+        type="text"
+        defaultValue={notes}
+        placeholder={overall ? "Add a note (optional)" : "Pick a score first to add a note"}
+        disabled={!overall || pending}
+        onBlur={(e) => {
+          const v = e.target.value;
+          if (overall && v !== notes) {
+            setNotes(v);
+            save(overall, v);
+          }
+        }}
+        className="input mt-2 text-sm disabled:opacity-50"
+      />
+      <p className="mt-1 h-4 text-xs">
+        {error ? (
+          <span className="text-red-600 dark:text-red-400">{error}</span>
+        ) : pending ? (
+          <span className="text-ink-400">Saving…</span>
+        ) : savedTick > 0 ? (
+          <span className="text-emerald-600 dark:text-emerald-400">Saved ✓</span>
+        ) : null}
+      </p>
+    </div>
+  );
+}
+
+export function ProjectsBrowser({
+  projects,
+  canScore,
+}: {
+  projects: JudgeProject[];
+  canScore: boolean;
+}) {
   const [q, setQ] = useState("");
   const [role, setRole] = useState<"all" | "hacker" | "founder">("all");
   const [needDemo, setNeedDemo] = useState(false);
   const [needSite, setNeedSite] = useState(false);
+  const [unscored, setUnscored] = useState(false);
   const [visible, setVisible] = useState(PAGE);
 
   const filtered = useMemo(() => {
@@ -56,6 +152,7 @@ export function ProjectsBrowser({ projects }: { projects: JudgeProject[] }) {
     return projects.filter((p) => {
       if (needDemo && !p.demo) return false;
       if (needSite && !p.website) return false;
+      if (unscored && p.avg != null) return false;
       const r = (p.role ?? "").toLowerCase();
       if (role === "hacker" && !r.includes("hacker")) return false;
       if (role === "founder" && !r.includes("founder")) return false;
@@ -67,24 +164,24 @@ export function ProjectsBrowser({ projects }: { projects: JudgeProject[] }) {
         (p.team ?? "").toLowerCase().includes(needle)
       );
     });
-  }, [projects, q, role, needDemo, needSite]);
+  }, [projects, q, role, needDemo, needSite, unscored]);
 
   const shown = filtered.slice(0, visible);
-
-  function reset() {
-    setVisible(PAGE);
-  }
+  const reset = () => setVisible(PAGE);
 
   const roleTabs: { key: typeof role; label: string }[] = [
     { key: "all", label: "All" },
     { key: "hacker", label: "Hackers" },
     { key: "founder", label: "Founders" },
   ];
+  const chip = (active: boolean) =>
+    active
+      ? "rounded-full bg-lime px-3 py-1.5 text-xs font-semibold text-navy-700"
+      : "rounded-full border border-ink-200 px-3 py-1.5 text-xs font-medium text-ink-600 hover:bg-ink-100 dark:border-ink-700 dark:text-ink-300 dark:hover:bg-ink-800";
 
   return (
     <section className="section">
       <div className="container-page">
-        {/* Controls */}
         <div className="sticky top-16 z-10 -mx-6 mb-8 border-b border-ink-200 bg-ink-50/90 px-6 py-4 backdrop-blur dark:border-ink-800 dark:bg-ink-800/90 md:top-[72px]">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
             <input
@@ -115,32 +212,11 @@ export function ProjectsBrowser({ projects }: { projects: JudgeProject[] }) {
                   </button>
                 ))}
               </div>
-              <button
-                onClick={() => {
-                  setNeedDemo((v) => !v);
-                  reset();
-                }}
-                className={
-                  needDemo
-                    ? "rounded-full bg-lime px-3 py-1.5 text-xs font-semibold text-navy-700"
-                    : "rounded-full border border-ink-200 px-3 py-1.5 text-xs font-medium text-ink-600 hover:bg-ink-100 dark:border-ink-700 dark:text-ink-300 dark:hover:bg-ink-800"
-                }
-              >
-                Has demo
-              </button>
-              <button
-                onClick={() => {
-                  setNeedSite((v) => !v);
-                  reset();
-                }}
-                className={
-                  needSite
-                    ? "rounded-full bg-lime px-3 py-1.5 text-xs font-semibold text-navy-700"
-                    : "rounded-full border border-ink-200 px-3 py-1.5 text-xs font-medium text-ink-600 hover:bg-ink-100 dark:border-ink-700 dark:text-ink-300 dark:hover:bg-ink-800"
-                }
-              >
-                Has website
-              </button>
+              <button onClick={() => { setNeedDemo((v) => !v); reset(); }} className={chip(needDemo)}>Has demo</button>
+              <button onClick={() => { setNeedSite((v) => !v); reset(); }} className={chip(needSite)}>Has website</button>
+              {canScore ? (
+                <button onClick={() => { setUnscored((v) => !v); reset(); }} className={chip(unscored)}>Unscored</button>
+              ) : null}
             </div>
           </div>
           <p className="mt-3 text-xs font-medium uppercase tracking-wider text-ink-500 dark:text-ink-400">
@@ -149,22 +225,22 @@ export function ProjectsBrowser({ projects }: { projects: JudgeProject[] }) {
           </p>
         </div>
 
-        {/* Grid */}
         {shown.length === 0 ? (
-          <p className="py-16 text-center text-ink-500 dark:text-ink-400">
-            No projects match your search.
-          </p>
+          <p className="py-16 text-center text-ink-500 dark:text-ink-400">No projects match your search.</p>
         ) : (
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {shown.map((p) => (
               <article key={p.id} className="card flex flex-col">
                 <div className="flex items-start justify-between gap-3">
-                  <h3 className="font-semibold leading-snug text-ink-900 dark:text-ink-50">
-                    {p.name}
-                  </h3>
-                  {p.status === "submitted" ? (
-                    <span className="pill-lime shrink-0">Submitted</span>
-                  ) : null}
+                  <h3 className="font-semibold leading-snug text-ink-900 dark:text-ink-50">{p.name}</h3>
+                  <div className="flex shrink-0 flex-col items-end gap-1">
+                    {p.status === "submitted" ? <span className="pill-lime">Submitted</span> : null}
+                    {p.avg != null ? (
+                      <span className="rounded-full bg-navy-700 px-2 py-0.5 text-xs font-bold text-white dark:bg-lime dark:text-navy-700">
+                        ★ {p.avg.toFixed(1)}
+                      </span>
+                    ) : null}
+                  </div>
                 </div>
                 <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-500 dark:text-ink-400">
                   {p.leader ? <span>{p.leader}</span> : null}
@@ -176,33 +252,21 @@ export function ProjectsBrowser({ projects }: { projects: JudgeProject[] }) {
                 </div>
 
                 <p className="mt-3 line-clamp-5 grow whitespace-pre-line text-sm leading-relaxed text-ink-700 dark:text-ink-200">
-                  {p.building || (
-                    <span className="italic text-ink-400 dark:text-ink-500">
-                      No description provided.
-                    </span>
-                  )}
+                  {p.building || <span className="italic text-ink-400 dark:text-ink-500">No description provided.</span>}
                 </p>
 
                 <div className="mt-4 flex flex-wrap gap-2 border-t border-ink-100 pt-4 dark:border-ink-800">
                   {p.demo ? <LinkPill href={p.demo} label="Demo" emphasis /> : null}
-                  {p.website ? (
-                    <LinkPill href={p.website} label="Website" emphasis />
-                  ) : null}
+                  {p.website ? <LinkPill href={p.website} label="Website" emphasis /> : null}
                   {p.x ? <LinkPill href={p.x} label="X" /> : null}
-                  {p.linkedin ? (
-                    <LinkPill href={p.linkedin} label="LinkedIn" />
-                  ) : null}
+                  {p.linkedin ? <LinkPill href={p.linkedin} label="LinkedIn" /> : null}
                   {p.repo ? <LinkPill href={p.repo} label="Repo" /> : null}
-                  {!p.demo &&
-                  !p.website &&
-                  !p.x &&
-                  !p.linkedin &&
-                  !p.repo ? (
-                    <span className="text-xs italic text-ink-400 dark:text-ink-500">
-                      No links yet
-                    </span>
+                  {!p.demo && !p.website && !p.x && !p.linkedin && !p.repo ? (
+                    <span className="text-xs italic text-ink-400 dark:text-ink-500">No links yet</span>
                   ) : null}
                 </div>
+
+                {canScore ? <ScoreControl project={p} /> : null}
               </article>
             ))}
           </div>
@@ -210,10 +274,7 @@ export function ProjectsBrowser({ projects }: { projects: JudgeProject[] }) {
 
         {visible < filtered.length ? (
           <div className="mt-10 text-center">
-            <button
-              onClick={() => setVisible((v) => v + PAGE)}
-              className="btn-outline"
-            >
+            <button onClick={() => setVisible((v) => v + PAGE)} className="btn-outline">
               Load more ({filtered.length - visible} remaining)
             </button>
           </div>
