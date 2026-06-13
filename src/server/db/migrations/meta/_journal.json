@@ -29,6 +29,13 @@
       "when": 1781306704576,
       "tag": "0003_add_registration_role",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1781331467855,
+      "tag": "0004_add_project_website",
+      "breakpoints": true
     }
   ]
 }
