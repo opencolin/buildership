@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { and, eq, sql } from "drizzle-orm";
 import { AppHeader } from "@/components/app-chrome";
 import { db } from "@/server/db";
@@ -41,6 +42,25 @@ export default async function JudgesPortal() {
     : [];
   const myJudgeId = judgeRow[0]?.id ?? null;
   const canScore = Boolean(uid);
+
+  // The signed-in user's own project (if they lead one) — for the quick-edit
+  // banner. Hackers/founders see their submission; everyone else, their profile.
+  const myProjectRows =
+    uid && event
+      ? await db
+          .select({
+            id: projects.id,
+            name: projects.name,
+            status: projects.status,
+          })
+          .from(projects)
+          .innerJoin(teams, eq(teams.id, projects.teamId))
+          .where(
+            and(eq(teams.leaderId, uid), eq(projects.eventId, event.id)),
+          )
+          .limit(1)
+      : [];
+  const myProject = myProjectRows[0] ?? null;
 
   const rows = event
     ? await db
@@ -165,6 +185,59 @@ export default async function JudgesPortal() {
             </p>
           </div>
         </section>
+
+        {uid ? (
+          <section className="border-b border-ink-200 bg-lime/10 dark:border-ink-800 dark:bg-ink-900">
+            <div className="container-page flex flex-col gap-3 py-5 sm:flex-row sm:items-center sm:justify-between">
+              {myProject ? (
+                <>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">
+                      Your submission
+                    </p>
+                    <p className="mt-1 flex flex-wrap items-center gap-2 text-lg font-semibold text-ink-900 dark:text-ink-50">
+                      {myProject.name}
+                      <span
+                        className={
+                          myProject.status === "submitted"
+                            ? "pill-lime"
+                            : "rounded-full bg-ink-100 px-2 py-0.5 text-xs font-medium text-ink-600 dark:bg-ink-800 dark:text-ink-300"
+                        }
+                      >
+                        {myProject.status}
+                      </span>
+                    </p>
+                  </div>
+                  {event ? (
+                    <Link
+                      href={`/builders/dashboard/events/${event.id}/builder#project`}
+                      className="btn-lime shrink-0"
+                    >
+                      Edit your project →
+                    </Link>
+                  ) : null}
+                </>
+              ) : (
+                <>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">
+                      Your profile
+                    </p>
+                    <p className="mt-1 text-lg font-semibold text-ink-900 dark:text-ink-50">
+                      {session?.user?.name ?? "Your details"}
+                    </p>
+                    <p className="text-sm text-ink-500 dark:text-ink-400">
+                      Keep your details current for teammates and judges.
+                    </p>
+                  </div>
+                  <Link href="/builders/dashboard/profile" className="btn-lime shrink-0">
+                    Edit your profile →
+                  </Link>
+                </>
+              )}
+            </div>
+          </section>
+        ) : null}
 
         <ProjectsBrowser projects={items} canScore={canScore} />
       </main>
