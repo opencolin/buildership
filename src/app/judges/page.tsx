@@ -169,7 +169,7 @@ export default async function JudgesPortal() {
     <>
       <AppHeader links={judgesNav} />
       <main className="bg-ink-50 dark:bg-ink-800">
-        <SponsorCreditsBar />
+        {uid ? <SponsorCreditsBar /> : null}
         <section className="border-b border-ink-200 bg-white dark:border-ink-800 dark:bg-ink-900">
           <div className="container-page py-10">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">

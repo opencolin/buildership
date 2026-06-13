@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { and, eq } from "drizzle-orm";
 import { AppHeader } from "@/components/app-chrome";
+import { SponsorCreditsBar } from "@/components/sponsor-credits-bar";
 import { WorkshopCard } from "@/components/workshop-card";
 import { workshops } from "@/lib/data";
 import { safeAuth } from "@/server/lib/safe-auth";
@@ -86,6 +87,7 @@ export default async function BuilderDashboard() {
     <>
       <AppHeader links={builderNav} />
       <main className="bg-ink-50 dark:bg-ink-800">
+        <SponsorCreditsBar />
         {/* Hero */}
         <section className="border-b border-ink-200 bg-white dark:border-ink-800 dark:bg-ink-900">
           <div className="container-page py-10">

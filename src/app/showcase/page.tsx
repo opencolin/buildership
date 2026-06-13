@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { and, desc, eq, isNotNull } from "drizzle-orm";
 import { AppHeader } from "@/components/app-chrome";
+import { SponsorCreditsBar } from "@/components/sponsor-credits-bar";
+import { safeAuth } from "@/server/lib/safe-auth";
 import { db } from "@/server/db";
 import { events, projects, teams, users } from "@/server/db/schema";
 
@@ -28,6 +30,7 @@ function extLink(href: string | null, label: string) {
 }
 
 export default async function Showcase() {
+  const session = await safeAuth();
   const [event] = await db
     .select({ id: events.id })
     .from(events)
@@ -60,6 +63,7 @@ export default async function Showcase() {
     <>
       <AppHeader links={showcaseNav} />
       <main className="bg-ink-50 dark:bg-ink-800">
+        {session?.user ? <SponsorCreditsBar /> : null}
         <section className="border-b border-ink-200 bg-white dark:border-ink-800 dark:bg-ink-900">
           <div className="container-page py-10">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
