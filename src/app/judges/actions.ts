@@ -37,12 +37,11 @@ export async function scoreProject(input: {
   const { projectId, overall, notes } = parsed.data;
   const uid = session.user.id;
 
-  // Must be a judge (a judges-table row). Admins get one lazily so they can test.
+  // Open judging: anyone signed in can score. Give them a judge row on first save.
   let judge = (
     await db.select().from(judges).where(eq(judges.userId, uid)).limit(1)
   )[0];
   if (!judge) {
-    if (!session.user.isAdmin) return { ok: false, error: "You're not a judge." };
     [judge] = await db
       .insert(judges)
       .values({ userId: uid, kind: "sponsor", active: true })

@@ -1,5 +1,4 @@
-import { redirect } from "next/navigation";
-import { and, eq, ilike, or, sql } from "drizzle-orm";
+import { and, eq, sql } from "drizzle-orm";
 import { AppHeader } from "@/components/app-chrome";
 import { db } from "@/server/db";
 import {
@@ -24,8 +23,7 @@ const judgesNav = [
 
 export default async function JudgesPortal() {
   const session = await safeAuth();
-  if (!session?.user) redirect("/builders/login?callbackUrl=/judges");
-  const uid = session.user.id;
+  const uid = session?.user?.id ?? null;
 
   const [event] = await db
     .select({ id: events.id, title: events.title })
@@ -33,56 +31,16 @@ export default async function JudgesPortal() {
     .where(eq(events.slug, "buildership"))
     .limit(1);
 
-  // Access: admins, anyone registered as a judge or investor/VC (both review
-  // projects), or judges-table members.
-  const panelReg = event
+  // Open to everyone — anyone can browse; anyone signed in can score.
+  const judgeRow = uid
     ? await db
-        .select({ role: eventRegistrations.role })
-        .from(eventRegistrations)
-        .where(
-          and(
-            eq(eventRegistrations.userId, uid),
-            eq(eventRegistrations.eventId, event.id),
-            or(
-              ilike(eventRegistrations.role, "%judge%"),
-              ilike(eventRegistrations.role, "%investor%"),
-              ilike(eventRegistrations.role, "%vc%"),
-            ),
-          ),
-        )
+        .select({ id: judges.id })
+        .from(judges)
+        .where(eq(judges.userId, uid))
         .limit(1)
     : [];
-  const judgeRow = await db
-    .select({ id: judges.id })
-    .from(judges)
-    .where(eq(judges.userId, uid))
-    .limit(1);
-
-  const canAccess =
-    Boolean(session.user.isAdmin) || panelReg.length > 0 || judgeRow.length > 0;
   const myJudgeId = judgeRow[0]?.id ?? null;
-  // Judges (and admins, who get a judge row lazily on first save) can score.
-  const canScore = Boolean(myJudgeId) || Boolean(session.user.isAdmin);
-
-  if (!canAccess) {
-    return (
-      <>
-        <AppHeader links={judgesNav} />
-        <main className="bg-ink-50 dark:bg-ink-800">
-          <section className="container-page py-16">
-            <h1 className="h-display text-3xl font-bold text-ink-900 dark:text-ink-50">
-              Judges &amp; investors only.
-            </h1>
-            <p className="mt-3 max-w-xl text-ink-600 dark:text-ink-300">
-              This portal is for BuilderShip judges and investors. If that&apos;s
-              you and you&apos;re seeing this, sign in with the email on your
-              registration — or ask the organizers to add you.
-            </p>
-          </section>
-        </main>
-      </>
-    );
-  }
+  const canScore = Boolean(uid);
 
   const rows = event
     ? await db
@@ -193,7 +151,7 @@ export default async function JudgesPortal() {
         <section className="border-b border-ink-200 bg-white dark:border-ink-800 dark:bg-ink-900">
           <div className="container-page py-10">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
-              Judges portal
+              Community judging
             </p>
             <h1 className="h-display mt-1 text-3xl font-bold tracking-tight text-ink-900 dark:text-ink-50">
               Projects &amp; companies
@@ -203,7 +161,7 @@ export default async function JudgesPortal() {
               plus their demo, website, and socials.
               {canScore
                 ? " Score each project 1–10; your scores save instantly."
-                : " Search and filter to dig in."}
+                : " Sign in to score each project 1–10 — everyone gets to judge."}
             </p>
           </div>
         </section>

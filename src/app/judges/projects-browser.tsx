@@ -266,7 +266,16 @@ export function ProjectsBrowser({
                   ) : null}
                 </div>
 
-                {canScore ? <ScoreControl project={p} /> : null}
+                {canScore ? (
+                  <ScoreControl project={p} />
+                ) : (
+                  <a
+                    href="/builders/login?callbackUrl=/judges"
+                    className="mt-4 block border-t border-ink-100 pt-4 text-center text-sm font-semibold text-navy-700 hover:underline dark:border-ink-800 dark:text-lime"
+                  >
+                    Sign in to score →
+                  </a>
+                )}
               </article>
             ))}
           </div>
