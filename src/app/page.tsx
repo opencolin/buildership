@@ -274,6 +274,9 @@ export default function HackJackLondonSquarePage() {
               <Link href="#sponsors" className="btn-ghost text-sm">
                 Sponsors & stack →
               </Link>
+              <Link href="/showcase" className="btn-ghost text-sm">
+                Showcase →
+              </Link>
             </div>
             <p className="mt-7 max-w-2xl text-xl text-ink-600 dark:text-ink-300">
               Building, bowling, beer, sunset cruise.

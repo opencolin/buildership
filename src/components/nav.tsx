@@ -2,9 +2,11 @@ import Link from "next/link";
 import { BuilderShipLogo } from "./buildership-logo";
 import { ThemeToggle } from "./theme-toggle";
 import { CountdownToDeadline } from "./countdown-to-deadline";
+import { MobileNav } from "./mobile-nav";
 
 const links = [
   { href: "/events", label: "Schedule" },
+  { href: "/showcase", label: "Showcase" },
   { href: "/#faq", label: "FAQ" },
   { href: "/workshops", label: "Workshops" },
   { href: "/docs", label: "Docs" },
@@ -36,6 +38,7 @@ export function TopNav() {
           <ThemeToggle />
           <Link href="/builders/login" className="btn-ghost hidden sm:inline-flex">Log in</Link>
           <Link href="/#apply" className="btn-lime whitespace-nowrap">Sign Up</Link>
+          <MobileNav links={links} />
         </div>
       </div>
     </header>
