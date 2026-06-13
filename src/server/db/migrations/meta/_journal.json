@@ -36,6 +36,13 @@
       "when": 1781331467855,
       "tag": "0004_add_project_website",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1781385606617,
+      "tag": "0005_add_ai_note_repo_state",
+      "breakpoints": true
     }
   ]
 }

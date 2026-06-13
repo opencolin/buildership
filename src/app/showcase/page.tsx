@@ -46,6 +46,8 @@ export default async function Showcase() {
           name: projects.name,
           summary: projects.summary,
           aiScore: projects.aiScore,
+          aiNote: projects.aiNote,
+          aiRepoState: projects.aiRepoState,
           humanScore: projects.humanScore,
           demoUrl: projects.demoUrl,
           repoUrl: projects.repoUrl,
@@ -122,8 +124,13 @@ export default async function Showcase() {
                           {rank}
                         </span>
                         <div className="min-w-0">
-                          <p className="truncate font-semibold text-ink-900 dark:text-ink-50">
-                            {p.name}
+                          <p className="flex items-center gap-2 font-semibold text-ink-900 dark:text-ink-50">
+                            <span className="truncate">{p.name}</span>
+                            {p.aiNote ? (
+                              <span className="shrink-0 rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-700 dark:bg-amber-500/15 dark:text-amber-400">
+                                Deep-reviewed
+                              </span>
+                            ) : null}
                           </p>
                           {p.leader ? (
                             <p className="text-xs text-ink-500 dark:text-ink-400">
@@ -134,6 +141,29 @@ export default async function Showcase() {
                             <p className="mt-1 line-clamp-2 text-sm text-ink-600 dark:text-ink-300">
                               {p.summary}
                             </p>
+                          ) : null}
+                          {p.aiNote ? (
+                            <div className="mt-2 rounded-md border border-ink-200 bg-ink-50 p-2 dark:border-ink-700/60 dark:bg-ink-800/50">
+                              <p className="flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-ink-500 dark:text-ink-400">
+                                AI code review
+                                {p.aiRepoState ? (
+                                  <span
+                                    className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${
+                                      p.aiRepoState === "real"
+                                        ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-400"
+                                        : p.aiRepoState === "thin" || p.aiRepoState === "scaffold"
+                                          ? "bg-amber-100 text-amber-700 dark:bg-amber-500/15 dark:text-amber-400"
+                                          : "bg-red-100 text-red-700 dark:bg-red-500/15 dark:text-red-400"
+                                    }`}
+                                  >
+                                    repo: {p.aiRepoState}
+                                  </span>
+                                ) : null}
+                              </p>
+                              <p className="mt-1 line-clamp-3 text-xs text-ink-600 dark:text-ink-300">
+                                {p.aiNote}
+                              </p>
+                            </div>
                           ) : null}
                           <div className="mt-2 flex flex-wrap gap-2">
                             {extLink(p.demoUrl, "Demo")}

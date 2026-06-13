@@ -389,6 +389,10 @@ export const projects = pgTable(
     videoThumbUrl: text("video_thumb_url"),
     status: projectStatusEnum("status").notNull().default("draft"),
     aiScore: numeric("ai_score", { precision: 5, scale: 2 }),
+    // Deep-review (finalists only): AI code-review note + repo state
+    // (real/thin/scaffold/empty/profile-only/no-repo/404). Null = not deep-reviewed.
+    aiNote: text("ai_note"),
+    aiRepoState: text("ai_repo_state"),
     humanScore: numeric("human_score", { precision: 5, scale: 2 }),
     compositeScore: numeric("composite_score", { precision: 5, scale: 2 }),
     compositeRank: integer("composite_rank"),
