@@ -20,9 +20,9 @@ const sponsorDocs: SponsorDoc[] = [
     name: "Composio",
     role: "Agent tools & integrations",
     blurb:
-      "One SDK to plug your agent into 250+ apps — Gmail, Slack, GitHub, Linear, Notion, Stripe — with auth, function schemas, and tool-calling already wired. Bring your agent, ship the workflow.",
+      "One SDK to plug your agent into 1,000+ apps — Gmail, Slack, GitHub, Linear, Notion, Stripe — with auth, function schemas, and tool-calling already wired. Bring your agent, ship the workflow.",
     highlights: [
-      "250+ pre-wired tools, auth handled per-user",
+      "1,000+ pre-wired tools, auth handled per-user",
       "Tool schemas in OpenAI / Anthropic / function-calling shape",
       "Triggers and webhooks for event-driven agents",
       "Python and TypeScript SDKs",

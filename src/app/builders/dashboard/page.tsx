@@ -216,7 +216,7 @@ export default async function BuilderDashboard() {
                 <div>
                   <p className="text-xs font-mono font-semibold uppercase tracking-widest text-navy-700 dark:text-lime">Composio Discord</p>
                   <p className="mt-1 text-base font-semibold text-ink-900 dark:text-ink-50">Tools, auth, integrations</p>
-                  <p className="mt-1 text-sm text-ink-600 dark:text-ink-300">Help with the 250+ tool catalog, auth flows, and tool schemas. Composio engineers active.</p>
+                  <p className="mt-1 text-sm text-ink-600 dark:text-ink-300">Help with the 1,000+ tool catalog, auth flows, and tool schemas. Composio engineers active.</p>
                 </div>
                 <span className="font-mono text-sm text-navy-700 dark:text-lime">Join →</span>
               </Link>

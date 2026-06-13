@@ -302,7 +302,7 @@ export const events: Event[] = [
     isOnline: true,
     cover: "from-orange-200 via-orange-400 to-orange-600",
     description:
-      "Connect your agent to Gmail, Slack, GitHub, Linear, and 250+ other apps in one session. Auth flow, tool schemas, and a working integration by the end of the hour.",
+      "Connect your agent to Gmail, Slack, GitHub, Linear, and 1,000+ other apps in one session. Auth flow, tool schemas, and a working integration by the end of the hour.",
     capacity: 100,
     registered: 0,
     partners: ["Composio"],
@@ -365,7 +365,7 @@ const rawWorkshops: Workshop[] = [
   },
   {
     slug: "composio-connect-ai-agents-250-tools",
-    title: "Composio: connect AI agents to 250+ tools in minutes",
+    title: "Composio: connect AI agents to 1,000+ tools in minutes",
     hosts: [{ name: "Composio team", role: "Engineers", company: "Composio" }],
     recordedAt: "2025-04-15T17:00:00+00:00",
     durationSeconds: 60 * 18,
@@ -373,7 +373,7 @@ const rawWorkshops: Workshop[] = [
     videoUrl: "https://www.youtube.com/watch?v=oVmHJvErnf8",
     thumbnailUrl: "https://img.youtube.com/vi/oVmHJvErnf8/maxresdefault.jpg",
     description:
-      "How to wire your agent into Gmail, Slack, GitHub, Linear, Notion, and 250+ other apps without writing OAuth flows or per-tool schemas. Composio handles auth, function schemas, and tool calling — you bring the agent.",
+      "How to wire your agent into Gmail, Slack, GitHub, Linear, Notion, and 1,000+ other apps without writing OAuth flows or per-tool schemas. Composio handles auth, function schemas, and tool calling — you bring the agent.",
     chapters: [
       { startSec: 0, title: "What Composio is" },
       { startSec: 240, title: "Auth flow per user" },
@@ -812,7 +812,7 @@ const rawWorkshops: Workshop[] = [
     videoUrl: "https://www.youtube.com/watch?v=d3SHoLAJ_tA",
     thumbnailUrl: "https://img.youtube.com/vi/d3SHoLAJ_tA/maxresdefault.jpg",
     description:
-      "Official Composio demo: integrate an agent with 200+ apps — Slack, GitHub, Google Calendar — and watch it call tools end-to-end. Auth, schemas, tool calling, all handled.",
+      "Official Composio demo: integrate an agent with 1,000+ apps — Slack, GitHub, Google Calendar — and watch it call tools end-to-end. Auth, schemas, tool calling, all handled.",
     chapters: [],
     tags: ["composio", "agents", "tools", "demo", "tutorial"],
     ctaUrl: "https://www.youtube.com/watch?v=d3SHoLAJ_tA",
@@ -846,7 +846,7 @@ const rawWorkshops: Workshop[] = [
     videoUrl: "https://www.youtube.com/watch?v=qKSjsIlpEBI",
     thumbnailUrl: "https://img.youtube.com/vi/qKSjsIlpEBI/maxresdefault.jpg",
     description:
-      "Wire a Langflow agent up to Composio's tool catalog in one session — drag-and-drop the flow, plug in your account, and the agent gets 250+ apps for free.",
+      "Wire a Langflow agent up to Composio's tool catalog in one session — drag-and-drop the flow, plug in your account, and the agent gets 1,000+ apps for free.",
     chapters: [],
     tags: ["composio", "langflow", "agents", "tools", "tutorial"],
     ctaUrl: "https://www.youtube.com/watch?v=qKSjsIlpEBI",

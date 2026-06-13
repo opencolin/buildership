@@ -221,7 +221,7 @@ async function main() {
       slug: "workshop-composio",
       title: "Live Workshop · Composio",
       description:
-        "Connect your agent to Gmail, Slack, GitHub, Linear, and 250+ other apps in one session. Auth flow, tool schemas, and a working integration by the end of the hour.",
+        "Connect your agent to Gmail, Slack, GitHub, Linear, and 1,000+ other apps in one session. Auth flow, tool schemas, and a working integration by the end of the hour.",
       partner: "Composio",
       start: "2026-05-22T17:00:00-07:00",
       end: "2026-05-22T19:00:00-07:00",
