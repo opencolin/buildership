@@ -874,7 +874,7 @@ const rawWorkshops: Workshop[] = [
   },
   {
     slug: "composio-10k-tools-evolve",
-    title: "Composio: 10,000+ Tools That Evolve for Agents",
+    title: "Composio: 1,000+ Tools That Evolve for Agents",
     hosts: [
       { name: "Karan Vaidya", role: "Co-founder", company: "Composio" },
       { name: "Soham Ganatra", role: "Co-founder", company: "Composio" },
@@ -885,7 +885,7 @@ const rawWorkshops: Workshop[] = [
     videoUrl: "https://www.youtube.com/watch?v=aI5xMKxXU6c",
     thumbnailUrl: "https://img.youtube.com/vi/aI5xMKxXU6c/maxresdefault.jpg",
     description:
-      "Series A talk from both co-founders. How Composio's tools self-improve as agents use them, why the catalog cleared 10,000+ apps, and where the platform goes next.",
+      "Series A talk from both co-founders. How Composio's tools self-improve as agents use them, why the catalog cleared 1,000+ apps, and where the platform goes next.",
     chapters: [],
     tags: ["composio", "agents", "talks", "founders"],
     ctaUrl: "https://www.youtube.com/watch?v=aI5xMKxXU6c",

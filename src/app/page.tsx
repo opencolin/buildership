@@ -97,7 +97,7 @@ const sponsors = [
     name: "Composio",
     role: "Agent tools & integrations",
     blurb:
-      "One SDK to plug your agent into 1,000+ apps — Gmail, Slack, GitHub, Linear, Notion — with auth, function schemas, and tool-calling already wired. Bring your agent, ship the workflow.",
+      "Connect your agent — or any AI — to Gmail, Slack, GitHub, Notion, and 1,000+ more apps through MCP or a direct API. Auth, function schemas, and tool-calling already wired.",
     site: "https://composio.dev",
     docs: "https://docs.composio.dev",
     accent: "lime",
