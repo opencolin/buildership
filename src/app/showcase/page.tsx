@@ -14,6 +14,23 @@ const showcaseNav = [
   { label: "Schedule", href: "/events" },
 ];
 
+// Shared column selection so the leaderboard query and the "your project"
+// lookup return identically-shaped rows.
+const projectFields = {
+  id: projects.id,
+  name: projects.name,
+  summary: projects.summary,
+  aiScore: projects.aiScore,
+  aiNote: projects.aiNote,
+  aiRepoState: projects.aiRepoState,
+  humanScore: projects.humanScore,
+  demoUrl: projects.demoUrl,
+  repoUrl: projects.repoUrl,
+  websiteUrl: projects.websiteUrl,
+  leader: users.name,
+  leaderId: teams.leaderId,
+};
+
 function extLink(href: string | null, label: string) {
   if (!href) return null;
   return (
@@ -29,8 +46,43 @@ function extLink(href: string | null, label: string) {
   );
 }
 
+function medalClass(rank: number) {
+  return rank === 1
+    ? "bg-amber-400 text-ink-900"
+    : rank === 2
+      ? "bg-ink-300 text-ink-900 dark:bg-ink-400"
+      : rank === 3
+        ? "bg-amber-700 text-white"
+        : "bg-ink-100 text-ink-600 dark:bg-ink-800 dark:text-ink-300";
+}
+
+function AiReviewBox({ note, state }: { note: string; state: string | null }) {
+  return (
+    <div className="mt-2 rounded-md border border-ink-200 bg-ink-50 p-2 dark:border-ink-700/60 dark:bg-ink-800/50">
+      <p className="flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-ink-500 dark:text-ink-400">
+        AI code review
+        {state ? (
+          <span
+            className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${
+              state === "real"
+                ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-400"
+                : state === "thin" || state === "scaffold"
+                  ? "bg-amber-100 text-amber-700 dark:bg-amber-500/15 dark:text-amber-400"
+                  : "bg-red-100 text-red-700 dark:bg-red-500/15 dark:text-red-400"
+            }`}
+          >
+            repo: {state}
+          </span>
+        ) : null}
+      </p>
+      <p className="mt-1 line-clamp-3 text-xs text-ink-600 dark:text-ink-300">{note}</p>
+    </div>
+  );
+}
+
 export default async function Showcase() {
   const session = await safeAuth();
+  const uid = session?.user?.id ?? null;
   const [event] = await db
     .select({ id: events.id })
     .from(events)
@@ -38,28 +90,40 @@ export default async function Showcase() {
     .limit(1);
 
   // Ranked by AI score (highest first). Only projects that have been AI-scored
-  // appear on the showcase.
+  // appear on the leaderboard.
   const rows = event
     ? await db
-        .select({
-          id: projects.id,
-          name: projects.name,
-          summary: projects.summary,
-          aiScore: projects.aiScore,
-          aiNote: projects.aiNote,
-          aiRepoState: projects.aiRepoState,
-          humanScore: projects.humanScore,
-          demoUrl: projects.demoUrl,
-          repoUrl: projects.repoUrl,
-          websiteUrl: projects.websiteUrl,
-          leader: users.name,
-        })
+        .select(projectFields)
         .from(projects)
         .innerJoin(teams, eq(teams.id, projects.teamId))
         .innerJoin(users, eq(users.id, teams.leaderId))
         .where(and(eq(projects.eventId, event.id), isNotNull(projects.aiScore)))
         .orderBy(desc(projects.aiScore))
     : [];
+
+  const ranked = rows.map((p, i) => ({ ...p, rank: i + 1 }));
+
+  // The signed-in user's own project, pinned to the top. If it's been scored
+  // it's already in `ranked` (carrying its true rank); if not, look it up
+  // directly so a not-yet-scored project still shows.
+  const mine = uid ? ranked.find((r) => r.leaderId === uid) ?? null : null;
+  const mineUnscored =
+    uid && event && !mine
+      ? (
+          await db
+            .select(projectFields)
+            .from(projects)
+            .innerJoin(teams, eq(teams.id, projects.teamId))
+            .innerJoin(users, eq(users.id, teams.leaderId))
+            .where(and(eq(projects.eventId, event.id), eq(teams.leaderId, uid)))
+            .limit(1)
+        )[0] ?? null
+      : null;
+
+  const myProject =
+    mine ?? (mineUnscored ? { ...mineUnscored, rank: null as number | null } : null);
+  // Avoid showing the user's project twice: drop it from the leaderboard below.
+  const others = mine ? ranked.filter((r) => r.id !== mine.id) : ranked;
 
   return (
     <>
@@ -83,21 +147,74 @@ export default async function Showcase() {
 
         <section className="section">
           <div className="container-page">
-            {rows.length === 0 ? (
-              <div className="card mx-auto max-w-xl text-center">
-                <p className="text-lg font-semibold text-ink-900 dark:text-ink-50">
-                  AI scoring is in progress.
-                </p>
-                <p className="mt-2 text-ink-600 dark:text-ink-300">
-                  The ranked leaderboard appears here as soon as projects are
-                  scored. Check back shortly.
-                </p>
-                <Link href="/judges" className="btn-outline mt-6">
-                  Browse all projects →
-                </Link>
+            {/* Pinned: the signed-in user's own project */}
+            {myProject ? (
+              <div className="mb-8">
+                <div className="card border-2 border-lime dark:border-lime/70">
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex items-center gap-2">
+                      <span className="rounded-full bg-lime px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-navy-700">
+                        Your project
+                      </span>
+                      {myProject.rank != null ? (
+                        <span
+                          className={`flex h-7 items-center justify-center rounded-full px-2.5 text-xs font-bold ${medalClass(myProject.rank)}`}
+                        >
+                          Ranked #{myProject.rank}
+                        </span>
+                      ) : (
+                        <span className="rounded-full bg-ink-100 px-2.5 py-0.5 text-xs font-semibold text-ink-500 dark:bg-ink-800 dark:text-ink-400">
+                          Awaiting AI score
+                        </span>
+                      )}
+                    </div>
+                    {event ? (
+                      <Link
+                        href={`/builders/dashboard/events/${event.id}/builder#project`}
+                        className="btn-outline text-xs"
+                      >
+                        Edit your project →
+                      </Link>
+                    ) : null}
+                  </div>
+
+                  <p className="mt-3 flex items-center gap-2 font-semibold text-ink-900 dark:text-ink-50">
+                    <span className="truncate text-lg">{myProject.name}</span>
+                    {myProject.aiNote ? (
+                      <span className="shrink-0 rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-700 dark:bg-amber-500/15 dark:text-amber-400">
+                        Deep-reviewed
+                      </span>
+                    ) : null}
+                  </p>
+                  {myProject.summary ? (
+                    <p className="mt-1 text-sm text-ink-600 dark:text-ink-300">
+                      {myProject.summary}
+                    </p>
+                  ) : null}
+                  {myProject.aiNote ? (
+                    <AiReviewBox note={myProject.aiNote} state={myProject.aiRepoState} />
+                  ) : null}
+                  <div className="mt-3 flex flex-wrap items-center gap-2">
+                    {extLink(myProject.demoUrl, "Demo")}
+                    {extLink(myProject.websiteUrl, "Website")}
+                    {extLink(myProject.repoUrl, "Repo")}
+                    {myProject.aiScore != null ? (
+                      <span className="ml-auto rounded-full bg-navy-700 px-3 py-1 text-xs font-bold text-white dark:bg-lime dark:text-navy-700">
+                        AI {Number(myProject.aiScore).toFixed(1)}
+                      </span>
+                    ) : null}
+                  </div>
+                </div>
               </div>
-            ) : (
+            ) : null}
+
+            {others.length > 0 ? (
               <>
+                {myProject ? (
+                  <h2 className="mb-3 text-xs font-semibold uppercase tracking-wider text-ink-500 dark:text-ink-400">
+                    Full leaderboard
+                  </h2>
+                ) : null}
                 {/* Column header (desktop) */}
                 <div className="mb-2 hidden grid-cols-[3rem_1fr_6rem_6rem] gap-4 px-5 text-xs font-semibold uppercase tracking-wider text-ink-500 dark:text-ink-400 md:grid">
                   <span>#</span>
@@ -106,20 +223,15 @@ export default async function Showcase() {
                   <span className="text-right">Judges</span>
                 </div>
                 <ol className="space-y-3">
-                  {rows.map((p, i) => {
-                    const rank = i + 1;
-                    const medal =
-                      rank === 1 ? "bg-amber-400 text-ink-900" :
-                      rank === 2 ? "bg-ink-300 text-ink-900 dark:bg-ink-400" :
-                      rank === 3 ? "bg-amber-700 text-white" :
-                      "bg-ink-100 text-ink-600 dark:bg-ink-800 dark:text-ink-300";
+                  {others.map((p) => {
+                    const rank = p.rank;
                     return (
                       <li
                         key={p.id}
                         className="card grid grid-cols-[3rem_1fr] items-start gap-4 md:grid-cols-[3rem_1fr_6rem_6rem] md:items-center"
                       >
                         <span
-                          className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-bold ${medal}`}
+                          className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-bold ${medalClass(rank)}`}
                         >
                           {rank}
                         </span>
@@ -143,27 +255,7 @@ export default async function Showcase() {
                             </p>
                           ) : null}
                           {p.aiNote ? (
-                            <div className="mt-2 rounded-md border border-ink-200 bg-ink-50 p-2 dark:border-ink-700/60 dark:bg-ink-800/50">
-                              <p className="flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-ink-500 dark:text-ink-400">
-                                AI code review
-                                {p.aiRepoState ? (
-                                  <span
-                                    className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${
-                                      p.aiRepoState === "real"
-                                        ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-400"
-                                        : p.aiRepoState === "thin" || p.aiRepoState === "scaffold"
-                                          ? "bg-amber-100 text-amber-700 dark:bg-amber-500/15 dark:text-amber-400"
-                                          : "bg-red-100 text-red-700 dark:bg-red-500/15 dark:text-red-400"
-                                    }`}
-                                  >
-                                    repo: {p.aiRepoState}
-                                  </span>
-                                ) : null}
-                              </p>
-                              <p className="mt-1 line-clamp-3 text-xs text-ink-600 dark:text-ink-300">
-                                {p.aiNote}
-                              </p>
-                            </div>
+                            <AiReviewBox note={p.aiNote} state={p.aiRepoState} />
                           ) : null}
                           <div className="mt-2 flex flex-wrap gap-2">
                             {extLink(p.demoUrl, "Demo")}
@@ -193,6 +285,23 @@ export default async function Showcase() {
                   })}
                 </ol>
               </>
+            ) : myProject ? (
+              <p className="text-center text-sm text-ink-500 dark:text-ink-400">
+                No other projects have been scored yet.
+              </p>
+            ) : (
+              <div className="card mx-auto max-w-xl text-center">
+                <p className="text-lg font-semibold text-ink-900 dark:text-ink-50">
+                  AI scoring is in progress.
+                </p>
+                <p className="mt-2 text-ink-600 dark:text-ink-300">
+                  The ranked leaderboard appears here as soon as projects are
+                  scored. Check back shortly.
+                </p>
+                <Link href="/judges" className="btn-outline mt-6">
+                  Browse all projects →
+                </Link>
+              </div>
             )}
           </div>
         </section>
