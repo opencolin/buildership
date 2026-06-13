@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { and, eq, ilike } from "drizzle-orm";
+import { and, eq, ilike, or } from "drizzle-orm";
 import { AppHeader } from "@/components/app-chrome";
 import { db } from "@/server/db";
 import {
@@ -31,8 +31,9 @@ export default async function JudgesPortal() {
     .where(eq(events.slug, "buildership"))
     .limit(1);
 
-  // Access: admins, anyone registered with a judge role, or judges-table members.
-  const judgeReg = event
+  // Access: admins, anyone registered as a judge or investor/VC (both review
+  // projects), or judges-table members.
+  const panelReg = event
     ? await db
         .select({ role: eventRegistrations.role })
         .from(eventRegistrations)
@@ -40,7 +41,11 @@ export default async function JudgesPortal() {
           and(
             eq(eventRegistrations.userId, uid),
             eq(eventRegistrations.eventId, event.id),
-            ilike(eventRegistrations.role, "%judge%"),
+            or(
+              ilike(eventRegistrations.role, "%judge%"),
+              ilike(eventRegistrations.role, "%investor%"),
+              ilike(eventRegistrations.role, "%vc%"),
+            ),
           ),
         )
         .limit(1)
@@ -51,22 +56,22 @@ export default async function JudgesPortal() {
     .where(eq(judges.userId, uid))
     .limit(1);
 
-  const isJudge =
-    Boolean(session.user.isAdmin) || judgeReg.length > 0 || judgeRow.length > 0;
+  const canAccess =
+    Boolean(session.user.isAdmin) || panelReg.length > 0 || judgeRow.length > 0;
 
-  if (!isJudge) {
+  if (!canAccess) {
     return (
       <>
         <AppHeader links={judgesNav} />
         <main className="bg-ink-50 dark:bg-ink-800">
           <section className="container-page py-16">
             <h1 className="h-display text-3xl font-bold text-ink-900 dark:text-ink-50">
-              Judges only.
+              Judges &amp; investors only.
             </h1>
             <p className="mt-3 max-w-xl text-ink-600 dark:text-ink-300">
-              This portal is for BuilderShip judges. If you&apos;re judging and
-              seeing this, sign in with the email on your judge registration —
-              or ask the organizers to add you.
+              This portal is for BuilderShip judges and investors. If that&apos;s
+              you and you&apos;re seeing this, sign in with the email on your
+              registration — or ask the organizers to add you.
             </p>
           </section>
         </main>
