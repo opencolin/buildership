@@ -160,8 +160,8 @@ export default async function JudgesPortal() {
               Every team building at BuilderShip — what they&apos;re building,
               plus their demo, website, and socials.
               {canScore
-                ? " Score each project 1–10; your scores save instantly."
-                : " Sign in to score each project 1–10 — everyone gets to judge."}
+                ? " Rate each project 1–5 stars; your ratings save instantly."
+                : " Sign in to rate each project 1–5 stars — everyone gets to judge."}
             </p>
           </div>
         </section>

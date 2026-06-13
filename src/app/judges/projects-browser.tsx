@@ -49,6 +49,7 @@ function ScoreControl({ project }: { project: JudgeProject }) {
   const [pending, start] = useTransition();
   const [error, setError] = useState<string | null>(null);
   const [savedTick, setSavedTick] = useState(0);
+  const [hover, setHover] = useState<number | null>(null);
 
   function save(nextOverall: number, nextNotes: string) {
     setError(null);
@@ -72,7 +73,7 @@ function ScoreControl({ project }: { project: JudgeProject }) {
     <div className="mt-4 border-t border-ink-100 pt-4 dark:border-ink-800">
       <div className="flex items-center justify-between">
         <span className="text-xs font-semibold uppercase tracking-wider text-ink-500 dark:text-ink-400">
-          Your score
+          Your rating
         </span>
         <span className="text-xs text-ink-500 dark:text-ink-400">
           {avg != null ? (
@@ -86,30 +87,37 @@ function ScoreControl({ project }: { project: JudgeProject }) {
           )}
         </span>
       </div>
-      <div className="mt-2 flex flex-wrap gap-1">
-        {Array.from({ length: 10 }, (_, i) => i + 1).map((n) => (
-          <button
-            key={n}
-            type="button"
-            disabled={pending}
-            onClick={() => {
-              setOverall(n);
-              save(n, notes);
-            }}
-            className={
-              overall === n
-                ? "h-8 w-8 rounded-md bg-navy-700 text-sm font-bold text-white dark:bg-lime dark:text-navy-700"
-                : "h-8 w-8 rounded-md border border-ink-200 text-sm font-medium text-ink-600 transition hover:border-navy-700 hover:text-navy-700 disabled:opacity-50 dark:border-ink-700 dark:text-ink-300 dark:hover:border-lime dark:hover:text-lime"
-            }
-          >
-            {n}
-          </button>
-        ))}
+      <div
+        className="mt-2 flex items-center gap-1"
+        onMouseLeave={() => setHover(null)}
+      >
+        {[1, 2, 3, 4, 5].map((n) => {
+          const filled = n <= (hover ?? overall ?? 0);
+          return (
+            <button
+              key={n}
+              type="button"
+              disabled={pending}
+              aria-label={`${n} star${n > 1 ? "s" : ""}`}
+              onMouseEnter={() => setHover(n)}
+              onFocus={() => setHover(n)}
+              onClick={() => {
+                setOverall(n);
+                save(n, notes);
+              }}
+              className="text-3xl leading-none transition disabled:opacity-50"
+            >
+              <span className={filled ? "text-amber-400" : "text-ink-300 dark:text-ink-600"}>
+                ★
+              </span>
+            </button>
+          );
+        })}
       </div>
       <input
         type="text"
         defaultValue={notes}
-        placeholder={overall ? "Add a note (optional)" : "Pick a score first to add a note"}
+        placeholder={overall ? "Add a note (optional)" : "Pick a rating first to add a note"}
         disabled={!overall || pending}
         onBlur={(e) => {
           const v = e.target.value;

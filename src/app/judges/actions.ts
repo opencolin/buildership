@@ -9,7 +9,7 @@ import { safeAuth } from "@/server/lib/safe-auth";
 
 const schema = z.object({
   projectId: z.string().uuid(),
-  overall: z.number().int().min(1).max(10),
+  overall: z.number().int().min(1).max(5),
   notes: z.string().max(4000).optional().nullable(),
 });
 
@@ -18,7 +18,7 @@ export type ScoreResult =
   | { ok: false; error: string };
 
 /**
- * A judge scores a project 1–10 (+ optional notes). Scores live on the existing
+ * A judge rates a project 1–5 stars (+ optional notes). Scores live on the existing
  * submission/judge_scores tables: we lazily create one submission per project
  * (judges grade projects, not GitHub snapshots, here) and upsert one score row
  * per (submission, judge). After saving we recompute the project's average and
