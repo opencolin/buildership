@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState, useTransition } from "react";
+import { videoEmbed } from "@/lib/video";
 import { scoreProject } from "./actions";
 
 export type JudgeProject = {
@@ -240,7 +242,9 @@ export function ProjectsBrowser({
             {shown.map((p) => (
               <article key={p.id} className="card flex flex-col">
                 <div className="flex items-start justify-between gap-3">
-                  <h3 className="font-semibold leading-snug text-ink-900 dark:text-ink-50">{p.name}</h3>
+                  <h3 className="font-semibold leading-snug text-ink-900 dark:text-ink-50">
+                    <Link href={`/showcase/${p.id}`} className="hover:underline">{p.name}</Link>
+                  </h3>
                   <div className="flex shrink-0 flex-col items-end gap-1">
                     {p.status === "submitted" ? <span className="pill-lime">Submitted</span> : null}
                     {p.avg != null ? (
@@ -256,6 +260,14 @@ export function ProjectsBrowser({
                     <span className="rounded-full bg-ink-100 px-2 py-0.5 font-medium text-ink-600 dark:bg-ink-800 dark:text-ink-300">
                       {p.role}
                     </span>
+                  ) : null}
+                  {videoEmbed(p.demo) ? (
+                    <Link
+                      href={`/showcase/${p.id}`}
+                      className="inline-flex items-center gap-1 rounded-full border border-ink-300 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ink-600 transition hover:border-navy-700 hover:text-navy-700 dark:border-ink-600 dark:text-ink-300 dark:hover:border-lime dark:hover:text-lime"
+                    >
+                      ▶ Video
+                    </Link>
                   ) : null}
                 </div>
 

@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
+import { videoEmbed } from "@/lib/video";
 import { AiReviewBox, extLink, type ShowcaseProject } from "./shared";
 
 export function ShowcaseList({
@@ -67,7 +69,17 @@ export function ShowcaseList({
               >
                 <div className="min-w-0">
                   <p className="flex items-center gap-2 font-semibold text-ink-900 dark:text-ink-50">
-                    <span className="truncate">{p.name}</span>
+                    <Link href={`/showcase/${p.id}`} className="truncate hover:underline">
+                      {p.name}
+                    </Link>
+                    {videoEmbed(p.demoUrl) ? (
+                      <Link
+                        href={`/showcase/${p.id}`}
+                        className="inline-flex shrink-0 items-center gap-1 rounded-full border border-ink-300 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ink-600 transition hover:border-navy-700 hover:text-navy-700 dark:border-ink-600 dark:text-ink-300 dark:hover:border-lime dark:hover:text-lime"
+                      >
+                        ▶ Video
+                      </Link>
+                    ) : null}
                     {p.aiNote ? (
                       <span className="shrink-0 rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-700 dark:bg-amber-500/15 dark:text-amber-400">
                         Deep-reviewed
