@@ -5,6 +5,8 @@ import { SponsorCreditsBar } from "@/components/sponsor-credits-bar";
 import { safeAuth } from "@/server/lib/safe-auth";
 import { db } from "@/server/db";
 import { events, projects, teams, users } from "@/server/db/schema";
+import { AiReviewBox, extLink, medalClass } from "./shared";
+import { ShowcaseList } from "./showcase-list";
 
 export const dynamic = "force-dynamic";
 
@@ -30,55 +32,6 @@ const projectFields = {
   leader: users.name,
   leaderId: teams.leaderId,
 };
-
-function extLink(href: string | null, label: string) {
-  if (!href) return null;
-  return (
-    <a
-      key={label}
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      className="inline-flex items-center gap-1 rounded-full border border-ink-200 px-2.5 py-0.5 text-xs font-medium text-ink-700 transition hover:border-ink-300 hover:bg-ink-50 dark:border-ink-700 dark:text-ink-200 dark:hover:bg-ink-800"
-    >
-      {label} ↗
-    </a>
-  );
-}
-
-function medalClass(rank: number) {
-  return rank === 1
-    ? "bg-amber-400 text-ink-900"
-    : rank === 2
-      ? "bg-ink-300 text-ink-900 dark:bg-ink-400"
-      : rank === 3
-        ? "bg-amber-700 text-white"
-        : "bg-ink-100 text-ink-600 dark:bg-ink-800 dark:text-ink-300";
-}
-
-function AiReviewBox({ note, state }: { note: string; state: string | null }) {
-  return (
-    <div className="mt-2 rounded-md border border-ink-200 bg-ink-50 p-2 dark:border-ink-700/60 dark:bg-ink-800/50">
-      <p className="flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-ink-500 dark:text-ink-400">
-        AI code review
-        {state ? (
-          <span
-            className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${
-              state === "real"
-                ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-400"
-                : state === "thin" || state === "scaffold"
-                  ? "bg-amber-100 text-amber-700 dark:bg-amber-500/15 dark:text-amber-400"
-                  : "bg-red-100 text-red-700 dark:bg-red-500/15 dark:text-red-400"
-            }`}
-          >
-            repo: {state}
-          </span>
-        ) : null}
-      </p>
-      <p className="mt-1 line-clamp-3 text-xs text-ink-600 dark:text-ink-300">{note}</p>
-    </div>
-  );
-}
 
 export default async function Showcase() {
   const session = await safeAuth();
@@ -209,75 +162,7 @@ export default async function Showcase() {
             ) : null}
 
             {others.length > 0 ? (
-              <>
-                {myProject ? (
-                  <h2 className="mb-3 text-xs font-semibold uppercase tracking-wider text-ink-500 dark:text-ink-400">
-                    Full leaderboard
-                  </h2>
-                ) : null}
-                {/* Column header (desktop) */}
-                <div className="mb-2 hidden grid-cols-[1fr_6rem_6rem] gap-4 px-5 text-xs font-semibold uppercase tracking-wider text-ink-500 dark:text-ink-400 md:grid">
-                  <span>Project</span>
-                  <span className="text-right">AI score</span>
-                  <span className="text-right">Judges</span>
-                </div>
-                <ol className="space-y-3">
-                  {others.map((p) => {
-                    return (
-                      <li
-                        key={p.id}
-                        className="card grid grid-cols-1 items-start gap-4 md:grid-cols-[1fr_6rem_6rem] md:items-center"
-                      >
-                        <div className="min-w-0">
-                          <p className="flex items-center gap-2 font-semibold text-ink-900 dark:text-ink-50">
-                            <span className="truncate">{p.name}</span>
-                            {p.aiNote ? (
-                              <span className="shrink-0 rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-700 dark:bg-amber-500/15 dark:text-amber-400">
-                                Deep-reviewed
-                              </span>
-                            ) : null}
-                          </p>
-                          {p.leader ? (
-                            <p className="text-xs text-ink-500 dark:text-ink-400">
-                              by {p.leader}
-                            </p>
-                          ) : null}
-                          {p.summary ? (
-                            <p className="mt-1 line-clamp-2 text-sm text-ink-600 dark:text-ink-300">
-                              {p.summary}
-                            </p>
-                          ) : null}
-                          {p.aiNote ? (
-                            <AiReviewBox note={p.aiNote} state={p.aiRepoState} />
-                          ) : null}
-                          <div className="mt-2 flex flex-wrap gap-2">
-                            {extLink(p.demoUrl, "Demo")}
-                            {extLink(p.websiteUrl, "Website")}
-                            {extLink(p.repoUrl, "Repo")}
-                            {/* mobile-only scores */}
-                            <span className="ml-auto md:hidden">
-                              <span className="rounded-full bg-navy-700 px-2.5 py-0.5 text-xs font-bold text-white dark:bg-lime dark:text-navy-700">
-                                AI {Number(p.aiScore).toFixed(1)}
-                              </span>{" "}
-                              <span className="rounded-full bg-ink-100 px-2.5 py-0.5 text-xs font-semibold text-ink-500 dark:bg-ink-800 dark:text-ink-400">
-                                Judges TBD
-                              </span>
-                            </span>
-                          </div>
-                        </div>
-                        <div className="hidden text-right md:block">
-                          <span className="rounded-full bg-navy-700 px-3 py-1 text-sm font-bold text-white dark:bg-lime dark:text-navy-700">
-                            {Number(p.aiScore).toFixed(1)}
-                          </span>
-                        </div>
-                        <div className="hidden text-right text-sm font-semibold text-ink-400 dark:text-ink-500 md:block">
-                          {p.humanScore != null ? Number(p.humanScore).toFixed(1) : "TBD"}
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ol>
-              </>
+              <ShowcaseList items={others} hasPinned={Boolean(myProject)} />
             ) : myProject ? (
               <p className="text-center text-sm text-ink-500 dark:text-ink-400">
                 No other projects have been scored yet.
