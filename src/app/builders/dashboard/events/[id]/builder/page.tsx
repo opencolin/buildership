@@ -184,7 +184,7 @@ export default async function BuilderEventHub({ params }: { params: { id: string
             <div>
               <h2 className="h-display text-2xl font-bold text-ink-900 dark:text-ink-50">Project submission</h2>
               <p className="mt-2 max-w-2xl text-ink-600 dark:text-ink-300">
-                Fill it once, edit it until <strong>June 12</strong>. Save a draft any time; flip to submitted when you're ready for judges.
+                Fill it once, edit it until <strong>June 14</strong>. Save a draft any time; flip to submitted when you're ready for judges.
               </p>
               {existingProject.status === "submitted" ? (
                 <span className="pill-lime mt-4 inline-flex"><span className="live-dot mr-1" /> Submitted · judges can see it</span>
@@ -219,7 +219,7 @@ export default async function BuilderEventHub({ params }: { params: { id: string
                 </li>
                 <li>
                   <p className="font-semibold text-ink-900 dark:text-ink-50">Walk through it at office hours</p>
-                  <p className="mt-1 text-ink-600 dark:text-ink-300">Drop in any weekday before June 12 to get a live read from a sponsor engineer.</p>
+                  <p className="mt-1 text-ink-600 dark:text-ink-300">Drop in any weekday before June 14 to get a live read from a sponsor engineer.</p>
                 </li>
                 <li>
                   <p className="font-semibold text-ink-900 dark:text-ink-50">Top 40 announced June 13</p>

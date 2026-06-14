@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-// Submissions close: 2026-06-12 23:59:59 Pacific (UTC-07:00 PDT)
-const DEADLINE_MS = Date.UTC(2026, 5, 13, 6, 59, 59); // June 13 06:59:59 UTC = June 12 23:59:59 PT
+// Submissions close: 2026-06-14 17:00:00 Pacific (UTC-07:00 PDT)
+const DEADLINE_MS = Date.UTC(2026, 5, 15, 0, 0, 0); // June 15 00:00:00 UTC = June 14 17:00 PT (5 PM)
 
 type Parts = { days: number; hours: number; minutes: number; seconds: number; done: boolean };
 
@@ -68,7 +68,7 @@ export function CountdownToDeadline({ variant = "hero", className = "" }: { vari
   return (
     <div className={className} suppressHydrationWarning>
       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
-        Countdown · submissions close June 12, 23:59 PT
+        Countdown · submissions close June 14, 5:00 PM PT
       </p>
       <div className="mt-3 grid grid-cols-4 gap-3 sm:max-w-md">
         {cells.map((c) => (

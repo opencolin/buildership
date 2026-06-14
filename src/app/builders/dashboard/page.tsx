@@ -19,7 +19,7 @@ const builderNav = [
   { label: "Profile", href: "/builders/dashboard/profile" },
 ];
 
-const SUBMISSION_DEADLINE = new Date("2026-06-12T23:59:59-07:00");
+const SUBMISSION_DEADLINE = new Date("2026-06-14T17:00:00-07:00");
 const FINALS_DAY = new Date("2026-06-14T09:00:00-07:00");
 
 function daysUntil(target: Date): number {
@@ -116,7 +116,7 @@ export default async function BuilderDashboard() {
                     {projectName ?? "Your project"} is in.
                   </h2>
                   <p className="mt-2 text-ink-600 dark:text-ink-300">
-                    Submitted. Judges can see it now. You can keep editing until June 12 at midnight.
+                    Submitted. Judges can see it now. You can keep editing until June 14 at 5 PM PT.
                   </p>
                   <div className="mt-6 flex flex-wrap gap-3">
                     <Link href={projectHref} className="btn-navy">Edit submission →</Link>
@@ -161,7 +161,7 @@ export default async function BuilderDashboard() {
               <div className="card">
                 <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">Submit by</p>
                 <p className="h-display mt-2 text-2xl font-bold text-navy-700 dark:text-lime">
-                  June 12 · 11:59 PM PT
+                  June 14 · 5:00 PM PT
                 </p>
                 <p className="mt-2 text-sm text-ink-600 dark:text-ink-300">
                   AI judges read every repo continuously. Earlier submissions get more passes.

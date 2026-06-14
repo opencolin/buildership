@@ -8,23 +8,23 @@ import { CountdownToDeadline } from "@/components/countdown-to-deadline";
 import { HeroBoat } from "@/components/hero-boat";
 
 export const metadata: Metadata = {
-  title: { absolute: "BuilderShip — Countdown to June 12, finals on the bay" },
+  title: { absolute: "BuilderShip — Countdown to June 14, finals on the bay" },
   description:
-    "BuilderShip: a remote AI hackathon with daily developer support, counting down to June 12. Build an AI agent — top builders earn a boat day on the bay, June 14 — bay crossing, a full day of hacking, final presentations, sunset cruise, waterfront dinner, the winner takes home $50K credits and a DGX Spark, after-party on the yacht. Hosted by Composio, Nebius, and Tavily.",
+    "BuilderShip: a remote AI hackathon with daily developer support, counting down to June 14. Build an AI agent — top builders earn a boat day on the bay, June 14 — bay crossing, a full day of hacking, final presentations, sunset cruise, waterfront dinner, the winner takes home $50K credits and a DGX Spark, after-party on the yacht. Hosted by Composio, Nebius, and Tavily.",
 };
 
 const timeline = [
   {
     num: "01",
-    date: "Now → June 12",
+    date: "Now → June 14",
     title: "Build remotely",
-    body: "Counting down to June 12. Daily developer support online and in person. Sponsor credits and APIs available from day one.",
+    body: "Counting down to June 14. Daily developer support online and in person. Sponsor credits and APIs available from day one.",
   },
   {
     num: "02",
-    date: "Anytime → June 12",
+    date: "Anytime → June 14",
     title: "Post on X & LinkedIn",
-    body: "Post your build on X or LinkedIn and tag us. AI judges review every submission. Want a deeper read? Schedule a live demo with human judges any time before the 12th.",
+    body: "Post your build on X or LinkedIn and tag us. AI judges review every submission. Want a deeper read? Schedule a live demo with human judges any time before the 14th.",
   },
   {
     num: "03",
@@ -157,7 +157,7 @@ const perks = [
 ] as const;
 
 const sdkPerks = [
-  "Nebius Token Factory keys through the June 12 deadline",
+  "Nebius Token Factory keys through the June 14 deadline",
   "Nebius GPU credits for inference & deploy",
   "OpenClaw runtime ready to install",
   "Composio + Tavily API access for the day",
@@ -184,11 +184,11 @@ const faqs = [
   },
   {
     q: "What's the format?",
-    a: "Solo or teams up to 4. Build remotely with daily developer support, submit your GitHub repo by June 12.",
+    a: "Solo or teams up to 4. Build remotely with daily developer support, submit your GitHub repo by June 14.",
   },
   {
     q: "How does scoring work?",
-    a: "AI judges read every repo and pick the finalists by June 12. On June 14 your score blends 40% AI, 40% sponsors, 20% investors — all on the rubric above.",
+    a: "AI judges read every repo and pick the finalists by June 14. On June 14 your score blends 40% AI, 40% sponsors, 20% investors — all on the rubric above.",
   },
   {
     q: "What happens on June 14?",
@@ -258,7 +258,7 @@ export default function HackJackLondonSquarePage() {
             <div className="flex flex-wrap items-center gap-2">
               <span className="pill-outline">An OpenClaw hackathon</span>
               <span className="pill-outline">Developer support M–F</span>
-              <span className="pill-outline">Submit by June 12</span>
+              <span className="pill-outline">Submit by June 14</span>
               <span className="pill-lime">
                 <span className="live-dot" /> Boat day June 14
               </span>
@@ -308,7 +308,7 @@ export default function HackJackLondonSquarePage() {
         <Section id="how-it-works" bg="tint">
           <SectionHeader
             eyebrow="Schedule"
-            title={<>Countdown to June 12.<br />Forty builders. One day on the bay.</>}
+            title={<>Countdown to June 14.<br />Forty builders. One day on the bay.</>}
             body="The hackathon is mostly remote. The boat day is the celebration — and the finals."
           />
           <ol className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -361,7 +361,7 @@ export default function HackJackLondonSquarePage() {
           <SectionHeader
             eyebrow="Developer Support"
             title="Stuck? We're online every day until June 14."
-            body="Daily developer support — online and in person — through June 12, plus always-on help in the sponsor Discords. Drop in, ask anything, ship faster."
+            body="Daily developer support — online and in person — through June 14, plus always-on help in the sponsor Discords. Drop in, ask anything, ship faster."
           />
           <div className="grid gap-6 md:grid-cols-3">
             {officeHourRoles.map((p) => (
@@ -634,11 +634,11 @@ export default function HackJackLondonSquarePage() {
             <div>
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-lime">Boat day June 14</p>
               <h2 className="h-display text-3xl font-bold leading-[1.1] tracking-tight text-white md:text-5xl">
-                Counting down to June 12. Forty finalists. One walk off the plank.
+                Counting down to June 14. Forty finalists. One walk off the plank.
               </h2>
               <p className="mt-5 max-w-xl text-lg text-ink-100">
                 Post something you built, tag <strong className="font-semibold text-white">@ship_builders @nebiusai @composio @tavilyai @openclaw</strong>,
-                and we'll see it. Submissions close <strong className="font-semibold text-white">June 12</strong>.
+                and we'll see it. Submissions close <strong className="font-semibold text-white">June 14</strong>.
                 Finalists announced <strong className="font-semibold text-white">June 13</strong>.
                 Boat leaves South Beach at 9 AM <strong className="font-semibold text-white">June 14</strong>.
               </p>

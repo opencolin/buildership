@@ -101,7 +101,7 @@ async function main() {
       slug: "buildership",
       title: "BuilderShip",
       description:
-        "Remote hackathon counting down to a June 12 submission deadline, with a finals day on the bay on June 14. Top 30 builders earn the boat day. Compete for $50K credits and a DGX Spark.",
+        "Remote hackathon counting down to a June 14 submission deadline, with a finals day on the bay on June 14. Top 30 builders earn the boat day. Compete for $50K credits and a DGX Spark.",
       format: "HACKATHON",
       state: "live",
       startsAt: new Date("2026-06-14T09:00:00-07:00"),
@@ -125,7 +125,7 @@ async function main() {
       set: {
         title: "BuilderShip",
         description:
-          "Remote hackathon counting down to a June 12 submission deadline, with a finals day on the bay on June 14. Top 30 builders earn the boat day. Compete for $50K credits and a DGX Spark.",
+          "Remote hackathon counting down to a June 14 submission deadline, with a finals day on the bay on June 14. Top 30 builders earn the boat day. Compete for $50K credits and a DGX Spark.",
         startsAt: new Date("2026-06-14T09:00:00-07:00"),
         endsAt: new Date("2026-06-14T23:59:00-07:00"),
         venueId: southBeach?.id,

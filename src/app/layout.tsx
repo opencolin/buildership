@@ -3,14 +3,14 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "BuilderShip — Countdown to June 12, finals on the bay",
+    default: "BuilderShip — Countdown to June 14, finals on the bay",
     template: "%s — BuilderShip",
   },
   description:
-    "BuilderShip: build an AI agent, get on the boat. Remote AI hackathon with daily office hours, counting down to June 12. Top 30 builders earn a boat day on the bay, June 14. Compete for $50K credits and a DGX Spark. Hosted by Composio, Nebius, and Tavily.",
+    "BuilderShip: build an AI agent, get on the boat. Remote AI hackathon with daily office hours, counting down to June 14. Top 30 builders earn a boat day on the bay, June 14. Compete for $50K credits and a DGX Spark. Hosted by Composio, Nebius, and Tavily.",
   metadataBase: new URL("https://ship.builders"),
   openGraph: {
-    title: "BuilderShip — Countdown to June 12, finals on the bay",
+    title: "BuilderShip — Countdown to June 14, finals on the bay",
     description:
       "Build an AI agent. 30 hand-picked builders board the yacht June 14. $50K credits and a DGX Spark for the winner. Hosted by Composio, Nebius, and Tavily.",
     url: "https://ship.builders",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@ship_builders",
     creator: "@ship_builders",
-    title: "BuilderShip — Countdown to June 12, finals on the bay",
+    title: "BuilderShip — Countdown to June 14, finals on the bay",
     description:
       "Build an AI agent. 30 hand-picked builders board the yacht June 14. $50K credits and a DGX Spark for the winner. Hosted by Composio, Nebius, and Tavily.",
   },

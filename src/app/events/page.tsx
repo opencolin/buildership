@@ -11,15 +11,15 @@ export const dynamic = "force-dynamic";
 const timeline = [
   {
     num: "01",
-    date: "Now → June 12",
+    date: "Now → June 14",
     title: "Build remotely",
-    body: "Counting down to June 12. Daily office hours online and in person. Sponsor credits and APIs available from day one.",
+    body: "Counting down to June 14. Daily office hours online and in person. Sponsor credits and APIs available from day one.",
   },
   {
     num: "02",
-    date: "Anytime → June 12",
+    date: "Anytime → June 14",
     title: "Submit on GitHub",
-    body: "Push your repo. AI judges review every submission. Want a deeper read? Schedule a live demo with human judges any time before the 12th.",
+    body: "Push your repo. AI judges review every submission. Want a deeper read? Schedule a live demo with human judges any time before the 14th.",
   },
   {
     num: "03",
@@ -69,7 +69,7 @@ export default async function EventsIndex() {
         <Section bg="tint">
           <SectionHeader
             eyebrow="Schedule"
-            title={<>Countdown to June 12.<br />Forty builders. One day on the bay.</>}
+            title={<>Countdown to June 14.<br />Forty builders. One day on the bay.</>}
             body="The hackathon is mostly remote. The boat day is the celebration — and the finals."
           />
           <ol className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
