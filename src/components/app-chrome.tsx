@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { eq } from "drizzle-orm";
 import { BuilderShipLogo } from "./buildership-logo";
 import { ThemeToggle } from "./theme-toggle";
-import { ShareButton } from "./share-button";
 import { SignOutButton } from "./sign-out-button";
+import { db } from "@/server/db";
+import { events } from "@/server/db/schema";
 import { safeAuth } from "@/server/lib/safe-auth";
 
 export async function AppHeader({
@@ -32,6 +34,18 @@ export async function AppHeader({
     if (!navLinks.some((l) => l.href === r.href)) navLinks.push(r);
   }
 
+  // Submit button → the signed-in builder's own project editor.
+  const [event] = user
+    ? await db
+        .select({ id: events.id })
+        .from(events)
+        .where(eq(events.slug, "buildership"))
+        .limit(1)
+    : [];
+  const submitHref = event
+    ? `/builders/dashboard/events/${event.id}/builder#project`
+    : "/builders/dashboard";
+
   return (
     <header className="sticky top-0 z-40 border-b border-ink-200 bg-white/85 backdrop-blur dark:border-ink-800 dark:bg-ink-900/85">
       <div className="container-page flex h-16 items-center justify-between md:h-[72px]">
@@ -51,9 +65,11 @@ export async function AppHeader({
         </div>
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <ShareButton />
           {user ? (
             <>
+              <Link href={submitHref} className="btn-lime text-sm">
+                Submit
+              </Link>
               <SignOutButton />
               <Link
                 href="/builders/dashboard"
