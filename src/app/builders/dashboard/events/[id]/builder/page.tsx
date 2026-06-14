@@ -45,6 +45,7 @@ export default async function BuilderEventHub({ params }: { params: { id: string
     summary: string;
     repoUrl: string;
     demoUrl: string;
+    videoUrl: string;
     xPostUrl: string;
     linkedinPostUrl: string;
     status: "draft" | "submitted";
@@ -55,6 +56,7 @@ export default async function BuilderEventHub({ params }: { params: { id: string
     summary: "",
     repoUrl: "",
     demoUrl: "",
+    videoUrl: "",
     xPostUrl: "",
     linkedinPostUrl: "",
     status: "draft",
@@ -87,6 +89,7 @@ export default async function BuilderEventHub({ params }: { params: { id: string
           summary: projects.summary,
           repoUrl: projects.repoUrl,
           demoUrl: projects.demoUrl,
+          videoUrl: projects.videoUrl,
           xPostUrl: projects.xPostUrl,
           linkedinPostUrl: projects.linkedinPostUrl,
           status: projects.status,
@@ -103,6 +106,7 @@ export default async function BuilderEventHub({ params }: { params: { id: string
           summary: project.summary ?? "",
           repoUrl: project.repoUrl ?? "",
           demoUrl: project.demoUrl ?? "",
+          videoUrl: project.videoUrl ?? "",
           xPostUrl: project.xPostUrl ?? "",
           linkedinPostUrl: project.linkedinPostUrl ?? "",
           status: project.status === "submitted" ? "submitted" : "draft",

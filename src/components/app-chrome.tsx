@@ -21,10 +21,16 @@ export async function AppHeader({
       .map((s) => s[0]?.toUpperCase())
       .join("") || "?";
 
-  // Showcase must always be reachable from the header nav, whatever a page passes.
-  const navLinks = links.some((l) => l.href === "/showcase")
-    ? links
-    : [...links, { label: "Showcase", href: "/showcase" }];
+  // Showcase + Judges must always be reachable from the header nav,
+  // whatever a page passes in.
+  const required = [
+    { label: "Showcase", href: "/showcase" },
+    { label: "Judges", href: "/judging-panel" },
+  ];
+  const navLinks = [...links];
+  for (const r of required) {
+    if (!navLinks.some((l) => l.href === r.href)) navLinks.push(r);
+  }
 
   return (
     <header className="sticky top-0 z-40 border-b border-ink-200 bg-white/85 backdrop-blur dark:border-ink-800 dark:bg-ink-900/85">

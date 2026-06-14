@@ -18,6 +18,7 @@ export function ProjectForm({
     summary: string;
     repoUrl: string;
     demoUrl: string;
+    videoUrl: string;
     xPostUrl: string;
     linkedinPostUrl: string;
     status: "draft" | "submitted";
@@ -135,6 +136,18 @@ export function ProjectForm({
           defaultValue={initial.demoUrl}
         />
         <FieldError errors={fieldErrors.demoUrl} />
+      </div>
+
+      <div>
+        <label className="label" htmlFor="videoUrl">Demo video URL</label>
+        <input
+          id="videoUrl"
+          name="videoUrl"
+          className="input"
+          placeholder="YouTube, Loom, Vimeo, or an .mp4 (optional)"
+          defaultValue={initial.videoUrl}
+        />
+        <FieldError errors={fieldErrors.videoUrl} />
       </div>
 
       <div>
