@@ -216,25 +216,18 @@ export default async function Showcase() {
                   </h2>
                 ) : null}
                 {/* Column header (desktop) */}
-                <div className="mb-2 hidden grid-cols-[3rem_1fr_6rem_6rem] gap-4 px-5 text-xs font-semibold uppercase tracking-wider text-ink-500 dark:text-ink-400 md:grid">
-                  <span>#</span>
+                <div className="mb-2 hidden grid-cols-[1fr_6rem_6rem] gap-4 px-5 text-xs font-semibold uppercase tracking-wider text-ink-500 dark:text-ink-400 md:grid">
                   <span>Project</span>
                   <span className="text-right">AI score</span>
                   <span className="text-right">Judges</span>
                 </div>
                 <ol className="space-y-3">
                   {others.map((p) => {
-                    const rank = p.rank;
                     return (
                       <li
                         key={p.id}
-                        className="card grid grid-cols-[3rem_1fr] items-start gap-4 md:grid-cols-[3rem_1fr_6rem_6rem] md:items-center"
+                        className="card grid grid-cols-1 items-start gap-4 md:grid-cols-[1fr_6rem_6rem] md:items-center"
                       >
-                        <span
-                          className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-bold ${medalClass(rank)}`}
-                        >
-                          {rank}
-                        </span>
                         <div className="min-w-0">
                           <p className="flex items-center gap-2 font-semibold text-ink-900 dark:text-ink-50">
                             <span className="truncate">{p.name}</span>
