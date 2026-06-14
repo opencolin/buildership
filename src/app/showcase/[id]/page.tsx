@@ -31,6 +31,7 @@ export default async function ProjectDetail({ params }: { params: { id: string }
       websiteUrl: projects.websiteUrl,
       xPostUrl: projects.xPostUrl,
       linkedinPostUrl: projects.linkedinPostUrl,
+      isFinalist: projects.isFinalist,
       leader: users.name,
     })
     .from(projects)
@@ -60,6 +61,11 @@ export default async function ProjectDetail({ params }: { params: { id: string }
               <div className="min-w-0">
                 <h1 className="h-display flex flex-wrap items-center gap-3 text-3xl font-bold tracking-tight text-ink-900 dark:text-ink-50">
                   {project.name}
+                  {project.isFinalist ? (
+                    <span className="rounded-full bg-lime px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-navy-700">
+                      ★ Finalist
+                    </span>
+                  ) : null}
                   {project.aiNote ? (
                     <span className="rounded-full bg-amber-100 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-amber-700 dark:bg-amber-500/15 dark:text-amber-400">
                       Deep-reviewed

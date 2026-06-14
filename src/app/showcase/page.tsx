@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { and, desc, eq, isNotNull } from "drizzle-orm";
+import { and, desc, eq, isNotNull, or, sql } from "drizzle-orm";
 import { AppHeader } from "@/components/app-chrome";
 import { SponsorCreditsBar } from "@/components/sponsor-credits-bar";
 import { safeAuth } from "@/server/lib/safe-auth";
@@ -29,6 +29,8 @@ const projectFields = {
   demoUrl: projects.demoUrl,
   repoUrl: projects.repoUrl,
   websiteUrl: projects.websiteUrl,
+  videoUrl: projects.videoUrl,
+  isFinalist: projects.isFinalist,
   leader: users.name,
   leaderId: teams.leaderId,
 };
@@ -50,8 +52,14 @@ export default async function Showcase() {
         .from(projects)
         .innerJoin(teams, eq(teams.id, projects.teamId))
         .innerJoin(users, eq(users.id, teams.leaderId))
-        .where(and(eq(projects.eventId, event.id), isNotNull(projects.aiScore)))
-        .orderBy(desc(projects.aiScore))
+        .where(
+          and(
+            eq(projects.eventId, event.id),
+            eq(projects.hidden, false),
+            or(isNotNull(projects.aiScore), eq(projects.isFinalist, true)),
+          ),
+        )
+        .orderBy(desc(projects.isFinalist), sql`${projects.aiScore} desc nulls last`)
     : [];
 
   const ranked = rows.map((p, i) => ({ ...p, rank: i + 1 }));
@@ -109,6 +117,11 @@ export default async function Showcase() {
                       <span className="rounded-full bg-lime px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-navy-700">
                         Your project
                       </span>
+                      {myProject.isFinalist ? (
+                        <span className="rounded-full bg-navy-700 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-white dark:bg-ink-700">
+                          ★ Finalist
+                        </span>
+                      ) : null}
                       {myProject.rank != null ? (
                         <span
                           className={`flex h-7 items-center justify-center rounded-full px-2.5 text-xs font-bold ${medalClass(myProject.rank)}`}

@@ -21,13 +21,18 @@ export async function AppHeader({
       .map((s) => s[0]?.toUpperCase())
       .join("") || "?";
 
+  // Showcase must always be reachable from the header nav, whatever a page passes.
+  const navLinks = links.some((l) => l.href === "/showcase")
+    ? links
+    : [...links, { label: "Showcase", href: "/showcase" }];
+
   return (
     <header className="sticky top-0 z-40 border-b border-ink-200 bg-white/85 backdrop-blur dark:border-ink-800 dark:bg-ink-900/85">
       <div className="container-page flex h-16 items-center justify-between md:h-[72px]">
         <div className="flex items-center gap-8">
           <BuilderShipLogo />
           <nav className="hidden gap-1 md:flex">
-            {links.map((l) => (
+            {navLinks.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}

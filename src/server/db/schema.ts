@@ -391,6 +391,10 @@ export const projects = pgTable(
     videoUrl: text("video_url"),
     videoThumbUrl: text("video_thumb_url"),
     status: projectStatusEnum("status").notNull().default("draft"),
+    // Confirmed finalist (on the boat). Sorted to the top of the showcase.
+    isFinalist: boolean("is_finalist").notNull().default(false),
+    // Hidden from the public showcase (e.g. judges' own projects).
+    hidden: boolean("hidden").notNull().default(false),
     aiScore: numeric("ai_score", { precision: 5, scale: 2 }),
     // Deep-review (finalists only): AI code-review note + repo state
     // (real/thin/scaffold/empty/profile-only/no-repo/404). Null = not deep-reviewed.

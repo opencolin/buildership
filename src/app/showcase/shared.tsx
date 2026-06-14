@@ -12,6 +12,8 @@ export type ShowcaseProject = {
   demoUrl: string | null;
   repoUrl: string | null;
   websiteUrl: string | null;
+  videoUrl: string | null;
+  isFinalist: boolean;
   leader: string | null;
 };
 
