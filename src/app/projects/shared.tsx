@@ -38,7 +38,11 @@ export type ShowcaseProject = {
   leader: string | null;
 };
 
-export function extLink(href: string | null, label: string): ReactNode {
+export function extLink(
+  href: string | null,
+  label: string,
+  primary = false,
+): ReactNode {
   if (!href) return null;
   return (
     <a
@@ -46,9 +50,16 @@ export function extLink(href: string | null, label: string): ReactNode {
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="inline-flex items-center gap-1 rounded-full border border-ink-200 px-2.5 py-0.5 text-xs font-medium text-ink-700 transition hover:border-ink-300 hover:bg-ink-50 dark:border-ink-700 dark:text-ink-200 dark:hover:bg-ink-800"
+      className={
+        primary
+          ? "inline-flex items-center gap-2 rounded-xl bg-lime px-6 py-3 text-base font-bold text-navy-700 shadow-sm transition hover:-translate-y-0.5 hover:bg-lime-300 hover:shadow-lg"
+          : "inline-flex items-center gap-2 rounded-xl border-2 border-navy-700 px-6 py-3 text-base font-bold text-navy-700 transition hover:-translate-y-0.5 hover:bg-navy-700 hover:text-white dark:border-lime dark:text-lime dark:hover:bg-lime dark:hover:text-navy-700"
+      }
     >
-      {label} ↗
+      {label}
+      <span aria-hidden className="text-lg leading-none">
+        ↗
+      </span>
     </a>
   );
 }

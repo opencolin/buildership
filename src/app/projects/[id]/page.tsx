@@ -151,21 +151,26 @@ export default async function ProjectDetail({ params }: { params: { id: string }
               </div>
             ) : null}
 
-            <div className="flex flex-wrap gap-2 border-t border-ink-200 pt-6 dark:border-ink-700">
-              {extLink(project.demoUrl, embed ? "Open demo" : "Demo")}
-              {extLink(project.websiteUrl, "Website")}
-              {extLink(project.repoUrl, "Repo")}
-              {extLink(project.xPostUrl, "X")}
-              {extLink(project.linkedinPostUrl, "LinkedIn")}
-              {!project.demoUrl &&
-              !project.websiteUrl &&
-              !project.repoUrl &&
-              !project.xPostUrl &&
-              !project.linkedinPostUrl ? (
-                <span className="text-sm italic text-ink-400 dark:text-ink-500">
-                  No links yet.
-                </span>
-              ) : null}
+            <div className="border-t border-ink-200 pt-6 dark:border-ink-700">
+              <h2 className="text-xs font-semibold uppercase tracking-wider text-ink-500 dark:text-ink-400">
+                Links
+              </h2>
+              <div className="mt-3 flex flex-wrap gap-3">
+                {extLink(project.demoUrl, embed ? "Open demo" : "Demo", true)}
+                {extLink(project.websiteUrl, "Website", true)}
+                {extLink(project.repoUrl, "Repo")}
+                {extLink(project.xPostUrl, "X")}
+                {extLink(project.linkedinPostUrl, "LinkedIn")}
+                {!project.demoUrl &&
+                !project.websiteUrl &&
+                !project.repoUrl &&
+                !project.xPostUrl &&
+                !project.linkedinPostUrl ? (
+                  <span className="text-sm italic text-ink-400 dark:text-ink-500">
+                    No links yet.
+                  </span>
+                ) : null}
+              </div>
             </div>
           </div>
         </section>
