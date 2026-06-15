@@ -60,17 +60,16 @@ export default async function ProjectDetail({ params }: { params: { id: string }
               <div className="min-w-0">
                 <h1 className="h-display flex flex-wrap items-center gap-3 text-3xl font-bold tracking-tight text-ink-900 dark:text-ink-50">
                   {project.name}
+                  {/* Highest tier only: Winner ⊃ Top 5 ⊃ Finalist. */}
                   {project.id === WINNER_PROJECT_ID ? (
                     <span className="inline-flex items-center gap-1 rounded-full bg-amber-400 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-ink-900">
                       🏆 Winner
                     </span>
-                  ) : null}
-                  {TOP5_PROJECT_IDS.has(project.id) ? (
+                  ) : TOP5_PROJECT_IDS.has(project.id) ? (
                     <span className="inline-flex items-center rounded-full bg-navy-700 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-white dark:bg-white dark:text-navy-700">
                       Top 5
                     </span>
-                  ) : null}
-                  {project.isFinalist ? (
+                  ) : project.isFinalist ? (
                     <span className="rounded-full bg-lime px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-navy-700">
                       ★ Finalist
                     </span>

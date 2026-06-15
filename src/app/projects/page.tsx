@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { and, eq, sql } from "drizzle-orm";
+import { and, eq, isNotNull, ne, sql } from "drizzle-orm";
 import { AppHeader } from "@/components/app-chrome";
 import { AutoRefresh } from "@/components/auto-refresh";
 import { db } from "@/server/db";
@@ -119,7 +119,10 @@ export default async function JudgesPortal() {
     ]),
   );
 
-  // Aggregate score + count per project across all judges.
+  // Aggregate score + count per project — but only votes from people who
+  // registered on Luma count. Luma registrants carry a ticket-type `role`
+  // (Hacker/Founder/Judge/…); anyone who merely created an account to vote gets
+  // an auto-RSVP with a null role (see auth signIn hook) and is excluded.
   const aggRows = event
     ? await db
         .select({
@@ -130,7 +133,21 @@ export default async function JudgesPortal() {
         .from(judgeScores)
         .innerJoin(submissions, eq(submissions.id, judgeScores.submissionId))
         .innerJoin(projects, eq(projects.id, submissions.projectId))
-        .where(eq(projects.eventId, event.id))
+        .innerJoin(judges, eq(judges.id, judgeScores.judgeId))
+        .innerJoin(
+          eventRegistrations,
+          and(
+            eq(eventRegistrations.userId, judges.userId),
+            eq(eventRegistrations.eventId, event.id),
+          ),
+        )
+        .where(
+          and(
+            eq(projects.eventId, event.id),
+            isNotNull(eventRegistrations.role),
+            ne(eventRegistrations.role, ""),
+          ),
+        )
         .groupBy(submissions.projectId)
     : [];
   const aggMap = new Map(

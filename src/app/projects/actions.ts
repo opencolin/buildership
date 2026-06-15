@@ -1,10 +1,16 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { eq, sql } from "drizzle-orm";
+import { and, eq, isNotNull, ne, sql } from "drizzle-orm";
 import { z } from "zod";
 import { db } from "@/server/db";
-import { judges, judgeScores, submissions, projects } from "@/server/db/schema";
+import {
+  judges,
+  judgeScores,
+  submissions,
+  projects,
+  eventRegistrations,
+} from "@/server/db/schema";
 import { safeAuth } from "@/server/lib/safe-auth";
 
 const schema = z.object({
@@ -94,6 +100,9 @@ export async function scoreProject(input: {
           },
         });
 
+      // Only count votes from Luma registrants (registration has a ticket-type
+      // `role`); accounts created just to vote get a null-role auto-RSVP and are
+      // excluded — matching the aggregate on /projects.
       const [agg] = await tx
         .select({
           avg: sql<string | null>`avg(${judgeScores.weighted})::numeric(5,2)::text`,
@@ -101,7 +110,21 @@ export async function scoreProject(input: {
         })
         .from(judgeScores)
         .innerJoin(submissions, eq(submissions.id, judgeScores.submissionId))
-        .where(eq(submissions.projectId, projectId));
+        .innerJoin(judges, eq(judges.id, judgeScores.judgeId))
+        .innerJoin(
+          eventRegistrations,
+          and(
+            eq(eventRegistrations.userId, judges.userId),
+            eq(eventRegistrations.eventId, proj.eventId),
+          ),
+        )
+        .where(
+          and(
+            eq(submissions.projectId, projectId),
+            isNotNull(eventRegistrations.role),
+            ne(eventRegistrations.role, ""),
+          ),
+        );
 
       const avg = agg?.avg != null ? Number(agg.avg) : null;
       await tx

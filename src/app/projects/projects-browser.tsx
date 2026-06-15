@@ -255,27 +255,29 @@ export function ProjectsBrowser({
                     <Link href={`/projects/${p.id}`} className="hover:underline">{p.name}</Link>
                   </h3>
                   <div className="flex shrink-0 flex-col items-end gap-1">
+                    {/* One status badge per card — the highest tier only.
+                        Winner ⊃ Top 5 ⊃ Finalist ⊃ Submitted, so each higher
+                        tier suppresses the lower (redundant) badges. */}
                     {p.id === WINNER_PROJECT_ID ? (
                       <span className="inline-flex items-center gap-1 rounded-full bg-amber-400 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ink-900">
                         🏆 Winner
                       </span>
-                    ) : null}
-                    {TOP5_PROJECT_IDS.has(p.id) ? (
+                    ) : TOP5_PROJECT_IDS.has(p.id) ? (
                       <span className="inline-flex items-center rounded-full bg-navy-700 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white dark:bg-white dark:text-navy-700">
                         Top 5
                       </span>
+                    ) : p.finalist ? (
+                      <span className="rounded-full bg-lime px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-navy-700">
+                        ★ Finalist
+                      </span>
+                    ) : p.status === "submitted" ? (
+                      <span className="pill-lime">Submitted</span>
                     ) : null}
                     {p.aiScore != null ? (
                       <span className="rounded-full bg-navy-700 px-2.5 py-0.5 text-sm font-bold text-white dark:bg-lime dark:text-navy-700">
                         AI {Number(p.aiScore).toFixed(1)}
                       </span>
                     ) : null}
-                    {p.finalist ? (
-                      <span className="rounded-full bg-lime px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-navy-700">
-                        ★ Finalist
-                      </span>
-                    ) : null}
-                    {p.status === "submitted" ? <span className="pill-lime">Submitted</span> : null}
                   </div>
                 </div>
                 <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-500 dark:text-ink-400">
