@@ -13,7 +13,6 @@ export const dynamic = "force-dynamic";
 
 const builderNav = [
   { label: "Console", href: "/builders/dashboard" },
-  { label: "Schedule", href: "/events" },
   { label: "Teams", href: "/builders/teams" },
   { label: "Workshops", href: "/workshops" },
   { label: "Profile", href: "/builders/dashboard/profile" },

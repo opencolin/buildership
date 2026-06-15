@@ -13,7 +13,6 @@ export function ActiveEvents() {
           title="Live and upcoming"
           body="Public events you can drop into. Token Factory keys load with one click."
         />
-        <Link href="/events" className="btn-outline">All events →</Link>
       </div>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {featured.map((e) => (

@@ -14,7 +14,6 @@ export const dynamic = "force-dynamic";
 
 const builderNav = [
   { label: "Console", href: "/builders/dashboard" },
-  { label: "Schedule", href: "/events" },
   { label: "Workshops", href: "/workshops" },
   { label: "Profile", href: "/builders/dashboard/profile" },
 ];
@@ -81,7 +80,7 @@ export default async function BuilderDashboard() {
   const daysToFinals = daysUntil(FINALS_DAY);
   const projectHref = buildershipId
     ? `/builders/dashboard/events/${buildershipId}/builder#project`
-    : "/events";
+    : "/projects";
 
   return (
     <>
@@ -191,7 +190,6 @@ export default async function BuilderDashboard() {
                 </p>
               </div>
               <div className="flex gap-2">
-                <Link href="/events" className="btn-ghost text-sm">Office hours →</Link>
                 <Link href="/workshops" className="btn-ghost text-sm">All workshops →</Link>
               </div>
             </div>

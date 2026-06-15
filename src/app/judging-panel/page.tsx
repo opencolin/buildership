@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 const nav = [
   { label: "Showcase", href: "/projects" },
   { label: "Judges", href: "/judging-panel" },
-  { label: "Schedule", href: "/events" },
 ];
 
 type Judge = {

@@ -12,7 +12,6 @@ export const dynamic = "force-dynamic";
 const projectsNav = [
   { label: "Showcase", href: "/projects" },
   { label: "Judges", href: "/judging-panel" },
-  { label: "Schedule", href: "/events" },
 ];
 
 export default async function ProjectDetail({ params }: { params: { id: string } }) {

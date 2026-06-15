@@ -10,7 +10,6 @@ export const dynamic = "force-dynamic";
 
 const adminNav = [
   { label: "Console", href: "/builders/dashboard" },
-  { label: "Schedule", href: "/events" },
   { label: "Admin", href: "/admin/submissions" },
 ];
 

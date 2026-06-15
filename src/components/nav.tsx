@@ -7,7 +7,6 @@ import { MobileNav } from "./mobile-nav";
 const links = [
   { href: "/projects", label: "Showcase" },
   { href: "/judging-panel", label: "Judges" },
-  { href: "/events", label: "Schedule" },
   { href: "/#faq", label: "FAQ" },
   { href: "/workshops", label: "Workshops" },
   { href: "/docs", label: "Docs" },
