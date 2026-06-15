@@ -3,6 +3,15 @@ import type { ReactNode } from "react";
 // The grand-prize winner — gets a "Winner" badge across the showcase.
 export const WINNER_PROJECT_ID = "4a6d2944-08b7-407e-9113-db37193775b4"; // Appeal Pilot
 
+// The top 5 finalists — get a "Top 5" badge.
+export const TOP5_PROJECT_IDS = new Set([
+  "4a6d2944-08b7-407e-9113-db37193775b4", // Appeal Pilot
+  "861a99fb-ae6d-4506-89ad-ade72dc2bb40", // Own your agent's work
+  "772d9726-f1e1-46aa-a399-afcdb40cace2", // Loopy
+  "ba205492-b877-44fd-8054-f5fb356314c9", // Watchstander
+  "219d4228-bb9d-47f1-9475-14358d6d6fc8", // Stead
+]);
+
 // Row shape shared by the server-rendered pinned card and the client list.
 export type ShowcaseProject = {
   id: string;

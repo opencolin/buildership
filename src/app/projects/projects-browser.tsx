@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState, useTransition } from "react";
 import { videoEmbed } from "@/lib/video";
-import { WINNER_PROJECT_ID } from "./shared";
+import { WINNER_PROJECT_ID, TOP5_PROJECT_IDS } from "./shared";
 import { scoreProject } from "./actions";
 
 export type JudgeProject = {
@@ -258,6 +258,11 @@ export function ProjectsBrowser({
                     {p.id === WINNER_PROJECT_ID ? (
                       <span className="inline-flex items-center gap-1 rounded-full bg-amber-400 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ink-900">
                         🏆 Winner
+                      </span>
+                    ) : null}
+                    {TOP5_PROJECT_IDS.has(p.id) ? (
+                      <span className="inline-flex items-center rounded-full bg-navy-700 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white dark:bg-white dark:text-navy-700">
+                        Top 5
                       </span>
                     ) : null}
                     {p.aiScore != null ? (

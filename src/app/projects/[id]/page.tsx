@@ -5,7 +5,7 @@ import { AppHeader } from "@/components/app-chrome";
 import { db } from "@/server/db";
 import { projects, teams, users } from "@/server/db/schema";
 import { videoEmbed } from "@/lib/video";
-import { AiReviewBox, extLink, WINNER_PROJECT_ID } from "../shared";
+import { AiReviewBox, extLink, WINNER_PROJECT_ID, TOP5_PROJECT_IDS } from "../shared";
 
 export const dynamic = "force-dynamic";
 
@@ -63,6 +63,11 @@ export default async function ProjectDetail({ params }: { params: { id: string }
                   {project.id === WINNER_PROJECT_ID ? (
                     <span className="inline-flex items-center gap-1 rounded-full bg-amber-400 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-ink-900">
                       🏆 Winner
+                    </span>
+                  ) : null}
+                  {TOP5_PROJECT_IDS.has(project.id) ? (
+                    <span className="inline-flex items-center rounded-full bg-navy-700 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-white dark:bg-white dark:text-navy-700">
+                      Top 5
                     </span>
                   ) : null}
                   {project.isFinalist ? (
