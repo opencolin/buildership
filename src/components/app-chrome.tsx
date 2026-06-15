@@ -28,6 +28,7 @@ export async function AppHeader({
   const required = [
     { label: "Showcase", href: "/projects" },
     { label: "Judges", href: "/judging-panel" },
+    { label: "Photos", href: "/photos" },
   ];
   const navLinks = [...links];
   for (const r of required) {
