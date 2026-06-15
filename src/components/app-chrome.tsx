@@ -26,7 +26,7 @@ export async function AppHeader({
   // Showcase + Judges must always be reachable from the header nav,
   // whatever a page passes in.
   const required = [
-    { label: "Showcase", href: "/showcase" },
+    { label: "Projects", href: "/projects" },
     { label: "Judges", href: "/judging-panel" },
   ];
   const navLinks = [...links];

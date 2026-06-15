@@ -5,7 +5,7 @@ import { CountdownToDeadline } from "./countdown-to-deadline";
 import { MobileNav } from "./mobile-nav";
 
 const links = [
-  { href: "/showcase", label: "Showcase" },
+  { href: "/projects", label: "Projects" },
   { href: "/judging-panel", label: "Judges" },
   { href: "/events", label: "Schedule" },
   { href: "/#faq", label: "FAQ" },
@@ -38,7 +38,7 @@ export function TopNav() {
           />
           <ThemeToggle />
           <Link href="/builders/login" className="btn-ghost hidden sm:inline-flex">Log in</Link>
-          <Link href="/showcase" className="btn-lime whitespace-nowrap">Showcase</Link>
+          <Link href="/projects" className="btn-lime whitespace-nowrap">Projects</Link>
           <MobileNav links={links} />
         </div>
       </div>

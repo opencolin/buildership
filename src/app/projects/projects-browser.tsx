@@ -23,6 +23,7 @@ export type JudgeProject = {
   avg: number | null;
   scoreCount: number;
   finalist: boolean;
+  aiScore: string | null;
 };
 
 const PAGE = 90;
@@ -250,20 +251,20 @@ export function ProjectsBrowser({
               >
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="font-semibold leading-snug text-ink-900 dark:text-ink-50">
-                    <Link href={`/showcase/${p.id}`} className="hover:underline">{p.name}</Link>
+                    <Link href={`/projects/${p.id}`} className="hover:underline">{p.name}</Link>
                   </h3>
                   <div className="flex shrink-0 flex-col items-end gap-1">
+                    {p.aiScore != null ? (
+                      <span className="rounded-full bg-navy-700 px-2.5 py-0.5 text-sm font-bold text-white dark:bg-lime dark:text-navy-700">
+                        AI {Number(p.aiScore).toFixed(1)}
+                      </span>
+                    ) : null}
                     {p.finalist ? (
                       <span className="rounded-full bg-lime px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-navy-700">
                         ★ Finalist
                       </span>
                     ) : null}
                     {p.status === "submitted" ? <span className="pill-lime">Submitted</span> : null}
-                    {p.avg != null ? (
-                      <span className="rounded-full bg-navy-700 px-2 py-0.5 text-xs font-bold text-white dark:bg-lime dark:text-navy-700">
-                        ★ {p.avg.toFixed(1)}
-                      </span>
-                    ) : null}
                   </div>
                 </div>
                 <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-500 dark:text-ink-400">
@@ -275,7 +276,7 @@ export function ProjectsBrowser({
                   ) : null}
                   {videoEmbed(p.demo) ? (
                     <Link
-                      href={`/showcase/${p.id}`}
+                      href={`/projects/${p.id}`}
                       className="inline-flex items-center gap-1 rounded-full border border-ink-300 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ink-600 transition hover:border-navy-700 hover:text-navy-700 dark:border-ink-600 dark:text-ink-300 dark:hover:border-lime dark:hover:text-lime"
                     >
                       ▶ Video
@@ -302,7 +303,7 @@ export function ProjectsBrowser({
                   <ScoreControl project={p} />
                 ) : (
                   <a
-                    href="/builders/login?callbackUrl=/judges"
+                    href="/builders/login?callbackUrl=/projects"
                     className="mt-4 block border-t border-ink-100 pt-4 text-center text-sm font-semibold text-navy-700 hover:underline dark:border-ink-800 dark:text-lime"
                   >
                     Sign in to score →

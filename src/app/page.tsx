@@ -265,8 +265,8 @@ export default function HackJackLondonSquarePage() {
             </div>
             <RotatingHeroTitle className="mt-20" />
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link href="/showcase" className="btn-lime px-6 py-3.5 text-sm">
-                View the Showcase →
+              <Link href="/projects" className="btn-lime px-6 py-3.5 text-sm">
+                View the projects →
               </Link>
               <Link href="#how-it-works" className="btn-outline px-6 py-3.5 text-sm">
                 Schedule
@@ -644,8 +644,8 @@ export default function HackJackLondonSquarePage() {
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <Link href="/showcase" className="btn-lime px-6 py-3.5 text-sm">
-                View the Showcase →
+              <Link href="/projects" className="btn-lime px-6 py-3.5 text-sm">
+                View the projects →
               </Link>
               <Link
                 href="mailto:collin@dabl.club?subject=BuilderShip%20sponsor%20inquiry"

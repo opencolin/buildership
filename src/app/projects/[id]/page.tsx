@@ -9,9 +9,9 @@ import { AiReviewBox, extLink, WINNER_PROJECT_ID } from "../shared";
 
 export const dynamic = "force-dynamic";
 
-const showcaseNav = [
-  { label: "Projects", href: "/judges" },
-  { label: "Showcase", href: "/showcase" },
+const projectsNav = [
+  { label: "Projects", href: "/projects" },
+  { label: "Judges", href: "/judging-panel" },
   { label: "Schedule", href: "/events" },
 ];
 
@@ -47,15 +47,15 @@ export default async function ProjectDetail({ params }: { params: { id: string }
 
   return (
     <>
-      <AppHeader links={showcaseNav} />
+      <AppHeader links={projectsNav} />
       <main className="bg-ink-50 dark:bg-ink-800">
         <section className="border-b border-ink-200 bg-white dark:border-ink-800 dark:bg-ink-900">
           <div className="container-page py-8">
             <Link
-              href="/showcase"
+              href="/projects"
               className="text-sm font-medium text-navy-700 hover:underline dark:text-lime"
             >
-              ← Back to showcase
+              ← Back to projects
             </Link>
             <div className="mt-3 flex flex-wrap items-start justify-between gap-4">
               <div className="min-w-0">

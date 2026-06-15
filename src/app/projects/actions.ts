@@ -127,7 +127,7 @@ export async function scoreProject(input: {
       return { avg, count: agg?.cnt ?? 1 };
     });
 
-    revalidatePath("/judges");
+    revalidatePath("/projects");
     return { ok: true, overall, avg: result.avg, count: result.count };
   } catch (err) {
     console.error("[scoreProject] failed", err);
