@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { and, eq, sql } from "drizzle-orm";
 import { AppHeader } from "@/components/app-chrome";
+import { AutoRefresh } from "@/components/auto-refresh";
 import { db } from "@/server/db";
 import {
   events,
@@ -178,6 +179,7 @@ export default async function JudgesPortal() {
     <>
       <AppHeader links={judgesNav} />
       <main className="bg-ink-50 dark:bg-ink-800">
+        <AutoRefresh seconds={30} />
         {uid ? <SponsorCreditsBar /> : null}
         <section className="border-b border-ink-200 bg-white dark:border-ink-800 dark:bg-ink-900">
           <div className="container-page py-10">

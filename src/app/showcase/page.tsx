@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { and, desc, eq, isNotNull, or, sql } from "drizzle-orm";
 import { AppHeader } from "@/components/app-chrome";
+import { AutoRefresh } from "@/components/auto-refresh";
 import { SponsorCreditsBar } from "@/components/sponsor-credits-bar";
 import { safeAuth } from "@/server/lib/safe-auth";
 import { db } from "@/server/db";
@@ -90,6 +91,7 @@ export default async function Showcase() {
     <>
       <AppHeader links={showcaseNav} />
       <main className="bg-ink-50 dark:bg-ink-800">
+        <AutoRefresh seconds={30} />
         {session?.user ? <SponsorCreditsBar /> : null}
         <section className="border-b border-ink-200 bg-white dark:border-ink-800 dark:bg-ink-900">
           <div className="container-page py-10">
