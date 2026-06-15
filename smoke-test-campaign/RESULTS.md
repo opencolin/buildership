@@ -60,3 +60,15 @@ Every repo also has a `🔬 Smoke test` issue on its `BuilderShip/<repo>` fork.
 |---|---|---|---|---|---|
 | BillPayer | `BillPayer` [issue](https://github.com/BuilderShip/BillPayer/issues/1) | none (docs-only) | `none found` | no | Repo clones but contains only 2 doc files (README.md + a file named "Demo"), both just linking to a Google Slides demo video. No d |
 | WatchMyWallet.org | `WatchMyWallet` [issue](https://github.com/BuilderShip/WatchMyWallet/issues/1) | Pre-built Vite + React SPA distribution  | `none — no dependency manifest and no sou` | no | No runnable source. Repo contains exactly one file: WatchMyWallet__.zip, a zipped Vite/React production build (hashed bundles, no  |
+
+## v2.0 actions (triage + fixes)
+
+| Repo | Action | Link |
+|---|---|---|
+| VISU (`mmcp-trade-twins-infra`) | **fix-PR** — re-pin `fastapi-limiter` 0.2.0→0.1.6 (import verified in Py3.11 venv) | [PR #2](https://github.com/BuilderShip/mmcp-trade-twins-infra/pull/2) |
+| `eyeLike` | comment — build-fail was an env gap (cmake+OpenCV), not a code bug | [issue #1](https://github.com/BuilderShip/eyeLike/issues/1) |
+| `Apex-AI` | comment — pinned `moss` isn't on PyPI; team must vendor/replace it | [issue #1](https://github.com/BuilderShip/Apex-AI/issues/1) |
+| `BillPayer` | comment — empty (docs-only); push source | [issue #1](https://github.com/BuilderShip/BillPayer/issues/1) |
+| `WatchMyWallet` | comment — only a committed prebuilt zip; push source | [issue #1](https://github.com/BuilderShip/WatchMyWallet/issues/1) |
+
+_Note: the VISU fix agent initially committed its `.venv` into the branch; PR #2 was rebuilt to a clean +1/-1._

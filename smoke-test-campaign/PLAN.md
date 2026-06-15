@@ -21,20 +21,23 @@ is the event website, NOT a target.
 | v0.5 — Fan-out smoke tests | ✅ done | 27 Sonnet agents, isolated clone dirs. Verdicts below |
 | v1.0 — GitHub issue per repo | ✅ done | 27 `🔬 Smoke test` issues filed + verified live (gh search) |
 | v1.5 — Aggregate RESULTS.md | ✅ done | `RESULTS.md` written (master table grouped by verdict) |
-| v2.0 — Triage + fix PRs | ⏳ running | fix-PR the fixable `build-fail` (VISU dep pin); clarifying comments on env-only / unfixable / empty |
+| v2.0 — Triage + fix PRs | ✅ done | [PR #2](https://github.com/BuilderShip/mmcp-trade-twins-infra/pull/2) re-pins VISU's fastapi-limiter (clean, +1/-1); follow-up comments on the other 4 FAILs |
 
 **Scoreboard (27 repos): ✅ 13 runs-clean · 🔑 9 needs-secrets · ❌ 3 build-fail · ⬜ 2 empty → 22/27 PASS.**
 
 **Where results land:** `smoke-test-campaign/RESULTS.md` (master table) +
 `RUBRIC.md` (council rubric) + one GitHub issue per repo in its fork.
 
-### v2.0 triage decision
-- **Fix-PR (cheap, code):** `mmcp-trade-twins-infra` (VISU) — `fastapi-limiter==0.2.0`
-  ships an empty `__init__`; re-pin to a version exporting `FastAPILimiter`.
-- **Comment only — env gap, not a bug:** `eyeLike` (C++; needs cmake+OpenCV in the
-  build env — code is fine).
-- **Comment only — not cheaply fixable:** `Apex-AI` (pinned `moss` not on PyPI).
-- **Comment only — empty:** `BillPayer` (docs-only), `WatchMyWallet` (committed prebuilt zip).
+### v2.0 outcomes (done)
+- **Fix-PR:** VISU — [PR #2](https://github.com/BuilderShip/mmcp-trade-twins-infra/pull/2)
+  re-pins `fastapi-limiter` 0.2.0→0.1.6 (0.2.0 ships an empty `__init__`); import
+  verified green in a Py3.11 venv. (The fix agent first committed its `.venv`; the
+  branch was rebuilt to a clean +1/-1 — watch for this in future fix agents.)
+- **Comment — env gap, not a bug:** `eyeLike` (needs cmake+OpenCV in the build env).
+- **Comment — not cheaply fixable:** `Apex-AI` (pinned `moss` not on PyPI).
+- **Comment — empty:** `BillPayer` (docs-only), `WatchMyWallet` (committed prebuilt zip).
+
+All five FAIL issues now carry a v2.0 follow-up comment. **Campaign complete.**
 
 ---
 
