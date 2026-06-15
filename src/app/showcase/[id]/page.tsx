@@ -82,9 +82,6 @@ export default async function ProjectDetail({ params }: { params: { id: string }
                     AI {Number(project.aiScore).toFixed(1)}
                   </span>
                 ) : null}
-                <span className="rounded-full bg-ink-100 px-3 py-1 text-sm font-semibold text-ink-600 dark:bg-ink-800 dark:text-ink-300">
-                  Judges {project.humanScore != null ? Number(project.humanScore).toFixed(1) : "TBD"}
-                </span>
               </div>
             </div>
           </div>

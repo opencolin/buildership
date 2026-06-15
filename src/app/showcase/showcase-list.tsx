@@ -11,7 +11,7 @@ const VIDEO_PILL =
 function ProjectCard({ p }: { p: ShowcaseProject }) {
   const hasVideo = videoEmbed(p.videoUrl) ?? videoEmbed(p.demoUrl);
   return (
-    <li className="card grid grid-cols-1 items-start gap-4 md:grid-cols-[1fr_6rem_6rem] md:items-center">
+    <li className="card grid grid-cols-1 items-start gap-4 md:grid-cols-[1fr_6rem] md:items-center">
       <div className="min-w-0">
         <p className="flex flex-wrap items-center gap-2 font-semibold text-ink-900 dark:text-ink-50">
           <Link href={`/showcase/${p.id}`} className="truncate hover:underline">
@@ -46,9 +46,6 @@ function ProjectCard({ p }: { p: ShowcaseProject }) {
           <span className="ml-auto md:hidden">
             <span className="rounded-full bg-navy-700 px-2.5 py-0.5 text-xs font-bold text-white dark:bg-lime dark:text-navy-700">
               AI {p.aiScore != null ? Number(p.aiScore).toFixed(1) : "—"}
-            </span>{" "}
-            <span className="rounded-full bg-ink-100 px-2.5 py-0.5 text-xs font-semibold text-ink-500 dark:bg-ink-800 dark:text-ink-400">
-              Judges TBD
             </span>
           </span>
         </div>
@@ -58,18 +55,14 @@ function ProjectCard({ p }: { p: ShowcaseProject }) {
           {p.aiScore != null ? Number(p.aiScore).toFixed(1) : "—"}
         </span>
       </div>
-      <div className="hidden text-right text-sm font-semibold text-ink-400 dark:text-ink-500 md:block">
-        {p.humanScore != null ? Number(p.humanScore).toFixed(1) : "TBD"}
-      </div>
     </li>
   );
 }
 
 const columnHeader = (
-  <div className="mb-2 hidden grid-cols-[1fr_6rem_6rem] gap-4 px-5 text-xs font-semibold uppercase tracking-wider text-ink-500 dark:text-ink-400 md:grid">
+  <div className="mb-2 hidden grid-cols-[1fr_6rem] gap-4 px-5 text-xs font-semibold uppercase tracking-wider text-ink-500 dark:text-ink-400 md:grid">
     <span>Project</span>
     <span className="text-right">AI score</span>
-    <span className="text-right">Judges</span>
   </div>
 );
 

@@ -102,8 +102,7 @@ export default async function Showcase() {
               Project leaderboard
             </h1>
             <p className="mt-2 text-ink-600 dark:text-ink-300">
-              Ranked by AI score. Judges&apos; scores are added live on boat day,
-              June 14.
+              The finalist leaderboard, ranked by AI score.
             </p>
           </div>
         </section>
