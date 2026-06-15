@@ -12,6 +12,15 @@ export const TOP5_PROJECT_IDS = new Set([
   "219d4228-bb9d-47f1-9475-14358d6d6fc8", // Stead
 ]);
 
+// Ranks 6–10 — get a "Top 10" badge (one tier below Top 5).
+export const TOP10_PROJECT_IDS = new Set([
+  "88e4aa41-c032-4e5a-be38-7468c407f6dc", // Taskbash
+  "e3cb4f0a-8e8e-415c-a015-26c095da6435", // Leapfrogger.ai
+  "9ca78ae8-cafe-4b87-8d8d-9fee1b67c4a0", // Clawed.chat
+  "65772515-97cb-423c-ba5b-7528916f18bc", // Actual Apple Intelligence
+  "a3c11a17-3c4e-471f-96af-adb58dd6b707", // TurtleTalk.io
+]);
+
 // Row shape shared by the server-rendered pinned card and the client list.
 export type ShowcaseProject = {
   id: string;

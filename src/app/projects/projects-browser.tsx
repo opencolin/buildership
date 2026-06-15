@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState, useTransition } from "react";
 import { videoEmbed } from "@/lib/video";
-import { WINNER_PROJECT_ID, TOP5_PROJECT_IDS } from "./shared";
+import { WINNER_PROJECT_ID, TOP5_PROJECT_IDS, TOP10_PROJECT_IDS } from "./shared";
 import { scoreProject } from "./actions";
 
 export type JudgeProject = {
@@ -256,8 +256,8 @@ export function ProjectsBrowser({
                   </h3>
                   <div className="flex shrink-0 flex-col items-end gap-1">
                     {/* One status badge per card — the highest tier only.
-                        Winner ⊃ Top 5 ⊃ Finalist ⊃ Submitted, so each higher
-                        tier suppresses the lower (redundant) badges. */}
+                        Winner ⊃ Top 5 ⊃ Top 10 ⊃ Finalist ⊃ Submitted, so each
+                        higher tier suppresses the lower (redundant) badges. */}
                     {p.id === WINNER_PROJECT_ID ? (
                       <span className="inline-flex items-center gap-1 rounded-full bg-amber-400 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ink-900">
                         🏆 Winner
@@ -265,6 +265,10 @@ export function ProjectsBrowser({
                     ) : TOP5_PROJECT_IDS.has(p.id) ? (
                       <span className="inline-flex items-center rounded-full bg-navy-700 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white dark:bg-white dark:text-navy-700">
                         Top 5
+                      </span>
+                    ) : TOP10_PROJECT_IDS.has(p.id) ? (
+                      <span className="inline-flex items-center rounded-full border border-navy-700 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-navy-700 dark:border-ink-300 dark:text-ink-200">
+                        Top 10
                       </span>
                     ) : p.finalist ? (
                       <span className="rounded-full bg-lime px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-navy-700">
