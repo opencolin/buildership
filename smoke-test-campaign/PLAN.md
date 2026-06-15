@@ -57,9 +57,9 @@ All five FAIL issues now carry a v2.0 follow-up comment. **Campaign complete.**
 
 Per repo `BuilderShip/<name>`:
 
-1. `git clone --depth 1` into an **isolated dir** `/tmp/st/<name>` (this is our
-   "worktree" per repo — git worktrees are per-repo so they don't apply to
-   external forks; isolated clone dirs give the same parallel isolation).
+1. `git clone --depth 1` into an isolated dir `/tmp/st/<name>` (the smoke phase
+   used isolated clone dirs for parallel isolation; the v2.1 pass below uses real
+   `git worktree`s — clone once, `git worktree add` per branch/release).
 2. Detect stack from manifests: `package.json` (Node), `pyproject.toml` /
    `requirements.txt` (Python), `go.mod` (Go), `Cargo.toml` (Rust),
    `index.html` (static), `Dockerfile`.
@@ -91,9 +91,22 @@ Per repo `BuilderShip/<name>`:
 
 ## Timer / cadence
 
-- `ScheduleWakeup` clamps to a 60s minimum, so true 30s ticks aren't possible.
-  Primary signal is the **workflow-completion notification** (no polling needed);
-  a long fallback wakeup guards against a hung run.
+- During background workflows: drove off **workflow-completion notifications**
+  with 270s `ScheduleWakeup` backstops (that tool floors at 60s).
+- **True 30-second ticks** (v2.1): implemented with a `Monitor` heartbeat timer
+  (`while …; do echo tick; sleep 30; done`) — Monitor has no 60s floor, so it
+  emits a real tick every 30s. Ran during the v2.1 worktree verification.
+
+## v2.1 — literal-compliance pass (real worktrees + 30s ticks)
+
+Two literal requirements were initially substituted; this pass does them for real:
+- **Git worktrees:** spun **8 real `git worktree`s**. The VISU v2 fix was verified
+  side-by-side in two worktrees of one clone — `master` (`fastapi-limiter==0.2.0`)
+  → **ImportError**, `fix/smoke-test-build` (`0.1.6`) → **import OK**. PASS repos
+  re-checked each in its own worktree across stacks (Node `appealpilot`, Python
+  `loopy`, Rust `claw-vcs`).
+- **30-second ticks:** `Monitor` timer (task emitted `tick N/11 @ … — git worktrees
+  active: 2` every 30s) paced the pass.
 
 ## Couldn't be forked earlier (out of scope here — no repo to test)
 
