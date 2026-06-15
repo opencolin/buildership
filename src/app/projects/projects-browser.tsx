@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState, useTransition } from "react";
 import { videoEmbed } from "@/lib/video";
+import { WINNER_PROJECT_ID } from "./shared";
 import { scoreProject } from "./actions";
 
 export type JudgeProject = {
@@ -254,6 +255,11 @@ export function ProjectsBrowser({
                     <Link href={`/projects/${p.id}`} className="hover:underline">{p.name}</Link>
                   </h3>
                   <div className="flex shrink-0 flex-col items-end gap-1">
+                    {p.id === WINNER_PROJECT_ID ? (
+                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-400 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ink-900">
+                        🏆 Winner
+                      </span>
+                    ) : null}
                     {p.aiScore != null ? (
                       <span className="rounded-full bg-navy-700 px-2.5 py-0.5 text-sm font-bold text-white dark:bg-lime dark:text-navy-700">
                         AI {Number(p.aiScore).toFixed(1)}

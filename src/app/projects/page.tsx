@@ -82,9 +82,7 @@ export default async function JudgesPortal() {
           leaderX: users.twitterUrl,
           leaderLi: users.linkedinUrl,
           leaderRole: eventRegistrations.role,
-          // Finalist = labeled finalist (already includes checked-in) OR
-          // actively edited in the last 6 hours.
-          finalist: sql<boolean>`(${projects.isFinalist} or ${projects.updatedAt} > now() - interval '6 hours')`,
+          finalist: projects.isFinalist,
           aiScore: projects.aiScore,
         })
         .from(projects)
