@@ -287,11 +287,6 @@ export function ProjectsBrowser({
                 </div>
                 <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-500 dark:text-ink-400">
                   {p.leader ? <span>{p.leader}</span> : null}
-                  {p.role ? (
-                    <span className="rounded-full bg-ink-100 px-2 py-0.5 font-medium text-ink-600 dark:bg-ink-800 dark:text-ink-300">
-                      {p.role}
-                    </span>
-                  ) : null}
                   {videoEmbed(p.demo) ? (
                     <Link
                       href={`/projects/${p.slug ?? p.id}`}
