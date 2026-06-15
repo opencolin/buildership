@@ -20,7 +20,7 @@ import { ProjectsBrowser, type JudgeProject } from "./projects-browser";
 export const dynamic = "force-dynamic";
 
 const projectsNav = [
-  { label: "Projects", href: "/projects" },
+  { label: "Showcase", href: "/projects" },
   { label: "Judges", href: "/judging-panel" },
   { label: "Schedule", href: "/events" },
 ];

@@ -5,7 +5,7 @@ import { CountdownToDeadline } from "./countdown-to-deadline";
 import { MobileNav } from "./mobile-nav";
 
 const links = [
-  { href: "/projects", label: "Projects" },
+  { href: "/projects", label: "Showcase" },
   { href: "/judging-panel", label: "Judges" },
   { href: "/events", label: "Schedule" },
   { href: "/#faq", label: "FAQ" },

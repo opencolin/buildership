@@ -7,8 +7,7 @@ export const metadata: Metadata = {
 };
 
 const nav = [
-  { label: "Projects", href: "/judges" },
-  { label: "Showcase", href: "/showcase" },
+  { label: "Showcase", href: "/projects" },
   { label: "Judges", href: "/judging-panel" },
   { label: "Schedule", href: "/events" },
 ];
