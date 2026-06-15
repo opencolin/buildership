@@ -107,7 +107,7 @@ export default async function ProjectDetail({ params }: { params: { id: string }
               <div className="flex shrink-0 items-center gap-2">
                 {project.aiScore != null ? (
                   <span className="rounded-full bg-navy-700 px-3 py-1 text-sm font-bold text-white dark:bg-lime dark:text-navy-700">
-                    AI {Number(project.aiScore).toFixed(1)}
+                    Score {Number(project.aiScore).toFixed(1)}
                   </span>
                 ) : null}
               </div>

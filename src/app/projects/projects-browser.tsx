@@ -280,7 +280,7 @@ export function ProjectsBrowser({
                     ) : null}
                     {p.aiScore != null ? (
                       <span className="rounded-full bg-navy-700 px-2.5 py-0.5 text-sm font-bold text-white dark:bg-lime dark:text-navy-700">
-                        AI {Number(p.aiScore).toFixed(1)}
+                        Score {Number(p.aiScore).toFixed(1)}
                       </span>
                     ) : null}
                   </div>
