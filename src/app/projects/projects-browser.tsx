@@ -8,6 +8,7 @@ import { scoreProject } from "./actions";
 
 export type JudgeProject = {
   id: string;
+  slug: string | null;
   name: string;
   team: string | null;
   leader: string | null;
@@ -252,7 +253,7 @@ export function ProjectsBrowser({
               >
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="font-semibold leading-snug text-ink-900 dark:text-ink-50">
-                    <Link href={`/projects/${p.id}`} className="hover:underline">{p.name}</Link>
+                    <Link href={`/projects/${p.slug ?? p.id}`} className="hover:underline">{p.name}</Link>
                   </h3>
                   <div className="flex shrink-0 flex-col items-end gap-1">
                     {/* One status badge per card — the highest tier only.
@@ -293,7 +294,7 @@ export function ProjectsBrowser({
                   ) : null}
                   {videoEmbed(p.demo) ? (
                     <Link
-                      href={`/projects/${p.id}`}
+                      href={`/projects/${p.slug ?? p.id}`}
                       className="inline-flex items-center gap-1 rounded-full border border-ink-300 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ink-600 transition hover:border-navy-700 hover:text-navy-700 dark:border-ink-600 dark:text-ink-300 dark:hover:border-lime dark:hover:text-lime"
                     >
                       ▶ Video
@@ -315,6 +316,13 @@ export function ProjectsBrowser({
                     <span className="text-xs italic text-ink-400 dark:text-ink-500">No links yet</span>
                   ) : null}
                 </div>
+
+                <Link
+                  href={`/projects/${p.slug ?? p.id}`}
+                  className="btn-navy mt-4 w-full justify-center text-sm"
+                >
+                  View details →
+                </Link>
 
                 {canScore ? (
                   <ScoreControl project={p} />

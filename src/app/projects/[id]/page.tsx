@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { eq } from "drizzle-orm";
 import { AppHeader } from "@/components/app-chrome";
 import { db } from "@/server/db";
@@ -21,9 +21,16 @@ const projectsNav = [
 ];
 
 export default async function ProjectDetail({ params }: { params: { id: string } }) {
+  // The route param is a friendly slug (e.g. "loopy"). Legacy UUID links still
+  // resolve, then redirect to the canonical slug URL below.
+  const param = params.id;
+  const isUuid =
+    /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(param);
+
   const rows = await db
     .select({
       id: projects.id,
+      slug: projects.slug,
       name: projects.name,
       summary: projects.summary,
       aiScore: projects.aiScore,
@@ -42,11 +49,14 @@ export default async function ProjectDetail({ params }: { params: { id: string }
     .from(projects)
     .innerJoin(teams, eq(teams.id, projects.teamId))
     .innerJoin(users, eq(users.id, teams.leaderId))
-    .where(eq(projects.id, params.id))
+    .where(isUuid ? eq(projects.id, param) : eq(projects.slug, param))
     .limit(1);
 
   const project = rows[0];
   if (!project) notFound();
+
+  // Canonicalize legacy UUID links to the pretty slug URL.
+  if (isUuid && project.slug) redirect(`/projects/${project.slug}`);
 
   const embed = videoEmbed(project.videoUrl) ?? videoEmbed(project.demoUrl);
 

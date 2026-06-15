@@ -68,6 +68,7 @@ export default async function JudgesPortal() {
     ? await db
         .select({
           id: projects.id,
+          slug: projects.slug,
           name: projects.name,
           summary: projects.summary,
           status: projects.status,
@@ -159,6 +160,7 @@ export default async function JudgesPortal() {
 
   const items: JudgeProject[] = rows.map((r) => ({
     id: r.id,
+    slug: r.slug,
     name: r.name || r.teamName || "Untitled",
     team: r.teamName,
     leader: r.leaderName,

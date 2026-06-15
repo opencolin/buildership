@@ -57,6 +57,13 @@
       "when": 1781558406617,
       "tag": "0007_add_project_finalist_hidden",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1781644806617,
+      "tag": "0008_add_project_slug",
+      "breakpoints": true
     }
   ]
 }

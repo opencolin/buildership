@@ -382,6 +382,9 @@ export const projects = pgTable(
       .notNull()
       .references(() => events.id, { onDelete: "cascade" }),
     name: text("name").notNull(),
+    // URL slug for friendly project links (/projects/<slug>). Unique; nullable
+    // so legacy rows fall back to the UUID route until backfilled.
+    slug: text("slug"),
     summary: text("summary"),
     repoUrl: text("repo_url"),
     demoUrl: text("demo_url"),
@@ -411,6 +414,7 @@ export const projects = pgTable(
   (t) => ({
     teamEventIdx: uniqueIndex("projects_team_event_idx").on(t.teamId, t.eventId),
     eventRankIdx: index("projects_event_rank_idx").on(t.eventId, t.compositeRank),
+    slugIdx: uniqueIndex("projects_slug_idx").on(t.slug),
   }),
 );
 
