@@ -146,15 +146,6 @@ export default async function BuilderEventHub({ params }: { params: { id: string
           <div className="container-page grid gap-8 lg:grid-cols-3">
             <div className="space-y-6 lg:col-span-2">
               <div className="card">
-                <h2 className="text-lg font-semibold">Resources</h2>
-                <ul className="mt-3 grid gap-2 text-sm">
-                  <li>📦 Token Factory key — auto-loaded into your IDE</li>
-                  <li>🧰 Sponsor SDK templates — Stripe, Tavily, Qdrant, MotherDuck</li>
-                  <li>📡 Discord — #{event.slug}</li>
-                  <li>🏆 Judging rubric — speed of demo, soundness, partner integration</li>
-                </ul>
-              </div>
-              <div className="card">
                 <h2 className="text-lg font-semibold">Prizes</h2>
                 <ul className="mt-3 grid gap-3 sm:grid-cols-3">
                   {eventPrizes.map((p) => (

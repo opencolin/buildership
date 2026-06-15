@@ -53,15 +53,19 @@ export function ProjectForm({
       </div>
       <div>
         <label className="label" htmlFor="builderEmail">Email</label>
-        <p
+        <input
           id="builderEmail"
-          className="rounded-lg border border-ink-200 bg-ink-50 px-3.5 py-2.5 text-sm text-ink-700 dark:border-ink-700 dark:bg-ink-800 dark:text-ink-200"
-        >
-          {email || "—"}
-        </p>
+          name="builderEmail"
+          type="email"
+          className="input"
+          maxLength={200}
+          placeholder="you@example.com"
+          defaultValue={email}
+        />
         <p className="mt-1 text-xs text-ink-500 dark:text-ink-400">
-          From your sign-in provider. Update it there.
+          Used for event comms and email sign-in. Changing it won&apos;t affect your GitHub login.
         </p>
+        <FieldError errors={fieldErrors.builderEmail} />
       </div>
       <div className="lg:col-span-2">
         <label className="label" htmlFor="builderPhone">Phone</label>

@@ -40,6 +40,16 @@ const schema = z.object({
   // Builder-level fields — saved to the users row, not the project.
   builderName: optionalText(120),
   builderPhone: optionalText(40),
+  builderEmail: z
+    .string()
+    .trim()
+    .max(200)
+    .optional()
+    .transform((v) => (v ? v.toLowerCase() : undefined))
+    .refine(
+      (v) => v === undefined || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+      "Enter a valid email.",
+    ),
 });
 
 export type ProjectSaveState =
@@ -78,6 +88,7 @@ export async function saveProject(
     status: formData.get("status") ?? "draft",
     builderName: formData.get("builderName"),
     builderPhone: formData.get("builderPhone"),
+    builderEmail: formData.get("builderEmail"),
   });
 
   if (!parsed.success) {
@@ -101,6 +112,7 @@ export async function saveProject(
     status,
     builderName,
     builderPhone,
+    builderEmail,
   } = parsed.data;
 
   // Confirm the event exists. Surfaces a clean message instead of a
@@ -215,6 +227,27 @@ export async function saveProject(
         linkedinPostUrl,
         status,
       });
+    }
+
+    // Email is editable for the listing. GitHub sign-in matches by linked
+    // account (not email), so changing it here doesn't break OAuth login.
+    // Kept separate so a unique collision surfaces as a clean field error.
+    if (builderEmail) {
+      try {
+        await db
+          .update(users)
+          .set({ email: builderEmail, updatedAt: new Date() })
+          .where(eq(users.id, userId));
+      } catch (err) {
+        if (errCode(err) === PG_UNIQUE_VIOLATION) {
+          return {
+            status: "error",
+            message: "That email is already in use.",
+            fieldErrors: { builderEmail: ["Already used by another account."] },
+          };
+        }
+        throw err;
+      }
     }
 
     // Best-effort save of builder name + phone on the users row. Only
