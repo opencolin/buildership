@@ -80,6 +80,9 @@ export default async function JudgesPortal() {
           leaderX: users.twitterUrl,
           leaderLi: users.linkedinUrl,
           leaderRole: eventRegistrations.role,
+          // Finalist = labeled finalist (already includes checked-in) OR
+          // actively edited in the last 6 hours.
+          finalist: sql<boolean>`(${projects.isFinalist} or ${projects.updatedAt} > now() - interval '6 hours')`,
         })
         .from(projects)
         .innerJoin(teams, eq(projects.teamId, teams.id))
@@ -91,7 +94,7 @@ export default async function JudgesPortal() {
             eq(eventRegistrations.eventId, projects.eventId),
           ),
         )
-        .where(eq(projects.eventId, event.id))
+        .where(and(eq(projects.eventId, event.id), eq(projects.hidden, false)))
     : [];
 
   // This judge's own saved scores (to pre-fill the controls).
@@ -154,6 +157,7 @@ export default async function JudgesPortal() {
     myNotes: myScoreMap.get(r.id)?.notes ?? "",
     avg: aggMap.get(r.id)?.avg ?? null,
     scoreCount: aggMap.get(r.id)?.count ?? 0,
+    finalist: r.finalist,
   }));
 
   // Surface scored + most-complete entries first.
@@ -163,7 +167,12 @@ export default async function JudgesPortal() {
     (p.website ? 2 : 0) +
     (p.building ? 1 : 0) +
     (p.status === "submitted" ? 8 : 0);
-  items.sort((a, b) => score(b) - score(a) || a.name.localeCompare(b.name));
+  items.sort(
+    (a, b) =>
+      Number(b.finalist) - Number(a.finalist) ||
+      score(b) - score(a) ||
+      a.name.localeCompare(b.name),
+  );
 
   return (
     <>

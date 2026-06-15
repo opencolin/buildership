@@ -22,6 +22,7 @@ export type JudgeProject = {
   myNotes: string;
   avg: number | null;
   scoreCount: number;
+  finalist: boolean;
 };
 
 const PAGE = 90;
@@ -155,11 +156,13 @@ export function ProjectsBrowser({
   const [needDemo, setNeedDemo] = useState(false);
   const [needSite, setNeedSite] = useState(false);
   const [unscored, setUnscored] = useState(false);
+  const [finalistsOnly, setFinalistsOnly] = useState(false);
   const [visible, setVisible] = useState(PAGE);
 
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase();
     return projects.filter((p) => {
+      if (finalistsOnly && !p.finalist) return false;
       if (needDemo && !p.demo) return false;
       if (needSite && !p.website) return false;
       if (unscored && p.avg != null) return false;
@@ -174,7 +177,7 @@ export function ProjectsBrowser({
         (p.team ?? "").toLowerCase().includes(needle)
       );
     });
-  }, [projects, q, role, needDemo, needSite, unscored]);
+  }, [projects, q, role, needDemo, needSite, unscored, finalistsOnly]);
 
   const shown = filtered.slice(0, visible);
   const reset = () => setVisible(PAGE);
@@ -222,6 +225,7 @@ export function ProjectsBrowser({
                   </button>
                 ))}
               </div>
+              <button onClick={() => { setFinalistsOnly((v) => !v); reset(); }} className={chip(finalistsOnly)}>★ Finalists</button>
               <button onClick={() => { setNeedDemo((v) => !v); reset(); }} className={chip(needDemo)}>Has demo</button>
               <button onClick={() => { setNeedSite((v) => !v); reset(); }} className={chip(needSite)}>Has website</button>
               {canScore ? (
@@ -240,12 +244,20 @@ export function ProjectsBrowser({
         ) : (
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {shown.map((p) => (
-              <article key={p.id} className="card flex flex-col">
+              <article
+                key={p.id}
+                className={`card flex flex-col ${p.finalist ? "ring-2 ring-lime" : ""}`}
+              >
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="font-semibold leading-snug text-ink-900 dark:text-ink-50">
                     <Link href={`/showcase/${p.id}`} className="hover:underline">{p.name}</Link>
                   </h3>
                   <div className="flex shrink-0 flex-col items-end gap-1">
+                    {p.finalist ? (
+                      <span className="rounded-full bg-lime px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-navy-700">
+                        ★ Finalist
+                      </span>
+                    ) : null}
                     {p.status === "submitted" ? <span className="pill-lime">Submitted</span> : null}
                     {p.avg != null ? (
                       <span className="rounded-full bg-navy-700 px-2 py-0.5 text-xs font-bold text-white dark:bg-lime dark:text-navy-700">
