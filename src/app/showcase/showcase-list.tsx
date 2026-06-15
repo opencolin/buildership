@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { videoEmbed } from "@/lib/video";
-import { AiReviewBox, extLink, type ShowcaseProject } from "./shared";
+import { AiReviewBox, extLink, WINNER_PROJECT_ID, type ShowcaseProject } from "./shared";
 
 const VIDEO_PILL =
   "inline-flex shrink-0 items-center gap-1 rounded-full border border-ink-300 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ink-600 transition hover:border-navy-700 hover:text-navy-700 dark:border-ink-600 dark:text-ink-300 dark:hover:border-lime dark:hover:text-lime";
@@ -17,6 +17,11 @@ function ProjectCard({ p }: { p: ShowcaseProject }) {
           <Link href={`/showcase/${p.id}`} className="truncate hover:underline">
             {p.name}
           </Link>
+          {p.id === WINNER_PROJECT_ID ? (
+            <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-amber-400 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ink-900">
+              🏆 Winner
+            </span>
+          ) : null}
           {p.isFinalist ? (
             <span className="shrink-0 rounded-full bg-lime px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-navy-700">
               Finalist

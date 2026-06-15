@@ -6,7 +6,7 @@ import { SponsorCreditsBar } from "@/components/sponsor-credits-bar";
 import { safeAuth } from "@/server/lib/safe-auth";
 import { db } from "@/server/db";
 import { events, projects, teams, users } from "@/server/db/schema";
-import { AiReviewBox, extLink, medalClass } from "./shared";
+import { AiReviewBox, extLink, medalClass, WINNER_PROJECT_ID } from "./shared";
 import { ShowcaseList } from "./showcase-list";
 
 export const dynamic = "force-dynamic";
@@ -118,6 +118,11 @@ export default async function Showcase() {
                       <span className="rounded-full bg-lime px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-navy-700">
                         Your project
                       </span>
+                      {myProject.id === WINNER_PROJECT_ID ? (
+                        <span className="inline-flex items-center gap-1 rounded-full bg-amber-400 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-ink-900">
+                          🏆 Winner
+                        </span>
+                      ) : null}
                       {myProject.isFinalist ? (
                         <span className="rounded-full bg-navy-700 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-white dark:bg-ink-700">
                           ★ Finalist

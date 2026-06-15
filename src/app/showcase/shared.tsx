@@ -1,5 +1,8 @@
 import type { ReactNode } from "react";
 
+// The grand-prize winner — gets a "Winner" badge across the showcase.
+export const WINNER_PROJECT_ID = "4a6d2944-08b7-407e-9113-db37193775b4"; // Appeal Pilot
+
 // Row shape shared by the server-rendered pinned card and the client list.
 export type ShowcaseProject = {
   id: string;
