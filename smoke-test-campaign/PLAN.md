@@ -108,6 +108,21 @@ Two literal requirements were initially substituted; this pass does them for rea
 - **30-second ticks:** `Monitor` timer (task emitted `tick N/11 @ … — git worktrees
   active: 2` every 30s) paced the pass.
 
+## v2.2 — Nebius-fit deep-dive (worktree-native workflow + 30s ticks)
+
+Workflow `wf_2c83a302-386` — **14 agents, each `isolation: 'worktree'`** (real git
+worktrees of this repo, paths confirmed `.claude/worktrees/wf_2c83a302-386-N`) —
+deep-read each forked finalist to firm up Nebius Token Factory / AI Cloud fit.
+A `Monitor` **30-second heartbeat** (6 ticks at 30s cadence) paced the run.
+Findings → `BuilderShip-Finalists-Nebius-Fit.xlsx` (repo root) + `deepdive.json`:
+- **10–11 of 14 forked finalists already integrate Nebius** (Appeal Pilot →
+  `NEBIUS_BASE_URL`, Leapfrogger → `api.tokenfactory.nebius.com`, Stead → Nebius
+  backend **+ an H100 Whisper LoRA fine-tune** on AI Cloud).
+- Verified scores corrected the analyst AI Cloud estimates **down** (forked MVPs
+  are mostly API-only): true GPU need concentrates on **Stead** (and VISU).
+- Token Factory is the dominant fit; the GPU-heavy projects (Watchstander, OORB,
+  Mocap, Wharton, TeraQub) weren't forkable so remain analyst estimates.
+
 ## Couldn't be forked earlier (out of scope here — no repo to test)
 
 10 repos 404'd at fork time (private/deleted) incl. Watchstander (Top 5),
