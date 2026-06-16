@@ -1,0 +1,140 @@
+[
+  {
+    "orig": "jenilkathrotia/AdLabs2.0",
+    "status": "posted",
+    "url": "https://github.com/jenilkathrotia/AdLabs2.0/issues/1",
+    "verdict": "needs-secrets"
+  },
+  {
+    "orig": "quachphu/Apex-AI",
+    "status": "posted",
+    "url": "https://github.com/quachphu/Apex-AI/issues/1",
+    "verdict": "build-fail"
+  },
+  {
+    "orig": "gota000/Armo",
+    "status": "posted",
+    "url": "https://github.com/gota000/Armo/issues/1",
+    "verdict": "runs-clean"
+  },
+  {
+    "orig": "alivenkickin/BillPayer",
+    "status": "posted",
+    "url": "https://github.com/alivenkickin/BillPayer/issues/1",
+    "verdict": "empty"
+  },
+  {
+    "orig": "fu351/Doberman-Core",
+    "status": "posted",
+    "url": "https://github.com/fu351/Doberman-Core/issues/23",
+    "verdict": "runs-clean"
+  },
+  {
+    "orig": "himavanthkar/Local-First-Multimodal-File-Index-via-MCP",
+    "status": "posted",
+    "url": "https://github.com/himavanthkar/Local-First-Multimodal-File-Index-via-MCP/issues/1",
+    "verdict": "needs-secrets"
+  },
+  {
+    "orig": "aditirad/WatchMyWallet",
+    "status": "posted",
+    "url": "https://github.com/aditirad/WatchMyWallet/issues/1",
+    "verdict": "empty"
+  },
+  {
+    "orig": "Kushal-Kongara/appealpilot",
+    "status": "posted",
+    "url": "https://github.com/Kushal-Kongara/appealpilot/issues/1",
+    "verdict": "runs-clean"
+  },
+  {
+    "orig": "Leapfrogger-ai/bricklist",
+    "status": "posted",
+    "url": "https://github.com/Leapfrogger-ai/bricklist/issues/14",
+    "verdict": "needs-secrets"
+  },
+  {
+    "orig": "alisoncossette/buildday",
+    "status": "posted",
+    "url": "https://github.com/alisoncossette/buildday/issues/1",
+    "verdict": "runs-clean"
+  },
+  {
+    "orig": "Shree-git/claw-vcs",
+    "status": "posted",
+    "url": "https://github.com/Shree-git/claw-vcs/issues/29",
+    "verdict": "runs-clean"
+  },
+  {
+    "orig": "isaiahb/clawed.chat",
+    "status": "posted",
+    "url": "https://github.com/isaiahb/clawed.chat/issues/2",
+    "verdict": "needs-secrets"
+  },
+  {
+    "orig": "Asresh/company-analysis-agent",
+    "status": "posted",
+    "url": "https://github.com/Asresh/company-analysis-agent/issues/1",
+    "verdict": "needs-secrets"
+  },
+  {
+    "orig": "manas15/cosmos-claw",
+    "status": "posted",
+    "url": "https://github.com/manas15/cosmos-claw/issues/1",
+    "verdict": "runs-clean"
+  },
+  {
+    "orig": "ibcolla/fleetmind",
+    "status": "posted",
+    "url": "https://github.com/ibcolla/fleetmind/issues/1",
+    "verdict": "needs-secrets"
+  },
+  {
+    "orig": "irivelez/go-green-ai-operator",
+    "status": "posted",
+    "url": "https://github.com/irivelez/go-green-ai-operator/issues/1",
+    "verdict": "runs-clean"
+  },
+  {
+    "orig": "arjunkshah/loopy",
+    "status": "posted",
+    "url": "https://github.com/arjunkshah/loopy/issues/6",
+    "verdict": "needs-secrets"
+  },
+  {
+    "orig": "monetizecompute/monetizecomputehackathon",
+    "status": "posted",
+    "url": "https://github.com/monetizecompute/monetizecomputehackathon/issues/1",
+    "verdict": "runs-clean"
+  },
+  {
+    "orig": "CodeWithInferno/pcblarp",
+    "status": "posted",
+    "url": "https://github.com/CodeWithInferno/pcblarp/issues/1",
+    "verdict": "runs-clean"
+  },
+  {
+    "orig": "processdeploytool/pdt",
+    "status": "posted",
+    "url": "https://github.com/processdeploytool/pdt/issues/2",
+    "verdict": "runs-clean"
+  },
+  {
+    "orig": "indy-viberr/stowaway",
+    "status": "posted",
+    "url": "https://github.com/indy-viberr/stowaway/issues/1",
+    "verdict": "runs-clean"
+  },
+  {
+    "orig": "Subashboy1230/taskbash",
+    "status": "posted",
+    "url": "https://github.com/Subashboy1230/taskbash/issues/1",
+    "verdict": "needs-secrets"
+  },
+  {
+    "orig": "ScaleAgentic/world-model-builder",
+    "status": "posted",
+    "url": "https://github.com/ScaleAgentic/world-model-builder/issues/1",
+    "verdict": "runs-clean"
+  }
+]

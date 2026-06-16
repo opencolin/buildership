@@ -72,3 +72,12 @@ Every repo also has a `🔬 Smoke test` issue on its `BuilderShip/<repo>` fork.
 | `WatchMyWallet` | comment — only a committed prebuilt zip; push source | [issue #1](https://github.com/BuilderShip/WatchMyWallet/issues/1) |
 
 _Note: the VISU fix agent initially committed its `.venv` into the branch; PR #2 was rebuilt to a clean +1/-1._
+
+## Outreach to original repos
+
+Posted a polite, verdict-personalized "thanks for building" issue on each
+reachable **original** submitter repo (warm note + link to our fork's smoke-test
+issue + their showcase page). **23 posted, 0 failed.** Log: `outreach.json`.
+
+Not reached (3): `isgandarov/enzo` (original 404), `palontologist/eyeLike`
+(issues disabled), `ChainMailGlobal/mmcp-trade-twins-infra` (original archived).
