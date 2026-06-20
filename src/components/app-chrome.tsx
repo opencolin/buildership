@@ -10,10 +10,39 @@ import { safeAuth } from "@/server/lib/safe-auth";
 export async function AppHeader({
   links,
   logo,
+  logoOnly = false,
 }: {
   links: { label: string; href: string }[];
   logo?: { src: string; alt: string; href: string; label?: string };
+  logoOnly?: boolean;
 }) {
+  const logoNode = logo ? (
+    <Link href={logo.href} className="inline-flex items-center gap-3" aria-label={logo.alt}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={logo.src}
+        alt={logo.alt}
+        className="h-10 w-10 rounded-lg object-cover md:h-12 md:w-12"
+      />
+      {logo.label ? (
+        <span className="text-sm font-semibold tracking-tight text-navy-700 dark:text-ink-50">
+          {logo.label}
+        </span>
+      ) : null}
+    </Link>
+  ) : (
+    <BuilderShipLogo />
+  );
+
+  // Logo-only header (e.g. /berlin): no nav links, no auth controls.
+  if (logoOnly) {
+    return (
+      <header className="sticky top-0 z-40 border-b border-ink-200 bg-white/85 backdrop-blur dark:border-ink-800 dark:bg-ink-900/85">
+        <div className="container-page flex h-16 items-center md:h-[72px]">{logoNode}</div>
+      </header>
+    );
+  }
+
   const session = await safeAuth();
   const user = session?.user;
   const label = user?.name ?? user?.email ?? "";
@@ -53,23 +82,7 @@ export async function AppHeader({
     <header className="sticky top-0 z-40 border-b border-ink-200 bg-white/85 backdrop-blur dark:border-ink-800 dark:bg-ink-900/85">
       <div className="container-page flex h-16 items-center justify-between md:h-[72px]">
         <div className="flex items-center gap-8">
-          {logo ? (
-            <Link href={logo.href} className="inline-flex items-center gap-3" aria-label={logo.alt}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                className="h-10 w-10 rounded-lg object-cover md:h-12 md:w-12"
-              />
-              {logo.label ? (
-                <span className="text-sm font-semibold tracking-tight text-navy-700 dark:text-ink-50">
-                  {logo.label}
-                </span>
-              ) : null}
-            </Link>
-          ) : (
-            <BuilderShipLogo />
-          )}
+          {logoNode}
           <nav className="hidden gap-1 md:flex">
             {navLinks.map((l) => (
               <Link

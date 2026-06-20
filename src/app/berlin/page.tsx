@@ -148,6 +148,7 @@ export default function BerlinShowcase() {
     <>
       <AppHeader
         links={nav}
+        logoOnly
         logo={{
           src: "/berlin-logo.jpg",
           alt: "AI Agents Hackathon",
