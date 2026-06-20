@@ -23,6 +23,18 @@ const trackShort = (t: string) =>
 // Faithful display tidy-ups for the sponsor/bonus tags.
 const fixTag = (s: string) => s.replace(/tavilly/i, "Tavily");
 
+// Winners — keyed by builder (the "TrustLayer" name collides, so we must key by
+// person: this is Selim Erunkut's insurance TrustLayer, not Faris's).
+type Placement = { rank: number; medal: string; label: string; ring: string };
+const PLACEMENTS: Record<string, Placement> = {
+  "quan anh nguyen": { rank: 1, medal: "🥇", label: "1st place", ring: "ring-2 ring-amber-400" },
+  "selim erunkut": { rank: 2, medal: "🥈", label: "2nd place", ring: "ring-2 ring-ink-300 dark:ring-ink-500" },
+  "alper koç": { rank: 3, medal: "🥉", label: "3rd place", ring: "ring-2 ring-orange-400" },
+  "batikan bora ormanci": { rank: 4, medal: "🏅", label: "4th place", ring: "ring-2 ring-lime" },
+};
+const placeOf = (p: BerlinProject): Placement | undefined =>
+  PLACEMENTS[p.builder.trim().toLowerCase()];
+
 function LinkPill({
   href,
   label,
@@ -48,11 +60,16 @@ function LinkPill({
   );
 }
 
-function Card({ p }: { p: BerlinProject }) {
+function Card({ p, place }: { p: BerlinProject; place?: Placement }) {
   const l = p.links;
   const hasLinks = l.repo || l.live || l.demo || l.x || l.telegram;
   return (
-    <article className="card flex flex-col">
+    <article className={`card flex flex-col ${place ? place.ring : ""}`}>
+      {place ? (
+        <span className="mb-2 inline-flex w-fit items-center gap-1 rounded-full bg-navy-700 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-white dark:bg-white dark:text-navy-700">
+          {place.medal} {place.label}
+        </span>
+      ) : null}
       <h3 className="text-lg font-semibold leading-snug text-ink-900 dark:text-ink-50">
         {p.name}
       </h3>
@@ -119,14 +136,25 @@ function Card({ p }: { p: BerlinProject }) {
 }
 
 export default function BerlinShowcase() {
-  const projects = BERLIN_PROJECTS;
+  // Winners first (by rank), then the rest in submission order (stable sort).
+  const projects = [...BERLIN_PROJECTS].sort(
+    (a, b) => (placeOf(a)?.rank ?? 99) - (placeOf(b)?.rank ?? 99),
+  );
   const sponsors = Array.from(
     new Set(projects.flatMap((p) => p.bonusTracks.map(fixTag))),
   ).sort();
 
   return (
     <>
-      <AppHeader links={nav} />
+      <AppHeader
+        links={nav}
+        logo={{
+          src: "/berlin-logo.jpg",
+          alt: "AI Agents Hackathon",
+          href: "/berlin",
+          label: "AI Agents Hackathon",
+        }}
+      />
       <main className="bg-ink-50 dark:bg-ink-800">
         <section className="border-b border-ink-200 bg-white dark:border-ink-800 dark:bg-ink-900">
           <div className="container-page py-12">
@@ -161,7 +189,7 @@ export default function BerlinShowcase() {
           <div className="container-page">
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
               {projects.map((p) => (
-                <Card key={`${p.name}-${p.builder}`} p={p} />
+                <Card key={`${p.name}-${p.builder}`} p={p} place={placeOf(p)} />
               ))}
             </div>
           </div>
