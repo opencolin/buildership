@@ -31,6 +31,7 @@ const JUDGES: Judge[] = [
   { name: "Nikita Ahuja", title: "C3 AI", bio: "Enterprise AI applications.", linkedin: "https://linkedin.com/in/ahuja-nikita", x: null, github: null, website: null },
   { name: "Rayyan Zahid", title: "ImmersiveCommons", bio: "Building ManageOS.ai.", linkedin: "https://linkedin.com/in/rayyanzahid", x: "https://x.com/rayyanzahidai", github: "https://github.com/rayyanzahid", website: "https://www.immersivecommons.com" },
   { name: "Pat Santiago", title: "ottoM8", bio: null, linkedin: null, x: null, github: null, website: null },
+  { name: "Adil Mania", title: "Silicon Mania · Co-founder & CEO", bio: null, linkedin: "https://www.linkedin.com/in/adilmania/", x: "https://x.com/adilmania", github: null, website: null },
 ];
 
 function initials(name: string) {
