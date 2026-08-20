@@ -301,6 +301,22 @@ export default function HackJackLondonSquarePage() {
               />
             </div>
             <CountdownToDeadline className="mt-14" />
+            <div className="mt-12 max-w-2xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
+                Watch · Builder Ship 2026
+              </p>
+              <div className="mt-3 overflow-hidden rounded-card border border-ink-200 bg-ink-900 shadow-soft dark:border-ink-700">
+                <iframe
+                  className="aspect-video w-full border-0"
+                  src="https://www.youtube-nocookie.com/embed/zy9IQjRXHsU?rel=0"
+                  title="Builder Ship 2026"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  loading="lazy"
+                  allowFullScreen
+                />
+              </div>
+            </div>
           </div>
         </section>
 
