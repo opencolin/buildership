@@ -263,7 +263,7 @@ export default function HackJackLondonSquarePage() {
                 <span className="live-dot" /> Boat day June 14
               </span>
             </div>
-            <RotatingHeroTitle className="mt-20" />
+            <RotatingHeroTitle className="mt-20 xl:max-w-2xl" />
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link href="/projects" className="btn-lime px-6 py-3.5 text-sm">
                 View the projects →
@@ -301,7 +301,7 @@ export default function HackJackLondonSquarePage() {
               />
             </div>
             <CountdownToDeadline className="mt-14" />
-            <div className="mt-12 max-w-2xl">
+            <div className="mt-12 max-w-2xl xl:absolute xl:right-12 xl:top-36 xl:mt-0 xl:w-[420px]">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
                 Watch · Builder Ship 2026
               </p>
