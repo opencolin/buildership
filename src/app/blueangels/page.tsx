@@ -408,7 +408,7 @@ export default function BlueAngelsPage() {
               <Link href={PARTIFUL_URL} target="_blank" rel="noreferrer" className="btn-lime px-6 py-3.5 text-sm">
                 Get on the list →
               </Link>
-              <Link href="/" className="btn bg-white px-6 py-3.5 text-sm text-navy-700 hover:bg-ink-100">
+              <Link href="/projects" className="btn bg-white px-6 py-3.5 text-sm text-navy-700 hover:bg-ink-100">
                 Explore BuilderShip →
               </Link>
             </div>

@@ -119,7 +119,7 @@ export default async function BuilderDashboard() {
                   </p>
                   <div className="mt-6 flex flex-wrap gap-3">
                     <Link href={projectHref} className="btn-navy">Edit submission →</Link>
-                    <Link href="/#rubric" className="btn-outline">See the rubric</Link>
+                    <Link href="/boatday#rubric" className="btn-outline">See the rubric</Link>
                   </div>
                 </>
               ) : projectStatus === "draft" ? (
@@ -132,7 +132,7 @@ export default async function BuilderDashboard() {
                   </p>
                   <div className="mt-6 flex flex-wrap gap-3">
                     <Link href={projectHref} className="btn-lime">Finish + submit →</Link>
-                    <Link href="/#rubric" className="btn-outline">See the rubric</Link>
+                    <Link href="/boatday#rubric" className="btn-outline">See the rubric</Link>
                   </div>
                 </>
               ) : (
@@ -145,7 +145,7 @@ export default async function BuilderDashboard() {
                   </p>
                   <div className="mt-6 flex flex-wrap gap-3">
                     <Link href={projectHref} className="btn-lime">Open project form →</Link>
-                    <Link href="/#rubric" className="btn-outline">Read the rubric first</Link>
+                    <Link href="/boatday#rubric" className="btn-outline">Read the rubric first</Link>
                   </div>
                 </>
               )}

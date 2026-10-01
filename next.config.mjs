@@ -5,6 +5,10 @@ const nextConfig = {
   experimental: {
     staleTimes: { dynamic: 0, static: 30 },
   },
+  async redirects() {
+    // The Blue Angels page moved up to the homepage; keep shared links alive.
+    return [{ source: "/blueangels", destination: "/", permanent: false }];
+  },
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "lh3.googleusercontent.com" },
