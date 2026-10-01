@@ -247,7 +247,7 @@ export default function BlueAngelsPage() {
           <SectionHeader
             eyebrow="The flow"
             title="Jets overhead. The right people on deck."
-            body="Limited to 50, selected specifically to meet each other — a curated mix of founders, enterprise technical leaders, and GTM operators."
+            body="Limited to 50, selected specifically to meet each other — founders, enterprise technical leaders, and the GTM decision-makers who own events, field marketing, growth, and partnerships."
           />
           <ol className="grid gap-4 md:grid-cols-3">
             {flow.map((s) => (
@@ -267,6 +267,15 @@ export default function BlueAngelsPage() {
               call and ask what you&apos;re trying to unlock and who would genuinely be useful for you
               to meet. If there&apos;s a strong match, we&apos;ll send you your group and timing
               beforehand — just a few conversations we think are worth having.
+            </p>
+            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-ink-700 dark:text-ink-200">
+              <strong className="font-semibold text-ink-900 dark:text-ink-50">
+                Run relationship-driven GTM?
+              </strong>{" "}
+              If you lead Events, Field Marketing, Growth, or Partnerships at a Seed–Series C
+              company selling into the enterprise — and private dinners, roundtables, and customer
+              events are part of your motion (or you&apos;re trying to make them one) — Thursday
+              doubles as a live demo of how Smoov builds a room.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {smoovTopics.map((t) => (
