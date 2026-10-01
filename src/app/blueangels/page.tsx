@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { AppHeader } from "@/components/app-chrome";
 import { Footer } from "@/components/footer";
 import { Section, SectionHeader } from "@/components/section";
+import { JetFormation } from "./jets";
+import "./blueangels.css";
 
 const PARTIFUL_URL = "https://partiful.com/e/1Qa9yy7ONshxnBROH4yN";
 
@@ -124,6 +126,30 @@ const gallery = [
   },
 ] as const;
 
+/** Full-width band where the formation sweeps across as you scroll past. */
+function FlyoverBand({
+  uid,
+  rtl = false,
+  className = "",
+}: {
+  uid: string;
+  rtl?: boolean;
+  className?: string;
+}) {
+  return (
+    <div
+      aria-hidden
+      className={`pointer-events-none relative h-20 overflow-hidden md:h-28 ${className}`}
+    >
+      <div
+        className={`${rtl ? "ba-jets-rtl" : "ba-jets-ltr"} absolute left-1/2 top-1/2 ml-[-170px] mt-[-23px] w-[340px] text-navy-700/70 md:ml-[-230px] md:mt-[-31px] md:w-[460px] dark:text-ink-300/70`}
+      >
+        <JetFormation uid={uid} className={`h-auto w-full ${rtl ? "-scale-x-100" : ""}`} />
+      </div>
+    </div>
+  );
+}
+
 export default function BlueAngelsPage() {
   return (
     <>
@@ -142,23 +168,31 @@ export default function BlueAngelsPage() {
         <link rel="preload" as="image" href="/boat/wake-skyline.jpg" fetchPriority="high" />
 
         {/* Hero — full-bleed wake + skyline, open sky for the air show. */}
-        <section className="relative overflow-hidden border-b border-ink-800 bg-[#0b1a26]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/boat/wake-skyline.jpg"
-            alt=""
-            aria-hidden
-            fetchPriority="high"
-            decoding="async"
-            className="absolute inset-0 h-full w-full object-cover object-[center_30%]"
-          />
+        <section className="relative isolate min-h-[92svh] overflow-hidden border-b border-ink-800 bg-[#0b1a26]">
+          {/* Parallax sky — the photo drifts slower than the page scrolls. */}
+          <div className="ba-parallax-bg absolute inset-0 z-0" aria-hidden>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/boat/wake-skyline.jpg"
+              alt=""
+              fetchPriority="high"
+              decoding="async"
+              className="h-full w-full object-cover object-[center_30%]"
+            />
+          </div>
           {/* Scrims for text legibility over the sparkling wake */}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/40 via-black/35 to-black/40" aria-hidden />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent" aria-hidden />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white to-transparent dark:from-ink-900" aria-hidden />
+          <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-black/35 to-black/40" aria-hidden />
+          <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-black/55 via-black/15 to-transparent" aria-hidden />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-28 bg-gradient-to-t from-white to-transparent dark:from-ink-900" aria-hidden />
+          {/* The Blue Angels — glide into formation on load, climb out as you scroll. */}
+          <div className="ba-jets-depart pointer-events-none absolute inset-x-0 top-12 z-[15] md:top-[10%]" aria-hidden>
+            <div className="ba-jets-arrive w-[min(560px,88vw)] text-navy-900/85">
+              <JetFormation uid="hero" trail="light" className="h-auto w-full" />
+            </div>
+          </div>
           {/* `dark` forces light text over the photo regardless of site theme */}
-          <div className="dark container-page relative pt-16 pb-24 sm:pt-20 sm:pb-28 lg:pt-24 lg:pb-32">
-            <div className="flex flex-wrap items-center gap-2">
+          <div className="dark container-page relative z-20 flex min-h-[inherit] flex-col justify-center pt-28 pb-24 sm:pt-24 sm:pb-28 lg:pt-24 lg:pb-32">
+            <div className="ba-enter flex flex-wrap items-center gap-2 [animation-delay:80ms]">
               <span className="pill-outline">#SFTechWeek</span>
               <span className="pill-outline">Fleet Week · San Francisco</span>
               <span className="pill-outline">Invite only · 50 seats</span>
@@ -166,7 +200,7 @@ export default function BlueAngelsPage() {
                 <span className="live-dot" /> Thursday, Oct 8 · 12–5 PM
               </span>
             </div>
-            <h1 className="h-display mt-10 max-w-4xl text-5xl font-bold leading-[1.05] tracking-tight text-ink-900 sm:text-6xl lg:text-7xl xl:max-w-2xl dark:text-ink-50">
+            <h1 className="ba-enter h-display mt-10 max-w-4xl text-5xl font-bold leading-[1.05] tracking-tight text-ink-900 [animation-delay:160ms] sm:text-6xl lg:text-7xl xl:max-w-2xl dark:text-ink-50">
               Watch the{" "}
               <span className="relative inline-block">
                 <span className="absolute inset-x-0 bottom-1 -z-0 h-3 bg-lime/80" aria-hidden />
@@ -174,11 +208,11 @@ export default function BlueAngelsPage() {
               </span>{" "}
               from the water.
             </h1>
-            <p className="mt-7 max-w-2xl text-xl text-ink-600 dark:text-ink-300 xl:max-w-xl">
+            <p className="ba-enter mt-7 max-w-2xl text-xl text-ink-600 [animation-delay:280ms] dark:text-ink-300 xl:max-w-xl">
               A once-in-a-lifetime chance to cruise on an 89-foot yacht while the Blue Angels
               perform over your head. Food, drinks, and a few very intentional introductions.
             </p>
-            <div className="mt-10 flex flex-wrap items-center gap-3">
+            <div className="ba-enter mt-10 flex flex-wrap items-center gap-3 [animation-delay:380ms]">
               <Link href={PARTIFUL_URL} target="_blank" rel="noreferrer" className="btn-lime px-6 py-3.5 text-sm">
                 Get on the list →
               </Link>
@@ -189,7 +223,7 @@ export default function BlueAngelsPage() {
                 Meet the boat →
               </Link>
             </div>
-            <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <div className="ba-enter mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 [animation-delay:460ms]">
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
                 Sponsored by
               </span>
@@ -207,7 +241,7 @@ export default function BlueAngelsPage() {
               </span>
             </div>
             {/* Builder Ship 2026 — aboard this exact boat. Floats top-right on xl. */}
-            <div className="mt-12 max-w-2xl xl:absolute xl:right-12 xl:top-36 xl:mt-0 xl:w-[420px]">
+            <div className="ba-enter mt-12 max-w-2xl [animation-delay:540ms] xl:absolute xl:right-12 xl:top-1/2 xl:mt-0 xl:w-[420px] xl:-translate-y-1/2">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
                 Watch · aboard the same yacht
               </p>
@@ -229,7 +263,7 @@ export default function BlueAngelsPage() {
         {/* Logistics strip */}
         <section className="border-b border-ink-200 bg-white dark:border-ink-800 dark:bg-ink-900">
           <div className="container-page py-12">
-            <dl className="grid grid-cols-2 gap-y-8 lg:grid-cols-4 lg:gap-y-0">
+            <dl className="ba-reveal grid grid-cols-2 gap-y-8 lg:grid-cols-4 lg:gap-y-0">
               {logistics.map(([value, label]) => (
                 <div key={value}>
                   <dd className="h-display text-2xl font-bold text-navy-700 sm:text-3xl dark:text-lime">{value}</dd>
@@ -242,6 +276,8 @@ export default function BlueAngelsPage() {
           </div>
         </section>
 
+        <FlyoverBand uid="band-a" className="bg-white dark:bg-ink-900" />
+
         {/* The flow */}
         <Section id="flow" bg="tint">
           <SectionHeader
@@ -251,14 +287,14 @@ export default function BlueAngelsPage() {
           />
           <ol className="grid gap-4 md:grid-cols-3">
             {flow.map((s) => (
-              <li key={s.num} className="card flex h-full flex-col">
+              <li key={s.num} className="card ba-reveal flex h-full flex-col">
                 <span className="font-mono text-xs font-semibold text-navy-700 dark:text-lime">{s.num}</span>
                 <h3 className="h-display mt-3 text-xl font-bold text-ink-900 dark:text-ink-50">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink-700 dark:text-ink-200">{s.body}</p>
               </li>
             ))}
           </ol>
-          <div className="mt-8 rounded-card border border-ink-200 bg-white p-6 dark:border-ink-700 dark:bg-ink-900">
+          <div className="ba-reveal mt-8 rounded-card border border-ink-200 bg-white p-6 dark:border-ink-700 dark:bg-ink-900">
             <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">
               Curated by Smoov
             </p>
@@ -294,7 +330,7 @@ export default function BlueAngelsPage() {
           />
           <div className="grid gap-6 md:grid-cols-2">
             {sponsors.map((s) => (
-              <div key={s.name} className="card flex flex-col">
+              <div key={s.name} className="card ba-reveal flex flex-col">
                 <div
                   className={`mb-5 flex h-24 items-center justify-center rounded-card ${
                     s.accent === "lime" ? "bg-lime" : "bg-navy-700"
@@ -320,6 +356,8 @@ export default function BlueAngelsPage() {
           </div>
         </Section>
 
+        <FlyoverBand uid="band-b" rtl className="bg-white dark:bg-ink-900" />
+
         {/* The boat + gallery */}
         <Section id="boat" bg="tint">
           <SectionHeader
@@ -332,7 +370,7 @@ export default function BlueAngelsPage() {
             <img
               src="/boat/yacht-bridge.jpg"
               alt="The 89-foot yacht anchored on the bay beneath the Bay Bridge"
-              className="h-[320px] w-full object-cover sm:h-[420px] lg:h-[560px]"
+              className="ba-photo-drift h-[320px] w-full object-cover sm:h-[420px] lg:h-[560px]"
               loading="eager"
             />
           </div>
@@ -340,7 +378,7 @@ export default function BlueAngelsPage() {
             {gallery.map((p) => (
               <figure
                 key={p.src}
-                className="overflow-hidden rounded-card border border-ink-200 bg-white dark:border-ink-700 dark:bg-ink-900"
+                className="ba-reveal overflow-hidden rounded-card border border-ink-200 bg-white dark:border-ink-700 dark:bg-ink-900"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={p.src} alt={p.alt} className="aspect-[4/3] w-full object-cover" loading="lazy" />
@@ -352,7 +390,7 @@ export default function BlueAngelsPage() {
 
         {/* How to get aboard */}
         <Section bg="navy">
-          <div className="grid items-center gap-8 lg:grid-cols-[1.4fr_1fr]">
+          <div className="ba-reveal grid items-center gap-8 lg:grid-cols-[1.4fr_1fr]">
             <div>
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-lime">
                 How to get aboard
