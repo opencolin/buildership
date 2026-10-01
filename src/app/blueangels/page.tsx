@@ -164,34 +164,35 @@ export default function BlueAngelsPage() {
         }}
       />
       <main>
-        {/* Preload the above-the-fold hero background */}
-        <link rel="preload" as="image" href="/boat/wake-skyline.jpg" fetchPriority="high" />
+        {/* Preload the above-the-fold painting layers */}
+        <link rel="preload" as="image" href="/hero/ba/bg.webp" fetchPriority="high" />
 
-        {/* Hero — full-bleed wake + skyline, open sky for the air show. */}
-        <section className="relative isolate min-h-[92svh] overflow-hidden border-b border-ink-800 bg-[#0b1a26]">
-          {/* Parallax sky — the photo drifts slower than the page scrolls. */}
+        {/* Hero — M. Andrews' 1968 Navy Art Collection Blue Angels painting,
+            split into an inpainted sky plus five jet sprites. Scrolling
+            breaks the formation: the jets climb and fan out of the canvas. */}
+        <section className="relative isolate min-h-[94svh] overflow-hidden border-b border-ink-800 bg-[#8fb0c6]">
           <div className="ba-parallax-bg absolute inset-0 z-0" aria-hidden>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/boat/wake-skyline.jpg"
-              alt=""
-              fetchPriority="high"
-              decoding="async"
-              className="h-full w-full object-cover object-[center_30%]"
-            />
-          </div>
-          {/* Scrims for text legibility over the sparkling wake */}
-          <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-black/35 to-black/40" aria-hidden />
-          <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-black/55 via-black/15 to-transparent" aria-hidden />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-28 bg-gradient-to-t from-white to-transparent dark:from-ink-900" aria-hidden />
-          {/* The Blue Angels — glide into formation on load, climb out as you scroll. */}
-          <div className="ba-jets-depart pointer-events-none absolute inset-x-0 top-12 z-[15] md:top-[10%]" aria-hidden>
-            <div className="ba-jets-arrive w-[min(560px,88vw)] text-navy-900/85">
-              <JetFormation uid="hero" trail="light" className="h-auto w-full" />
+            <div className="ba-stage">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/hero/ba/bg.webp" alt="" fetchPriority="high" decoding="async" className="h-full w-full" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/hero/ba/jet-lead.webp" alt="" decoding="async" className="ba-jet ba-jet-lead" style={{ left: "31.1%", top: "4.22%", width: "40.39%" }} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/hero/ba/jet-left.webp" alt="" decoding="async" className="ba-jet ba-jet-left" style={{ left: "4.32%", top: "17.5%", width: "33.26%" }} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/hero/ba/jet-right.webp" alt="" decoding="async" className="ba-jet ba-jet-right" style={{ left: "62.2%", top: "18.59%", width: "34.67%" }} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/hero/ba/jet-slot.webp" alt="" decoding="async" className="ba-jet ba-jet-slot" style={{ left: "31.1%", top: "44.77%", width: "42.87%" }} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/hero/ba/jet-solo.webp" alt="" decoding="async" className="ba-jet ba-jet-solo" style={{ left: "33.48%", top: "73.12%", width: "34.34%" }} />
             </div>
           </div>
-          {/* `dark` forces light text over the photo regardless of site theme */}
-          <div className="dark container-page relative z-20 flex min-h-[inherit] flex-col justify-center pt-28 pb-24 sm:pt-24 sm:pb-28 lg:pt-24 lg:pb-32">
+          {/* Scrims — keep the painting bright, anchor the text in the sea */}
+          <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-gradient-to-b from-black/30 to-transparent" aria-hidden />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[60%] bg-gradient-to-t from-black/65 via-black/25 to-transparent" aria-hidden />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-16 bg-gradient-to-t from-white/90 to-transparent dark:from-ink-900/90" aria-hidden />
+          {/* `dark` forces light text over the painting regardless of site theme */}
+          <div className="dark container-page relative z-20 flex min-h-[inherit] flex-col justify-end pt-24 pb-16 sm:pb-20 lg:pb-24">
             <div className="ba-enter flex flex-wrap items-center gap-2 [animation-delay:80ms]">
               <span className="pill-outline">#SFTechWeek</span>
               <span className="pill-outline">Fleet Week · San Francisco</span>
@@ -240,39 +241,41 @@ export default function BlueAngelsPage() {
                 SMOOV
               </span>
             </div>
-            {/* Builder Ship 2026 — aboard this exact boat. Floats top-right on xl. */}
-            <div className="ba-enter mt-12 max-w-2xl [animation-delay:540ms] xl:absolute xl:right-12 xl:top-1/2 xl:mt-0 xl:w-[420px] xl:-translate-y-1/2">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
-                Watch · aboard the same yacht
-              </p>
-              <div className="mt-3 overflow-hidden rounded-card border border-ink-200 bg-ink-900 shadow-soft dark:border-ink-700">
-                <iframe
-                  className="aspect-video w-full border-0"
-                  src="https://www.youtube-nocookie.com/embed/zy9IQjRXHsU?rel=0"
-                  title="Builder Ship 2026"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  loading="lazy"
-                  allowFullScreen
-                />
-              </div>
-            </div>
           </div>
         </section>
 
-        {/* Logistics strip */}
+        {/* Logistics strip + the film */}
         <section className="border-b border-ink-200 bg-white dark:border-ink-800 dark:bg-ink-900">
-          <div className="container-page py-12">
-            <dl className="ba-reveal grid grid-cols-2 gap-y-8 lg:grid-cols-4 lg:gap-y-0">
-              {logistics.map(([value, label]) => (
-                <div key={value}>
-                  <dd className="h-display text-2xl font-bold text-navy-700 sm:text-3xl dark:text-lime">{value}</dd>
-                  <dt className="mt-2 text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">
-                    {label}
-                  </dt>
+          <div className="container-page py-12 lg:py-16">
+            <div className="grid items-center gap-10 lg:grid-cols-[1fr_420px]">
+              <dl className="ba-reveal grid grid-cols-2 gap-x-6 gap-y-10">
+                {logistics.map(([value, label]) => (
+                  <div key={value}>
+                    <dd className="h-display text-2xl font-bold text-navy-700 sm:text-3xl dark:text-lime">{value}</dd>
+                    <dt className="mt-2 text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">
+                      {label}
+                    </dt>
+                  </div>
+                ))}
+              </dl>
+              {/* Builder Ship 2026 — aboard this exact boat. */}
+              <div className="ba-reveal">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
+                  Watch · aboard the same yacht
+                </p>
+                <div className="mt-3 overflow-hidden rounded-card border border-ink-200 bg-ink-900 shadow-soft dark:border-ink-700">
+                  <iframe
+                    className="aspect-video w-full border-0"
+                    src="https://www.youtube-nocookie.com/embed/zy9IQjRXHsU?rel=0"
+                    title="Builder Ship 2026"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    loading="lazy"
+                    allowFullScreen
+                  />
                 </div>
-              ))}
-            </dl>
+              </div>
+            </div>
           </div>
         </section>
 

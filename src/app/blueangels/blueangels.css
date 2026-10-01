@@ -20,40 +20,72 @@
   animation: ba-rise 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Hero jets glide in once on load, then hold formation mid-sky. The resting
-   transform doubles as the no-animation fallback position. */
-@keyframes ba-jets-arrive {
-  from {
-    transform: translate3d(-70vw, 6vh, 0);
-  }
-  to {
-    transform: translate3d(12vw, 0, 0);
-  }
-}
-.ba-jets-arrive {
-  transform: translate3d(12vw, 0, 0);
-  animation: ba-jets-arrive 2.6s cubic-bezier(0.3, 0.75, 0.35, 1) 0.3s both;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .ba-enter,
-  .ba-jets-arrive {
+  .ba-enter {
     animation: none;
   }
+}
+
+/* ---- the painting ----
+   A cover-fit stage replicating object-fit geometry for a DIV, so the
+   inpainted sky and the five jet sprites scale and crop as one canvas.
+   Sprites rest exactly where M. Andrews painted them; scrolling breaks
+   the formation. */
+.ba-stage {
+  position: absolute;
+  left: 50%;
+  top: 24%;
+  transform: translate(-50%, -24%);
+  aspect-ratio: 926 / 1280;
+  min-width: 100%;
+  min-height: 100%;
+}
+.ba-jet {
+  position: absolute;
+  will-change: transform;
 }
 
 /* ---- scroll-driven layers ---- */
 @keyframes ba-bg-drift {
   from {
-    transform: scale(1.14) translate3d(0, 2.5%, 0);
+    transform: scale(1.06) translate3d(0, 1.5%, 0);
   }
   to {
-    transform: scale(1.14) translate3d(0, -6%, 0);
+    transform: scale(1.06) translate3d(0, -3.5%, 0);
   }
 }
-@keyframes ba-jets-depart {
+/* Break! Lead pulls straight up, wingmen peel out to the sides, the slot
+   climbs through the middle, and the head-on solo blasts past the camera. */
+@keyframes ba-jet-lead {
   to {
-    transform: translate3d(95vw, -9vh, 0);
+    transform: translate3d(0, -150vh, 0) scale(1.18);
+  }
+}
+@keyframes ba-jet-left {
+  to {
+    transform: translate3d(-58vw, -120vh, 0) rotate(-10deg) scale(1.12);
+  }
+}
+@keyframes ba-jet-right {
+  to {
+    transform: translate3d(58vw, -120vh, 0) rotate(10deg) scale(1.12);
+  }
+}
+@keyframes ba-jet-slot {
+  to {
+    transform: translate3d(0, -100vh, 0) scale(1.08);
+  }
+}
+@keyframes ba-jet-solo {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  to {
+    transform: translate3d(0, -75vh, 0) scale(2.6);
+    opacity: 0;
   }
 }
 @keyframes ba-fly-ltr {
@@ -100,13 +132,30 @@
       animation-range: 0 130vh;
       will-change: transform;
     }
-    /* Outer wrapper around the parked hero formation: scrolling sends the
-       jets accelerating off to the right, climbing out of frame. */
-    .ba-jets-depart {
-      animation: ba-jets-depart linear both;
+    .ba-jet-lead,
+    .ba-jet-left,
+    .ba-jet-right,
+    .ba-jet-slot,
+    .ba-jet-solo {
+      animation-timing-function: linear;
+      animation-fill-mode: both;
       animation-timeline: scroll(root);
-      animation-range: 8vh 110vh;
-      will-change: transform;
+      animation-range: 0 130vh;
+    }
+    .ba-jet-lead {
+      animation-name: ba-jet-lead;
+    }
+    .ba-jet-left {
+      animation-name: ba-jet-left;
+    }
+    .ba-jet-right {
+      animation-name: ba-jet-right;
+    }
+    .ba-jet-slot {
+      animation-name: ba-jet-slot;
+    }
+    .ba-jet-solo {
+      animation-name: ba-jet-solo;
     }
     /* Flyover bands between sections — the formation sweeps across while the
        band crosses the viewport. */
