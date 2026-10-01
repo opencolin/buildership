@@ -11,7 +11,7 @@ const PARTIFUL_URL = "https://partiful.com/e/1Qa9yy7ONshxnBROH4yN";
 export const metadata: Metadata = {
   title: { absolute: "Blue Angels Air Show by Yacht — #SFTechWeek" },
   description:
-    "Cruise on an 89-foot yacht while the Blue Angels perform overhead — Fleet Week San Francisco, Thursday Oct 8, 12–5 PM. Food, drinks, and 50 curated seats. Sponsored by Tenki.Cloud & Luxor.tech, curated by Smoov.",
+    "Cruise on an 89-foot yacht while the Blue Angels perform overhead — Fleet Week San Francisco, Thursday Oct 8, 12–5 PM. Food, drinks, and 50 curated seats. Sponsored by Tenki.Cloud, Luxor.tech & NoInfra.ai, curated by Smoov.",
   openGraph: {
     title: "Blue Angels Air Show by Yacht — #SFTechWeek",
     description:
@@ -75,6 +75,14 @@ const sponsors = [
       "Sandboxes, GitHub runners, and AI code review — Tenki's team will be there to talk about infrastructure built for AI agents and the engineering teams that ship with them.",
     site: "https://tenki.cloud",
     accent: "lime",
+  },
+  {
+    name: "NoInfra.ai",
+    role: "Hosted AI agents, zero infrastructure setup",
+    blurb:
+      "The agent-native cloud: pick an agent like OpenClaw and NoInfra deploys the runtime behind it — hosting, tokens, memory, and integrations arrive with the agent. No keys, no servers, no config.",
+    site: "https://noinfra.ai",
+    accent: "navy",
   },
 ] as const;
 
@@ -234,6 +242,9 @@ export default function BlueAngelsPage() {
               <span className="h-display text-xl font-bold tracking-tight text-ink-900 dark:text-white">
                 LUXOR.TECH
               </span>
+              <span className="h-display text-xl font-bold tracking-tight text-ink-900 dark:text-white">
+                NOINFRA.AI
+              </span>
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
                 Curated by
               </span>
@@ -327,11 +338,11 @@ export default function BlueAngelsPage() {
         {/* Sponsors */}
         <Section>
           <SectionHeader
-            eyebrow="Sponsored by Tenki.Cloud & Luxor.tech"
+            eyebrow="Sponsored by Tenki.Cloud, Luxor.tech & NoInfra.ai"
             title="The teams powering the world's compute, on deck."
-            body="Both teams will be aboard — come talk infrastructure between flyovers."
+            body="All three teams will be aboard — come talk infrastructure between flyovers."
           />
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {sponsors.map((s) => (
               <div key={s.name} className="card ba-reveal flex flex-col">
                 <div
