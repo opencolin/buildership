@@ -1,1 +1,0 @@
-CREATE UNIQUE INDEX IF NOT EXISTS "teams_event_leader_idx" ON "teams" USING btree ("event_id","leader_id");

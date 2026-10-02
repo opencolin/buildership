@@ -1,1 +1,0 @@
-ALTER TABLE "users" ADD COLUMN "share_contact" boolean DEFAULT false NOT NULL;

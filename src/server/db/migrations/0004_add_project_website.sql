@@ -1,1 +1,0 @@
-ALTER TABLE "projects" ADD COLUMN "website_url" text;
