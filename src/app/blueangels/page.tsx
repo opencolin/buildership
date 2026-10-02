@@ -11,7 +11,7 @@ const PARTIFUL_URL = "https://partiful.com/e/1Qa9yy7ONshxnBROH4yN";
 export const metadata: Metadata = {
   title: { absolute: "Blue Angels Air Show by Yacht — #SFTechWeek" },
   description:
-    "Cruise on an 89-foot yacht while the Blue Angels perform overhead — Fleet Week San Francisco, Thursday Oct 8, 12–5 PM. Food, drinks, and 50 curated seats. Sponsored by Tenki.Cloud, Luxor.tech & NoInfra.ai, curated by Smoov.",
+    "Cruise on an 89-foot yacht while the Blue Angels perform overhead — Fleet Week San Francisco, Thursday Oct 8, 12–5 PM. Food, drinks, and 50 curated seats. Cohosted by Checksum.ai, sponsored by Tenki.Cloud, Luxor.tech & NoInfra.ai, curated by Smoov.",
   openGraph: {
     title: "Blue Angels Air Show by Yacht — #SFTechWeek",
     description:
@@ -58,6 +58,14 @@ const smoovTopics = [
   "Partnerships",
   "Customer acquisition",
 ] as const;
+
+const cohost = {
+  name: "Checksum.ai",
+  role: "Cohost · AI-generated Playwright & API tests",
+  blurb:
+    "Your coding agent's testing buddy — Checksum generates and maintains full end-to-end Playwright and API test coverage, so you ship faster without trading off quality. The Checksum crew is cohosting the day on the water.",
+  site: "https://checksum.ai",
+} as const;
 
 const sponsors = [
   {
@@ -234,6 +242,12 @@ export default function BlueAngelsPage() {
             </div>
             <div className="ba-enter mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 [animation-delay:460ms]">
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
+                Cohosted by
+              </span>
+              <span className="h-display text-xl font-bold tracking-tight text-ink-900 dark:text-white">
+                CHECKSUM.AI
+              </span>
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
                 Sponsored by
               </span>
               <span className="h-display text-xl font-bold tracking-tight text-ink-900 dark:text-white">
@@ -338,10 +352,29 @@ export default function BlueAngelsPage() {
         {/* Sponsors */}
         <Section>
           <SectionHeader
-            eyebrow="Sponsored by Tenki.Cloud, Luxor.tech & NoInfra.ai"
+            eyebrow="Cohosted by Checksum.ai · Sponsored by Tenki.Cloud, Luxor.tech & NoInfra.ai"
             title="The teams powering the world's compute, on deck."
-            body="All three teams will be aboard — come talk infrastructure between flyovers."
+            body="Every team will be aboard — come talk infrastructure between flyovers."
           />
+          {/* Cohost — Checksum.ai gets the wide card up top */}
+          <div className="mb-10">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">Cohost</p>
+            <div className="card ba-reveal flex flex-col gap-5 md:flex-row md:items-center">
+              <div className="flex h-24 w-full items-center justify-center rounded-card bg-lime md:w-64 md:flex-none">
+                <span className="h-display text-3xl font-bold tracking-tight text-navy-700">{cohost.name}</span>
+              </div>
+              <div className="flex flex-1 flex-col">
+                <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">{cohost.role}</p>
+                <p className="mt-3 text-sm leading-relaxed text-ink-700 dark:text-ink-200">{cohost.blurb}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <Link href={cohost.site} className="btn-outline text-xs" target="_blank" rel="noreferrer">
+                    Website ↗
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">Sponsors</p>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {sponsors.map((s) => (
               <div key={s.name} className="card ba-reveal flex flex-col">
